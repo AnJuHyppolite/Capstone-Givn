@@ -15,14 +15,17 @@ const NewForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <select>
-          <option>Select a category</option>
+          <option>Select a Category</option>
+          <option>Electronics</option>
+          <option>Clothes</option>
+          <option>Food</option>
+          <option>Shoes</option>
         </select>
         <label htmlFor="title">Title</label>
         <input
