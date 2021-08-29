@@ -7,6 +7,7 @@ import Home from "./Pages/Home";
 import Index from "./Pages/Index";
 import New from "./Pages/New";
 import Show from "./Pages/Show";
+import Edit from "./Pages/Edit";
 import NavBar from "./Components/NavBar";
 // const API = apiURL();
 
@@ -31,6 +32,9 @@ function App() {
             </Route>
             <Route exact path="/posts/:id">
               <Show />
+            </Route>
+            <Route exact path="/posts/:id/edit">
+              <Edit />
             </Route>
           </Switch>
         </main>
