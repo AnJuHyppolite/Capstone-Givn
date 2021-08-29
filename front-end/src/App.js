@@ -1,26 +1,36 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-import { apiURL } from "./util/apiURL.js";
-const API = apiURL();
+// import axios from "axios";
+// import { useState, useEffect } from "react";
+// import { apiURL } from "./util/apiURL.js";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+import Index from "./Pages/Index";
+import New from "./Pages/New";
+import Show from "./Pages/Show";
+// const API = apiURL();
 
 function App() {
-  const [days, setDays] = useState([]);
-  useEffect(() => {
-    axios
-      .get(`${API}/test`)
-      .then(
-        (response) => setDays(response.data),
-        (error) => console.log("get", error)
-      )
-      .catch((c) => console.warn("catch", c));
-  }, []);
   return (
     <div>
-      <ul>
-        {days.map((day) => (
-          <li key={day.name}>{day.name}</li>
-        ))}
-      </ul>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/signup">
+            {/*signup  */}
+          </Route>
+          <Route exact path="/posts">
+            <Index />
+          </Route>
+          <Route exact path="/posts/new">
+            <New />
+          </Route>
+          <Route exact path="/posts/:id">
+            <Show/>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
