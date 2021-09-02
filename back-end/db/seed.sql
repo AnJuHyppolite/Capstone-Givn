@@ -14,8 +14,8 @@ INSERT INTO items(title, description, location, created_at, status, is_biodegrad
 INSERT INTO transactions(time, getter_id, giver_id, item_id) VALUES 
 ('8:06 pm', 1, 2, 2), ('2:06 am', 2, 1, 1), ('8:06 pm', 1, 2, 1);
 
-INSERT INTO categories(name) VALUES 
-('food'),('clothes'),('electronics'),('books'),('hardware'),('shoes'),('furniture');
+INSERT INTO categories(name, points) VALUES 
+('food', 30),('clothes', 40),('electronics', 60),('books', 30),('hardware', 50),('shoes', 40),('furniture', 50);
 
 INSERT INTO category_items(category_id, item_id) VALUES 
 (6,1), (4,2), (1,3);
