@@ -6,9 +6,10 @@ CREATE DATABASE givn_dev;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY, 
-    email VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(50) UNIQUE NOT NULL,
     display_name VARCHAR(30),
-    address VARCHAR(100)
+    address VARCHAR(100),
+    score INT DEFAULT 0
 );
 
 CREATE TABLE items (
@@ -18,7 +19,7 @@ CREATE TABLE items (
     location TEXT NOT NULL,
     created_at TEXT NOT NULL,
     status TEXT NOT NULL,
-    is_biodegradable BOOLEAN NOT NULL,
+    is_biodegradable BOOLEAN DEFAULT FALSE,
     expiration INT DEFAULT 0,
     giver_id INT REFERENCES users (id) ON DELETE CASCADE
 );
@@ -33,7 +34,8 @@ CREATE TABLE transactions (
 
 CREATE TABLE categories (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(30) NOT NULL
+    name VARCHAR(30) NOT NULL,
+    points INT NOT NULL
 );
 CREATE TABLE category_items (
     id SERIAL PRIMARY KEY,

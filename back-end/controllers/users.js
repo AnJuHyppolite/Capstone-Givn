@@ -1,5 +1,8 @@
 const users = require('express').Router();
-const { getUser, getAllUsers, createUser, deleteUser } = require('../queries/users')
+const { getUser, getAllUsers, createUser, deleteUser, updateUser } = require('../queries/users')
+const itemsForUserController = require('./itemsForUser')
+
+users.use("/:user_id/items", itemsForUserController);
 
 users.get('/', async (req, res) => res.json(await getAllUsers()))
 
@@ -21,6 +24,13 @@ users.delete('/:id', async (req, res) => {
     }else{
         res.status(404).json({success: false, error: true, message: "invaid id"})
     }
+})
+
+users.put('/:id', async (req, res)=>{
+    const {id} = req.params;
+    const user = req.body;
+    const editedUser = await updateUser(id, user);
+    editedUser ? res.json(editedUser) : res.status(422).json({success: false, error: true, message: "invalid id"})
 })
 
 module.exports = users;
