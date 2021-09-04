@@ -1,0 +1,26 @@
+nav {
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #855A9F;
+    padding: 0 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+nav .active {
+    border-bottom: 1px solid #fff;
+    padding-bottom: 1px;
+}
+
+nav div {
+    width: 6rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    font-weight: 400;
+}

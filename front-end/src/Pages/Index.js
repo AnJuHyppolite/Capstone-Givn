@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import ItemsList from "../Components/ItemsList";
+import "../Styles/Index.css"
 
 const Index = () => {
   return (
