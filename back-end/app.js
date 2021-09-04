@@ -2,6 +2,7 @@
 const cors = require("cors");
 const express = require("express");
 const usersController = require('./controllers/users');
+const itemsController = require('./controllers/items');
 
 // CONFIGURATION
 const app = express();
@@ -17,6 +18,7 @@ app.get("/", (req, res) => {
 
 //CONTROLLERS
 app.use('/users', usersController);
+app.use('/items', itemsController);
 
 
 // EXPORT
