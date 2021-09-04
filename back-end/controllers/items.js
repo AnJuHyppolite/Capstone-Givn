@@ -1,5 +1,8 @@
 const items = require('express').Router();
 const { getAllItems, getItem, deleteItem, createItem, updateItem } = require('../queries/items')
+const photosController = require('./photos')
+
+items.use("/:item_id/photos", photosController);
 
 items.get('/', async (req, res) => res.json(await getAllItems()))
 
