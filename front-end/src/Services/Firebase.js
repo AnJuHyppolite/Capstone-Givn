@@ -1,6 +1,5 @@
-import { async } from "@firebase/util";
-import firebase from "firebase/app";
-import "firebase/auth";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 // import "dotenv";
 
 const firebaseConfig = {
