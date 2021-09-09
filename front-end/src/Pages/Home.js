@@ -1,7 +1,29 @@
+import { UserContext } from "../Providers/UserProvider";
+import { useContext, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { signInWithGoogle } from "../Services/Firebase";
+
 const Home = () => {
+  const history = useHistory();
+  const user = useContext(UserContext);
+
+  useEffect(() => {
+    if (user) {
+      history.push("/posts");
+    }
+  }, [user, history]);
+
+  const handleSignIn = () => {
+    signInWithGoogle();
+  };
   return (
     <div>
-      <h1>This is the login page!</h1>
+      <section>
+        <h1>Givn</h1>
+      </section>
+      <section>
+        <button onClick={handleSignIn}>Sign in with google</button>
+      </section>
     </div>
   );
 };

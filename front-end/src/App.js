@@ -9,36 +9,37 @@ import New from "./Pages/New";
 import Show from "./Pages/Show";
 import Edit from "./Pages/Edit";
 import NavBar from "./Components/NavBar";
+import UserProvider from "./Providers/UserProvider";
 // const API = apiURL();
 
 function App() {
   return (
     <div>
-      <Router>
-        <NavBar />
-        <main>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/signup">
-              {/*signup  */}
-            </Route>
-            <Route exact path="/posts">
-              <Index />
-            </Route>
-            <Route exact path="/posts/new">
-              <New />
-            </Route>
-            <Route exact path="/posts/:id">
-              <Show />
-            </Route>
-            <Route exact path="/posts/:id/edit">
-              <Edit />
-            </Route>
-          </Switch>
-        </main>
-      </Router>
+      <UserProvider>
+        <Router>
+          <NavBar />
+          <main className="App">
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route exact path="/signup"></Route>
+              <Route exact path="/posts">
+                <Index />
+              </Route>
+              <Route exact path="/posts/new">
+                <New />
+              </Route>
+              <Route exact path="/posts/:id">
+                <Show />
+              </Route>
+              <Route exact path="/posts/:id/edit">
+                <Edit />
+              </Route>
+            </Switch>
+          </main>
+        </Router>
+      </UserProvider>
     </div>
   );
 }
