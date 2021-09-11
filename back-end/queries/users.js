@@ -2,7 +2,9 @@ const db = require('../db/dbConfig');
 
 const getAllUsers = async () => await db.any('SELECT * FROM users');
 
-const getUser = async (id) => await db.oneOrNone('SELECT * FROM users WHERE id=$1', id);
+const getUser = async (id) =>{
+ return await db.oneOrNone('SELECT * FROM users WHERE id=$1', id);
+}
 
 const createUser = async (user) => {
     let { email, display_name, address } = user;

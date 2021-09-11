@@ -1,10 +1,11 @@
 \c givn_dev;
 
-INSERT INTO users(email, display_name, address) VALUES
-('testemail1@gmail.com', 'initial tester', 'New York'),
-('masterjeff@yahoo.com' , 'master Jeff', 'queens'),
-('heyyall@gmail.com', 'heeeeey', 'Bronx'),
-('johndoe15@hotmail.com', 'johnnyboy', 'Jersey City, NJ');
+INSERT INTO users(id, email, display_name, address) VALUES
+(1,'testemail1@gmail.com', 'initial tester', 'New York'),
+(2,'masterjeff@yahoo.com' , 'master Jeff', 'queens'),
+(3,'heyyall@gmail.com', 'heeeeey', 'Bronx'),
+(4,'johndoe15@hotmail.com', 'johnnyboy', 'Jersey City, NJ'),
+(1057813334,'ShoaibDar@pursuit.org','Shoaib','Queens Ny');
 
 INSERT INTO items(title, description, location, created_at, status, is_biodegradable, expiration, giver_id) VALUES 
 ('wine rack', '6-bottle holder', 'New York', '8/19/21 6PM', 'active', false, 0, 1),

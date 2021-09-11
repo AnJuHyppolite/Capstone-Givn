@@ -7,11 +7,13 @@ users.use("/:user_id/items", itemsForUserController);
 users.get('/', async (req, res) => res.json(await getAllUsers()))
 
 users.get('/:id', async (req, res) =>{
+    console.log(req.params)
     const user = await getUser(req.params.id)
+    console.log(user)
     if(user){
         res.json(user)
     }else{
-        res.status(404).json({success: false, error: true, message: "invaid id"})
+        res.json({success: false, error: true, message: "invaid id"})
     }
 })
 

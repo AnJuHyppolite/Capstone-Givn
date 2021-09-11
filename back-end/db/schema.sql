@@ -5,7 +5,7 @@ CREATE DATABASE givn_dev;
 \c givn_dev;
 
 CREATE TABLE users (
-    id SERIAL PRIMARY KEY, 
+    id INT PRIMARY KEY, 
     email VARCHAR(50) UNIQUE NOT NULL,
     display_name VARCHAR(30),
     address VARCHAR(100),

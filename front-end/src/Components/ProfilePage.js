@@ -10,17 +10,6 @@ const ProfilePage = () => {
 
   const user = useContext(UserContext);
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        let res = await axios.get(`${API}/users`);
-        setUserInfo(res.data);
-      } catch (error) {}
-    };
-
-    fetchUser();
-  },[]);
-
   //   const { displayName, email, photoURL, uid } = user;
   return (
     <div>
@@ -35,7 +24,13 @@ const ProfilePage = () => {
           <br />
           <img src={user.photoURL} alt="profilePic" />
           <br />
-          {user.uid}
+          UID: {user.uid}
+          <br/>
+          ID: {user.id}
+          <br/>
+          Address: {user.address}
+          <br/>
+          display name: {user.display_name}
         </div>
       )}
     </div>
