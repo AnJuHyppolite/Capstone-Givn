@@ -5,11 +5,12 @@ CREATE DATABASE givn_dev;
 \c givn_dev;
 
 CREATE TABLE users (
-    id INT PRIMARY KEY, 
-    email VARCHAR(50) UNIQUE NOT NULL,
+    id SERIAL PRIMARY KEY, 
+    email VARCHAR(50),
     display_name VARCHAR(30),
     address VARCHAR(100),
-    score INT DEFAULT 0
+    score INT DEFAULT 0,
+    uid VARCHAR(30) UNIQUE
 );
 
 CREATE TABLE items (

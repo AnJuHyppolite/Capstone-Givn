@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useRef } from "react";
 import { auth } from "../Services/Firebase";
 import { apiURL } from "../util/apiURL";
 import axios from "axios";
@@ -8,50 +8,42 @@ export const UserContext = createContext(null);
 const UserProvider = (props) => {
   const [user, setUser] = useState(null);
   const [userData, setUserData] = useState({})
+  const countRef = useRef(0);
 
   const API = apiURL();
 
-  //converts a string (uid) into a number
-  const hashCode = s => Math.abs(s.split('').reduce((a,b)=>{a=((a<<5)-a)+b.charCodeAt(0);return a&a},0))
-
-
-  const createUser = async (newID, user)=>{
-    console.log(user)
-    const newUser = {uid: newID, ...user}
-    console.log(newUser)
-    debugger
-    try{
-      let res = await axios.post(`${API}/users`,newUser)
+  const createUser = async (user) => {
+    const newUser = { display_name: user.displayName, email: user.email, uid: user.uid }
+    try {
+      let res = await axios.post(`${API}/users`, newUser)
+      console.log(res)
       setUserData(res.data)
-    }catch(error){
+    } catch (error) {
       console.log(error)
     }
   }
 
-  
-   const fetchUser = async (uid,user) => {
-      try {
-        let res = await axios.get(`${API}/users/${uid}`);
-        if(res.data.error){
-          console.log(user)
-          await createUser(uid,user)
-          debugger
-        }else{
-          setUserData(res.data)
-        }
-        
-      } catch (error) {
-        console.log(error)
+  const fetchUser = async (uid, user) => {
+    try {
+      let res = await axios.get(`${API}/users/${uid}`);
+      if (res.data.error) {
+        console.log("CREATING NEW USER")
+        await createUser(user)
+      } else {
+        console.log("USER FETCHED")
+        setUserData(res.data)
       }
-    };
 
+    } catch (error) {
+      console.log(error)
+    }
+  };
 
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
         const { displayName, email, uid, photoURL } = user;
-        console.log(user)
-        //await fetchUser(hashCode(uid), user)
+        await fetchUser(uid, user)
         const { id, display_name, address, score } = userData;
         setUser({
           displayName,
@@ -65,7 +57,7 @@ const UserProvider = (props) => {
         });
       } else {
         setUser(null);
-      }
+      } 
     });
   }, []);
 

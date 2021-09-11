@@ -10,11 +10,12 @@ const ProfilePage = () => {
 
   const user = useContext(UserContext);
 
-  //   const { displayName, email, photoURL, uid } = user;
+  console.log("IN PROFILE: ")
+  console.log(user)
   return (
     <div>
       {!user ? (
-        <div>Not login</div>
+        <div>NOT LOGGED IN</div>
       ) : (
         <div>
             
@@ -31,6 +32,8 @@ const ProfilePage = () => {
           Address: {user.address}
           <br/>
           display name: {user.display_name}
+          <br/>
+          score: {user.score}
         </div>
       )}
     </div>
