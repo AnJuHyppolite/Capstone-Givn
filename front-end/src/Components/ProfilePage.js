@@ -9,6 +9,7 @@ const ProfilePage = () => {
   const [userInfo, setUserInfo] = useState([]);
 
   const user = useContext(UserContext);
+  const userData = useContext(UserContext)
 
   console.log("IN PROFILE: ")
   console.log(user)
@@ -27,7 +28,7 @@ const ProfilePage = () => {
           <br />
           UID: {user.uid}
           <br/>
-          ID: {user.id}
+          ID: {userData.id}
           <br/>
           Address: {user.address}
           <br/>
