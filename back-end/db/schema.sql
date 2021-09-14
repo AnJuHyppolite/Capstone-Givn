@@ -6,8 +6,8 @@ CREATE DATABASE givn_dev;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY, 
-    email VARCHAR(50),
-    display_name VARCHAR(30),
+    email VARCHAR(50) NOT NULL,
+    display_name VARCHAR(40),
     address VARCHAR(100),
     score INT DEFAULT 0,
     uid VARCHAR(30) UNIQUE
