@@ -10,6 +10,7 @@ import Show from "./Pages/Show";
 import Edit from "./Pages/Edit";
 import NavBar from "./Components/NavBar";
 import UserProvider from "./Providers/UserProvider";
+import Profile from "./Pages/Profile";
 // const API = apiURL();
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
               <Route exact path="/signup"></Route>
               <Route exact path="/posts">
                 <Index />
+              </Route>
+              <Route exact path="/profile">
+                <Profile />
               </Route>
               <Route exact path="/posts/new">
                 <New />

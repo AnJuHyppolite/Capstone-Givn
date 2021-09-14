@@ -33,6 +33,9 @@ const NavBar = () => {
         <NavLink exact to="/posts/new">
           Give
         </NavLink>
+        <NavLink exact to="/profile">
+          Profile
+        </NavLink>
       </div>
       <button onClick={handleSignOut}>Sign out</button>
     </nav>
