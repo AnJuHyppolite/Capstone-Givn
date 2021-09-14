@@ -1,0 +1,46 @@
+.Profile {
+  margin: 2rem;
+}
+
+.Profile section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 8px;
+  width: 200px;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);
+}
+
+.Profile section img {
+  border-radius: 50%;
+  align-self: center;
+  width: 100%;
+  height: auto;
+  max-width: 175px;
+  object-fit: cover;
+}
+
+.Profile h2 {
+  margin: 1rem 0 0.5rem;
+  font-size: 20px;
+  align-self: center;
+  color: #1a0e3e;
+}
+
+.Profile section > h3 {
+  margin: 0.125rem 0;
+  font-size: 16px;
+  color: #a18bb2;
+  font-weight: 400;
+}
+
+.Profile hr {
+    border-top: 1px solid #000;
+}
+
+.Profile div {
+    align-self: center;
+    color: #1a0e3e;
+}
