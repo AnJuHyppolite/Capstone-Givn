@@ -6,35 +6,42 @@ import axios from "axios";
 export const UserContext = createContext(null);
 
 const UserProvider = (props) => {
-  const [user, setUser] = useState(null); //firebase
-  //const [userData, setUserData] = useState({}) //postgres
-
+  const [user, setUser] = useState(null); 
   const API = apiURL();
 
-  const createUser = async (user, photoURL, displayName) => {
+  const createUser = async (user) => {
     const newUser = { display_name: user.displayName, email: user.email, uid: user.uid }
-    console.log(newUser)
     try {
       let res = await axios.post(`${API}/users`, newUser)
+      console.log("CREATING NEW USER: ")
       console.log(res.data)
       const {address, email, score, id, uid} = res.data
-      setUser({address: address, display_name: displayName, email: email, score: score, id: id, uid: uid, photoURL: photoURL})
+      setUser({address: address, 
+        display_name: user.displayName, 
+        email: email, 
+        score: score, 
+        id: id, uid: uid, 
+        photoURL: user.photoURL})
     } catch (error) {
       console.log(error)
     }
   }
 
-  const fetchUser = async (uid, user, photoURL, displayName) => {
+  const fetchUser = async (user) => {
     try {
-      let res = await axios.get(`${API}/users/${uid}`);
+      let res = await axios.get(`${API}/users/${user.uid}`);
       if (res.data.error) {
-        console.log("CREATING NEW USER")
-        await createUser(user, photoURL, displayName)
+        await createUser(user)
       } else {
-        console.log("USER FETCHED")
-        //setUserData(res.data)
+        console.log("USER FETCHED FROM DB")
         const {address, email, score, id, uid} = res.data
-        setUser({address: address, display_name: displayName, email: email, score: score, id: id, uid: uid, photoURL: photoURL})
+        setUser({address: address, 
+          display_name: user.displayName, 
+          email: email, 
+          score: score, 
+          id: id, 
+          uid: uid, 
+          photoURL: user.photoURL})
       }
 
     } catch (error) {
@@ -44,14 +51,8 @@ const UserProvider = (props) => {
 
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
-      if (user) {
-        const { displayName, email, uid, photoURL } = user;
-        await fetchUser(uid, user, photoURL, displayName)
-        //const { id, display_name, address, score } = userData;
-        // setUser({...user, uid});
-      } else {
-        setUser(null);
-      } 
+      console.log("FIREBASE: OnAuthStateChanged")
+      user ?  await fetchUser(user) : setUser(null);
     });
   }, []);
 
