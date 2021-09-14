@@ -9,33 +9,24 @@ const ProfilePage = () => {
   const [userInfo, setUserInfo] = useState([]);
 
   const user = useContext(UserContext);
-  const userData = useContext(UserContext)
+  const userData = useContext(UserContext);
 
-  console.log("IN PROFILE: ")
-  console.log(user)
+  console.log("IN PROFILE: ");
+  console.log(user);
   return (
     <div>
       {!user ? (
         <div>NOT LOGGED IN</div>
       ) : (
-        <div>
-            
-          <h1> Name: {user.displayName}</h1>
-          <br />
-          <p>Email: {user.email}</p>
-          <br />
+        <section>
           <img src={user.photoURL} alt="profilePic" />
-          <br />
-          UID: {user.uid}
-          <br/>
-          ID: {userData.id}
-          <br/>
-          Address: {user.address}
-          <br/>
-          display name: {user.display_name}
-          <br/>
-          score: {user.score}
-        </div>
+          <h2>{user.display_name}</h2>
+          <h3>{user.email}</h3>
+          <hr/>
+          <div>
+            <h3>{user.address} | Score: {user.score}</h3>
+          </div>
+        </section>
       )}
     </div>
   );

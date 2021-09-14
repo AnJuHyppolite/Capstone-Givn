@@ -8,7 +8,7 @@ const Index = () => {
   const user = useContext(UserContext);
   return (
     <div>
-      <h1>Welcome {user?.displayName}</h1>
+      <h1>Welcome {user?.display_name}</h1>
       <ItemsList />
       <Link to="posts/:id">
         <p>Click me</p>
