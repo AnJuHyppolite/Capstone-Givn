@@ -3,7 +3,7 @@ const db = require('../db/dbConfig');
 const getAllUsers = async () => await db.any('SELECT * FROM users');
 
 const getUser = async (id) =>{
- return await db.oneOrNone('SELECT * FROM users WHERE id=$1', id);
+ return await db.oneOrNone('SELECT * FROM users WHERE uid=$1', id);
 }
 
 const createUser = async (user) => {
