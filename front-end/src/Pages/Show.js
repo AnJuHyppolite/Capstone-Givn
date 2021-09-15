@@ -1,12 +1,9 @@
-import { Link } from "react-router-dom";
+import ItemDetails from "../Components/ItemDetails";
 
 const Show = () => {
   return (
     <div>
-      <h1>Show Page</h1>
-      <Link to="/posts/:id/edit">
-        <p>Edit</p>
-      </Link>
+      <ItemDetails />
     </div>
   );
 };
