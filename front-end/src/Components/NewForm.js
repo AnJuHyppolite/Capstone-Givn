@@ -3,15 +3,32 @@ import { useState } from "react";
 const NewForm = () => {
   const [newItem, setNewItem] = useState({
     title: "",
-    image: "",
     description: "",
     location: "",
     category: "",
+    created_at: "",
+    status: "active",
+    is_biodegradable: false,
+    expiration: 0
   });
+  const [file, setFile] = useState()
+  const [images, setImages] = useState([])
 
   const handleChange = (e) => {
     setNewItem({ ...newItem, [e.target.id]: e.target.value });
   };
+
+  const fileSelected = e => {
+    const file = e.target.files[0]
+    setFile(file)
+  }
+
+  const addImage = e => {
+    console.log(file)
+    debugger
+    setImages([...images, file.name])
+    setFile(null)
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,14 +52,6 @@ const NewForm = () => {
           type="text"
           onChange={handleChange}
         />
-        <label htmlFor="image">Image</label>
-        <input
-          id="image"
-          value={newItem.image}
-          placeholder="image"
-          type="text"
-          onChange={handleChange}
-        />
         <label htmlFor="description">Description</label>
         <input
           id="description"
@@ -59,6 +68,24 @@ const NewForm = () => {
           type="text"
           onChange={handleChange}
         />
+        <br></br>
+        <label htmlFor="image">Image</label>
+        <input
+          id="image"
+          placeholder="image"
+          type="file"
+          accept="image/*"
+          onChange={fileSelected}
+        />
+        <button onClick={addImage}>Add Image</button>
+        <ul>{images.map(image => (
+          <li>{image}</li>
+        ))}
+        </ul>
+        <br />
+
+
+        <br></br>
         <button type="submit">Submit</button>
       </form>
     </div>
