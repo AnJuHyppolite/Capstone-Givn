@@ -1,8 +1,10 @@
 const users = require('express').Router();
 const { getUser, getAllUsers, createUser, deleteUser, updateUser } = require('../queries/users')
 const itemsForUserController = require('./itemsForUser')
+const transactionsController = require('./transactions')
 
 users.use("/:user_id/items", itemsForUserController);
+users.use("/:user_id/transactions", transactionsController)
 
 users.get('/', async (req, res) => res.json(await getAllUsers()))
 
