@@ -4,6 +4,7 @@ import { signOut } from "../Services/Firebase";
 import { UserContext } from "../Providers/UserProvider";
 import { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import logo from "../Assets/onlinelogomaker-091421-1958-0090.png"
 
 const NavBar = () => {
   const user = useContext(UserContext);
@@ -24,6 +25,7 @@ const NavBar = () => {
       <h1>
         <NavLink exact to="/">
           Givn
+          <img src={logo} alt="givn-logo"/>
         </NavLink>
       </h1>
       <div>
