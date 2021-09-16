@@ -28,8 +28,8 @@ CREATE TABLE items (
 CREATE TABLE transactions (
     id SERIAL PRIMARY KEY,
     time TEXT NOT NULL,
-    getter_id INT REFERENCES users (id),
-    giver_id INT REFERENCES users (id),
+    getter_id TEXT REFERENCES users (uid),
+    giver_id TEXT REFERENCES users (uid),
     item_id INT REFERENCES items (id)
 );
 
