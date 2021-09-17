@@ -21,13 +21,7 @@ const NewForm = () => {
   const fileSelected = e => {
     const file = e.target.files[0]
     setFile(file)
-  }
-
-  const addImage = e => {
-    console.log(file)
-    debugger
     setImages([...images, file.name])
-    setFile(null)
   }
 
   const handleSubmit = (e) => {
@@ -77,7 +71,6 @@ const NewForm = () => {
           accept="image/*"
           onChange={fileSelected}
         />
-        <button onClick={addImage}>Add Image</button>
         <ul>{images.map(image => (
           <li>{image}</li>
         ))}
