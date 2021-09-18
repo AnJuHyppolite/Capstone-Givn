@@ -15,9 +15,9 @@ const UserProvider = (props) => {
       let res = await axios.post(`${API}/users`, newUser)
       console.log("CREATING NEW USER: ")
       console.log(res.data)
-      const {address, email, score, id, uid} = res.data
+      const {address, email, score, id, display_name, uid} = res.data
       setUser({address: address, 
-        display_name: user.displayName, 
+        display_name: display_name,
         email: email, 
         score: score, 
         id: id, uid: uid, 
@@ -34,9 +34,10 @@ const UserProvider = (props) => {
         await createUser(user)
       } else {
         console.log("USER FETCHED FROM DB")
-        const {address, email, score, id, uid} = res.data
+        const {address, email, score, id, display_name, uid} = res.data
+        let newDisplayName = user.displayName || display_name;
         setUser({address: address, 
-          display_name: user.displayName, 
+          display_name: newDisplayName, 
           email: email, 
           score: score, 
           id: id, 
