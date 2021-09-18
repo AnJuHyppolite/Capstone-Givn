@@ -45,9 +45,8 @@ const Home = () => {
         <h3>"Save the planet one item at a time."</h3>
       </section>
       <section className="right-side">
-        <div className="login">
-          <h1>Enter your account</h1>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="login">
+            <h1>Enter your account</h1>
             <label htmlFor="email">Email</label>
             <input
               id="email"
@@ -63,23 +62,22 @@ const Home = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <button className="first-btn">Log In</button>
+            <p>Or</p>
+            <div>
+              <button>
+                <i className="fab fa-facebook-f"></i>
+              </button>
+              <button onClick={handleSignIn}>
+                <img
+                  src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
+                  alt="google"
+                />
+              </button>
+              <button>
+                <i className="fab fa-twitter"></i>
+              </button>
+            </div>
           </form>
-          <p>Or</p>
-          <div>
-            <button>
-              <i className="fab fa-facebook-f"></i>
-            </button>
-            <button onClick={handleSignIn}>
-              <img
-                src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
-                alt="google"
-              />
-            </button>
-            <button>
-              <i className="fab fa-twitter"></i>
-            </button>
-          </div>
-        </div>
       </section>
     </div>
   );
