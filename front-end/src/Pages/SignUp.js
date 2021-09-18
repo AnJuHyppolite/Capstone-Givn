@@ -9,16 +9,13 @@ export default function SignUp() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
     const history = useHistory();
-    const API = apiURL();
   
     const handleSubmit = async (e) => {
       e.preventDefault();
       //sign up with firebase and send results to our backend
       try {
-        let res = await signUp(email, password);
-        console.log(res)
-        const newUser = { display_name: res.user.displayName, email: res.user.email, uid: res.user.uid }
-        await axios.post(`${API}/users`, newUser);
+        await signUp(email, password);
+        console.log("USER SIGNED UP >>>>> ")
         history.push("/");
       } catch (error) {
         setError(error.message);

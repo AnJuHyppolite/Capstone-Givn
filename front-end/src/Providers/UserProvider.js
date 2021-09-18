@@ -6,22 +6,26 @@ import axios from "axios";
 export const UserContext = createContext(null);
 
 const UserProvider = (props) => {
-  const [user, setUser] = useState(null); 
+  const [user, setUser] = useState(null);
   const API = apiURL();
 
   const createUser = async (user) => {
+    console.log(user)
     const newUser = { display_name: user.displayName, email: user.email, uid: user.uid }
     try {
       let res = await axios.post(`${API}/users`, newUser)
       console.log("CREATING NEW USER: ")
       console.log(res.data)
-      const {address, email, score, id, display_name, uid} = res.data
-      setUser({address: address, 
+      const { address, email, score, id, display_name, uid } = res.data
+      setUser({
+        address: address,
         display_name: display_name,
-        email: email, 
-        score: score, 
-        id: id, uid: uid, 
-        photoURL: user.photoURL})
+        email: email,
+        score: score,
+        id: id,
+        uid: uid,
+        photoURL: user.photoURL
+      })
     } catch (error) {
       console.log(error)
     }
@@ -34,15 +38,17 @@ const UserProvider = (props) => {
         await createUser(user)
       } else {
         console.log("USER FETCHED FROM DB")
-        const {address, email, score, id, display_name, uid} = res.data
+        const { address, email, score, id, display_name, uid } = res.data
         let newDisplayName = user.displayName || display_name;
-        setUser({address: address, 
-          display_name: newDisplayName, 
-          email: email, 
-          score: score, 
-          id: id, 
-          uid: uid, 
-          photoURL: user.photoURL})
+        setUser({
+          address: address,
+          display_name: newDisplayName,
+          email: email,
+          score: score,
+          id: id,
+          uid: uid,
+          photoURL: user.photoURL
+        })
       }
 
     } catch (error) {
@@ -53,7 +59,7 @@ const UserProvider = (props) => {
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
       console.log("FIREBASE: OnAuthStateChanged")
-      user ?  await fetchUser(user) : setUser(null);
+      user ? await fetchUser(user) : setUser(null);
     });
   }, []);
 
