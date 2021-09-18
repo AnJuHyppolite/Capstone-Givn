@@ -16,7 +16,9 @@ export default function SignUp() {
       //sign up with firebase and send results to our backend
       try {
         let res = await signUp(email, password);
-        await axios.post(`${API}/users`, { id: res.user.uid, email });
+        console.log(res)
+        const newUser = { display_name: res.user.displayName, email: res.user.email, uid: res.user.uid }
+        await axios.post(`${API}/users`, newUser);
         history.push("/");
       } catch (error) {
         setError(error.message);
@@ -45,7 +47,6 @@ export default function SignUp() {
             onChange={(e) => setPassword(e.target.value)}
             autoComplete="on"
           />
-  
           <button>Sign Up</button>
         </form>
       </>
