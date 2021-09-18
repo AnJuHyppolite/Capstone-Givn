@@ -33,3 +33,4 @@ export const signOut = async () => {
     console.log(error);
   }
 };
+ export default firebase
