@@ -1,7 +1,7 @@
 import { UserContext } from "../Providers/UserProvider";
 import { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { signInWithGoogle,signInWithFacebook } from "../Services/Firebase";
+import { signInWithGoogle,signInWithFacebook , signInWithTwitter} from "../Services/Firebase";
 import { useState } from "react";
 import { login } from "../util/firebaseFuntion";
 import "../Styles/Home.css";
@@ -75,7 +75,7 @@ const Home = () => {
                 alt="google"
               />
             </button>
-            <button>
+            <button onClick={()=> signInWithTwitter()}>
               <i className="fab fa-twitter"></i>
             </button>
           </div>

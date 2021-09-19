@@ -17,56 +17,61 @@ const app = firebase.initializeApp(firebaseConfig);
 export const auth = app.auth();
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
+
+
 // facebook
 const facebookProvider = new firebase.auth.FacebookAuthProvider();
 
 facebookProvider.setCustomParameters({
-  'display': 'popup'
+  display: "popup",
 });
-export const signInWithFacebook = async() => {
-  // firebase.auth().signInWithPopup(facebookProvider).then(result =>{
-  //   debugger
-  //   let credential = result.credential
-  //   let user = result.user
-  //   let  accessToken = credential.accessToken;
-  // })
+export const signInWithFacebook = async () => {
   try {
-    debugger
-   await auth.signInWithPopup(facebookProvider);
-  //  let user = res.user
-  //  console.log(user)
+    debugger;
+    await auth.signInWithPopup(facebookProvider);
   } catch (error) {
-    alert(error)
+    alert(error);
   }
-}
+};
 
-// firebase
-//   .auth()
-//   .signInWithPopup(provider)
-//   .then((result) => {
-//     /** @type {firebase.auth.OAuthCredential} */
-//     var credential = result.credential;
+// twitter
+const twitterProvider = new firebase.auth.TwitterAuthProvider();
+export const signInWithTwitter = async () => {
+  // firebase
+  // .auth()
+  // .signInWithPopup(twitterProvider)
+  // .then((result) => {
+  //   /** @type {firebase.auth.OAuthCredential} */
+  //   var credential = result.credential;
 
-//     // The signed-in user info.
-//     var user = result.user;
 
-//     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-//     var accessToken = credential.accessToken;
+    // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
+    // You can use these server side with your app's credentials to access the Twitter API.
+    // var token = credential.accessToken;
+    // var secret = credential.secret;
 
-//     // ...
-//   })
-//   .catch((error) => {
-//     // Handle Errors here.
-//     var errorCode = error.code;
-//     var errorMessage = error.message;
-//     // The email of the user's account used.
-//     var email = error.email;
-//     // The firebase.auth.AuthCredential type that was used.
-//     var credential = error.credential;
-
-//     // ...
-//   });
-
+    // The signed-in user info.
+  //   var user = result.user;
+  //   console.log(user)
+  //   // ...
+  // }).catch((error) => {
+  //   // Handle Errors here.
+  //   var errorCode = error.code;
+  //   var errorMessage = error.message;
+  //   // The email of the user's account used.
+  //   var email = error.email;
+  //   // The firebase.auth.AuthCredential type that was used.
+  //   var credential = error.credential;
+  //   // ...
+  // });
+  try {
+    debugger;
+    await auth.signInWithPopup(twitterProvider);
+  } catch (error) {
+    alert(error);
+    console.log(error);
+  }
+};
 
 export const signInWithGoogle = async () => {
   try {
@@ -86,5 +91,4 @@ export const signOut = async () => {
   }
 };
 
-
- export default firebase
+export default firebase;
