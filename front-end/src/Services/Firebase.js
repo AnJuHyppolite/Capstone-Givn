@@ -1,6 +1,5 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
-// import "dotenv";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -15,6 +14,28 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 export const auth = app.auth();
 const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+const facebookProvider = new firebase.auth.FacebookAuthProvider();
+facebookProvider.setCustomParameters({
+  display: "popup",
+});
+export const signInWithFacebook = async () => {
+  try {
+    await auth.signInWithPopup(facebookProvider);
+  } catch (error) {
+    alert(error);
+  }
+};
+
+const twitterProvider = new firebase.auth.TwitterAuthProvider();
+export const signInWithTwitter = async () => {
+  try {
+    await auth.signInWithPopup(twitterProvider);
+  } catch (error) {
+    alert(error);
+    console.log(error);
+  }
+};
 
 export const signInWithGoogle = async () => {
   try {
@@ -33,4 +54,5 @@ export const signOut = async () => {
     console.log(error);
   }
 };
- export default firebase
+
+export default firebase;

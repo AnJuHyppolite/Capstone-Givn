@@ -19,7 +19,7 @@ users.get('/:id', async (req, res) =>{
 
 users.post('/', async(req,res)=> {
     console.log(req.body)
-    req.body.email ? res.json(await createUser(req.body)) : res.status(422).json({success: false, error: true, message: "email is required"})
+    req.body.uid ? res.json(await createUser(req.body)) : res.status(422).json({success: false, error: true, message: "email is required"})
 })
 
 users.delete('/:id', async (req, res) => {
