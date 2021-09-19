@@ -1,7 +1,7 @@
 import { UserContext } from "../Providers/UserProvider";
 import { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { signInWithGoogle } from "../Services/Firebase";
+import { signInWithGoogle,signInWithFacebook } from "../Services/Firebase";
 import { useState } from "react";
 import { login } from "../util/firebaseFuntion";
 import "../Styles/Home.css";
@@ -64,7 +64,7 @@ const Home = () => {
             <button className="first-btn">Log In</button>
             <p>Or</p>
             <div>
-              <button>
+              <button onClick={() => signInWithFacebook()}>
                 <i className="fab fa-facebook-f"></i>
               </button>
               <button onClick={handleSignIn}>
