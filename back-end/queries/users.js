@@ -8,7 +8,7 @@ const getUser = async (id) =>{
 
 const createUser = async (user) => {
     let { email, display_name, address, uid } = user;
-    if (!display_name) display_name = email;
+    if (!display_name) display_name = email || "unknown user"
     if (!address) address = "EARTH";
     return await db.oneOrNone('INSERT INTO users(email, display_name, address, uid) VALUES ($1, $2, $3, $4) RETURNING *',
         [email, display_name, address, uid]);

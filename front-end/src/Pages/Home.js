@@ -1,7 +1,11 @@
 import { UserContext } from "../Providers/UserProvider";
 import { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { signInWithGoogle,signInWithFacebook } from "../Services/Firebase";
+import {
+  signInWithGoogle,
+  signInWithFacebook,
+  signInWithTwitter,
+} from "../Services/Firebase";
 import { useState } from "react";
 import { login } from "../util/firebaseFuntion";
 import "../Styles/Home.css";
@@ -45,39 +49,39 @@ const Home = () => {
         <h3>"Save the planet one item at a time."</h3>
       </section>
       <section className="right-side">
-          <form onSubmit={handleSubmit} className="login">
-            <h1>Enter your account</h1>
-            <label htmlFor="email">Email</label>
-            <input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <label htmlFor="password">Password</label>
-            <input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button className="first-btn">Log In</button>
-            <p>Or</p>
-            <div>
-              <button onClick={() => signInWithFacebook()}>
-                <i className="fab fa-facebook-f"></i>
-              </button>
-              <button onClick={handleSignIn}>
-                <img
-                  src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
-                  alt="google"
-                />
-              </button>
-              <button>
-                <i className="fab fa-twitter"></i>
-              </button>
-            </div>
-          </form>
+        <form onSubmit={handleSubmit} className="login">
+          <h1>Enter your account</h1>
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button className="first-btn">Log In</button>
+          <p>Or</p>
+          <div>
+            <button onClick={() => signInWithFacebook()}>
+              <i className="fab fa-facebook-f"></i>
+            </button>
+            <button onClick={handleSignIn}>
+              <img
+                src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
+                alt="google"
+              />
+            </button>
+            <button onClick={() => signInWithTwitter()}>
+              <i className="fab fa-twitter"></i>
+            </button>
+          </div>
+        </form>
       </section>
     </div>
   );

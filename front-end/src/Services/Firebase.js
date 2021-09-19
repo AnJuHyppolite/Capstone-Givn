@@ -1,7 +1,5 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
-// import { FacebookAuthProvider } from "firebase/compat/auth";
-// import "dotenv";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -17,56 +15,27 @@ const app = firebase.initializeApp(firebaseConfig);
 export const auth = app.auth();
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
-// facebook
 const facebookProvider = new firebase.auth.FacebookAuthProvider();
-
 facebookProvider.setCustomParameters({
-  'display': 'popup'
+  display: "popup",
 });
-export const signInWithFacebook = async() => {
-  // firebase.auth().signInWithPopup(facebookProvider).then(result =>{
-  //   debugger
-  //   let credential = result.credential
-  //   let user = result.user
-  //   let  accessToken = credential.accessToken;
-  // })
+export const signInWithFacebook = async () => {
   try {
-    debugger
-   await auth.signInWithPopup(facebookProvider);
-  //  let user = res.user
-  //  console.log(user)
+    await auth.signInWithPopup(facebookProvider);
   } catch (error) {
-    alert(error)
+    alert(error);
   }
-}
+};
 
-// firebase
-//   .auth()
-//   .signInWithPopup(provider)
-//   .then((result) => {
-//     /** @type {firebase.auth.OAuthCredential} */
-//     var credential = result.credential;
-
-//     // The signed-in user info.
-//     var user = result.user;
-
-//     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-//     var accessToken = credential.accessToken;
-
-//     // ...
-//   })
-//   .catch((error) => {
-//     // Handle Errors here.
-//     var errorCode = error.code;
-//     var errorMessage = error.message;
-//     // The email of the user's account used.
-//     var email = error.email;
-//     // The firebase.auth.AuthCredential type that was used.
-//     var credential = error.credential;
-
-//     // ...
-//   });
-
+const twitterProvider = new firebase.auth.TwitterAuthProvider();
+export const signInWithTwitter = async () => {
+  try {
+    await auth.signInWithPopup(twitterProvider);
+  } catch (error) {
+    alert(error);
+    console.log(error);
+  }
+};
 
 export const signInWithGoogle = async () => {
   try {
@@ -86,5 +55,4 @@ export const signOut = async () => {
   }
 };
 
-
- export default firebase
+export default firebase;
