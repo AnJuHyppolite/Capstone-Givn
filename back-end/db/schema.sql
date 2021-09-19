@@ -22,14 +22,14 @@ CREATE TABLE items (
     status TEXT NOT NULL,
     is_biodegradable BOOLEAN DEFAULT FALSE,
     expiration INT DEFAULT 0,
-    giver_id INT REFERENCES users (id) ON DELETE CASCADE
+    giver_id VARCHAR(30) REFERENCES users (uid) ON DELETE CASCADE
 );
 
 CREATE TABLE transactions (
     id SERIAL PRIMARY KEY,
     time TEXT NOT NULL,
-    getter_id TEXT REFERENCES users (uid),
-    giver_id TEXT REFERENCES users (uid),
+    getter_id VARCHAR(30) REFERENCES users (uid),
+    giver_id VARCHAR(30) REFERENCES users (uid),
     item_id INT REFERENCES items (id)
 );
 
@@ -45,6 +45,6 @@ CREATE TABLE category_items (
 );
 
 CREATE TABLE photos (
-    photo_url VARCHAR(50) NOT NULL,
+    photo_url TEXT NOT NULL,
     item_id INT REFERENCES items (id) ON DELETE CASCADE
 );

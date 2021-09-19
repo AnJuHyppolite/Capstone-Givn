@@ -11,7 +11,6 @@ const ProfilePage = () => {
   const [gottenItems, setGottenItems] = useState([])
 
   const user = useContext(UserContext);
-  const userData = useContext(UserContext);
 
   const getTransactions = async () => {
     try {
@@ -28,12 +27,10 @@ const ProfilePage = () => {
   }
 
   useEffect(() => {
+    console.log("IN PROFILE >>> ");
+    console.log(user);
     getTransactions()
   }, [])
-
-  console.log("IN PROFILE: ");
-  console.log(user);
-  console.log(Array.isArray(givenItems))
   return (
     <div>
       {!user ? (
@@ -51,13 +48,13 @@ const ProfilePage = () => {
       )}
       <p>Given Items</p>
       {givenItems.map((givenItem, index) => {
-        
+
         return <li key={index}>{givenItem.item_id}</li>
       })}
 
       <p>Gotten Items</p>
       {gottenItems.map((gottenItem, index) => {
-        console.log("GOTTEN ITEMS>>>>  ",gottenItem.item_id)
+        console.log("GOTTEN ITEMS>>>>  ", gottenItem.item_id)
         return <li key={index}>{gottenItem.item_id}</li>
       })}
     </div>
