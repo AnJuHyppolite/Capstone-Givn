@@ -1,6 +1,6 @@
 import { UserContext } from "../Providers/UserProvider";
 import { useContext, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   signInWithGoogle,
   signInWithFacebook,
@@ -8,6 +8,8 @@ import {
 } from "../Services/Firebase";
 import { useState } from "react";
 import { login } from "../util/firebaseFuntion";
+import { randomImg } from "../Helpers/randomImage";
+import google from "../Assets/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
 import "../Styles/Home.css";
 
 const Home = () => {
@@ -49,6 +51,7 @@ const Home = () => {
         <h3>"Save the planet one item at a time."</h3>
       </section>
       <section className="right-side">
+        <img src={randomImg}/>
         <form onSubmit={handleSubmit} className="login">
           <h1>Enter your account</h1>
           <label htmlFor="email">Email</label>
@@ -65,7 +68,9 @@ const Home = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <h5>Don't forget your password</h5>
           <button className="first-btn">Log In</button>
+          <Link to={"/signup"}><button className="sec-btn">Sign Up</button></Link>
           <p>Or</p>
           <div>
             <button onClick={() => signInWithFacebook()}>
@@ -73,8 +78,9 @@ const Home = () => {
             </button>
             <button onClick={handleSignIn}>
               <img
-                src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
+                src={google}
                 alt="google"
+                className="google"
               />
             </button>
             <button onClick={() => signInWithTwitter()}>
