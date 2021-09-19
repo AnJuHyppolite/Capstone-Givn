@@ -51,7 +51,7 @@ const Home = () => {
         <h3>"Save the planet one item at a time."</h3>
       </section>
       <section className="right-side">
-        <img src={randomImg}/>
+        <img src={randomImg} alt="bg-login-form"/>
         <form onSubmit={handleSubmit} className="login">
           <h1>Enter your account</h1>
           <label htmlFor="email">Email</label>
@@ -69,8 +69,9 @@ const Home = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <h5>Don't forget your password</h5>
-          <button className="first-btn">Log In</button>
-          <Link to={"/signup"}><button className="sec-btn">Sign Up</button></Link>
+          <hr/>
+          <button className="first-btn" type="submit">Log In</button>
+          <Link to={"/signup"}><button className="sec-btn" type="button">Sign Up</button></Link>
           <p>Or</p>
           <div>
             <button onClick={() => signInWithFacebook()}>
