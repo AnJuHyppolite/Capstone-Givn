@@ -10,11 +10,11 @@ const UserProvider = (props) => {
   const API = apiURL();
 
   const createUser = async (user) => {
-    console.log(user)
     const newUser = { display_name: user.displayName, email: user.email, uid: user.uid }
     try {
+      console.log("CREATING NEW USER >>>> ")
+      console.log(user)
       let res = await axios.post(`${API}/users`, newUser)
-      console.log("CREATING NEW USER: ")
       console.log(res.data)
       const { address, email, score, id, display_name, uid } = res.data
       setUser({
@@ -37,7 +37,7 @@ const UserProvider = (props) => {
       if (res.data.error) {
         await createUser(user)
       } else {
-        console.log("USER FETCHED FROM DB")
+        console.log("USER FETCHED FROM DB >>>> ")
         const { address, email, score, id, display_name, uid } = res.data
         let newDisplayName = user.displayName || display_name;
         setUser({
