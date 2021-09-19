@@ -18,7 +18,7 @@ const Item = ({ item }) => {
       <p>Expiring In: {item.expiration} (day(s))</p>
       <p>Recycling is good!</p>
       <div>
-        <button>Share</button>
+        <Link to={`/share/${item.id}`}><button>Share</button></Link>
         <button>Interested</button>
         <button>Message</button>
       </div>

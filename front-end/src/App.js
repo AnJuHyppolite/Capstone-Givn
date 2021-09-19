@@ -14,6 +14,8 @@ import Profile from "./Pages/Profile";
 import SignUp from "./Pages/SignUp";
 // const API = apiURL();
 
+import ShareButton from "./Components/ShareButton";
+
 function App() {
   return (
     <div>
@@ -42,6 +44,9 @@ function App() {
               </Route>
               <Route exact path="/posts/:id/edit">
                 <Edit />
+              </Route>
+              <Route exact path="/share/:id">
+                <ShareButton />
               </Route>
             </Switch>
           </main>
