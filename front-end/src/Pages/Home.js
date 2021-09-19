@@ -1,9 +1,15 @@
 import { UserContext } from "../Providers/UserProvider";
 import { useContext, useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import { signInWithGoogle,signInWithFacebook , signInWithTwitter} from "../Services/Firebase";
+import { Link, useHistory } from "react-router-dom";
+import {
+  signInWithGoogle,
+  signInWithFacebook,
+  signInWithTwitter,
+} from "../Services/Firebase";
 import { useState } from "react";
 import { login } from "../util/firebaseFuntion";
+import { randomImg } from "../Helpers/randomImage";
+import google from "../Assets/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
 import "../Styles/Home.css";
 
 const Home = () => {
@@ -45,41 +51,44 @@ const Home = () => {
         <h3>"Save the planet one item at a time."</h3>
       </section>
       <section className="right-side">
-        <div className="login">
+        <img src={randomImg} alt="bg-login-form"/>
+        <form onSubmit={handleSubmit} className="login">
           <h1>Enter your account</h1>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="email">Email</label>
-            <input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <label htmlFor="password">Password</label>
-            <input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button className="first-btn">Log In</button>
-          </form>
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <h5>Don't forget your password</h5>
+          <hr/>
+          <button className="first-btn" type="submit">Log In</button>
+          <Link to={"/signup"}><button className="sec-btn" type="button">Sign Up</button></Link>
           <p>Or</p>
           <div>
-            <button onClick={()=> signInWithFacebook()}>
+            <button onClick={() => signInWithFacebook()}>
               <i className="fab fa-facebook-f"></i>
             </button>
             <button onClick={handleSignIn}>
               <img
-                src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
+                src={google}
                 alt="google"
+                className="google"
               />
             </button>
-            <button onClick={()=> signInWithTwitter()}>
+            <button onClick={() => signInWithTwitter()}>
               <i className="fab fa-twitter"></i>
             </button>
           </div>
-        </div>
+        </form>
       </section>
     </div>
   );
