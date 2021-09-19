@@ -26,6 +26,16 @@ const EditForm = () => {
           <option>Clothes</option>
           <option>Food</option>
           <option>Shoes</option>
+          <option>Toys</option>
+          <option>Books</option>
+          <option>Hardware</option>
+          <option>Kitchenware</option>
+          <option>Furniture</option>
+          <option>Jewelry</option>
+          <option>Arts and Crafts</option>
+          <option>Sports and Outdoors</option>
+          <option>Beauty and Health</option>
+          <option>Other</option>
         </select>
         <label htmlFor="title">Title</label>
         <input
