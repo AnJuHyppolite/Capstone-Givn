@@ -23,7 +23,6 @@ const ItemDetails = () => {
     const fetchItem = async () => {
       try {
         let res = await axios.get(`${API}/items/${id}`);
-        debugger;
         setItem(res.data);
         console.log(res.data);
       } catch (error) {
