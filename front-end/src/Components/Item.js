@@ -1,6 +1,29 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import axios from "axios"
+import { apiURL } from "../util/apiURL.js"
+import { useEffect, useState } from "react";
+
+const API = apiURL()
+console.log(API)
 
 const Item = ({ item }) => {
+  const [photos, setPhotos] = useState([])
+  const {id} = useParams()
+  
+  useEffect(()=> {
+  const getPhotos = async() => {
+    try {
+      let res = await axios.get(`${API}/items/${item.id}/photos`)
+      console.log(res)
+      setPhotos(res.data)
+      console.log(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+    getPhotos()
+  }, [])
+
   return (
     <li>
       <div>
@@ -10,10 +33,7 @@ const Item = ({ item }) => {
       </div>
       <Link to={`/posts/${item.id}`}>
         <h1>{item.title}</h1>
-        <img
-          src="https://cb.scene7.com/is/image/Crate/11BottleWineRackBlckGrphtSHF17/$web_pdp_main_carousel_high$/190411134606/11-bottle-graphite-wine-rack.jpg"
-          alt="item"
-        />
+        <img src={photos[0]?.photo_url} alt="imageItem"/>
       </Link>
       <p>Expiring In: {item.expiration} (day(s))</p>
       <p>Recycling is good!</p>

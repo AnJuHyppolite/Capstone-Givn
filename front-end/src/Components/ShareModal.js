@@ -1,6 +1,11 @@
 import { Icon } from "@iconify/react";
 import "../Styles/ShareModal.css";
 
+const url = window.location.href;
+const facebookURL = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+const twitterURL = `https://twitter.com/intent/tweet?url=${url}`;
+// const linkedInURL = `https://www.linkedin.com/shareArticle?mini=true&url=${url}`;
+
 const ShareModal = ({ item }) => {
   return (
     <div className="share-modal-container">
@@ -8,7 +13,8 @@ const ShareModal = ({ item }) => {
       <p>Share this link via</p>
       <ul className="icons">
         <a
-          href="https://facebook.com"
+          href={facebookURL}
+          // "https://facebook.com"
           target="_blank"
           rel="noreferrer"
           className="facebook"
@@ -16,7 +22,8 @@ const ShareModal = ({ item }) => {
           <i class="fab fa-facebook-square"></i>
         </a>
         <a
-          href="https://twitter.com"
+          href={twitterURL}
+          // "https://twitter.com"
           target="_blank"
           rel="noreferrer"
           className="twitter"
@@ -43,7 +50,7 @@ const ShareModal = ({ item }) => {
       <p>Or copy link</p>
       <div className="input">
         <Icon icon="uil:link-add" />
-        <input type="text" value="`/posts/$(item.id}`" />
+        <input type="text" value="example.com/share-link" />
         <button>Copy</button>
       </div>
     </div>
