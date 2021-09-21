@@ -21,30 +21,67 @@ const NavBar = () => {
   };
 
   return (
-    <nav>
-      <h1>
-        <NavLink exact to="/">
-          Givn
-          <img src={logo} alt="givn-logo" />
-        </NavLink>
-      </h1>
-      <div>
-        <NavLink exact to="/posts">
-          Get
-        </NavLink>
-        <NavLink exact to="/posts/new">
-          Give
-        </NavLink>
-        <NavLink exact to="/profile">
-          Profile
-        </NavLink>
-      </div>
+    <header>
       {user ? (
-        <button onClick={handleSignOut}>Sign out</button>
+        <nav>
+          <h1>
+            <NavLink exact to="/">
+              Givn
+              <img src={logo} alt="givn-logo" />
+            </NavLink>
+          </h1>
+          <div>
+            <NavLink exact to="/posts">
+              Get
+            </NavLink>
+            <NavLink exact to="/posts/new">
+              Give
+            </NavLink>
+            <NavLink exact to="/profile">
+              Profile
+            </NavLink>
+            <img src={user.photoURL} />
+            {/* <ul>
+            <li></li>
+            <li>
+              <button onClick={handleSignOut}>Sign out</button>
+            </li>
+          </ul> */}
+          </div>
+        </nav>
       ) : (
-        <NavLink to={"/signup"}> Sign Up</NavLink>
+        <nav>
+          <h1>
+            <NavLink exact to="/">
+              Givn
+              <img src={logo} alt="givn-logo" />
+            </NavLink>
+          </h1>
+          <div>
+            <NavLink exact to="/posts">
+              Get
+            </NavLink>
+            <NavLink exact to="/posts/new">
+              Give
+            </NavLink>
+          </div>
+          <ul>
+            <li className="one">
+              <i class="fas fa-sign-in-alt"></i>
+              <NavLink to={"/login"}>Log In</NavLink>
+            </li>
+
+            <li>
+            <i class="fas fa-sign-out-alt"></i>
+              <NavLink to={"/signup"}>Sign Up</NavLink>
+            </li>
+          </ul>
+          <button className="left-icon">
+            <i class="fas fa-caret-down"></i>
+          </button>
+        </nav>
       )}
-    </nav>
+    </header>
   );
 };
 
