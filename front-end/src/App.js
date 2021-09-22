@@ -1,6 +1,4 @@
-// import axios from "axios";
-// import { useState, useEffect } from "react";
-// import { apiURL } from "./util/apiURL.js";
+
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Pages/Home";
@@ -12,7 +10,7 @@ import NavBar from "./Components/NavBar";
 import UserProvider from "./Providers/UserProvider";
 import Profile from "./Pages/Profile";
 import SignUp from "./Pages/SignUp";
-// const API = apiURL();
+import FourOFour from "./Pages/FourOFour";
 
 function App() {
   return (
@@ -42,6 +40,9 @@ function App() {
               </Route>
               <Route exact path="/posts/:id/edit">
                 <Edit />
+              </Route>
+              <Route path="*">
+                <FourOFour/>
               </Route>
             </Switch>
           </main>
