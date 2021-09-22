@@ -1,12 +1,22 @@
+import { useState, useRef}  from "react";
 import { Icon } from "@iconify/react";
 import "../Styles/ShareModal.css";
 
-const url = window.location.href;
-const facebookURL = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-const twitterURL = `https://twitter.com/intent/tweet?url=${url}`;
-// const linkedInURL = `https://www.linkedin.com/shareArticle?mini=true&url=${url}`;
-
 const ShareModal = ({ item }) => {
+  const [copy, setCopy] = useState("");
+  const textAreaRef = useRef(null);
+
+  const handleCopy = (e) => {
+    textAreaRef.current.select();
+      document.execCommand('copy');
+    e.target.focus()
+    setCopy("Copied!")
+  };
+
+  const url = window.location.href;
+  const facebookURL = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+  const twitterURL = `https://twitter.com/intent/tweet?url=${url}`;
+
   return (
     <div className="share-modal-container">
       <h3>Share Modal</h3>
@@ -14,44 +24,27 @@ const ShareModal = ({ item }) => {
       <ul className="icons">
         <a
           href={facebookURL}
-          // "https://facebook.com"
           target="_blank"
           rel="noreferrer"
           className="facebook"
         >
-          <i class="fab fa-facebook-square"></i>
+          <i className="fab fa-facebook-square"></i>
         </a>
         <a
           href={twitterURL}
-          // "https://twitter.com"
           target="_blank"
           rel="noreferrer"
           className="twitter"
         >
-          <i class="fab fa-twitter-square"></i>
-        </a>
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noreferrer"
-          className="instagram"
-        >
-          <i class="fab fa-instagram-square"></i>
-        </a>
-        <a
-          href="https://pinterest.com"
-          target="_blank"
-          rel="noreferrer"
-          className="pinterest"
-        >
-          <i class="fab fa-pinterest-square"></i>
+          <i className="fab fa-twitter-square"></i>
         </a>
       </ul>
       <p>Or copy link</p>
       <div className="input">
         <Icon icon="uil:link-add" />
-        <input type="text" value="example.com/share-link" />
-        <button>Copy</button>
+        <textarea ref={textAreaRef} value={url} />
+        <button onClick={handleCopy}>Copy</button>
+        {copy}
       </div>
     </div>
   );
