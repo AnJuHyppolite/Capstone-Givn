@@ -92,7 +92,6 @@ const NewForm = () => {
     }
   }
 
-
   const postPhotos = async (id) => {
     try {
       for (let i = 0; i < images.length; i++) {
@@ -109,6 +108,10 @@ const NewForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(!newItem['location']){
+      alert("Select a location")
+      return;
+    }
     const id = await postItem()
     await postPhotos(id)
     history.push("/posts")
@@ -120,18 +123,17 @@ const NewForm = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <h1> Post Item: </h1>
-        <label htmlFor="title">Title</label>
+      <form className="newForm" onSubmit={handleSubmit}>
+        <label htmlFor="title">Post an item: </label>
         <input
           id="title"
           value={newItem.title}
-          placeholder="title"
+          placeholder="title of item"
           type="text"
           onChange={handleChange}
           required
         />
-        <label htmlFor="description">Description</label>
+        <label htmlFor="description">Description:</label>
         <textarea
           id="description"
           value={newItem.description}
@@ -140,20 +142,13 @@ const NewForm = () => {
           onChange={handleChange}
           required
         />
+
         {/* add "multiple" for multiple selections in select*/}
         <select id="category">
           <option>Select a Category</option>
           {categoryOptions}
         </select>
-        {/* <label htmlFor="location">Location</label>
-        <input
-          id="location"
-          value={newItem.location}
-          placeholder="location"
-          type="text"
-          onChange={handleChange}
-          required
-        /> */}
+
         <p>Enter location to pick up item:</p>
         <Map updateLocation={updateLocation} />
         <br />

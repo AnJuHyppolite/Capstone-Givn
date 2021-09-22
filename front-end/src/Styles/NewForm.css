@@ -1,25 +1,25 @@
-form{
+.newForm{
     display: flex;
     flex-direction: column;
     width: 50%;
     margin: auto;
 }
 
-#title{
+.newForm #title{
     width: 50%;
     margin: auto;
 }
-form label{
+.newForm label{
  margin-left: 50px;
 }
 
-#category {
+.newForm #category {
     width: 30%;
     margin: auto;
     padding: 5px;
     margin-top: 10px;
 }
-#description{
+.newForm #description{
     width: 80%;
     margin: auto;
 }
