@@ -2,20 +2,14 @@ import { NavLink } from "react-router-dom";
 import "../Styles/NavBar.css";
 import { signOut } from "../Services/Firebase";
 import { UserContext } from "../Providers/UserProvider";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
+
 import logo from "../Assets/onlinelogomaker-091421-1958-0090.png";
 
 const NavBar = () => {
   const user = useContext(UserContext);
-  const history = useHistory();
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    if (!user) {
-      history.push("/");
-    }
-  }, [user, history]);
 
   const handleSignOut = () => {
     signOut();
