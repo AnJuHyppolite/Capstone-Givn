@@ -25,8 +25,16 @@ const Map = props => {
     //   accessToken: mapboxgl.accessToken,
     //   mapboxgl: mapboxgl
     //   });
-    let geocoder = new MapboxGeocoder({ 
-        accessToken: mapboxgl.accessToken });
+    let geocoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      marker: {
+        color: 'orange'
+      },
+      mapboxgl: mapboxgl
+    });
+    geocoder.on('result', (result) =>
+      props.updateLocation(result.result.place_name)
+    )
     map.addControl(geocoder);
     //geocoder.addTo('#geocoder-container')
 
@@ -38,11 +46,11 @@ const Map = props => {
       setLat(map.getCenter().lat.toFixed(4));
       setZoom(map.getZoom().toFixed(2));
 
-      if(geocoder && geocoder.lastSelected){
-        let locationString = geocoder.lastSelected;
-        let locationObject = JSON.parse(locationString.replace(/'/g, "\""));
-        props.updateLocation(locationObject['place_name'])
-      }
+      // if(geocoder && geocoder.lastSelected){
+      //   let locationString = geocoder.lastSelected;
+      //   let locationObject = JSON.parse(locationString.replace(/'/g, "\""));
+      //   props.updateLocation(locationObject['place_name'])
+      // }
     });
 
     // Clean up on unmount
@@ -51,7 +59,7 @@ const Map = props => {
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
- 
+
   return (
     <div>
       {/* <div className='sidebarStyle'>
