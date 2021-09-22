@@ -1,0 +1,39 @@
+form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+}
+
+#title{
+    width: 50%;
+    margin: auto;
+}
+form label{
+ margin-left: 50px;
+}
+
+#category {
+    width: 30%;
+    margin: auto;
+    padding: 5px;
+    margin-top: 10px;
+}
+#description{
+    width: 80%;
+    margin: auto;
+}
+
+.prepost-images{
+    display:flex;
+}
+
+.prepost-image{
+    width: 250px;
+    height: 250px;
+}
+
+.submit-item-form{
+    width: 50%;
+    margin: auto;
+}
