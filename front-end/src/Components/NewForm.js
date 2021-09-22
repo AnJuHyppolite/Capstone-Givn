@@ -26,8 +26,6 @@ const NewForm = () => {
     setNewItem({ ...newItem, [e.target.id]: e.target.value });
   };
 
-
-
   useEffect(() => {
     const getCategories = async () => {
       try {
@@ -111,9 +109,6 @@ const NewForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(newItem)
-    console.log(newItem.location)
-    debugger
     const id = await postItem()
     await postPhotos(id)
     history.push("/posts")

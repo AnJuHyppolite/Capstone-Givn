@@ -4,7 +4,7 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 import '../Styles/Map.css'
 
 mapboxgl.accessToken =
-  'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA';
+  process.env.REACT_APP_MAPBOX_TOKEN;
 
 const Map = props => {
   const mapContainerRef = useRef(null);
@@ -25,7 +25,8 @@ const Map = props => {
     //   accessToken: mapboxgl.accessToken,
     //   mapboxgl: mapboxgl
     //   });
-    let geocoder = new MapboxGeocoder({ accessToken: mapboxgl.accessToken });
+    let geocoder = new MapboxGeocoder({ 
+        accessToken: mapboxgl.accessToken });
     map.addControl(geocoder);
     //geocoder.addTo('#geocoder-container')
 
@@ -51,8 +52,6 @@ const Map = props => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
  
-      
-
   return (
     <div>
       {/* <div className='sidebarStyle'>
