@@ -18,7 +18,7 @@ const AboutPage = () => {
         also provides education about the benefits of waste minimization.
       </p>
       <div>
-        <h1>The Givn Team</h1>
+        <h1>Team Givn</h1>
         <div>
           <img
             src="https://media-exp1.licdn.com/dms/image/C5603AQFMAP-Uz_wt-g/profile-displayphoto-shrink_800_800/0/1631551061188?e=1637798400&v=beta&t=V4LUi0N3byTEMU-GDxNkx0fUpitw1xvv1JL8hX5D2OY"
