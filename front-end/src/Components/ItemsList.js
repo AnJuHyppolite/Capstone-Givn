@@ -7,6 +7,7 @@ const API = apiURL();
 
 const ItemsList = () => {
   const [items, setItems] = useState([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   //const [photos, setPhotos] = useState([])
   //const [itemIDs, setItemIDs] = useState([])
 
@@ -43,7 +44,7 @@ const ItemsList = () => {
     <section>
       <ul>
         {items.map((item) => {
-          return <Item item={item} key={item.id}/>;
+          return <Item item={item} key={item.id} modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}/>;
         })}
       </ul>
     </section>

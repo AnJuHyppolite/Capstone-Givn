@@ -2,11 +2,12 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios"
 import { apiURL } from "../util/apiURL.js"
 import { useEffect, useState } from "react";
+import ShareButton from "./ShareButton.js";
 
 const API = apiURL()
 console.log(API)
 
-const Item = ({ item }) => {
+const Item = ({ item, modalIsOpen, setModalIsOpen }) => {
   const [photos, setPhotos] = useState([])
   const {id} = useParams()
   
@@ -38,7 +39,9 @@ const Item = ({ item }) => {
       <p>Expiring In: {item.expiration} (day(s))</p>
       <p>Recycling is good!</p>
       <div>
-        <Link to={`/share/${item.id}`}><button>Share</button></Link>
+        <ShareButton modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}/>
+        {/* <Link to={`/share/${item.id}`}><button>Share</button></Link> */}
+        <button onClick={() => setModalIsOpen(true)}>Share</button>
         <button>Interested</button>
         <button>Message</button>
       </div>

@@ -19,7 +19,6 @@ const ShareModal = ({ item }) => {
 
   return (
     <div className="share-modal-container">
-      <h3>Share Modal</h3>
       <p>Share this link via</p>
       <ul className="icons">
         <a
@@ -42,7 +41,7 @@ const ShareModal = ({ item }) => {
       <p>Or copy link</p>
       <div className="input">
         <Icon icon="uil:link-add" />
-        <textarea ref={textAreaRef} value={url} />
+        <textarea ref={textAreaRef} value={url} readOnly/>
         <button onClick={handleCopy}>Copy</button>
         {copy}
       </div>
