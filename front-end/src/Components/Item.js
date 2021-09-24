@@ -40,7 +40,6 @@ const Item = ({ item, modalIsOpen, setModalIsOpen }) => {
       <p>Recycling is good!</p>
       <div>
         <ShareButton modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}/>
-        {/* <Link to={`/share/${item.id}`}><button>Share</button></Link> */}
         <button onClick={() => setModalIsOpen(true)}>Share</button>
         <button>Interested</button>
         <button>Message</button>

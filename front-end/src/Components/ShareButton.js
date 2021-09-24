@@ -6,10 +6,8 @@ import { useState } from "react";
 Modal.setAppElement("#root");
 
 const ShareButton = ({ modalIsOpen,setModalIsOpen }) => {
-  // const [modalIsOpen, setModalIsOpen] = useState(false);
   return (
     <div className="social-container">
-      {/* <button onClick={() => setModalIsOpen(true)}>Share</button> */}
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
