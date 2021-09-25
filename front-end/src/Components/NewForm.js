@@ -11,9 +11,9 @@ const NewForm = () => {
   const [newItem, setNewItem] = useState({
     title: "",
     description: "",
-    address: user.address,
-    longitude: user.longitude,
-    latitude: user.latitude,
+    address: user ? user.address : "",
+    longitude: user ? user.longitude : 0,
+    latitude: user ? user.latitude : 0,
     created_at: new Date().toDateString(),
     status: "active",
     is_biodegradable: false,
@@ -105,11 +105,17 @@ const NewForm = () => {
   }
 
   const updateLocation = (obj) => {
+    debugger
     setNewItem(prevState => { return { ...prevState, 'address': obj.address, 'longitude': obj.lng, 'latitude': obj.lat } })
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(!user){
+      alert("You must have an account before posting an item")
+      history.push("/")
+      return;
+    }
     if (newItem['longitude'] === 0) {
       alert("Select a address to pick up item")
       return;

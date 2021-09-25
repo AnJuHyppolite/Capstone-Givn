@@ -15,7 +15,7 @@ items.get('/:id', async (req, res) =>{
     }
 })
 
-items.post('/', async(req,res)=> req.body.title && req.body.description && req.body.location && req.body.status ? res.json(await createItem(req.body)) : res.status(422).json({success: false, error: true, message: "title is required"}))
+items.post('/', async(req,res)=> req.body.title && req.body.description && req.body.address && req.body.status ? res.json(await createItem(req.body)) : res.status(422).json({success: false, error: true, message: "title is required"}))
 
 items.delete('/:id', async (req, res) => {
     const item = await deleteItem(req.params.id)

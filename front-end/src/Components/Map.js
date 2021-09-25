@@ -20,8 +20,8 @@ const Map = props => {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [(user.longitude || lng), (user.latitude || lat)],
-      zoom: (user.longitude ? 17 : zoom)
+      center: [(user ? user.longitude : lng), (user ? user.latitude : lat)],
+      zoom: (user ? 17 : zoom)
     });
     // const geocoder = new MapboxGeocoder({
     //   accessToken: mapboxgl.accessToken,
@@ -32,7 +32,7 @@ const Map = props => {
       marker: {
         color: 'orange'
       },
-      placeholder: user.address || "Address where item is: ",
+      placeholder: user ? user.address : "Address where item is: ",
       mapboxgl: mapboxgl
     });
     geocoder.on('result', (result) => {
