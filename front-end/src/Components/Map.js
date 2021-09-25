@@ -1,6 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useContext, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl'
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+import { UserContext } from "../Providers/UserProvider";
 import '../Styles/Map.css'
 
 mapboxgl.accessToken =
@@ -8,6 +9,7 @@ mapboxgl.accessToken =
 
 const Map = props => {
   const mapContainerRef = useRef(null);
+  const {user} = useContext(UserContext);
 
   const [lng, setLng] = useState(-73.4);
   const [lat, setLat] = useState(41.8);
@@ -18,8 +20,8 @@ const Map = props => {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [lng, lat],
-      zoom: zoom
+      center: [(user?.longitude ? user.longitude: lng), (user?.latitude ? user.latitude : lat)],
+      zoom: (user?.longitude ? 17 : zoom)
     });
     // const geocoder = new MapboxGeocoder({
     //   accessToken: mapboxgl.accessToken,
@@ -30,11 +32,12 @@ const Map = props => {
       marker: {
         color: 'orange'
       },
+      placeholder: user ? user.address : "Address where item is: ",
       mapboxgl: mapboxgl
     });
-    geocoder.on('result', (result) =>
-      props.updateLocation(result.result.place_name)
-    )
+    geocoder.on('result', (result) => {
+      props.updateLocation({address: result.result.place_name, lng: result.result.geometry.coordinates[0], lat: result.result.geometry.coordinates[1]})
+    })
     map.addControl(geocoder);
     //geocoder.addTo('#geocoder-container')
 

@@ -36,7 +36,7 @@ const ItemDetails = () => {
   const {
     title,
     description,
-    location,
+    address,
     created_at,
     status,
     is_biodegradable,
@@ -49,7 +49,7 @@ const ItemDetails = () => {
         return <img src={photo.photo_url} alt={title} />;
       })}
       <p> Description: {description}</p>
-      <p>Location: {location}</p>
+      <p>Location: {address}</p>
       <p>Created At: {created_at}</p>
       <p>Status: {status}</p>
       <p>
