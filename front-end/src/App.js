@@ -1,5 +1,3 @@
-
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Index from "./Pages/Index";
@@ -11,6 +9,7 @@ import UserProvider from "./Providers/UserProvider";
 import Profile from "./Pages/Profile";
 import SignUp from "./Pages/SignUp";
 import FourOFour from "./Pages/FourOFour";
+import AboutPage from "./Pages/AboutPage";
 
 import ShareButton from "./Components/ShareButton";
 
@@ -35,6 +34,9 @@ function App() {
               <Route exact path="/profile">
                 <Profile />
               </Route>
+              <Route exact path="/about">
+                <AboutPage />
+              </Route>
               <Route exact path="/posts/new">
                 <New />
               </Route>
@@ -45,7 +47,7 @@ function App() {
                 <Edit />
               </Route>
               <Route path="*">
-                <FourOFour/>
+                <FourOFour />
               </Route>
             </Switch>
           </main>

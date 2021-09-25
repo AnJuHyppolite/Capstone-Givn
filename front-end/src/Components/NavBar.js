@@ -3,7 +3,7 @@ import "../Styles/NavBar.css";
 import { signOut } from "../Services/Firebase";
 import { UserContext } from "../Providers/UserProvider";
 import { useContext, useState } from "react";
-import { useHistory } from "react-router-dom";
+import AboutPage from "../Pages/AboutPage";
 
 import logo from "../Assets/onlinelogomaker-091421-1958-0090.png";
 
@@ -87,6 +87,7 @@ const NavBar = () => {
           <button className="left-icon" onClick={handleDropdown}>
             <i class="fas fa-caret-down"></i>
           </button>
+          <NavLink to={"/about"}>About</NavLink>
         </nav>
       )}
     </header>
