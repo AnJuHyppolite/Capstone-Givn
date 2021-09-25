@@ -40,6 +40,10 @@ const EditProfile = () => {
 
       const handleSubmit = (e) => {
         e.preventDefault();
+        if(updatedUser.longitude === 0){
+            alert("Please enter a valid address")
+            return;
+        }
         setUser(updatedUser)
         updateProfile()
         history.push("/profile")
