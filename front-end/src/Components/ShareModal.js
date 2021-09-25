@@ -2,7 +2,7 @@ import { useState, useRef}  from "react";
 import { Icon } from "@iconify/react";
 import "../Styles/ShareModal.css";
 
-const ShareModal = ({}) => {
+const ShareModal = () => {
   const [copy, setCopy] = useState("");
   const textAreaRef = useRef(null);
 
