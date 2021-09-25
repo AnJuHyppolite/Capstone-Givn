@@ -12,6 +12,7 @@ import FourOFour from "./Pages/FourOFour";
 import AboutPage from "./Pages/AboutPage";
 
 import ShareButton from "./Components/ShareButton";
+import EditProfile from "./Components/EditProfile";
 
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
               </Route>
               <Route exact path="/profile">
                 <Profile />
+              </Route>
+              <Route exact path="/profile/edit">
+                <EditProfile />
               </Route>
               <Route exact path="/about">
                 <AboutPage />

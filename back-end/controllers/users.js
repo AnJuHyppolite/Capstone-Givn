@@ -34,6 +34,9 @@ users.delete('/:id', async (req, res) => {
 users.put('/:id', async (req, res)=>{
     const {id} = req.params;
     const user = req.body;
+    console.log("INSIDE CONTROLLER>>> ")
+    console.log(user)
+    console.log(id)
     const editedUser = await updateUser(id, user);
     editedUser ? res.json(editedUser) : res.status(422).json({success: false, error: true, message: "invalid id"})
 })

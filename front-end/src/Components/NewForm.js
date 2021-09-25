@@ -7,7 +7,7 @@ import Map from "./Map";
 import "../Styles/NewForm.css"
 
 const NewForm = () => {
-  const user = useContext(UserContext);
+  const {user} = useContext(UserContext);
   const [newItem, setNewItem] = useState({
     title: "",
     description: "",
@@ -105,7 +105,6 @@ const NewForm = () => {
   }
 
   const updateLocation = (obj) => {
-    debugger
     setNewItem(prevState => { return { ...prevState, 'address': obj.address, 'longitude': obj.lng, 'latitude': obj.lat } })
   }
 

@@ -9,7 +9,7 @@ mapboxgl.accessToken =
 
 const Map = props => {
   const mapContainerRef = useRef(null);
-  const user = useContext(UserContext);
+  const {user} = useContext(UserContext);
 
   const [lng, setLng] = useState(-73.4);
   const [lat, setLat] = useState(41.8);

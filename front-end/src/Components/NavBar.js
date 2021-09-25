@@ -8,7 +8,7 @@ import AboutPage from "../Pages/AboutPage";
 import logo from "../Assets/onlinelogomaker-091421-1958-0090.png";
 
 const NavBar = () => {
-  const user = useContext(UserContext);
+  const {user} = useContext(UserContext);
   const [open, setOpen] = useState(false);
 
   const handleSignOut = () => {
