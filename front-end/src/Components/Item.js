@@ -29,7 +29,7 @@ const Item = ({ item, modalIsOpen, setModalIsOpen }) => {
     <li>
       <div>
         <h5>
-          {item.created_at} ({item.location})
+          {item.created_at} ({item.address})
         </h5>
       </div>
       <Link to={`/posts/${item.id}`}>
