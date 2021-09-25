@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/joinpursuit/pern-final-project/issues"
   },
-  "homepage": "https://github.com/joinpursuit/pern-final-project#readme"
+  "homepage": "https://github.com/joinpursuit/pern-final-project#readme",
+  "dependencies": {
+    "firebase": "^9.0.1"
+  },
+  "devDependencies": {
+    "@iconify/react": "^3.0.1"
+  }
 }
