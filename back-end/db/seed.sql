@@ -1,16 +1,16 @@
 \c givn_dev;
 
-INSERT INTO users(email, display_name, address, uid) VALUES
-('testemail1@gmail.com', 'initial tester', 'New York','F8j9j'),
-('masterjeff@yahoo.com' , 'master Jeff', 'queens','f23r234'),
-('heyyall@gmail.com', 'heeeeey', 'Bronx','f234'),
-('johndoe15@hotmail.com', 'johnnyboy', 'Jersey City, NJ','f322f23'),
-('ShoaibDar@pursuit.org','Shoaib','Queens Ny','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2');
+INSERT INTO users(email, display_name, address, longitude, latitude, uid) VALUES
+('firstuser@gmail.com', 'initial tester', 'Jamaica, New York City, New York 11435, United States',-73.7937,40.6935,'F8j9j'),
+('masterjeff@yahoo.com' , 'master Jeff', '',0,0,'f23r234'),
+('heyyall@gmail.com', 'heeeeey', '53 Flushing Avenue, Queens, New York 11206, United States',-73.914239,40.714417,'f234'),
+('johndoe15@hotmail.com', 'johnnyboy', '',0,0,'f322f23'),
+('ShoaibDar@pursuit.org','Shoaib','110-14 64th Avenue, Queens, New York 11374, United States',-73.845264,40.734233,'CVAp4aL1tLTTo7wB8Tn6BMfpI2X2');
 
-INSERT INTO items(title, description, location, created_at, status, is_biodegradable, expiration, giver_id) VALUES 
-('wine rack', '6-bottle holder', 'New York', '8/19/21 6PM', 'active', false, 0, 'F8j9j'),
-('bar stools', 'wooden', 'Bronx', '8:19 p.m.', 'active', false, 0, 'f234'),
-('nutella', 'unopened', 'Jersey City', '11:34 a.m', 'active', true, 22,'CVAp4aL1tLTTo7wB8Tn6BMfpI2X2');
+INSERT INTO items(title, description, address, longitude, latitude, created_at, status, is_biodegradable, expiration, giver_id) VALUES 
+('wine rack', '6-bottle holder', 'City Place Grill, 10223 Horace Harding Expy, New York City, New York 11368, United States', -73.855659, 40.737068, '8/19/21 6PM', 'active', false, 0, 'F8j9j'),
+('bar stools', 'wooden', 'Pursuit, 47-10 Austell Pl Fl 3, Long Island City, New York 11101, United States', -73.941871, 40.743036, '8:19 p.m.', 'active', false, 0, 'f234'),
+('nutella', 'unopened',  '110-14 64th Avenue, Queens, New York 11374, United States', -73.845264, 40.734233, '11:34 a.m', 'active', true, 22, 'CVAp4aL1tLTTo7wB8Tn6BMfpI2X2');
 
 INSERT INTO transactions(time, getter_id, giver_id, item_id) VALUES 
 ('8:06 pm', 'F8j9j', 'f23r234', 2), ('2:06 am', 'f23r234', 'F8j9j', 2), 

@@ -18,7 +18,9 @@ const UserProvider = (props) => {
       console.log(res.data)
       const { address, email, score, id, display_name, uid } = res.data
       setUser({
-        address: address,
+        address: 0, //set to address: adress, then use mapbox to find lng * lat of address
+        longitude: 0,
+        latitude: 0,
         display_name: display_name,
         email: email,
         score: score,
@@ -38,10 +40,12 @@ const UserProvider = (props) => {
         await createUser(user)
       } else {
         console.log("USER FETCHED FROM DB >>>> ")
-        const { address, email, score, id, display_name, uid } = res.data
+        const { address, longitude, latitude, email, score, id, display_name, uid } = res.data
         let newDisplayName = user.displayName || display_name;
         setUser({
           address: address,
+          longitude: longitude,
+          latitude: latitude,
           display_name: newDisplayName,
           email: email,
           score: score,

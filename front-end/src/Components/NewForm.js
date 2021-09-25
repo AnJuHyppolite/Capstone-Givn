@@ -7,10 +7,13 @@ import Map from "./Map";
 import "../Styles/NewForm.css"
 
 const NewForm = () => {
+  const user = useContext(UserContext);
   const [newItem, setNewItem] = useState({
     title: "",
     description: "",
-    location: "",
+    address: user.address,
+    longitude: user.longitude,
+    latitude: user.latitude,
     created_at: new Date().toDateString(),
     status: "active",
     is_biodegradable: false,
@@ -18,7 +21,6 @@ const NewForm = () => {
   });
   const [images, setImages] = useState([])
   const [categories, setCategories] = useState([])
-  const user = useContext(UserContext);
   const API = apiURL();
   const history = useHistory()
 
@@ -102,14 +104,14 @@ const NewForm = () => {
     }
   }
 
-  const updateLocation = (e) => {
-    setNewItem(prevState => { return { ...prevState, 'location': e } })
+  const updateLocation = (obj) => {
+    setNewItem(prevState => { return { ...prevState, 'address': obj.address, 'longitude': obj.lng, 'latitude': obj.lat } })
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(!newItem['location']){
-      alert("Select a location")
+    if (newItem['longitude'] === 0) {
+      alert("Select a address to pick up item")
       return;
     }
     const id = await postItem()

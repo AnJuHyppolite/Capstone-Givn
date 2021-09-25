@@ -6,9 +6,12 @@ CREATE DATABASE givn_dev;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY, 
-    email VARCHAR(50),
+    email VARCHAR(40),
     display_name VARCHAR(40),
-    address VARCHAR(100),
+    address text,
+    longitude DECIMAL DEFAULT 0,
+    latitude DECIMAL DEFAULT 0,
+    is_biodegradable BOOLEAN DEFAULT FALSE,
     score INT DEFAULT 0,
     uid VARCHAR(30) UNIQUE
 );
@@ -17,7 +20,9 @@ CREATE TABLE items (
     id SERIAL PRIMARY KEY,
     title VARCHAR(50) NOT NULL,
     description TEXT NOT NULL,
-    location TEXT NOT NULL,
+    address TEXT NOT NULL,
+    latitude DECIMAL NOT NULL,
+    longitude DECIMAL NOT NULL,
     created_at TEXT NOT NULL,
     status TEXT NOT NULL,
     is_biodegradable BOOLEAN DEFAULT FALSE,
