@@ -18,7 +18,7 @@ const Home = () => {
   const [error, setError] = useState(null);
 
   const history = useHistory();
-  const user = useContext(UserContext);
+  const {user} = useContext(UserContext);
 
   useEffect(() => {
     if (user) {

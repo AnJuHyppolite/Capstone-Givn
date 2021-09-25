@@ -9,7 +9,7 @@ mapboxgl.accessToken =
 
 const Map = props => {
   const mapContainerRef = useRef(null);
-  const user = useContext(UserContext);
+  const {user} = useContext(UserContext);
 
   const [lng, setLng] = useState(-73.4);
   const [lat, setLat] = useState(41.8);
@@ -20,8 +20,8 @@ const Map = props => {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [(user ? user.longitude : lng), (user ? user.latitude : lat)],
-      zoom: (user ? 17 : zoom)
+      center: [(user?.longitude ? user.longitude: lng), (user?.latitude ? user.latitude : lat)],
+      zoom: (user?.longitude ? 17 : zoom)
     });
     // const geocoder = new MapboxGeocoder({
     //   accessToken: mapboxgl.accessToken,

@@ -1,15 +1,17 @@
 import { apiURL } from "../util/apiURL";
 import { useContext, useState, useEffect } from "react";
+import { useHistory } from "react-router";
 import axios from "axios";
 import { UserContext } from "../Providers/UserProvider";
 // import { useState } from "react";
 
 const ProfilePage = () => {
   const API = apiURL();
+  const history = useHistory()
   const [givenItems, setGivenItems] = useState([])
   const [gottenItems, setGottenItems] = useState([])
 
-  const user = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   const getTransactions = async () => {
     try {
@@ -43,6 +45,8 @@ const ProfilePage = () => {
           <div>
             <h3>{user.address} | Score: {user.score}</h3>
           </div>
+          {/* <Link> </Link> */}
+          <button onClick={()=>history.push('/profile/edit')}>EDIT INORMATION</button>
         </section>
       )}
       <p>Given Items</p>

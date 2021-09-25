@@ -5,7 +5,7 @@ import { UserContext } from "../Providers/UserProvider";
 import { useContext} from "react";
 
 const Index = () => {
-  const user = useContext(UserContext);
+  const {user} = useContext(UserContext);
   return (
     <div>
       <h1>Welcome {user?.display_name}</h1>
