@@ -39,7 +39,7 @@ const MessageForm = () => {
       ></textarea>
       <button onClick={handleSend}>Send Message</button>
       <span className={emailSent ? "visible" : null}>
-        Thank you for your message, we will be in touch in no time!
+        Thank you for your message!
       </span>
     </div>
   );

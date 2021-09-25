@@ -53,14 +53,6 @@ const ItemsList = () => {
               key={item.id}
               modalIsOpen={modalIsOpen}
               setModalIsOpen={setModalIsOpen}
-              name={name}
-              setName={setName}
-              email={email}
-              setEmail={setEmail}
-              message={message}
-              setMessage={setMessage}
-              emailSent={emailSent}
-              setEmailSent={setEmailSent}
             />
           );
         })}
