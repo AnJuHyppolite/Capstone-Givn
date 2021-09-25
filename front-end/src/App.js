@@ -11,6 +11,9 @@ import SignUp from "./Pages/SignUp";
 import FourOFour from "./Pages/FourOFour";
 import AboutPage from "./Pages/AboutPage";
 
+import ShareButton from "./Components/ShareButton";
+
+
 function App() {
   return (
     <div>
