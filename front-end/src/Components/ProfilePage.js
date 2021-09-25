@@ -6,7 +6,6 @@ import { UserContext } from "../Providers/UserProvider";
 
 const ProfilePage = () => {
   const API = apiURL();
-  const [userInfo, setUserInfo] = useState([]);
   const [givenItems, setGivenItems] = useState([])
   const [gottenItems, setGottenItems] = useState([])
 

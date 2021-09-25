@@ -3,6 +3,8 @@ import { useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom"
 import { UserContext } from "../Providers/UserProvider";
 import { apiURL } from "../util/apiURL";
+import Map from "./Map";
+import "../Styles/NewForm.css"
 
 const NewForm = () => {
   const [newItem, setNewItem] = useState({
@@ -23,8 +25,6 @@ const NewForm = () => {
   const handleChange = (e) => {
     setNewItem({ ...newItem, [e.target.id]: e.target.value });
   };
-
-
 
   useEffect(() => {
     const getCategories = async () => {
@@ -92,7 +92,6 @@ const NewForm = () => {
     }
   }
 
-
   const postPhotos = async (id) => {
     try {
       for (let i = 0; i < images.length; i++) {
@@ -103,8 +102,16 @@ const NewForm = () => {
     }
   }
 
+  const updateLocation = (e) => {
+    setNewItem(prevState => { return { ...prevState, 'location': e } })
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(!newItem['location']){
+      alert("Select a location")
+      return;
+    }
     const id = await postItem()
     await postPhotos(id)
     history.push("/posts")
@@ -116,21 +123,17 @@ const NewForm = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <select multiple>
-          <option>Select a Category</option>
-          {categoryOptions}
-        </select>
-        <label htmlFor="title">Title</label>
+      <form className="newForm" onSubmit={handleSubmit}>
+        <label htmlFor="title">Post an item: </label>
         <input
           id="title"
           value={newItem.title}
-          placeholder="title"
+          placeholder="title of item"
           type="text"
           onChange={handleChange}
           required
         />
-        <label htmlFor="description">Description</label>
+        <label htmlFor="description">Description:</label>
         <textarea
           id="description"
           value={newItem.description}
@@ -139,18 +142,18 @@ const NewForm = () => {
           onChange={handleChange}
           required
         />
-        <label htmlFor="location">Location</label>
-        <input
-          id="location"
-          value={newItem.location}
-          placeholder="location"
-          type="text"
-          onChange={handleChange}
-          required
-        />
+
+        {/* add "multiple" for multiple selections in select*/}
+        <select id="category">
+          <option>Select a Category</option>
+          {categoryOptions}
+        </select>
+
+        <p>Enter location to pick up item:</p>
+        <Map updateLocation={updateLocation} />
         <br />
         <br></br>
-        <label htmlFor="image">Image</label>
+        <label htmlFor="image">Select Images to upload:</label>
         <input
           id="image"
           placeholder="image"
@@ -158,16 +161,16 @@ const NewForm = () => {
           accept="image/*"
           onChange={getS3url}
         />
-        {images.map((image, index) => (
-          <div key={index}>
-            <img src={image} alt="list"></img>
-          </div>
-        ))}
+        <div className="prepost-images" >
+          {images.map((image, index) => (
+            <img className="prepost-image" src={image} key={index} alt="list"></img>
+          ))}
+        </div>
         <br />
 
 
         <br></br>
-        <button type="submit">Submit</button>
+        <button className="submit-item-form" type="submit">Submit</button>
       </form>
     </div>
   );

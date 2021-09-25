@@ -17,7 +17,6 @@ const ItemsList = () => {
       setItems(res.data);
       //setItemIDs(res.data)
       //console.log(itemIDs)
-      debugger;
     } catch (error) {
       console.log(error);
     }
