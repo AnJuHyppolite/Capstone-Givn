@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
 import { UserContext } from "../Providers/UserProvider";
+import Geocoder from "./Geocoder";
 
 const EditProfile = () => {
     const history=useHistory()
@@ -32,6 +33,10 @@ const EditProfile = () => {
     const handleChange = (e) => {
         SetUpdatedUser({ ...updatedUser, [e.target.id]: e.target.value });
     };
+
+    const updateLocation = (obj) => {
+        SetUpdatedUser(prevState => { return { ...prevState, 'address': obj.address, 'longitude': obj.lng, 'latitude': obj.lat } })
+      }
 
       const handleSubmit = (e) => {
         e.preventDefault();
@@ -66,6 +71,10 @@ const EditProfile = () => {
                     required
                 />
                 <br/>
+                ADDRESS: 
+                <Geocoder updateLocation={updateLocation}/>
+
+
                 <button type="submit">SUBMIT</button>
 
             </form>
