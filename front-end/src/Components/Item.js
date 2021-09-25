@@ -7,7 +7,19 @@ import ShareButton from "./ShareButton.js";
 const API = apiURL();
 console.log(API);
 
-const Item = ({ item, modalIsOpen, setModalIsOpen }) => {
+const Item = ({
+  item,
+  modalIsOpen,
+  setModalIsOpen,
+  // name,
+  // setName,
+  // email,
+  // setEmail,
+  // message,
+  // setMessage,
+  // emailSent,
+  // setEmailSent,
+}) => {
   const [photos, setPhotos] = useState([]);
   const { id } = useParams();
 
@@ -24,6 +36,18 @@ const Item = ({ item, modalIsOpen, setModalIsOpen }) => {
     };
     getPhotos();
   }, []);
+
+  // const handleSend = () => {
+  //   if (!name || !email || !message) {
+  //     alert("Input is invalid. Please complete all the fields.");
+  //     // TODO - send mail
+  //   } else {
+  //     setName("");
+  //     setEmail("");
+  //     setMessage("");
+  //     setEmailSent(true);
+  //   }
+  // };
 
   return (
     <li>
@@ -42,10 +66,10 @@ const Item = ({ item, modalIsOpen, setModalIsOpen }) => {
         <ShareButton
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
-        />
+        />        
         <button onClick={() => setModalIsOpen(true)}>Share</button>
         <button>Interested</button>
-        <button>Message</button>
+        <Link to={`/posts/${item.id}/message`}><button>Message</button></Link>
       </div>
     </li>
   );

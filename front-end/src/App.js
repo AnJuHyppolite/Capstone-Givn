@@ -10,8 +10,7 @@ import Profile from "./Pages/Profile";
 import SignUp from "./Pages/SignUp";
 import FourOFour from "./Pages/FourOFour";
 import AboutPage from "./Pages/AboutPage";
-
-import ShareButton from "./Components/ShareButton";
+import MessageForm from "./Components/MessageForm";
 
 
 function App() {
@@ -45,6 +44,9 @@ function App() {
               </Route>
               <Route exact path="/posts/:id/edit">
                 <Edit />
+              </Route>
+              <Route exact path="/posts/:id/message">
+                <MessageForm />
               </Route>
               <Route path="*">
                 <FourOFour />

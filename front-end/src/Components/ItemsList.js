@@ -8,6 +8,10 @@ const API = apiURL();
 const ItemsList = () => {
   const [items, setItems] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [emailSent, setEmailSent] = useState(false);
   //const [photos, setPhotos] = useState([])
   //const [itemIDs, setItemIDs] = useState([])
 
@@ -21,7 +25,7 @@ const ItemsList = () => {
       console.log(error);
     }
   };
-  
+
   // const getPhotos = async () => {
   //   try {
   //     debugger
@@ -38,12 +42,27 @@ const ItemsList = () => {
     fetchAllItems();
     //getPhotos();
   }, []);
-  
+
   return (
     <section>
       <ul>
         {items.map((item) => {
-          return <Item item={item} key={item.id} modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}/>;
+          return (
+            <Item
+              item={item}
+              key={item.id}
+              modalIsOpen={modalIsOpen}
+              setModalIsOpen={setModalIsOpen}
+              name={name}
+              setName={setName}
+              email={email}
+              setEmail={setEmail}
+              message={message}
+              setMessage={setMessage}
+              emailSent={emailSent}
+              setEmailSent={setEmailSent}
+            />
+          );
         })}
       </ul>
     </section>
