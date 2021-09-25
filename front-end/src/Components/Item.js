@@ -1,15 +1,14 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { apiURL } from "../util/apiURL.js";
 import { useEffect, useState } from "react";
 import ShareButton from "./ShareButton.js";
 
 const API = apiURL();
-console.log(API);
 
 const Item = ({ item, modalIsOpen, setModalIsOpen }) => {
   const [photos, setPhotos] = useState([]);
-  const { id } = useParams();
+  const [itemUser, setItemUser] = useState({});
 
   useEffect(() => {
     const getPhotos = async () => {
@@ -17,36 +16,74 @@ const Item = ({ item, modalIsOpen, setModalIsOpen }) => {
         let res = await axios.get(`${API}/items/${item.id}/photos`);
         console.log(res);
         setPhotos(res.data);
-        console.log(res.data);
       } catch (error) {
         console.log(error);
       }
     };
     getPhotos();
-  }, []);
+  }, [item.id]);
+
+  useEffect(() => {
+    const getUserForItem = async () => {
+      try {
+        const res = await axios.get(`${API}/users/${item.giver_id}`);
+        setItemUser(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getUserForItem();
+  }, [item.giver_id]);
 
   return (
     <li>
-      <div>
-        <h5>
-          {item.created_at} ({item.location})
-        </h5>
+      <div className="top">
+        <div className="top-container">
+          <img
+            src="https://cdn2.iconfinder.com/data/icons/flat-design-icons-set-2/256/face_human_blank_user_avatar_mannequin_dummy-512.png"
+            alt="user-portrait"
+          />
+          <div>
+            <h3>{itemUser.display_name}</h3>
+            <h5>
+              {item.created_at} ({item.location})
+            </h5>
+          </div>
+        </div>
+        <i className="fas fa-ellipsis-h"></i>
       </div>
       <Link to={`/posts/${item.id}`}>
-        <h1>{item.title}</h1>
+        <h2>{item.title}</h2>
         <img src={photos[0]?.photo_url} alt="imageItem" />
       </Link>
-      <p>Expiring In: {item.expiration} (day(s))</p>
-      <p>Recycling is good!</p>
-      <div>
-        <ShareButton
-          modalIsOpen={modalIsOpen}
-          setModalIsOpen={setModalIsOpen}
-        />
-        <button onClick={() => setModalIsOpen(true)}>Share</button>
-        <button>Interested</button>
-        <button>Message</button>
+      {item.is_biodegradable ? (
+        <p>Expiring In: {item.expiration} (day(s))</p>
+      ) : null}
+      <h6>
+        {" "}
+        <i class="fas fa-leaf"></i> Paper accounts for 25% of landfill waste and
+        33% of municipal waste. By getting this item, you help to save the
+        enviroment.
+      </h6>
+      <div className="btns">
+        <button onClick={() => setModalIsOpen(true)}>
+          {" "}
+          <i class="fas fa-share"></i> Share
+        </button>
+        <button>
+          {" "}
+          <i class="fas fa-heart"></i> Interested
+        </button>
+        <button>
+          {" "}
+          <i class="fas fa-comment-alt"></i> Message
+        </button>
       </div>
+      <ShareButton
+        modalIsOpen={modalIsOpen}
+        setModalIsOpen={setModalIsOpen}
+        className={!modalIsOpen ? "share" : null}
+      />
     </li>
   );
 };

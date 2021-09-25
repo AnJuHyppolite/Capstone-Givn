@@ -1,18 +1,19 @@
-import { Link } from "react-router-dom";
 import ItemsList from "../Components/ItemsList";
 import "../Styles/Index.css";
-import { UserContext } from "../Providers/UserProvider";
-import { useContext} from "react";
 
 const Index = () => {
-  const user = useContext(UserContext);
   return (
-    <div>
-      <h1>Welcome {user?.display_name}</h1>
-      <ItemsList />
-      <Link to="posts/:id">
-        <p>Click me</p>
-      </Link>
+    <div className="Index">
+      <aside className="left">
+        <h1>Categories</h1>
+      </aside>
+      <section>
+        <h1>Recent Items</h1>
+        <ItemsList />
+      </section>
+      <aside className="right">
+        <h1>Leaderboard</h1>
+      </aside>
     </div>
   );
 };

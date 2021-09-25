@@ -37,6 +37,9 @@ const NavBar = () => {
             <NavLink exact to="/posts/new">
               Give
             </NavLink>
+            <NavLink exact to={"/about"}>
+              About
+            </NavLink>
           </div>
           <img
             src={user.photoURL}
@@ -72,6 +75,9 @@ const NavBar = () => {
             <NavLink exact to="/posts/new">
               Give
             </NavLink>
+            <NavLink exact to={"/about"}>
+              About
+            </NavLink>
           </div>
           <ul className={!open ? "dropdown" : null}>
             <li className="one">
@@ -87,7 +93,6 @@ const NavBar = () => {
           <button className="left-icon" onClick={handleDropdown}>
             <i class="fas fa-caret-down"></i>
           </button>
-          <NavLink to={"/about"}>About</NavLink>
         </nav>
       )}
     </header>
