@@ -23,9 +23,7 @@ const Home = () => {
 
   useEffect(() => {
     if (user) {
-      debugger
       history.push("/posts");
-      debugger
     }
   }, [user, history]);
 

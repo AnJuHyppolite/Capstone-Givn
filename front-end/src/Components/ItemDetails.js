@@ -9,7 +9,10 @@ const ItemDetails = () => {
   const { id } = useParams();
   const [photos, setPhotos] = useState([]);
 
-  //   let res = await axios.get(`${API}/items/${id}/photos`);
+  
+
+  useEffect(() => {
+    //   let res = await axios.get(`${API}/items/${id}/photos`);
   const fetchPhoto = async () => {
     try {
       let res = await axios.get(`${API}/items/${id}/photos`);
@@ -18,8 +21,6 @@ const ItemDetails = () => {
       console.log(error);
     }
   };
-
-  useEffect(() => {
     const fetchItem = async () => {
       try {
         let res = await axios.get(`${API}/items/${id}`);
@@ -30,7 +31,7 @@ const ItemDetails = () => {
     };
     fetchPhoto();
     fetchItem();
-  }, []);
+  }, [API, id]);
 
   const {
     title,
