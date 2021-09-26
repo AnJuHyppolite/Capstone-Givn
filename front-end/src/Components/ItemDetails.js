@@ -24,7 +24,6 @@ const ItemDetails = () => {
       try {
         let res = await axios.get(`${API}/items/${id}`);
         setItem(res.data);
-        console.log(res.data);
       } catch (error) {
         console.log(error);
       }

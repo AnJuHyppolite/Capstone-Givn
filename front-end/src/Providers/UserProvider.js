@@ -11,8 +11,10 @@ const UserProvider = (props) => {
 
   const createUser = async (user) => {
     const newUser = { display_name: user.displayName, email: user.email, uid: user.uid }
+    const dummyPicture = "https://cdn2.iconfinder.com/data/icons/flat-design-icons-set-2/256/face_human_blank_user_avatar_mannequin_dummy-512.png"
     try {
       console.log("CREATING NEW USER >>>> ")
+      console.log(user)
       let res = await axios.post(`${API}/users`, newUser)
       const { address, email, score, id, display_name, uid } = res.data
       setUser({
@@ -23,7 +25,7 @@ const UserProvider = (props) => {
         email: email,
         score: score,
         id: id,
-        photo_url: user.photo_url,
+        photo_url: user.photo_url ? user.photo_url : dummyPicture,
         uid: uid
       })
     } catch (error) {
@@ -61,7 +63,11 @@ const UserProvider = (props) => {
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
       console.log("FIREBASE: OnAuthStateChanged")
-      user ? await fetchUser(user) : setUser(null);
+      if(user){
+        await fetchUser(user) 
+      } else{
+        setUser(null);
+      }
     });
   }, []);
 

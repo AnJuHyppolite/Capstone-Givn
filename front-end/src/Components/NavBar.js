@@ -49,7 +49,7 @@ const NavBar = () => {
           />
           <ul className={!open ? "dropdown" : null} id="user-menu">
             <li className="one">
-              <i class="fas fa-user-circle"></i>
+              <i className="fas fa-user-circle"></i>
               <NavLink exact to="/profile">
                 Profile
               </NavLink>
