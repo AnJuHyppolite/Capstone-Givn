@@ -25,7 +25,7 @@ const UserProvider = (props) => {
         score: score,
         id: id,
         uid: uid,
-        photoURL: user.photoURL
+        photo_url: user.photo_url
       })
     } catch (error) {
       console.log(error)
@@ -39,7 +39,7 @@ const UserProvider = (props) => {
         await createUser(user)
       } else {
         console.log("USER FETCHED FROM DB >>>> ")
-        const { address, longitude, latitude, email, score, id, display_name, uid } = res.data
+        const { address, longitude, latitude, email, score, id, display_name, photo_url, uid } = res.data
         let newDisplayName = user.displayName || display_name;
         setUser({
           address: address,
@@ -50,7 +50,7 @@ const UserProvider = (props) => {
           score: score,
           id: id,
           uid: uid,
-          photoURL: user.photoURL
+          photo_url: photo_url ? photo_url : user.photo_url
         })
       }
 

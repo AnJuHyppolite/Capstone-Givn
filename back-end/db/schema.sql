@@ -12,6 +12,7 @@ CREATE TABLE users (
     longitude DECIMAL DEFAULT 0,
     latitude DECIMAL DEFAULT 0,
     score INT DEFAULT 0,
+    photo_url TEXT,
     uid VARCHAR(30) UNIQUE
 );
 

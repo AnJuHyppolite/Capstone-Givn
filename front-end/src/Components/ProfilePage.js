@@ -38,7 +38,7 @@ const ProfilePage = () => {
         <div>NOT LOGGED IN</div>
       ) : (
         <section>
-          <img src={user.photoURL} alt="profilePic" />
+          <img src={user?.photo_url ? user.photo_url : 'https://cdn2.iconfinder.com/data/icons/flat-design-icons-set-2/256/face_human_blank_user_avatar_mannequin_dummy-512.png'} alt="profilePic" />
           <h2>{user.display_name}</h2>
           <h3>{user.email}</h3>
           <hr />
