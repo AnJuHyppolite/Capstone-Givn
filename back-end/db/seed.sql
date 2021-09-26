@@ -1,11 +1,11 @@
 \c givn_dev;
 
-INSERT INTO users(email, display_name, address, longitude, latitude, uid) VALUES
-('firstuser@gmail.com', 'initial tester', 'Jamaica, New York City, New York 11435, United States',-73.7937,40.6935,'F8j9j'),
-('masterjeff@yahoo.com' , 'master Jeff', '',0,0,'f23r234'),
-('heyyall@gmail.com', 'heeeeey', '53 Flushing Avenue, Queens, New York 11206, United States',-73.914239,40.714417,'f234'),
-('johndoe15@hotmail.com', 'johnnyboy', '',0,0,'f322f23'),
-('ShoaibDar@pursuit.org','Shoaib','110-14 64th Avenue, Queens, New York 11374, United States',-73.845264,40.734233,'CVAp4aL1tLTTo7wB8Tn6BMfpI2X2');
+INSERT INTO users(email, display_name, address, longitude, latitude, photo_url, uid) VALUES
+('firstuser@gmail.com', 'initial tester', 'Jamaica, New York City, New York 11435, United States',-73.7937,40.6935,'https://i.imgur.com/1ROVCKE.jpeg','F8j9j'),
+('masterjeff@yahoo.com' , 'master Jeff', '',0,0,'https://i.imgur.com/8wztbO7.jpeg','f23r234'),
+('heyyall@gmail.com', 'heeeeey', '53 Flushing Avenue, Queens, New York 11206, United States',-73.914239,40.714417,'https://i.imgur.com/F9Nf9Fx.jpeg','f234'),
+('johndoe15@hotmail.com', 'johnnyboy','Manhattanville, New York City, New York 10027, United States',0,0,'https://i.imgur.com/1Ls3uvI.jpeg','f322f23'),
+('ShoaibDar@pursuit.org','Shoaib','110-14 64th Avenue, Queens, New York 11374, United States',-73.845264,40.734233,'https://i.imgur.com/wI7ivU7.png','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2');
 
 INSERT INTO items(title, description, address, longitude, latitude, created_at, status, is_biodegradable, expiration, giver_id) VALUES 
 ('wine rack', '6-bottle holder', 'City Place Grill, 10223 Horace Harding Expy, New York City, New York 11368, United States', -73.855659, 40.737068, '8/19/21 6PM', 'active', false, 0, 'F8j9j'),

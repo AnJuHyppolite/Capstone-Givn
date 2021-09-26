@@ -1,0 +1,11 @@
+.mapboxgl-ctrl-geocoder--suggestion-address {
+    color: #0a3509;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px !important;
+}
+
+.mapboxgl-ctrl-geocoder .suggestions>li>a {
+    background-color: antiquewhite;
+    padding: 2px 2px;
+    border: 1px solid black;
+}

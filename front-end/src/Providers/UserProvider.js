@@ -13,9 +13,7 @@ const UserProvider = (props) => {
     const newUser = { display_name: user.displayName, email: user.email, uid: user.uid }
     try {
       console.log("CREATING NEW USER >>>> ")
-      console.log(user)
       let res = await axios.post(`${API}/users`, newUser)
-      console.log(res.data)
       const { address, email, score, id, display_name, uid } = res.data
       setUser({
         address: 0, //set to address: adress, then use mapbox to find lng * lat of address
@@ -25,8 +23,8 @@ const UserProvider = (props) => {
         email: email,
         score: score,
         id: id,
-        uid: uid,
-        photoURL: user.photoURL
+        photo_url: user.photo_url,
+        uid: uid
       })
     } catch (error) {
       console.log(error)
@@ -40,7 +38,7 @@ const UserProvider = (props) => {
         await createUser(user)
       } else {
         console.log("USER FETCHED FROM DB >>>> ")
-        const { address, longitude, latitude, email, score, id, display_name, uid } = res.data
+        const { address, longitude, latitude, email, score, id, display_name, photo_url, uid } = res.data
         let newDisplayName = user.displayName || display_name;
         setUser({
           address: address,
@@ -51,7 +49,7 @@ const UserProvider = (props) => {
           score: score,
           id: id,
           uid: uid,
-          photoURL: user.photoURL
+          photo_url: photo_url ? photo_url : user.photo_url
         })
       }
 
@@ -68,7 +66,7 @@ const UserProvider = (props) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{user, setUser}}>
+    <UserContext.Provider value={{ user, setUser }}>
       <main>{props.children}</main>
     </UserContext.Provider>
   );

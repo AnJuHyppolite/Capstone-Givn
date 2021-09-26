@@ -40,7 +40,7 @@ const Item = ({ item, modalIsOpen, setModalIsOpen }) => {
       <div className="top">
         <div className="top-container">
           <img
-            src="https://cdn2.iconfinder.com/data/icons/flat-design-icons-set-2/256/face_human_blank_user_avatar_mannequin_dummy-512.png"
+            src={itemUser.photo_url ? itemUser.photo_url : "https://cdn2.iconfinder.com/data/icons/flat-design-icons-set-2/256/face_human_blank_user_avatar_mannequin_dummy-512.png"}
             alt="user-portrait"
           />
           <div>
