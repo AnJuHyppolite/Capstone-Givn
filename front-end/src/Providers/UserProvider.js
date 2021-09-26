@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import { useHistory } from "react-router";
 import { auth } from "../Services/Firebase";
 import { apiURL } from "../util/apiURL";
 import axios from "axios";
@@ -13,9 +14,7 @@ const UserProvider = (props) => {
     const newUser = { display_name: user.displayName, email: user.email, uid: user.uid }
     try {
       console.log("CREATING NEW USER >>>> ")
-      console.log(user)
       let res = await axios.post(`${API}/users`, newUser)
-      console.log(res.data)
       const { address, email, score, id, display_name, uid } = res.data
       setUser({
         address: 0, //set to address: adress, then use mapbox to find lng * lat of address
@@ -63,12 +62,16 @@ const UserProvider = (props) => {
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
       console.log("FIREBASE: OnAuthStateChanged")
-      user ? await fetchUser(user) : setUser(null);
+      if (user) {
+        await fetchUser(user)
+      } else {
+        setUser(null);
+      }
     });
   }, []);
 
   return (
-    <UserContext.Provider value={{user, setUser}}>
+    <UserContext.Provider value={{ user, setUser }}>
       <main>{props.children}</main>
     </UserContext.Provider>
   );
