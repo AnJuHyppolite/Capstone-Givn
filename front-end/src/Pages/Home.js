@@ -5,9 +5,11 @@ import {
   signInWithGoogle,
   signInWithFacebook,
   signInWithTwitter,
+  login
+
 } from "../Services/Firebase";
 import { useState } from "react";
-import { login } from "../util/firebaseFuntion";
+// import { login } from "../util/firebaseFuntion";
 import { randomImg } from "../Helpers/randomImage";
 import google from "../Assets/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png";
 import "../Styles/Home.css";
@@ -21,7 +23,9 @@ const Home = () => {
 
   useEffect(() => {
     if (user) {
+      debugger
       history.push("/posts");
+      debugger
     }
   }, [user, history]);
 

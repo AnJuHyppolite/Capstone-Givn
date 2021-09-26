@@ -10,14 +10,27 @@ const UserProvider = (props) => {
   const API = apiURL();
 
   const createUser = async (user) => {
-    const newUser = { display_name: user.displayName, email: user.email, uid: user.uid }
-    const dummyPicture = "https://cdn2.iconfinder.com/data/icons/flat-design-icons-set-2/256/face_human_blank_user_avatar_mannequin_dummy-512.png"
+    const newUser = {
+      display_name: user.displayName,
+      email: user.email,
+      uid: user.uid,
+    };
+    const dummyPicture =
+      "https://cdn2.iconfinder.com/data/icons/flat-design-icons-set-2/256/face_human_blank_user_avatar_mannequin_dummy-512.png";
     try {
+<<<<<<< HEAD
       console.log("CREATING NEW USER >>>> ")
       
       const {photoURL } = user;
       let res = await axios.post(`${API}/users`, newUser)
       const { email, score, id, display_name, uid } = res.data
+=======
+      console.log("CREATING NEW USER >>>> ");
+
+      const { photoURL } = user;
+      let res = await axios.post(`${API}/users`, newUser);
+      const { address, email, score, id, display_name, uid } = res.data;
+>>>>>>> 815bb894b2eb082a86d10c5dba1c194ba46b011c
       setUser({
         address: 0, //set to res.data.address, then use mapbox to find lng * lat of address
         longitude: 0,
@@ -27,22 +40,32 @@ const UserProvider = (props) => {
         score: score,
         id: id,
         photo_url: photoURL ? photoURL : dummyPicture,
-        uid: uid
-      })
+        uid: uid,
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   const fetchUser = async (user) => {
     try {
       let res = await axios.get(`${API}/users/${user.uid}`);
       if (res.data.error) {
-        await createUser(user)
+        await createUser(user);
       } else {
-        console.log("USER FETCHED FROM DB >>>> ")
-        const { address, longitude, latitude, email, score, id, display_name, photo_url, uid } = res.data
-        const {photoURL } = user;
+        console.log("USER FETCHED FROM DB >>>> ");
+        const {
+          address,
+          longitude,
+          latitude,
+          email,
+          score,
+          id,
+          display_name,
+          photo_url,
+          uid,
+        } = res.data;
+        const { photoURL } = user;
         let newDisplayName = user.displayName || display_name;
         setUser({
           address: address,
@@ -53,21 +76,22 @@ const UserProvider = (props) => {
           score: score,
           id: id,
           uid: uid,
-          photo_url: photo_url ? photo_url : photoURL
-        })
+          photo_url: photo_url ? photo_url : photoURL,
+        });
       }
-
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
-      console.log("FIREBASE: OnAuthStateChanged")
-      if(user){
-        await fetchUser(user) 
-      } else{
+      console.log("FIREBASE: OnAuthStateChanged");
+      debugger
+      if (user) {
+        // debugger
+        await fetchUser(user);
+      } else {
         setUser(null);
       }
     });

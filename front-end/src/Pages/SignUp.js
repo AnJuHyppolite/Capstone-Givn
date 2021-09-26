@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { signUp } from "../util/firebaseFuntion";
+import { signUp } from "../Services/Firebase";
 
 export default function SignUp() {
     const [email, setEmail] = useState("");
