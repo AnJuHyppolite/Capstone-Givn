@@ -14,7 +14,8 @@ const UserProvider = (props) => {
     const dummyPicture = "https://cdn2.iconfinder.com/data/icons/flat-design-icons-set-2/256/face_human_blank_user_avatar_mannequin_dummy-512.png"
     try {
       console.log("CREATING NEW USER >>>> ")
-      console.log(user)
+      
+      const {photoURL } = user;
       let res = await axios.post(`${API}/users`, newUser)
       const { address, email, score, id, display_name, uid } = res.data
       setUser({
@@ -25,7 +26,7 @@ const UserProvider = (props) => {
         email: email,
         score: score,
         id: id,
-        photo_url: user.photo_url ? user.photo_url : dummyPicture,
+        photo_url: photoURL ? photoURL : dummyPicture,
         uid: uid
       })
     } catch (error) {
@@ -41,6 +42,7 @@ const UserProvider = (props) => {
       } else {
         console.log("USER FETCHED FROM DB >>>> ")
         const { address, longitude, latitude, email, score, id, display_name, photo_url, uid } = res.data
+        const {photoURL } = user;
         let newDisplayName = user.displayName || display_name;
         setUser({
           address: address,
@@ -51,7 +53,7 @@ const UserProvider = (props) => {
           score: score,
           id: id,
           uid: uid,
-          photo_url: photo_url ? photo_url : user.photo_url
+          photo_url: photo_url ? photo_url : photoURL
         })
       }
 
