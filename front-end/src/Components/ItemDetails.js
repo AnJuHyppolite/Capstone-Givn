@@ -44,8 +44,8 @@ const ItemDetails = () => {
   return (
     <div>
       <h1>Item: {title}</h1>
-      {photos.map((photo) => {
-        return <img src={photo.photo_url} alt={title} />;
+      {photos.map((photo, index) => {
+        return <img src={photo.photo_url} alt={title} key={index} />;
       })}
       <p> Description: {description}</p>
       <p>Location: {address}</p>

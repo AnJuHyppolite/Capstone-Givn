@@ -54,7 +54,7 @@ const NavBar = () => {
               </NavLink>
             </li>
             <li>
-              <i class="fas fa-sign-out-alt"></i>
+              <i className="fas fa-sign-out-alt"></i>
               <button onClick={handleSignOut}>Sign Out</button>
             </li>
           </ul>
@@ -80,17 +80,17 @@ const NavBar = () => {
           </div>
           <ul className={!open ? "dropdown" : null}>
             <li className="one">
-              <i class="fas fa-sign-in-alt"></i>
+              <i className="fas fa-sign-in-alt"></i>
               <NavLink to={"/login"}>Log In</NavLink>
             </li>
 
             <li>
-              <i class="fas fa-user-plus"></i>
+              <i className="fas fa-user-plus"></i>
               <NavLink to={"/signup"}>Sign Up</NavLink>
             </li>
           </ul>
           <button className="left-icon" onClick={handleDropdown}>
-            <i class="fas fa-caret-down"></i>
+            <i className="fas fa-caret-down"></i>
           </button>
         </nav>
       )}
