@@ -1,3 +1,5 @@
+import "../Styles/AboutPage.css";
+
 const AboutPage = () => {
   return (
     <div>
@@ -17,9 +19,9 @@ const AboutPage = () => {
         helps users get rid of their stuff and aid in preserving the planet, it
         also provides education about the benefits of waste minimization.
       </p>
-      <div>
-        <h1>Team Givn</h1>
-        <div>
+      <h1>Team Givn</h1>
+      <div class="container">
+        <div class="developer">
           <img
             src="https://media-exp1.licdn.com/dms/image/C5603AQFMAP-Uz_wt-g/profile-displayphoto-shrink_800_800/0/1631551061188?e=1637798400&v=beta&t=V4LUi0N3byTEMU-GDxNkx0fUpitw1xvv1JL8hX5D2OY"
             alt="Anju Hyppolite"
@@ -49,23 +51,25 @@ const AboutPage = () => {
             love working collaboratively and find great satisfaction working as
             a team to see a project through from start to finish.
           </p>
-          <a
-            href="https://www.linkedin.com/in/anju-hyppolite/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i class="devicon-linkedin-plain"></i>
-          </a>
-          <a
-            href="https://github.com/AnJuHyppolite"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i class="devicon-github-original"></i>
-          </a>
+          <div class="links">
+            <a
+              href="https://www.linkedin.com/in/anju-hyppolite/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="devicon-linkedin-plain"></i>
+            </a>
+            <a
+              href="https://github.com/AnJuHyppolite"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="devicon-github-original"></i>
+            </a>
+          </div>
         </div>
 
-        <div>
+        <div class="developer">
           <img
             src="https://media-exp1.licdn.com/dms/image/C5603AQGAyYapE4Ongw/profile-displayphoto-shrink_800_800/0/1608595575131?e=1637798400&v=beta&t=n9rhmm6gPUNHoADR6_r6MB3ce-KYmd63VX6Hy6NgnQI"
             alt="Jailene Devine-Jones"
@@ -95,18 +99,20 @@ const AboutPage = () => {
             in learning more about me, or joining my Rocket League team, feel
             free to send me a DM!
           </p>
-          <a
-            href="https://www.linkedin.com/in/jailene-devine-jones/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i class="devicon-linkedin-plain"></i>
-          </a>
-          <a href="https://github.com/JDJ97" target="_blank" rel="noreferrer">
-            <i class="devicon-github-original"></i>
-          </a>
+          <div class="links">
+            <a
+              href="https://www.linkedin.com/in/jailene-devine-jones/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="devicon-linkedin-plain"></i>
+            </a>
+            <a href="https://github.com/JDJ97" target="_blank" rel="noreferrer">
+              <i class="devicon-github-original"></i>
+            </a>
+          </div>
         </div>
-        <div>
+        <div class="developer">
           <img
             src="https://media-exp1.licdn.com/dms/image/C4D03AQHmjj1I9EaR7Q/profile-displayphoto-shrink_800_800/0/1603469546218?e=1637798400&v=beta&t=W51GHg-F6zdHLy_YhjvHfpm7n5WYreA1OV7ofOeMhKc"
             alt="Jeffrey Sebastian"
@@ -135,24 +141,26 @@ const AboutPage = () => {
             skill sets that apply to future career opportunities. And empower
             other people by giving them the right resources through technology.
           </p>
-          <a
-            href="https://www.linkedin.com/in/jeffrey-sebastian/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i class="devicon-linkedin-plain"></i>
-          </a>
-          <a
-            href="https://github.com/JeffreySebastian-Pursuit"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i class="devicon-github-original"></i>
-          </a>
+          <div class="links">
+            <a
+              href="https://www.linkedin.com/in/jeffrey-sebastian/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="devicon-linkedin-plain"></i>
+            </a>
+            <a
+              href="https://github.com/JeffreySebastian-Pursuit"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="devicon-github-original"></i>
+            </a>
+          </div>
         </div>
-        <div>
+        <div class="developer">
           <img
-            src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F4b9465ae-aac0-48b9-94a5-2fffd7cb958c%2FJordan_Bobadilla_Rosario.jpg?table=block&id=ede5100c-f3e0-4c58-95f3-3429fe97ab5c&spaceId=e2735e9b-8fe9-4c16-bdc1-be142cd1014e&width=2160&userId=fdb56f96-9031-42a5-8141-444ebb4f0b07&cache=v2"
+            src="https://media-exp1.licdn.com/dms/image/C4D03AQGHrHnaYg8tWA/profile-displayphoto-shrink_400_400/0/1610333357392?e=1638403200&v=beta&t=dJoO6x5dgs2wvD9tWI_l-pk8Y3f029RpWyRslvRUqiE"
             alt="Jordan Bobadilla-Rosario"
           />
           <h3>Jordan Bobadilla-Rosario</h3>
@@ -172,22 +180,24 @@ const AboutPage = () => {
             positive attitude. I am driven by a strong company mission and
             values, smart colleagues, and a strong desire to get it right.
           </p>
-          <a
-            href="https://www.linkedin.com/in/jordanbobadilla/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i class="devicon-linkedin-plain"></i>
-          </a>
-          <a
-            href="https://github.com/jordanbobadilla"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i class="devicon-github-original"></i>
-          </a>
+          <div class="links">
+            <a
+              href="https://www.linkedin.com/in/jordanbobadilla/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="devicon-linkedin-plain"></i>
+            </a>
+            <a
+              href="https://github.com/jordanbobadilla"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="devicon-github-original"></i>
+            </a>
+          </div>
         </div>
-        <div>
+        <div class="developer">
           <img
             src="https://media-exp1.licdn.com/dms/image/C4E03AQEs1mpVIgFwBw/profile-displayphoto-shrink_800_800/0/1606586088168?e=1637798400&v=beta&t=oHz2JMS-b51clTm58FV553dbBFgWYmrJ2qOkJ6Egrss"
             alt="Shoaib Dar"
@@ -211,16 +221,22 @@ const AboutPage = () => {
             software development so that I can one day contribute my skills in
             meaningful, conscientious work that benefits society.
           </p>
-          <a
-            href="https://www.linkedin.com/in/shoaib-dar/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <i class="devicon-linkedin-plain"></i>
-          </a>
-          <a href="https://github.com/SDAR30" target="_blank" rel="noreferrer">
-            <i class="devicon-github-original"></i>
-          </a>
+          <div class="links">
+            <a
+              href="https://www.linkedin.com/in/shoaib-dar/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="devicon-linkedin-plain"></i>
+            </a>
+            <a
+              href="https://github.com/SDAR30"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="devicon-github-original"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
