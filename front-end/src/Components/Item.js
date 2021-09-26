@@ -14,7 +14,6 @@ const Item = ({ item, modalIsOpen, setModalIsOpen }) => {
     const getPhotos = async () => {
       try {
         let res = await axios.get(`${API}/items/${item.id}/photos`);
-        console.log(res);
         setPhotos(res.data);
       } catch (error) {
         console.log(error);
@@ -61,22 +60,22 @@ const Item = ({ item, modalIsOpen, setModalIsOpen }) => {
       ) : null}
       <h6>
         {" "}
-        <i class="fas fa-leaf"></i> Paper accounts for 25% of landfill waste and
+        <i className="fas fa-leaf"></i> Paper accounts for 25% of landfill waste and
         33% of municipal waste. By getting this item, you help to save the
         enviroment.
       </h6>
       <div className="btns">
         <button onClick={() => setModalIsOpen(true)}>
           {" "}
-          <i class="fas fa-share"></i> Share
+          <i className="fas fa-share"></i> Share
         </button>
         <button>
           {" "}
-          <i class="fas fa-heart"></i> Interested
+          <i className="fas fa-heart"></i> Interested
         </button>
         <button>
           {" "}
-          <i class="fas fa-comment-alt"></i> Message
+          <i className="fas fa-comment-alt"></i> Message
         </button>
       </div>
       <ShareButton

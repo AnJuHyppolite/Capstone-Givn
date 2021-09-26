@@ -11,7 +11,7 @@ const NewForm = () => {
   const [newItem, setNewItem] = useState({
     title: "",
     description: "",
-    address: user ? (user.address == "EARTH" ? "" : user.address) : "",
+    address: user ? (user.address === "EARTH" ? "" : user.address) : "",
     longitude: user ? user.longitude : 0,
     latitude: user ? user.latitude : 0,
     created_at: new Date().toDateString(),

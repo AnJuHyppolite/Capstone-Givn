@@ -1,19 +1,20 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import "../Styles/NavBar.css";
 import { signOut } from "../Services/Firebase";
 import { UserContext } from "../Providers/UserProvider";
 import { useContext, useState } from "react";
-import AboutPage from "../Pages/AboutPage";
 
 import logo from "../Assets/onlinelogomaker-091421-1958-0090.png";
 
 const NavBar = () => {
+  const history = useHistory();
   const { user } = useContext(UserContext);
   const [open, setOpen] = useState(false);
 
-  const handleSignOut = () => {
-    signOut();
-    setOpen(false);
+  const handleSignOut = async() => {
+    await signOut();
+    // setOpen(false);
+    history.push("/");
   };
 
   const handleDropdown = () => {
@@ -43,19 +44,20 @@ const NavBar = () => {
           </div>
           <img
             src={user.photo_url}
-            alt="user-photo"
+            alt="user"
             className="profile"
             onClick={handleDropdown}
           />
           <ul className={!open ? "dropdown" : null} id="user-menu">
             <li className="one">
-              <i class="fas fa-user-circle"></i>
+              <i className="fas fa-user-circle"></i>
               <NavLink exact to="/profile">
                 Profile
               </NavLink>
             </li>
             <li>
-              <i class="fas fa-sign-out-alt"></i>
+              <i className="fas fa-sign-out-alt"></i>
+
               <button onClick={handleSignOut}>Sign Out</button>
             </li>
           </ul>
@@ -81,17 +83,17 @@ const NavBar = () => {
           </div>
           <ul className={!open ? "dropdown" : null}>
             <li className="one">
-              <i class="fas fa-sign-in-alt"></i>
+              <i className="fas fa-sign-in-alt"></i>
               <NavLink to={"/login"}>Log In</NavLink>
             </li>
 
             <li>
-              <i class="fas fa-user-plus"></i>
+              <i className="fas fa-user-plus"></i>
               <NavLink to={"/signup"}>Sign Up</NavLink>
             </li>
           </ul>
           <button className="left-icon" onClick={handleDropdown}>
-            <i class="fas fa-caret-down"></i>
+            <i className="fas fa-caret-down"></i>
           </button>
         </nav>
       )}

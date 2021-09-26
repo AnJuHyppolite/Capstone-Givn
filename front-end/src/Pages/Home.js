@@ -5,20 +5,21 @@ import {
   signInWithGoogle,
   signInWithFacebook,
   signInWithTwitter,
+  login
+
 } from "../Services/Firebase";
 import { useState } from "react";
-import { login } from "../util/firebaseFuntion";
+// import { login } from "../util/firebaseFuntion";
 import { randomImg } from "../Helpers/randomImage";
-import google from "../Assets/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
+import google from "../Assets/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png";
 import "../Styles/Home.css";
 
 const Home = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
 
   const history = useHistory();
-  const {user} = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     if (user) {
@@ -36,7 +37,7 @@ const Home = () => {
       await login(email, password);
       history.push("/");
     } catch (error) {
-      setError(error.message);
+      console.log(error);
     }
   };
 
@@ -51,7 +52,7 @@ const Home = () => {
         <h3>"Save the planet one item at a time."</h3>
       </section>
       <section className="right-side">
-        <img src={randomImg} alt="bg-login-form"/>
+        <img src={randomImg} alt="bg-login-form" />
         <form onSubmit={handleSubmit} className="login">
           <h1>Enter your account</h1>
           <label htmlFor="email">Email</label>
@@ -69,20 +70,22 @@ const Home = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <h5>Don't forget your password</h5>
-          <hr/>
-          <button className="first-btn" type="submit">Log In</button>
-          <Link to={"/signup"}><button className="sec-btn" type="button">Sign Up</button></Link>
+          <hr />
+          <button className="first-btn" type="submit">
+            Log In
+          </button>
+          <Link to={"/signup"}>
+            <button className="sec-btn" type="button">
+              Sign Up
+            </button>
+          </Link>
           <p>Or</p>
           <div>
             <button onClick={() => signInWithFacebook()}>
               <i className="fab fa-facebook-f"></i>
             </button>
             <button onClick={handleSignIn}>
-              <img
-                src={google}
-                alt="google"
-                className="google"
-              />
+              <img src={google} alt="google" className="google" />
             </button>
             <button onClick={() => signInWithTwitter()}>
               <i className="fab fa-twitter"></i>

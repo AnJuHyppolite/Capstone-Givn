@@ -10,8 +10,6 @@ import Profile from "./Pages/Profile";
 import SignUp from "./Pages/SignUp";
 import FourOFour from "./Pages/FourOFour";
 import AboutPage from "./Pages/AboutPage";
-
-import ShareButton from "./Components/ShareButton";
 import EditProfile from "./Components/EditProfile";
 
 

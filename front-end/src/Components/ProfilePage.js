@@ -13,25 +13,25 @@ const ProfilePage = () => {
 
   const { user } = useContext(UserContext);
 
-  const getTransactions = async () => {
-    try {
-      let res = await axios.get(`${API}/users/${user.uid}/transactions`);
-      setGivenItems(res.data.filter(transaction => {
-        return transaction.giver_id === user.uid
-      }))
-      setGottenItems(res.data.filter(transaction => {
-        return transaction.getter_id === user.uid
-      }))
-    } catch (error) {
-      console.log(error);
-    }
-  }
+
 
   useEffect(() => {
-    console.log("IN PROFILE >>> ");
-    console.log(user);
+
+    const getTransactions = async () => {
+      try {
+        let res = await axios.get(`${API}/users/${user.uid}/transactions`);
+        setGivenItems(res.data.filter(transaction => {
+          return transaction.giver_id === user.uid
+        }))
+        setGottenItems(res.data.filter(transaction => {
+          return transaction.getter_id === user.uid
+        }))
+      } catch (error) { console.log(error); }
+    }
+
     getTransactions()
-  }, [])
+  }, [API, user.uid])
+
   return (
     <div>
       {!user ? (
@@ -46,7 +46,7 @@ const ProfilePage = () => {
             <h3>{user.address} | Score: {user.score}</h3>
           </div>
           {/* <Link> </Link> */}
-          <button onClick={()=>history.push('/profile/edit')}>EDIT INORMATION</button>
+          <button onClick={() => history.push('/profile/edit')}>EDIT INORMATION</button>
         </section>
       )}
       <p>Given Items</p>

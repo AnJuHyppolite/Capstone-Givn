@@ -20,8 +20,8 @@ const AboutPage = () => {
         also provides education about the benefits of waste minimization.
       </p>
       <h1>Team Givn</h1>
-      <div class="container">
-        <div class="developer">
+      <div className="container">
+        <div className="developer">
           <img
             src="https://media-exp1.licdn.com/dms/image/C5603AQFMAP-Uz_wt-g/profile-displayphoto-shrink_800_800/0/1631551061188?e=1637798400&v=beta&t=V4LUi0N3byTEMU-GDxNkx0fUpitw1xvv1JL8hX5D2OY"
             alt="Anju Hyppolite"
@@ -51,25 +51,25 @@ const AboutPage = () => {
             love working collaboratively and find great satisfaction working as
             a team to see a project through from start to finish.
           </p>
-          <div class="links">
+          <div className="links">
             <a
               href="https://www.linkedin.com/in/anju-hyppolite/"
               target="_blank"
               rel="noreferrer"
             >
-              <i class="devicon-linkedin-plain"></i>
+              <i className="devicon-linkedin-plain"></i>
             </a>
             <a
               href="https://github.com/AnJuHyppolite"
               target="_blank"
               rel="noreferrer"
             >
-              <i class="devicon-github-original"></i>
+              <i className="devicon-github-original"></i>
             </a>
           </div>
         </div>
 
-        <div class="developer">
+        <div className="developer">
           <img
             src="https://media-exp1.licdn.com/dms/image/C5603AQGAyYapE4Ongw/profile-displayphoto-shrink_800_800/0/1608595575131?e=1637798400&v=beta&t=n9rhmm6gPUNHoADR6_r6MB3ce-KYmd63VX6Hy6NgnQI"
             alt="Jailene Devine-Jones"
@@ -99,20 +99,20 @@ const AboutPage = () => {
             in learning more about me, or joining my Rocket League team, feel
             free to send me a DM!
           </p>
-          <div class="links">
+          <div className="links">
             <a
               href="https://www.linkedin.com/in/jailene-devine-jones/"
               target="_blank"
               rel="noreferrer"
             >
-              <i class="devicon-linkedin-plain"></i>
+              <i className="devicon-linkedin-plain"></i>
             </a>
             <a href="https://github.com/JDJ97" target="_blank" rel="noreferrer">
-              <i class="devicon-github-original"></i>
+              <i className="devicon-github-original"></i>
             </a>
           </div>
         </div>
-        <div class="developer">
+        <div className="developer">
           <img
             src="https://media-exp1.licdn.com/dms/image/C4D03AQHmjj1I9EaR7Q/profile-displayphoto-shrink_800_800/0/1603469546218?e=1637798400&v=beta&t=W51GHg-F6zdHLy_YhjvHfpm7n5WYreA1OV7ofOeMhKc"
             alt="Jeffrey Sebastian"
@@ -141,24 +141,24 @@ const AboutPage = () => {
             skill sets that apply to future career opportunities. And empower
             other people by giving them the right resources through technology.
           </p>
-          <div class="links">
+          <div className="links">
             <a
               href="https://www.linkedin.com/in/jeffrey-sebastian/"
               target="_blank"
               rel="noreferrer"
             >
-              <i class="devicon-linkedin-plain"></i>
+              <i className="devicon-linkedin-plain"></i>
             </a>
             <a
               href="https://github.com/JeffreySebastian-Pursuit"
               target="_blank"
               rel="noreferrer"
             >
-              <i class="devicon-github-original"></i>
+              <i className="devicon-github-original"></i>
             </a>
           </div>
         </div>
-        <div class="developer">
+        <div className="developer">
           <img
             src="https://media-exp1.licdn.com/dms/image/C4D03AQGHrHnaYg8tWA/profile-displayphoto-shrink_400_400/0/1610333357392?e=1638403200&v=beta&t=dJoO6x5dgs2wvD9tWI_l-pk8Y3f029RpWyRslvRUqiE"
             alt="Jordan Bobadilla-Rosario"
@@ -180,24 +180,24 @@ const AboutPage = () => {
             positive attitude. I am driven by a strong company mission and
             values, smart colleagues, and a strong desire to get it right.
           </p>
-          <div class="links">
+          <div className="links">
             <a
               href="https://www.linkedin.com/in/jordanbobadilla/"
               target="_blank"
               rel="noreferrer"
             >
-              <i class="devicon-linkedin-plain"></i>
+              <i className="devicon-linkedin-plain"></i>
             </a>
             <a
               href="https://github.com/jordanbobadilla"
               target="_blank"
               rel="noreferrer"
             >
-              <i class="devicon-github-original"></i>
+              <i className="devicon-github-original"></i>
             </a>
           </div>
         </div>
-        <div class="developer">
+        <div className="developer">
           <img
             src="https://media-exp1.licdn.com/dms/image/C4E03AQEs1mpVIgFwBw/profile-displayphoto-shrink_800_800/0/1606586088168?e=1637798400&v=beta&t=oHz2JMS-b51clTm58FV553dbBFgWYmrJ2qOkJ6Egrss"
             alt="Shoaib Dar"
@@ -221,20 +221,20 @@ const AboutPage = () => {
             software development so that I can one day contribute my skills in
             meaningful, conscientious work that benefits society.
           </p>
-          <div class="links">
+          <div className="links">
             <a
               href="https://www.linkedin.com/in/shoaib-dar/"
               target="_blank"
               rel="noreferrer"
             >
-              <i class="devicon-linkedin-plain"></i>
+              <i className="devicon-linkedin-plain"></i>
             </a>
             <a
               href="https://github.com/SDAR30"
               target="_blank"
               rel="noreferrer"
             >
-              <i class="devicon-github-original"></i>
+              <i className="devicon-github-original"></i>
             </a>
           </div>
         </div>

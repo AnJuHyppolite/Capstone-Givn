@@ -27,7 +27,7 @@ const EditProfile = () => {
 
     const updateProfile = async () => {
         try {
-            let res = await axios.put(`${API}/users/${user.uid}`, updatedUser)
+          await axios.put(`${API}/users/${user.uid}`, updatedUser)
         } catch (error) {
             console.log(error)
         }
