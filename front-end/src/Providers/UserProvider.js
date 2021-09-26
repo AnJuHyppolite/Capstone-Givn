@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from "react";
-import { useHistory } from "react-router";
 import { auth } from "../Services/Firebase";
 import { apiURL } from "../util/apiURL";
 import axios from "axios";
@@ -24,8 +23,8 @@ const UserProvider = (props) => {
         email: email,
         score: score,
         id: id,
-        uid: uid,
-        photo_url: user.photo_url
+        photo_url: user.photo_url,
+        uid: uid
       })
     } catch (error) {
       console.log(error)
@@ -62,11 +61,7 @@ const UserProvider = (props) => {
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
       console.log("FIREBASE: OnAuthStateChanged")
-      if (user) {
-        await fetchUser(user)
-      } else {
-        setUser(null);
-      }
+      user ? await fetchUser(user) : setUser(null);
     });
   }, []);
 
