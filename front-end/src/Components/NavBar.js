@@ -3,7 +3,6 @@ import "../Styles/NavBar.css";
 import { signOut } from "../Services/Firebase";
 import { UserContext } from "../Providers/UserProvider";
 import { useContext, useState } from "react";
-import AboutPage from "../Pages/AboutPage";
 
 import logo from "../Assets/onlinelogomaker-091421-1958-0090.png";
 
@@ -43,7 +42,7 @@ const NavBar = () => {
           </div>
           <img
             src={user.photo_url}
-            alt="user-photo"
+            alt='user'
             className="profile"
             onClick={handleDropdown}
           />
