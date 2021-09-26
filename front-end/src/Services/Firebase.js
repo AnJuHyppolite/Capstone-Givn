@@ -55,4 +55,10 @@ export const signOut = async () => {
   }
 };
 
+export const login = (email, password) =>
+  auth.signInWithEmailAndPassword(email, password);
+export const signUp = (email, password) =>
+  auth.createUserWithEmailAndPassword(email, password);
+// export const getFirebaseIdToken = () => firebase.auth().currentUser.getIdToken(false);
+
 export default firebase;

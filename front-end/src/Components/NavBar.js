@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import "../Styles/NavBar.css";
 import { signOut } from "../Services/Firebase";
 import { UserContext } from "../Providers/UserProvider";
@@ -7,12 +7,14 @@ import { useContext, useState } from "react";
 import logo from "../Assets/onlinelogomaker-091421-1958-0090.png";
 
 const NavBar = () => {
+  const history = useHistory();
   const { user } = useContext(UserContext);
   const [open, setOpen] = useState(false);
 
-  const handleSignOut = () => {
-    signOut();
-    setOpen(false);
+  const handleSignOut = async() => {
+    await signOut();
+    // setOpen(false);
+    history.push("/");
   };
 
   const handleDropdown = () => {
@@ -42,7 +44,7 @@ const NavBar = () => {
           </div>
           <img
             src={user.photo_url}
-            alt='user'
+            alt="user"
             className="profile"
             onClick={handleDropdown}
           />
@@ -55,6 +57,7 @@ const NavBar = () => {
             </li>
             <li>
               <i class="fas fa-sign-out-alt"></i>
+
               <button onClick={handleSignOut}>Sign Out</button>
             </li>
           </ul>
