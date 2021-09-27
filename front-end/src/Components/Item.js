@@ -3,6 +3,7 @@ import axios from "axios";
 import { apiURL } from "../util/apiURL.js";
 import { useEffect, useState } from "react";
 import ShareButton from "./ShareButton.js";
+import getElapsedPostedTime from "../Helpers/ElapsedTime.js";
 
 const API = apiURL();
 
@@ -45,7 +46,7 @@ const Item = ({ item, modalIsOpen, setModalIsOpen }) => {
           <div>
             <h3>{itemUser.display_name}</h3>
             <h5>
-              {item.created_at} ({item.location})
+              {getElapsedPostedTime(item.created_at)} <br/>({item.address.substring(0, item.address.length-21)})
             </h5>
           </div>
         </div>
