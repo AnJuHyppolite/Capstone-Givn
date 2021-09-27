@@ -23,10 +23,7 @@ const Map = props => {
       center: [(user?.longitude ? user.longitude: lng), (user?.latitude ? user.latitude : lat)],
       zoom: (user?.longitude ? 17 : zoom)
     });
-    // const geocoder = new MapboxGeocoder({
-    //   accessToken: mapboxgl.accessToken,
-    //   mapboxgl: mapboxgl
-    //   });
+    
     let geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       marker: {
@@ -49,28 +46,13 @@ const Map = props => {
       setLat(map.getCenter().lat.toFixed(4));
       setZoom(map.getZoom().toFixed(2));
 
-      // if(geocoder && geocoder.lastSelected){
-      //   let locationString = geocoder.lastSelected;
-      //   let locationObject = JSON.parse(locationString.replace(/'/g, "\""));
-      //   props.updateLocation(locationObject['place_name'])
-      // }
     });
 
-    // Clean up on unmount
-    return () => {
-      map.remove();
-    }
+    return () => { map.remove(); }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
 
   return (
     <div>
-      {/* <div className='sidebarStyle'>
-        <div>
-          Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-        </div>
-      </div> */}
-
       <div className='map-container' ref={mapContainerRef} />
       <div id='geocoder-container'></div>
     </div>

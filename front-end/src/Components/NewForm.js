@@ -28,7 +28,6 @@ const createdTime = (currentdate.getMonth()+1)  + "/"  + currentdate.getDate() +
   const history = useHistory()
 
   const handleChange = (e) => {
-    debugger
     setNewItem({ ...newItem, [e.target.id]: e.target.value });
   };
 
