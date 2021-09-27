@@ -32,7 +32,7 @@ const Map = props => {
       marker: {
         color: 'orange'
       },
-      placeholder: user ? user.address : "Address where item is: ",
+      placeholder: user?.address ? (user.address==="EARTH" ? "Address where item is: " : user.address) : "Address where item is: ",
       mapboxgl: mapboxgl
     });
     geocoder.on('result', (result) => {

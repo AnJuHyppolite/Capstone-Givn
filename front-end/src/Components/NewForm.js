@@ -8,13 +8,16 @@ import "../Styles/NewForm.css"
 
 const NewForm = () => {
   const {user} = useContext(UserContext);
+const currentdate = new Date(); 
+const createdTime = (currentdate.getMonth()+1)  + "/"  + currentdate.getDate() + "/" + currentdate.getFullYear() + " "  
+                + currentdate.getHours() + ":"  + currentdate.getMinutes() 
   const [newItem, setNewItem] = useState({
     title: "",
     description: "",
     address: user ? (user.address === "EARTH" ? "" : user.address) : "",
     longitude: user ? user.longitude : 0,
     latitude: user ? user.latitude : 0,
-    created_at: new Date().toDateString(),
+    created_at: createdTime,
     status: "active",
     is_biodegradable: false,
     expiration: 0
@@ -25,6 +28,7 @@ const NewForm = () => {
   const history = useHistory()
 
   const handleChange = (e) => {
+    debugger
     setNewItem({ ...newItem, [e.target.id]: e.target.value });
   };
 
