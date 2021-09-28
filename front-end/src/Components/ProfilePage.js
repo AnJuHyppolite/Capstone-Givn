@@ -18,15 +18,11 @@ const ProfilePage = () => {
 
   useEffect(() => {
     const getItems = async () => {
-
       try {
         let res = await axios.get(`${API}/users/${user.uid}/items`);
         setActiveItems(res.data.filter(item => item.status === "active"))
         setInactiveItems(res.data.filter(item => item.status === "inactive"))
-      } catch (error) {
-        console.log(error)
-      }
-
+      } catch (error) {  console.log(error) }
     }
     getItems()
   }, [API, user?.uid])
@@ -47,6 +43,7 @@ const ProfilePage = () => {
           <button onClick={() => history.push('/profile/edit')}>EDIT INORMATION</button>
         </section>
       )}
+
       <div className="profile-items-list">
         <div className="inactive-items">
           {inactiveItems.map(item => <ProfileItem item={item} key={item} />)}
@@ -55,6 +52,7 @@ const ProfilePage = () => {
           {activeItems.map(item => <ProfileItem item={item} key={item} />)}
         </div>
       </div>
+      
     </div>
   );
 };
