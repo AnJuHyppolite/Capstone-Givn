@@ -22,7 +22,7 @@ const ProfileItem = ({ item }) => {
 
         }
         getPhotos()
-    }, [API])
+    }, [API, item?.id])
 
 
 

@@ -11,7 +11,8 @@ const ProfilePage = () => {
   const history = useHistory()
   // const [givenItems, setGivenItems] = useState([])
   // const [gottenItems, setGottenItems] = useState([])
-  const [items, setItems] = useState([])
+  const [activeItems, setActiveItems] = useState([])
+  const [inactiveItems, setInactiveItems] = useState([])
 
   const { user } = useContext(UserContext);
 
@@ -20,31 +21,15 @@ const ProfilePage = () => {
 
       try {
         let res = await axios.get(`${API}/users/${user.uid}/items`);
-        setItems(res.data)
+        setActiveItems(res.data.filter(item => item.status === "active"))
+        setInactiveItems(res.data.filter(item => item.status === "inactive"))
       } catch (error) {
         console.log(error)
       }
 
     }
     getItems()
-  }, [API])
-
-  // useEffect(() => {
-
-  //   const getTransactions = async () => {
-  //     try {
-  //       let res = await axios.get(`${API}/users/${user.uid}/transactions`);
-  //       setGivenItems(res.data.filter(transaction => {
-  //         return transaction.giver_id === user.uid
-  //       }))
-  //       setGottenItems(res.data.filter(transaction => {
-  //         return transaction.getter_id === user.uid
-  //       }))
-  //     } catch (error) { console.log(error); }
-  //   }
-
-  //   getTransactions()
-  // }, [API, user.uid])
+  }, [API, user?.uid])
 
   return (
     <div>
@@ -59,25 +44,17 @@ const ProfilePage = () => {
           <div>
             <h3>{user.address} | Score: {user.score}</h3>
           </div>
-          {/* <Link> </Link> */}
           <button onClick={() => history.push('/profile/edit')}>EDIT INORMATION</button>
         </section>
       )}
       <div className="profile-items-list">
-        {items.map(item=><ProfileItem item={item} key={item}/>)}
-
+        <div className="inactive-items">
+          {inactiveItems.map(item => <ProfileItem item={item} key={item} />)}
+        </div>
+        <div className="active-items">
+          {activeItems.map(item => <ProfileItem item={item} key={item} />)}
+        </div>
       </div>
-      {/* <p>Given Items</p>
-      {givenItems.map((givenItem, index) => {
-
-        return <li key={index}>{givenItem.item_id}</li>
-      })}
-
-      <p>Gotten Items</p>
-      {gottenItems.map((gottenItem, index) => {
-        console.log("GOTTEN ITEMS>>>>  ", gottenItem.item_id)
-        return <li key={index}>{gottenItem.item_id}</li>
-      })} */}
     </div>
   );
 };
