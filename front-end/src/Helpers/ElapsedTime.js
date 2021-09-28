@@ -12,9 +12,18 @@ const getElapsedPostedTime = (start) => {
     const oneDay = 1000 * 60 * 60 * 24;
 
     const diffInTime = date2.getTime() - date1.getTime();
+    const diffInMonths = diffInTime / (oneDay * 30)
     const diffInDays = diffInTime / oneDay;
     const diffInHours = diffInTime / 3600000
     const diffInMinutes = diffInTime / 60000
+    if(diffInMonths >=1){
+        if(diffInMonths<2){
+            return "posted a month ago"
+        }else{
+            return "posted " + Math.round(diffInMonths) + " months ago"
+        }
+
+    }
     if (diffInDays >= 1) {
         if (diffInDays < 2) {
             return "posted " + Math.round(diffInDays) + " day ago"

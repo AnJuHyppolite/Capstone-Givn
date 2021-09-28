@@ -44,3 +44,12 @@
     align-self: center;
     color: #1a0e3e;
 }
+
+.profile-items{
+  background-color: blue;
+}
+
+.profile-item-image{
+  width: 200px;
+  height: 200px;
+}

@@ -3,34 +3,48 @@ import { useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
 import { UserContext } from "../Providers/UserProvider";
+import ProfileItem from "./ProfileItem";
 // import { useState } from "react";
 
 const ProfilePage = () => {
   const API = apiURL();
   const history = useHistory()
-  const [givenItems, setGivenItems] = useState([])
-  const [gottenItems, setGottenItems] = useState([])
+  // const [givenItems, setGivenItems] = useState([])
+  // const [gottenItems, setGottenItems] = useState([])
+  const [items, setItems] = useState([])
 
   const { user } = useContext(UserContext);
 
-
-
   useEffect(() => {
+    const getItems = async () => {
 
-    const getTransactions = async () => {
       try {
-        let res = await axios.get(`${API}/users/${user.uid}/transactions`);
-        setGivenItems(res.data.filter(transaction => {
-          return transaction.giver_id === user.uid
-        }))
-        setGottenItems(res.data.filter(transaction => {
-          return transaction.getter_id === user.uid
-        }))
-      } catch (error) { console.log(error); }
-    }
+        let res = await axios.get(`${API}/users/${user.uid}/items`);
+        setItems(res.data)
+      } catch (error) {
+        console.log(error)
+      }
 
-    getTransactions()
-  }, [API, user.uid])
+    }
+    getItems()
+  }, [API])
+
+  // useEffect(() => {
+
+  //   const getTransactions = async () => {
+  //     try {
+  //       let res = await axios.get(`${API}/users/${user.uid}/transactions`);
+  //       setGivenItems(res.data.filter(transaction => {
+  //         return transaction.giver_id === user.uid
+  //       }))
+  //       setGottenItems(res.data.filter(transaction => {
+  //         return transaction.getter_id === user.uid
+  //       }))
+  //     } catch (error) { console.log(error); }
+  //   }
+
+  //   getTransactions()
+  // }, [API, user.uid])
 
   return (
     <div>
@@ -49,7 +63,11 @@ const ProfilePage = () => {
           <button onClick={() => history.push('/profile/edit')}>EDIT INORMATION</button>
         </section>
       )}
-      <p>Given Items</p>
+      <div className="profile-items-list">
+        {items.map(item=><ProfileItem item={item} key={item}/>)}
+
+      </div>
+      {/* <p>Given Items</p>
       {givenItems.map((givenItem, index) => {
 
         return <li key={index}>{givenItem.item_id}</li>
@@ -59,7 +77,7 @@ const ProfilePage = () => {
       {gottenItems.map((gottenItem, index) => {
         console.log("GOTTEN ITEMS>>>>  ", gottenItem.item_id)
         return <li key={index}>{gottenItem.item_id}</li>
-      })}
+      })} */}
     </div>
   );
 };
