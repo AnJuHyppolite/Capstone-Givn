@@ -3,34 +3,29 @@ import { useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
 import { UserContext } from "../Providers/UserProvider";
+import ProfileItem from "./ProfileItem";
 // import { useState } from "react";
 
 const ProfilePage = () => {
   const API = apiURL();
   const history = useHistory()
-  const [givenItems, setGivenItems] = useState([])
-  const [gottenItems, setGottenItems] = useState([])
+  // const [givenItems, setGivenItems] = useState([])
+  // const [gottenItems, setGottenItems] = useState([])
+  const [activeItems, setActiveItems] = useState([])
+  const [inactiveItems, setInactiveItems] = useState([])
 
   const { user } = useContext(UserContext);
 
-
-
   useEffect(() => {
-
-    const getTransactions = async () => {
+    const getItems = async () => {
       try {
-        let res = await axios.get(`${API}/users/${user.uid}/transactions`);
-        setGivenItems(res.data.filter(transaction => {
-          return transaction.giver_id === user.uid
-        }))
-        setGottenItems(res.data.filter(transaction => {
-          return transaction.getter_id === user.uid
-        }))
-      } catch (error) { console.log(error); }
+        let res = await axios.get(`${API}/users/${user.uid}/items`);
+        setActiveItems(res.data.filter(item => item.status === "active"))
+        setInactiveItems(res.data.filter(item => item.status === "inactive"))
+      } catch (error) {  console.log(error) }
     }
-
-    getTransactions()
-  }, [API, user.uid])
+    getItems()
+  }, [API, user?.uid])
 
   return (
     <div>
@@ -45,21 +40,19 @@ const ProfilePage = () => {
           <div>
             <h3>{user.address} | Score: {user.score}</h3>
           </div>
-          {/* <Link> </Link> */}
           <button onClick={() => history.push('/profile/edit')}>EDIT INORMATION</button>
         </section>
       )}
-      <p>Given Items</p>
-      {givenItems.map((givenItem, index) => {
 
-        return <li key={index}>{givenItem.item_id}</li>
-      })}
-
-      <p>Gotten Items</p>
-      {gottenItems.map((gottenItem, index) => {
-        console.log("GOTTEN ITEMS>>>>  ", gottenItem.item_id)
-        return <li key={index}>{gottenItem.item_id}</li>
-      })}
+      <div className="profile-items-list">
+        <div className="inactive-items">
+          {inactiveItems.map(item => <ProfileItem item={item} key={item} />)}
+        </div>
+        <div className="active-items">
+          {activeItems.map(item => <ProfileItem item={item} key={item} />)}
+        </div>
+      </div>
+      
     </div>
   );
 };

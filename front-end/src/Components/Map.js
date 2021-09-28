@@ -33,6 +33,10 @@ const Map = props => {
       mapboxgl: mapboxgl
     });
     geocoder.on('result', (result) => {
+      console.log(result.result.place_name)
+      console.log(result.result.geometry.coordinates[0])
+      console.log(result.result.geometry.coordinates[1])
+      debugger
       props.updateLocation({address: result.result.place_name, lng: result.result.geometry.coordinates[0], lat: result.result.geometry.coordinates[1]})
     })
     map.addControl(geocoder);
