@@ -3,8 +3,8 @@ import "../Styles/AboutPage.css";
 const AboutPage = () => {
   return (
     <div>
-      <h1>About Us</h1>
-      <p>
+      <h1 class="aboutUs">About Us</h1>
+      <p class="aboutInfo">
         Givn is an educational app that encourages and incentivizes users to
         give away their unwanted goods instead of throwing them away. This
         simple app will allow anyone to easily post their unwanted goods and
@@ -12,8 +12,8 @@ const AboutPage = () => {
         for each item they give away and will be presented with educational
         facts about the benefits of recycling each item. Top givers will be
         eligible for prizes.
-      </p>
-      <p>
+        <br />
+        <br />
         What sets Givn App apart from competitors like trash nothing!,
         Craigslist, Listia, and Facebook Marketplace, is that while our app
         helps users get rid of their stuff and aid in preserving the planet, it
@@ -26,26 +26,18 @@ const AboutPage = () => {
             src="https://media-exp1.licdn.com/dms/image/C5603AQFMAP-Uz_wt-g/profile-displayphoto-shrink_800_800/0/1631551061188?e=1637798400&v=beta&t=V4LUi0N3byTEMU-GDxNkx0fUpitw1xvv1JL8hX5D2OY"
             alt="Anju Hyppolite"
           />
-          <h3>Anju Hyppolite </h3>
+          <h3>AnJu Hyppolite </h3>
           <h5>Project Master/Project Manager</h5>
           <p>
-            I am a teaching artist and software engineer who uses theater arts,
+            I am a software engineer and teaching artist who uses theater arts,
             poetry, and playwriting to design curricula and facilitate workshops
             through inquiry-based, healing-centered social equity pedagogy for
-            New York City youth and adults.
-          </p>
-          <p>
-            As a selected Fellow at Pursuit, an intensive 12-month software
-            engineering fellowship with a 9% acceptance rate, I am on the path
-            to becoming a Full Stack Web Developer. My interests lie at the
-            intersection of the arts, technology, and social equity. I am
-            passionate about accessibility, advocacy, building community, and
-            financial literacy. I desire to design products that help
-            communities thrive, especially during times of need. My goal is to
-            join a company that creates products or offers services that cater
-            to the local or larger community.
-          </p>
-          <p>
+            New York City youth and adults. My interests lie at the intersection
+            of the arts, technology, and social equity. I am passionate about
+            designing products that help communities thrive, especially during
+            times of need.
+            <br />
+            <br />
             My experience and artistic scope make me a quintessential asset to
             any communications, performance, educational, or technology team. I
             love working collaboratively and find great satisfaction working as
@@ -83,22 +75,6 @@ const AboutPage = () => {
             together for users to enjoy. This fascination led me to the
             wonderful world of programming.
           </p>
-          <p>
-            After successfully gaining my CompTIA A+, CompTIA Security+, and
-            CompTIA Linux+ certifications from NPower, I became a Tech
-            Professional. I was also selected as a Fellow at Pursuit, an
-            intensive 12-month software engineering fellowship with a 9%
-            acceptance rate, where I am currently building my repertoire in
-            HTML, CSS, JavaScript, and many more. My end goal is to become a
-            video game programmer!
-          </p>
-          <p>
-            When I am not working or learning, I enjoy completing Sudoku puzzles
-            to keep my mind active as well as, of course, video games such as
-            Rocket League, Animal Crossing, and Tetris 99! If you're interested
-            in learning more about me, or joining my Rocket League team, feel
-            free to send me a DM!
-          </p>
           <div className="links">
             <a
               href="https://www.linkedin.com/in/jailene-devine-jones/"
@@ -131,16 +107,6 @@ const AboutPage = () => {
             Pursuit, an intensive 12 - month software engineering fellowship
             with a 9% acceptance rate.
           </p>
-          <p>
-            Apart from my career as a Full Stack Developer, I am an experienced
-            financial operation and quality assurance professional with a
-            demonstrated history of working in hospitality. Along with my
-            expertise, I consider myself to be an innovative, tenacious, and
-            accountable professional with highly developed communication and
-            interpersonal skills. My professional aspiration is to gain new
-            skill sets that apply to future career opportunities. And empower
-            other people by giving them the right resources through technology.
-          </p>
           <div className="links">
             <a
               href="https://www.linkedin.com/in/jeffrey-sebastian/"
@@ -171,15 +137,6 @@ const AboutPage = () => {
             develop and create tools for music producers and mixing and
             mastering engineers around the world.
           </p>
-          <p>
-            I am focusing on expanding my knowledge by dedicating my time to
-            learning new languages and frameworks. As a professional and a
-            software engineer, no challenge is too big; my ability to focus and
-            break down problems into step by step solutions allows me to
-            consistently deliver elegant solutions on time, and with with a
-            positive attitude. I am driven by a strong company mission and
-            values, smart colleagues, and a strong desire to get it right.
-          </p>
           <div className="links">
             <a
               href="https://www.linkedin.com/in/jordanbobadilla/"
@@ -197,6 +154,9 @@ const AboutPage = () => {
             </a>
           </div>
         </div>
+        {/* <div className="developerEmpty">
+
+        </div> */}
         <div className="developer">
           <img
             src="https://media-exp1.licdn.com/dms/image/C4E03AQEs1mpVIgFwBw/profile-displayphoto-shrink_800_800/0/1606586088168?e=1637798400&v=beta&t=oHz2JMS-b51clTm58FV553dbBFgWYmrJ2qOkJ6Egrss"
@@ -212,14 +172,6 @@ const AboutPage = () => {
             been helped immensely by my community through difficult times and I
             can't wait to start my career so I can repay back my community one
             day.
-          </p>
-          <p>
-            I was introduced to software development in college and it felt
-            comfortable and instinctive to me. I wanted to continue programming
-            so I applied and was accepted into Pursuit's intensive 12-month long
-            software engineering fellowship program. I hope to learn more about
-            software development so that I can one day contribute my skills in
-            meaningful, conscientious work that benefits society.
           </p>
           <div className="links">
             <a
