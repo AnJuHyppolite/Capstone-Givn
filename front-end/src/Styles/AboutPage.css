@@ -1,13 +1,13 @@
 .container {
-  display: inline-flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  align-content: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 2fr 2fr;
+  justify-content: center;
 }
 
 .developer img {
-  width: 400px;
-  height: 400px;
+  width: 250px;
+  height: 250px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -20,12 +20,13 @@
   border-radius: 1rem;
   box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  margin-left: 400px;
-  margin-right: 400px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .developer h3 {
   text-align: center;
+  font-size: 25px;
 }
 
 .developer h5 {
@@ -42,6 +43,13 @@
 .links {
   text-align: center;
   padding-bottom: 20px;
+  font-size: 50px;
+}
+
+.links a {
+    text-decoration: none;
+    padding-right: 20px;
+    padding-left: 20px;
 }
 
 h1 {
@@ -54,4 +62,16 @@ p {
   margin-right: 40px;
 }
 
+.aboutUs {
+    padding-top: 30px;
+}
+.aboutInfo {
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-left: 300px;
+    margin-right: 300px;
+    padding: 20px
 
+}
