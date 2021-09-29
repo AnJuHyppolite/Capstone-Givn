@@ -1,12 +1,14 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { apiURL } from "../util/apiURL";
 import Item from "./Item";
+import { UserContext } from "../Providers/UserProvider.js";
 const API = apiURL();
 
 const ItemsList = () => {
   const [items, setItems] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const { user } = useContext(UserContext)
 
   useEffect(() => {
     const fetchAllItems = async () => {
@@ -25,6 +27,7 @@ const ItemsList = () => {
       {items.map((item) => {
         return (
           <Item
+            user={user}
             item={item}
             key={item.id}
             modalIsOpen={modalIsOpen}
