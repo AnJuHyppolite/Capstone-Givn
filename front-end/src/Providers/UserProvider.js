@@ -35,7 +35,7 @@ const UserProvider = (props) => {
                   let res = await axios.post(`${API}/users`, newUser);
                   const { email, score, id, display_name, uid } = res.data;
                   setUser({
-                    address: 0, //set to res.data.address, then use mapbox to find lng * lat of address
+                    address: "EARTH", //set to res.data.address, then use mapbox to find lng * lat of address
                     longitude: 0,
                     latitude: 0,
                     display_name: display_name,

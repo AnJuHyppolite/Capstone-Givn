@@ -4,13 +4,10 @@ import { useHistory } from "react-router";
 import axios from "axios";
 import { UserContext } from "../Providers/UserProvider";
 import ProfileItem from "./ProfileItem";
-// import { useState } from "react";
 
 const ProfilePage = () => {
   const API = apiURL();
   const history = useHistory()
-  // const [givenItems, setGivenItems] = useState([])
-  // const [gottenItems, setGottenItems] = useState([])
   const [activeItems, setActiveItems] = useState([])
   const [inactiveItems, setInactiveItems] = useState([])
 
@@ -19,7 +16,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const getItems = async () => {
       try {
-        let res = await axios.get(`${API}/users/${user.uid}/items`);
+        let res = await axios.get(`${API}/users/${user?.uid}/items`);
         setActiveItems(res.data.filter(item => item.status === "active"))
         setInactiveItems(res.data.filter(item => item.status === "inactive"))
       } catch (error) {  console.log(error) }
@@ -52,7 +49,7 @@ const ProfilePage = () => {
           {activeItems.map(item => <ProfileItem item={item} key={item} />)}
         </div>
       </div>
-      
+
     </div>
   );
 };
