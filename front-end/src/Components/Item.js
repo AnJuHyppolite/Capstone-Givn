@@ -3,7 +3,7 @@ import axios from "axios";
 import { apiURL } from "../util/apiURL.js";
 import { useEffect, useState } from "react";
 import ShareButton from "./ShareButton.js";
-import getElapsedPostedTime from "../Helpers/elapsedTime.js";
+import getElapsedPostedTime from "../Helpers/ElapsedTime.js";
 import relativeDistance from "../Helpers/relativeDistance.js";
 
 const API = apiURL();
