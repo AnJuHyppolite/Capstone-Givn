@@ -37,6 +37,7 @@ INSERT INTO photos(photo_url, item_id) VALUES
 ('https://m.media-amazon.com/images/I/81qT6I2UYzL._AC_SX679_.jpg', 1),
 ('https://i.ebayimg.com/images/g/g~gAAOSwLSJhBnUA/s-l500.jpg', 2),
 ('https://i.ebayimg.com/images/g/u~wAAOSwLWVhBnUC/s-l500.jpg', 2),
+('https://media.istockphoto.com/photos/nutella-picture-id514211861?k=20&m=514211861&s=612x612&w=0&h=P-J-EIgExKsaoDxOgv1X3vRiy-EIFadvu95oMrPNmOk=', 3),
  ('https://i.ebayimg.com/images/g/0twAAOSwHSRhQmig/s-l500.jpg', 4),
  ('https://i.ebayimg.com/images/g/gsgAAOSwpbFhQmii/s-l500.jpg', 4),
  ('https://i.ebayimg.com/images/g/Eu0AAOSwLf9gcJfX/s-l500.jpg', 5),
