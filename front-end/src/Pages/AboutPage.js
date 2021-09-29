@@ -2,7 +2,7 @@ import "../Styles/AboutPage.css";
 
 const AboutPage = () => {
   return (
-    <div>
+    <div className="About">
       <h1 class="aboutUs">About Us</h1>
       <p class="aboutInfo">
         Givn is an educational app that encourages and incentivizes users to
