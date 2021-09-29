@@ -45,7 +45,11 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
       <div className="top">
         <div className="top-container">
           <img
-            src={itemUser.photo_url ? itemUser.photo_url : "https://cdn2.iconfinder.com/data/icons/flat-design-icons-set-2/256/face_human_blank_user_avatar_mannequin_dummy-512.png"}
+            src={
+              itemUser.photo_url
+                ? itemUser.photo_url
+                : "https://cdn2.iconfinder.com/data/icons/flat-design-icons-set-2/256/face_human_blank_user_avatar_mannequin_dummy-512.png"
+            }
             alt="user-portrait"
           />
           <div>
@@ -56,33 +60,23 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
             </h5>
           </div>
         </div>
-        <i className="fas fa-ellipsis-h"></i>
       </div>
       <Link to={`/posts/${item.id}`}>
         <h2>{item.title}</h2>
         <img src={photos[0]?.photo_url} alt="imageItem" />
       </Link>
-      {item.is_biodegradable ? (
-        <p>Expiring In: {item.expiration} (day(s))</p>
-      ) : null}
-      <h6>
-        {" "}
-        <i className="fas fa-leaf"></i> Paper accounts for 25% of landfill waste and
-        33% of municipal waste. By getting this item, you help to save the
-        enviroment.
-      </h6>
       <div className="btns">
         <button onClick={() => setModalIsOpen(true)}>
           {" "}
-          <i className="fas fa-share"></i> Share
+          <i className="fas fa-share"></i>
         </button>
         <button>
           {" "}
-          <i className="fas fa-heart"></i> Interested
+          <i className="fas fa-heart"></i>
         </button>
         <button>
           {" "}
-          <i className="fas fa-comment-alt"></i> Message
+          <i className="fas fa-comment-alt"></i>
         </button>
       </div>
       <ShareButton

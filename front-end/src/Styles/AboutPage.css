@@ -1,11 +1,11 @@
-.container {
+.About .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 2fr 2fr;
   justify-content: center;
 }
 
-.developer img {
+.About .developer img {
   width: 250px;
   height: 250px;
   display: block;
@@ -15,7 +15,7 @@
   border-radius: 50%;
 }
 
-.developer {
+.About .developer {
   background-color: #fff;
   border-radius: 1rem;
   box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);
@@ -24,48 +24,49 @@
   margin-right: 10px;
 }
 
-.developer h3 {
+.About .developer h3 {
   text-align: center;
   font-size: 25px;
 }
 
-.developer h5 {
+.About .developer h5 {
   text-align: center;
   color: #a18bb2;
 }
 
-.developer p {
+.About .developer p {
   text-align: center;
   margin-left: 40px;
   margin-right: 40px;
 }
 
-.links {
+.About .links {
   text-align: center;
   padding-bottom: 20px;
   font-size: 50px;
 }
 
-.links a {
+.About .links a {
     text-decoration: none;
     padding-right: 20px;
     padding-left: 20px;
 }
 
-h1 {
+.About h1 {
   text-align: center;
 }
 
-p {
+.About p {
   text-align: center;
   margin-left: 40px;
   margin-right: 40px;
 }
 
-.aboutUs {
+.About .aboutUs {
     padding-top: 30px;
 }
-.aboutInfo {
+
+.About .aboutInfo {
     background-color: #fff;
     border-radius: 1rem;
     box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);

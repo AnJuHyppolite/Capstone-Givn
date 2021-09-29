@@ -11,9 +11,6 @@ const Index = () => {
         <h1>Recent Items</h1>
         <ItemsList />
       </section>
-      <aside className="right">
-        <h1>Leaderboard</h1>
-      </aside>
     </div>
   );
 };
