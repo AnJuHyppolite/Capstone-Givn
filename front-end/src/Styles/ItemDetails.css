@@ -1,0 +1,18 @@
+.image {
+  display: flex;
+  justify-content: last baseline;
+  margin-left: 30px;
+}
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  padding: 20px;
+}
+img {
+  height: 350px;
+  width: 350px;
+  margin-top: 50px;
+}
+
+.info {
+  margin-top: 20px;
+}
