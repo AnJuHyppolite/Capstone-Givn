@@ -9,6 +9,7 @@ const API = apiURL();
 const ItemsList = () => {
   const [items, setItems] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [cateogires, setCategories] = useState({cateogires: []})
   const { user } = useContext(UserContext)
 
   useEffect(() => {
@@ -24,7 +25,14 @@ const ItemsList = () => {
   }, []);
 
   const handleCategories = (e) => {
-    const { value } = e.target;
+    let target = e.target
+		let name = target.name
+    //here
+    let value = Array.from(target.selectedOptions, option => option.value);
+    debugger
+    setCategories({[name]: value})
+    //setCategories([...cateogires, [name]: value])
+      // [name]: value
   }
   const handleFilter = (e) => {
     const { value } = e.target;
@@ -32,11 +40,9 @@ const ItemsList = () => {
       if( user?.longitude !== 0){
         items.sort((itemA, itemB)=> Number(relativeDistance(user,itemA)) - Number(relativeDistance(user,itemB)) )
       setItems([...items])
-      debugger
     }
   }
   if (Number(value) === 2) {//filter by posted time
-    debugger
     let newArr = items.sort((a,b)=>new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
        setItems([...newArr])
   }
@@ -45,22 +51,22 @@ const ItemsList = () => {
   return (
     <>
     <p>Categories: </p>
-      <select defaultValue="" onChange={handleCategories}>
+      <select onChange={handleCategories} defaultValue={cateogires.cateogires} name="categories" multiple={true} value={cateogires.cateogires}>
         <option disabled></option>
-        <option>Electronics</option>
-        <option>Clothes</option>
-        <option>Food</option>
-        <option>Shoes</option>
-        <option>Toys</option>
-        <option>Books</option>
-        <option>Hardware</option>
-        <option>Kitchenware</option>
-        <option>Furniture</option>
-        <option>Jewelry</option>
-        <option>Arts and Crafts</option>
-        <option>Sports and Outdoors</option>
-        <option>Beauty and Health</option>
-        <option>Other</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Clothes">Clothes</option>
+        <option value="Food">Food</option>
+        <option value="Shoes">Shoes</option>
+        <option value="Toys">Toys</option>
+        <option value="Books">Books</option>
+        <option value="Hardware">Hardware</option>
+        <option value="Kitchenware">Kitchenware</option>
+        <option value="Furniture">Furniture</option>
+        <option value="Jewelry">Jewelry</option>
+        <option value="Arts and Crafts">Arts and Crafts</option>
+        <option value="Sports and Outdoors">Sports and Outdoors</option>
+        <option value="Beauty and Health">Beauty and Health</option>
+        <option value="Other">Other</option>
       </select>
 
     <p>Filter BY: </p>
