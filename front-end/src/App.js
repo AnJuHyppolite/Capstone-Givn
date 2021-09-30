@@ -11,6 +11,7 @@ import SignUp from "./Pages/SignUp";
 import FourOFour from "./Pages/FourOFour";
 import AboutPage from "./Pages/AboutPage";
 import EditProfile from "./Components/EditProfile";
+import Chats from "./Components/Chats";
 
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
               </Route>
               <Route exact path="/login">
                 <Home />
+              </Route>
+              <Route exact path="/chats">
+                <Chats />
               </Route>
               <Route exact path="/signup">
                 <SignUp />

@@ -1,10 +1,10 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import { auth } from "../Services/Firebase";
 import { apiURL } from "../util/apiURL";
 import axios from "axios";
 
 export const UserContext = createContext(null);
-
+export const useAuth = () => useContext(UserContext);
 const UserProvider = (props) => {
   const [user, setUser] = useState(null);
   const API = apiURL();
@@ -13,13 +13,13 @@ const UserProvider = (props) => {
     auth.onAuthStateChanged(async (user) => {
       console.log("FIREBASE: OnAuthStateChanged");
       if (user) {
-
-        const fetchUser = async (user) => {//FETCHUSER**********
+        const fetchUser = async (user) => {
+          //FETCHUSER**********
           try {
             let res = await axios.get(`${API}/users/${user.uid}`);
             if (res.data.error) {
-
-              const createUser = async (user) => {//CREATEUSER**************
+              const createUser = async (user) => {
+                //CREATEUSER**************
                 const dummyPicture =
                   "https://cdn2.iconfinder.com/data/icons/flat-design-icons-set-2/256/face_human_blank_user_avatar_mannequin_dummy-512.png";
                 const { photoURL } = user;
@@ -48,7 +48,7 @@ const UserProvider = (props) => {
                 } catch (error) {
                   console.log(error);
                 }
-              };//CREATEUSER******************
+              }; //CREATEUSER******************
 
               await createUser(user);
             } else {
@@ -78,8 +78,10 @@ const UserProvider = (props) => {
                 photo_url: photo_url ? photo_url : photoURL,
               });
             }
-          } catch (error) { console.log(error); }
-        };//FETCH USER*******************
+          } catch (error) {
+            console.log(error);
+          }
+        }; //FETCH USER*******************
 
         await fetchUser(user);
       } else {
