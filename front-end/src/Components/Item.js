@@ -8,7 +8,7 @@ import relativeDistance from "../Helpers/relativeDistance.js";
 
 const API = apiURL();
 
-const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
+const Item = ({ user, item, modalIsOpen, setModalIsOpen}) => {
   const [photos, setPhotos] = useState([]);
   const [itemUser, setItemUser] = useState({});
   const [distance, setDistance] = useState(undefined)
