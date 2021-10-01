@@ -73,7 +73,7 @@ const Chats = () => {
         </div>
         <ChatEngine
           height="calc(1000vh-100px)"
-          projectID="17fbc9ac-063f-48b0-a912-078d00ccbead"
+          projectID={process.env.REACT_APP_CHAT_ENGINE_ID}
           userName={user.email}
           userSecret={user.uid}
         />
