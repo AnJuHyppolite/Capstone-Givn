@@ -10,18 +10,22 @@ const API = apiURL();
 const ItemsList = () => {
   const [items, setItems] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  // const [cateogires, setCategories] = useState({ cateogires: [] })
   const { user } = useContext(UserContext)
   const options = [
-    { label: "Electronics", value: "Electronics" },
-    { label: "Clothes", value: "Clothes" },
-    { label: "Food", value: "Food" },
-    { label: "Shoes", value: "Shoes" },
-    { label: "Toy", value: "Toys"},
-    { label: "Books", value: "Books" },
-    { label: "Hardware", value: "Hardware" },
-    { label: "Kitchenware", value: "Kitchenware" },
-    { label: "Furniture", value: "Furniture" }
+    { label: "Electronics 💻", value: "Electronics" },
+    { label: "Clothes 👕", value: "Clothes" },
+    { label: "Food 🍔", value: "Food" },
+    { label: "Shoes 👞", value: "Shoes" },
+    { label: "Toys 🧸", value: "Toys"},
+    { label: "Books 📚", value: "Books" },
+    { label: "Hardware 🛠", value: "Hardware" },
+    { label: "Kitchenware 🥂", value: "Kitchenware" },
+    { label: "Furniture 🛋", value: "Furniture" },
+    { label: "Jewelry 💎", value: "Jewelry"},
+    { label: "Arts & Crafts 🎨", value: "Arts & Crafts" },
+    { label: "Sports & Outdoors 🚴‍♂️", value: "Sports & Outdoors" },
+    { label: "Beauty & Health 💄", value: "Beauty & Health" },
+    { label: "Other 🎆", value: "Other" }
   ];
 
   const [selected, setSelected] = useState(options);
@@ -64,15 +68,12 @@ const ItemsList = () => {
   
   return (
     <>
-      
       <MultiSelect
         options={options}
         value={selected}
         onChange={setSelected}
         labelledBy={"Select"}
       />
-
-      
 
       <p>Filter BY: </p>
       <select defaultValue="" onChange={handleFilter}>
@@ -81,7 +82,7 @@ const ItemsList = () => {
         <option value={2}>Time: newly listed</option>
       </select>
 
-      <ul>
+      <ul className="index-items">
         {items.map((item) => {
           return (
 

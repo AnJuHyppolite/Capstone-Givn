@@ -15,7 +15,7 @@
     margin: 0 2rem;
 }
 
-.Index section ul {
+.Index section .index-items {
     list-style: none;
     padding-left: 0;
     display: grid;
@@ -25,7 +25,7 @@
     gap: 2rem;
 }
 
-.Index li {
+.Index .index-item {
     margin-left: 0;
     background-color: #fff;
     border-radius: 1rem;
@@ -131,9 +131,7 @@
     display: none;
 }
 
-.dropdown-heading-value{
-    
-}
+
 
 .dropdown-container{
     background-color: yellow;

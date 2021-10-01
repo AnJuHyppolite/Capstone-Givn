@@ -41,7 +41,7 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen}) => {
   }, [item.giver_id, user]);
 
   return (
-    <li>
+    <li className="index-item">
       <div className="top">
         <div className="top-container">
           <img
