@@ -7,10 +7,10 @@ import Map from "./Map";
 import "../Styles/NewForm.css"
 
 const NewForm = () => {
-  const {user} = useContext(UserContext);
-const currentdate = new Date(); 
-const createdTime = (currentdate.getMonth()+1)  + "/"  + currentdate.getDate() + "/" + currentdate.getFullYear() + " "  
-                + currentdate.getHours() + ":"  + currentdate.getMinutes() 
+  const { user } = useContext(UserContext);
+  const currentdate = new Date();
+  const createdTime = (currentdate.getMonth() + 1) + "/" + currentdate.getDate() + "/" + currentdate.getFullYear() + " "
+    + currentdate.getHours() + ":" + currentdate.getMinutes()
   const [newItem, setNewItem] = useState({
     title: "",
     description: "",
@@ -18,30 +18,20 @@ const createdTime = (currentdate.getMonth()+1)  + "/"  + currentdate.getDate() +
     longitude: user ? user.longitude : 0,
     latitude: user ? user.latitude : 0,
     created_at: createdTime,
+    category: "",
     status: "active",
     is_biodegradable: false,
     expiration: 0
   });
   const [images, setImages] = useState([])
-  const [categories, setCategories] = useState([])
   const API = apiURL();
   const history = useHistory()
+  const categories = ['Electronics', 'Clothes', 'Food', 'Shoes', 'Toys', 'Books', 'Hardware', 'Kitchenware',
+    'Furniture', 'Jewelry', 'Arts and Crafts', 'Sports and Outdoors', 'Beauty and Health', 'Other']
 
   const handleChange = (e) => {
     setNewItem({ ...newItem, [e.target.id]: e.target.value });
   };
-
-  useEffect(() => {
-    const getCategories = async () => {
-      try {
-        let res = await axios.get(`${API}/categories`)
-        setCategories(res.data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getCategories()
-  }, [API])
 
   async function getURL() {
     const { data } = await axios.get(`${API}/s3url`)
@@ -113,9 +103,13 @@ const createdTime = (currentdate.getMonth()+1)  + "/"  + currentdate.getDate() +
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(!user){
+    if (!user) {
       alert("You must have an account before posting an item")
       history.push("/")
+      return;
+    }
+    if (!newItem['category']) {
+      alert("Select a category before posting item")
       return;
     }
     if (newItem['longitude'] === 0) {
@@ -126,10 +120,6 @@ const createdTime = (currentdate.getMonth()+1)  + "/"  + currentdate.getDate() +
     await postPhotos(id)
     history.push("/posts")
   };
-
-  const categoryOptions = categories.map(category => {
-    return <option key={category.id} value={category.name}>{category.name}</option>
-  })
 
   return (
     <div>
@@ -153,10 +143,11 @@ const createdTime = (currentdate.getMonth()+1)  + "/"  + currentdate.getDate() +
           required
         />
 
-        {/* add "multiple" for multiple selections in select*/}
-        <select id="category">
-          <option>Select a Category</option>
-          {categoryOptions}
+        <select id="category" onChange={handleChange} defaultValue="Select category" required>
+          <option disabled>Select category</option>
+          {categories.map(category => {
+            return <option key={category} value={category}>{category}</option>
+          })}
         </select>
 
         <p>Enter location to pick up item:</p>
@@ -177,8 +168,6 @@ const createdTime = (currentdate.getMonth()+1)  + "/"  + currentdate.getDate() +
           ))}
         </div>
         <br />
-
-
         <br></br>
         <button className="submit-item-form" type="submit">Submit</button>
       </form>
