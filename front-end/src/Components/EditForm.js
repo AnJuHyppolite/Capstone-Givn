@@ -12,6 +12,7 @@ const EditForm = () => {
   const handleChange = (e) => {
     setNewItem({ ...newItem, [e.target.id]: e.target.value });
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();

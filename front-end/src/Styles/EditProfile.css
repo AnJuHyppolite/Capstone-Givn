@@ -1,0 +1,10 @@
+.editprofile-image:hover{
+    
+        padding: 8px 15px;
+        visibility: visible;
+        opacity: 0.7; 
+        cursor: pointer;
+}
+
+.hover-image-text{
+}

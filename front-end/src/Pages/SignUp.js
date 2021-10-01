@@ -1,8 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
-import { apiURL } from "../util/apiURL";
-import { signUp } from "../util/firebaseFuntion";
+import { signUp } from "../Services/Firebase";
 
 export default function SignUp() {
     const [email, setEmail] = useState("");
@@ -15,7 +13,6 @@ export default function SignUp() {
       //sign up with firebase and send results to our backend
       try {
         await signUp(email, password);
-        console.log("USER SIGNED UP >>>>> ")
         history.push("/");
       } catch (error) {
         setError(error.message);

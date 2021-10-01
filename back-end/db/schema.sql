@@ -11,8 +11,8 @@ CREATE TABLE users (
     address text,
     longitude DECIMAL DEFAULT 0,
     latitude DECIMAL DEFAULT 0,
-    is_biodegradable BOOLEAN DEFAULT FALSE,
     score INT DEFAULT 0,
+    photo_url TEXT,
     uid VARCHAR(30) UNIQUE
 );
 

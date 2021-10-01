@@ -9,7 +9,7 @@ mapboxgl.accessToken =
 
 const Map = props => {
   const mapContainerRef = useRef(null);
-  const user = useContext(UserContext);
+  const {user} = useContext(UserContext);
 
   const [lng, setLng] = useState(-73.4);
   const [lat, setLat] = useState(41.8);
@@ -20,22 +20,23 @@ const Map = props => {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [(user ? user.longitude : lng), (user ? user.latitude : lat)],
-      zoom: (user ? 17 : zoom)
+      center: [(user?.longitude ? user.longitude: lng), (user?.latitude ? user.latitude : lat)],
+      zoom: (user?.longitude ? 17 : zoom)
     });
-    // const geocoder = new MapboxGeocoder({
-    //   accessToken: mapboxgl.accessToken,
-    //   mapboxgl: mapboxgl
-    //   });
+    
     let geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       marker: {
         color: 'orange'
       },
-      placeholder: user ? user.address : "Address where item is: ",
+      placeholder: user?.address ? (user.address==="EARTH" ? "Address where item is: " : user.address) : "Address where item is: ",
       mapboxgl: mapboxgl
     });
     geocoder.on('result', (result) => {
+      console.log(result.result.place_name)
+      console.log(result.result.geometry.coordinates[0])
+      console.log(result.result.geometry.coordinates[1])
+      debugger
       props.updateLocation({address: result.result.place_name, lng: result.result.geometry.coordinates[0], lat: result.result.geometry.coordinates[1]})
     })
     map.addControl(geocoder);
@@ -49,28 +50,13 @@ const Map = props => {
       setLat(map.getCenter().lat.toFixed(4));
       setZoom(map.getZoom().toFixed(2));
 
-      // if(geocoder && geocoder.lastSelected){
-      //   let locationString = geocoder.lastSelected;
-      //   let locationObject = JSON.parse(locationString.replace(/'/g, "\""));
-      //   props.updateLocation(locationObject['place_name'])
-      // }
     });
 
-    // Clean up on unmount
-    return () => {
-      map.remove();
-    }
+    return () => { map.remove(); }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
 
   return (
     <div>
-      {/* <div className='sidebarStyle'>
-        <div>
-          Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-        </div>
-      </div> */}
-
       <div className='map-container' ref={mapContainerRef} />
       <div id='geocoder-container'></div>
     </div>

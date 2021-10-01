@@ -1,0 +1,78 @@
+.About .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 2fr 2fr;
+  justify-content: center;
+}
+
+.About .developer img {
+  width: 250px;
+  height: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  border-radius: 50%;
+}
+
+.About .developer {
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.About .developer h3 {
+  text-align: center;
+  font-size: 25px;
+}
+
+.About .developer h5 {
+  text-align: center;
+  color: #a18bb2;
+}
+
+.About .developer p {
+  text-align: center;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.About .links {
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 50px;
+}
+
+.About .links a {
+    text-decoration: none;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.About h1 {
+  text-align: center;
+}
+
+.About p {
+  text-align: center;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.About .aboutUs {
+    padding-top: 30px;
+}
+
+.About .aboutInfo {
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-left: 300px;
+    margin-right: 300px;
+    padding: 20px
+
+}

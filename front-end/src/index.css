@@ -8,3 +8,7 @@ body {
   min-height: 100vh;
   background-color: #EAE6F6;
 }
+
+.App{
+  margin-top: 60px;
+}
