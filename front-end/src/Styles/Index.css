@@ -130,3 +130,12 @@
 .share {
     display: none;
 }
+
+.dropdown-heading-value{
+    
+}
+
+.dropdown-container{
+    background-color: yellow;
+    width: 25%;
+}

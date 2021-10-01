@@ -13,15 +13,15 @@ const ItemsList = () => {
   // const [cateogires, setCategories] = useState({ cateogires: [] })
   const { user } = useContext(UserContext)
   const options = [
-    { label: "Electronics 💻", value: "Electronics" },
-    { label: "Clothes 👕", value: "Clothes" },
-    { label: "Food 🍔", value: "Food" },
-    { label: "Shoes 👟", value: "Shoes" },
-    { label: "Toys 🍐", value: "Toys"},
-    { label: "Books 📚", value: "Books" },
-    { label: "Hardware ⛏", value: "Hardware" },
-    { label: "Kitchenware 🍍", value: "Kitchenware" },
-    { label: "Furniture 🍑", value: "Furniture" }
+    { label: "Electronics", value: "Electronics" },
+    { label: "Clothes", value: "Clothes" },
+    { label: "Food", value: "Food" },
+    { label: "Shoes", value: "Shoes" },
+    { label: "Toy", value: "Toys"},
+    { label: "Books", value: "Books" },
+    { label: "Hardware", value: "Hardware" },
+    { label: "Kitchenware", value: "Kitchenware" },
+    { label: "Furniture", value: "Furniture" }
   ];
 
   const [selected, setSelected] = useState(options);
