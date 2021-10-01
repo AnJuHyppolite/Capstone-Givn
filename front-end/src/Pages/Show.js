@@ -2,7 +2,7 @@ import ItemDetails from "../Components/ItemDetails";
 
 const Show = () => {
   return (
-    <div>
+    <div className="Item-details">
       <ItemDetails />
     </div>
   );
