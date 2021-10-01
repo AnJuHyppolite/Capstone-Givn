@@ -8,10 +8,10 @@ const API = apiURL();
 const ItemsList = () => {
   const [items, setItems] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [emailSent, setEmailSent] = useState(false);
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [message, setMessage] = useState("");
+  // const [emailSent, setEmailSent] = useState(false);
   //const [photos, setPhotos] = useState([])
   //const [itemIDs, setItemIDs] = useState([])
 

@@ -11,6 +11,7 @@ import SignUp from "./Pages/SignUp";
 import FourOFour from "./Pages/FourOFour";
 import AboutPage from "./Pages/AboutPage";
 import MessageForm from "./Components/MessageForm";
+import Chat from "./Components/Chat";
 
 
 function App() {
@@ -46,7 +47,7 @@ function App() {
                 <Edit />
               </Route>
               <Route exact path="/posts/:id/message">
-                <MessageForm />
+                <Chat />
               </Route>
               <Route path="*">
                 <FourOFour />
