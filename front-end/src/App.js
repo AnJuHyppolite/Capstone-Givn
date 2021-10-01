@@ -51,6 +51,9 @@ function App() {
               <Route exact path="/posts/:id/edit">
                 <Edit />
               </Route>
+              <Route exact path="/posts/:id/message">
+                <Chat />
+              </Route>
               <Route path="*">
                 <FourOFour />
               </Route>
