@@ -16,7 +16,7 @@ INSERT INTO users(email, display_name, address, longitude, latitude, photo_url, 
 ('coolhoody@gmail.com','Robbinhood','645 West End Avenue, New York City, New York 10025, United States',-73.975478,40.792454,'https://i.imgur.com/GWKMVCk.jpeg','m24'),
 ('lilo_stithes@gmail.com','GUN-der','237 West 135th Street, New York City, New York 10030, United States',-73.945507,40.816307,'https://i.imgur.com/BJXBris.jpeg','m19'),
 ('voile44@gmail.com','Voile','86-14 Elmhurst Avenue, Queens, New York 11373, United States',-73.878786,40.74402,'https://i.imgur.com/Iar09zy.png','f17'),
-('sparten440@gmail.com','Fatha-o-five','2155 West 6th Street, Brooklyn, New York 11223, United States',-73.97724,40.595091,'https://i.imgur.com/rpLiwQv.jpeg','m09'),
+('sparten440@gmail.com','Fada-o-four','2155 West 6th Street, Brooklyn, New York 11223, United States',-73.97724,40.595091,'https://i.imgur.com/rpLiwQv.jpeg','m09'),
 ('elissille@gmail.com','Elissaaa', '112-37 208th Street, Queens, New York 11429, United States',-73.747405,40.703411,'https://i.imgur.com/3fpV2YK.jpeg','f20');
 
 INSERT INTO items(title, description, address, longitude, latitude, created_at, status, category, is_biodegradable, expiration, giver_id) VALUES 
