@@ -2,6 +2,7 @@ import { apiURL } from "../util/apiURL";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
+import UserItems from "./UserItems";
 
   const UserProfile = () => {
     const API = apiURL();
