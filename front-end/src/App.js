@@ -11,6 +11,7 @@ import SignUp from "./Pages/SignUp";
 import FourOFour from "./Pages/FourOFour";
 import AboutPage from "./Pages/AboutPage";
 import EditProfile from "./Components/EditProfile";
+import UserProfile from "./Components/UserProfile";
 
 
 function App() {
@@ -44,6 +45,9 @@ function App() {
               </Route>
               <Route exact path="/posts/new">
                 <New />
+              </Route>
+              <Route exact path="/profile/:id">
+                <UserProfile/>
               </Route>
               <Route exact path="/posts/:id">
                 <Show />
