@@ -74,6 +74,7 @@ const ItemsList = () => {
         onChange={setSelected}
         labelledBy={"Select"}
       />
+      <pre>{JSON.stringify(selected)}</pre>
 
       <p>Filter By: </p>
       <select defaultValue="" onChange={handleFilter}>
