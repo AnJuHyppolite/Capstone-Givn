@@ -16,8 +16,6 @@
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS items CASCADE;
 DROP TABLE IF EXISTS transactions CASCADE;
-DROP TABLE IF EXISTS categories CASCADE;
-DROP TABLE IF EXISTS category_items CASCADE;
 DROP TABLE IF EXISTS photos CASCADE;
 
 CREATE TABLE users (
@@ -41,6 +39,7 @@ CREATE TABLE items (
     longitude DECIMAL NOT NULL,
     created_at TEXT NOT NULL,
     status TEXT NOT NULL,
+    category VARCHAR(30) NOT NULL,
     is_biodegradable BOOLEAN DEFAULT FALSE,
     expiration INT DEFAULT 0,
     giver_id VARCHAR(30) REFERENCES users (uid) ON DELETE CASCADE
@@ -51,17 +50,6 @@ CREATE TABLE transactions (
     time TEXT NOT NULL,
     getter_id VARCHAR(30) REFERENCES users (uid),
     giver_id VARCHAR(30) REFERENCES users (uid),
-    item_id INT REFERENCES items (id)
-);
-
-CREATE TABLE categories (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(30) NOT NULL,
-    points INT NOT NULL
-);
-CREATE TABLE category_items (
-    id SERIAL PRIMARY KEY,
-    category_id INT REFERENCES categories (id),
     item_id INT REFERENCES items (id)
 );
 
