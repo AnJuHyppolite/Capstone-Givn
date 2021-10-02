@@ -1,39 +1,95 @@
-.newForm{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin: auto;
+.New {
+  margin: 6rem 2rem 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);
 }
 
-.newForm #title{
-    width: 50%;
-    margin: auto;
-}
-.newForm label{
- margin-left: 50px;
+.New h1 {
+  color: #1a0e3e;
+  font-size: 24px;
+  margin-bottom: 2rem;
 }
 
-.newForm #category {
-    width: 30%;
-    margin: auto;
-    padding: 5px;
-    margin-top: 10px;
-}
-.newForm #description{
-    width: 80%;
-    margin: auto;
+.New .side-by {
+  display: flex;
 }
 
-.prepost-images{
-    display:flex;
+.New form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
 }
 
-.prepost-image{
-    width: 250px;
-    height: 250px;
+.New .art-side {
+  width: 100%;
+  height: auto;
+  max-width: 520px;
+  object-fit: cover;
+  margin-left: 2rem;
 }
 
-.submit-item-form{
-    width: 50%;
-    margin: auto;
+.New label {
+  margin-bottom: 0.5rem;
+  font-size: 16px;
+  color: #A18BB2;
+  font-family: Mulish;
+  font-weight: 700;
+}
+
+.New #title, select {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-family: Mulish;
+    font-size: 14px;
+    color: #1a0e3e;
+}
+
+.New textarea {
+    padding: 0.5rem;
+    height: 4rem;
+    margin-bottom: 1rem;
+    font-family: Mulish;
+    font-size: 14px;
+    color: #1a0e3e;
+}
+
+.New #image {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-family: Mulish;
+    font-size: 14px;
+    color: #1a0e3e;
+}
+
+.New .upload-button {
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.prepost-images {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.prepost-image {
+  width: 47%;
+  height: 250px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+.submit-item-form {
+    background-color: #855A9F;
+    color: #fff;
+    padding: 0.75rem;
+    font-size: 18px;
+    margin: 4rem 0 0;
+    border: none;
+    border-radius: 8px;
+    font-family: Mulish;
+    cursor: pointer;
 }

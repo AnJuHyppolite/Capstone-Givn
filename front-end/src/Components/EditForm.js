@@ -5,6 +5,7 @@ import { UserContext } from "../Providers/UserProvider";
 import { apiURL } from "../util/apiURL";
 import "../Styles/NewForm.css"
 import Map2 from "./Map2";
+import randomImage, { randomImg } from "../Helpers/randomImage"
 
 const EditForm = () => {
   const { user } = useContext(UserContext);
@@ -144,7 +145,7 @@ const EditForm = () => {
   };
 
   return (
-    <div>
+    <div className="side-by">
       <form className="newForm" onSubmit={handleSubmit}>
         <label htmlFor="title">Edit item: </label>
         <input
@@ -164,7 +165,7 @@ const EditForm = () => {
           onChange={handleChange}
           required
         />
-
+        <label htmlFor="category">Category:</label>
         <select id="category" onChange={handleChange} value={editItem.category} required>
           <option disabled>Select category</option>
           {categories.map(category => {
@@ -172,10 +173,6 @@ const EditForm = () => {
           })}
         </select>
 
-        <p>Enter location to pick up item:</p>
-        {editItem.latitude ? <Map2 editItem={editItem} updateLocation={updateLocation} /> : null}
-        <br />
-        <br></br>
         <label htmlFor="image">Select Images to upload:</label>
         <input
           id="image"
@@ -189,10 +186,12 @@ const EditForm = () => {
             <img className="prepost-image" src={image} key={index} alt="list"></img>
           ))}
         </div>
-        <br />
-        <br></br>
+        <label>Enter location to pick up item:</label>
+        {editItem.latitude ? <Map2 editItem={editItem} updateLocation={updateLocation} /> : null}
+        
         <button className="submit-item-form" type="submit">Submit</button>
       </form>
+      <img src={randomImg} alt="beatiful-art" className="art-side"/>
     </div>
   );
 };

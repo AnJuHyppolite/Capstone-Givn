@@ -2,8 +2,8 @@ const { default: EditForm } = require("../Components/EditForm");
 
 const Edit = () => {
   return (
-    <div>
-      <h1>Edit Form</h1>
+    <div className="New">
+      <h1>Edit this item</h1>
       <EditForm />
     </div>
   );
