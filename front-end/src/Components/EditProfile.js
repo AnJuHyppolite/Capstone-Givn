@@ -89,7 +89,8 @@ const EditProfile = () => {
     };
 
     return (
-        <div>EDIT PROFILE PAGE
+        <div className="editProfile">
+            <h1>EDIT PROFILE PAGE</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="display_name">Display Name: </label>
                 <input
@@ -102,7 +103,8 @@ const EditProfile = () => {
                     required
                 />
                 <br />
-                <label htmlFor="email">Contact Email</label>
+                <br />
+                <label htmlFor="email">Contact Email: </label>
                 <input
                     id="email"
                     value={updatedUser.email}
@@ -114,12 +116,19 @@ const EditProfile = () => {
                     required
                 />
                 <br />
-                ADDRESS:
+                <br />
+                Address: 
+                <br />
+                <br />
+                <div class="geocoder">
                 <Geocoder updateLocation={updateLocation} />
+                </div>
                 <br />
                 <div className="editprofile-image">
                 <label htmlFor="image">Select Images to upload:</label>
+                <br />
                     <img  src={updatedUser?.photo_url ? updatedUser.photo_url : 'https://cdn2.iconfinder.com/data/icons/flat-design-icons-set-2/256/face_human_blank_user_avatar_mannequin_dummy-512.png'} alt="profile"/>
+                    <br />
                     <input
                         id="image"
                         placeholder="image"
@@ -135,20 +144,6 @@ const EditProfile = () => {
 
             </form>
             <br /><br />
-            <div>
-                TESTING DATA <br />
-                Display Name: {updatedUser.display_name} <br />
-                Email {updatedUser.email} <br />
-                Score: {updatedUser.score} <br />
-                Address: {updatedUser.address} <br />
-                Longitude: {updatedUser.longitude} <br />
-                Latitude: {updatedUser.latitude} <br />
-                ID: {updatedUser.id} <br />
-                UID: {updatedUser.uid} <br />
-                PHOTO_URL: {updatedUser.photo_url} <br />
-                <img src={updatedUser?.photo_url ? updatedUser.photo_url : 'https://cdn2.iconfinder.com/data/icons/flat-design-icons-set-2/256/face_human_blank_user_avatar_mannequin_dummy-512.png'} alt="testting" />
-
-            </div>
         </div>)
 }
 
