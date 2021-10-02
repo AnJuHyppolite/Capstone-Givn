@@ -11,6 +11,7 @@ import SignUp from "./Pages/SignUp";
 import FourOFour from "./Pages/FourOFour";
 import AboutPage from "./Pages/AboutPage";
 import EditProfile from "./Components/EditProfile";
+import Chat from "./Components/Chat"
 
 
 function App() {
