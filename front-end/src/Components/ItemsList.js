@@ -9,6 +9,7 @@ const API = apiURL();
 
 const ItemsList = () => {
   const [items, setItems] = useState([]);
+  const [filteredItems, setFilteredItems] = useState([])
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const { user } = useContext(UserContext)
   const options = [
@@ -35,6 +36,7 @@ const ItemsList = () => {
       try {
         let res = await axios.get(`${API}/items`);
         setItems(res.data);
+        setFilteredItems(res.data)
       } catch (error) {
         console.log(error);
       }
@@ -42,27 +44,25 @@ const ItemsList = () => {
     fetchAllItems();
   }, []);
 
-  // const handleCategories = (e) => {
-  //   let target = e.target
-  //   let name = target.name
-  //   let value = Array.from(target.selectedOptions, option => option.value);
-  //   debugger
-  //   setCategories({ [name]: value })
+  useEffect(() => {
+    let selectedCategories = selected.map(e=>e.value)
+    setFilteredItems(items.filter(item=>{
+      return selectedCategories.includes(item.category)
+    }))
+  }, [selected, items]);
 
-  // }
   const handleFilter = (e) => {
-    console.log(options)
-    console.log(selected)
     const { value } = e.target;
     if (Number(value) === 1) { //filter by distance
       if (user?.longitude !== 0) {
-        items.sort((itemA, itemB) => Number(relativeDistance(user, itemA)) - Number(relativeDistance(user, itemB)))
-        setItems([...items])
+        filteredItems.sort((itemA, itemB) => relativeDistance(user, itemA) - relativeDistance(user, itemB))
+        console.log(filteredItems)
+        setFilteredItems([...filteredItems])
       }
     }
     if (Number(value) === 2) {//filter by posted time
-      let newArr = items.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
-      setItems([...newArr])
+      let newArr = filteredItems.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+      setFilteredItems([...newArr])
     }
   }
   
@@ -71,10 +71,10 @@ const ItemsList = () => {
       <MultiSelect
         options={options}
         value={selected}
+        disableSearch={true}
+        shouldToggleOnHover={true}
         onChange={setSelected}
-        labelledBy={"Select"}
       />
-      <pre>{JSON.stringify(selected)}</pre>
 
       <p>Filter By: </p>
       <select defaultValue="" onChange={handleFilter}>
@@ -84,7 +84,7 @@ const ItemsList = () => {
       </select>
 
       <ul className="index-items">
-        {items.map((item) => {
+        {filteredItems.map((item) => {
           return (
 
             <Item
