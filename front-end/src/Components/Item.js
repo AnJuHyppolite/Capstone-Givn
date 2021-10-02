@@ -1,17 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import axios from "axios";
 import { apiURL } from "../util/apiURL.js";
 import { useEffect, useState } from "react";
 import ShareButton from "./ShareButton.js";
 import getElapsedPostedTime from "../Helpers/ElapsedTime.js";
-import relativeDistance from "../Helpers/relativeDistance.js";
-
+import relativeDistance from "../Helpers/relativeDistance.js"
 const API = apiURL();
 
 const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
   const [photos, setPhotos] = useState([]);
   const [itemUser, setItemUser] = useState({});
-  const [distance, setDistance] = useState(undefined)
+  const [distance, setDistance] = useState(undefined);
 
   useEffect(() => {
     const getPhotos = async () => {
@@ -30,9 +29,9 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
       try {
         const res = await axios.get(`${API}/users/${item.giver_id}`);
         setItemUser(res.data);
-        if(user?.longitude !== 0){
-          setDistance(relativeDistance(user,res.data))
-        } 
+        if (user?.longitude !== 0) {
+          setDistance(relativeDistance(user, res.data));
+        }
       } catch (error) {
         console.log(error);
       }
@@ -44,19 +43,23 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
     <li>
       <div className="top">
         <div className="top-container">
-          <img
-            src={
-              itemUser.photo_url
-                ? itemUser.photo_url
-                : "https://cdn2.iconfinder.com/data/icons/flat-design-icons-set-2/256/face_human_blank_user_avatar_mannequin_dummy-512.png"
-            }
-            alt="user-portrait"
-          />
+          <Link to={`/profile/${item.giver_id}`}>
+            <img
+              src={
+                itemUser.photo_url
+                  ? itemUser.photo_url
+                  : "https://cdn2.iconfinder.com/data/icons/flat-design-icons-set-2/256/face_human_blank_user_avatar_mannequin_dummy-512.png"
+              }
+              alt="user-portrait"
+            />
+          </Link>
           <div>
             <h3>{itemUser.display_name}</h3>
             <h5>
-              {getElapsedPostedTime(item.created_at)} <br/> 
-              {distance!==undefined ? distance + " miles away" : item.address.substring(0, item.address.length-21)}
+              {getElapsedPostedTime(item.created_at)} <br />
+              {distance !== undefined
+                ? distance + " miles away"
+                : item.address.substring(0, item.address.length - 21)}
             </h5>
           </div>
         </div>
@@ -74,11 +77,11 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
           {" "}
           <i className="fas fa-heart"></i>
         </button>
-        <Link to='/chats'> 
-        <button>
-          {" "}
-          <i className="fas fa-comment-alt"></i>
-        </button>
+        <Link to="/chats">
+          <button>
+            {" "}
+            <i className="fas fa-comment-alt"></i>
+          </button>
         </Link>
       </div>
       <ShareButton

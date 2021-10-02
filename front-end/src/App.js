@@ -12,7 +12,7 @@ import FourOFour from "./Pages/FourOFour";
 import AboutPage from "./Pages/AboutPage";
 import EditProfile from "./Components/EditProfile";
 import Chats from "./Components/Chats";
-
+import UserProfile from "./Components/UserProfile";
 
 function App() {
   return (
@@ -48,6 +48,9 @@ function App() {
               </Route>
               <Route exact path="/posts/new">
                 <New />
+              </Route>
+              <Route exact path="/profile/:id">
+                <UserProfile />
               </Route>
               <Route exact path="/posts/:id">
                 <Show />

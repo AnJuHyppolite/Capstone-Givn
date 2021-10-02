@@ -12,7 +12,6 @@ const ItemDetails = () => {
   
 
   useEffect(() => {
-    //   let res = await axios.get(`${API}/items/${id}/photos`);
   const fetchPhoto = async () => {
     try {
       let res = await axios.get(`${API}/items/${id}/photos`);

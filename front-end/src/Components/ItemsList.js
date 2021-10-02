@@ -8,7 +8,7 @@ const API = apiURL();
 const ItemsList = () => {
   const [items, setItems] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const { user } = useContext(UserContext)
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     const fetchAllItems = async () => {
@@ -26,13 +26,15 @@ const ItemsList = () => {
     <ul>
       {items.map((item) => {
         return (
-          <Item
-            user={user}
-            item={item}
-            key={item.id}
-            modalIsOpen={modalIsOpen}
-            setModalIsOpen={setModalIsOpen}
-          />
+          <div>
+            <Item
+              user={user}
+              item={item}
+              key={item.id}
+              modalIsOpen={modalIsOpen}
+              setModalIsOpen={setModalIsOpen}
+            />
+          </div>
         );
       })}
     </ul>
