@@ -11,7 +11,13 @@ INSERT INTO users(email, display_name, address, longitude, latitude, photo_url, 
 ('glasses@gmail.com','Tony kadurk', 'Madison Avenue Baptist Church, 30 E 31st St, New York City, New York 10016, United States',-73.983094,40.744777,'https://i.imgur.com/o9fpo46.png','m42'),
 ('sleepygirl@gmail.com', 'Lisa Ngeyen','8205 Gilbert Street, Philadelphia, Pennsylvania 19150, United States',-75.173898,40.07367,'https://i.imgur.com/1Ls3uvI.jpeg','f32'),
 ('mysteryhat@gmail.com', 'thomas kagat','Halsey Street, Brooklyn, New York 11233, United States', -73.9282693182089,40.6844701,'https://i.imgur.com/0D3B2ax.png','m21'),
-('suitman@yahoo.com','Jack Huston','Happy Lamb Hot Pot, 136-59 37th Ave, New York City, New York 11354, United States',-73.828963,40.762083,'https://i.imgur.com/Et8CwjS.jpeg','m45');
+('suitman@yahoo.com','Jack Huston','Happy Lamb Hot Pot, 136-59 37th Ave, New York City, New York 11354, United States',-73.828963,40.762083,'https://i.imgur.com/Et8CwjS.jpeg','m45'),
+('blusherina@gmail.com','Curios Cynthia','11 Frost Street, Brooklyn, New York 11211, United States',-73.951662,40.717429,'https://i.imgur.com/osAEdYt.png','f15'),
+('coolhoody@gmail.com','Robbinhood','645 West End Avenue, New York City, New York 10025, United States',-73.975478,40.792454,'https://i.imgur.com/GWKMVCk.jpeg','m24'),
+('lilo_stithes@gmail.com','GUN-der','237 West 135th Street, New York City, New York 10030, United States',-73.945507,40.816307,'https://i.imgur.com/BJXBris.jpeg','m19'),
+('voile44@gmail.com','Voile','86-14 Elmhurst Avenue, Queens, New York 11373, United States',-73.878786,40.74402,'https://i.imgur.com/Iar09zy.png','f17'),
+('sparten440@gmail.com','Fatha-o-five','2155 West 6th Street, Brooklyn, New York 11223, United States',-73.97724,40.595091,'https://i.imgur.com/rpLiwQv.jpeg','m09'),
+('elissille@gmail.com','Elissaaa', '112-37 208th Street, Queens, New York 11429, United States',-73.747405,40.703411,'https://i.imgur.com/3fpV2YK.jpeg','f20');
 
 INSERT INTO items(title, description, address, longitude, latitude, created_at, status, category, is_biodegradable, expiration, giver_id) VALUES 
 ('wine rack', '6-bottle holder', 'City Place Grill, 10223 Horace Harding Expy, New York City, New York 11368, United States', -73.855659, 40.737068, '9/27/2021 11:30', 'active','Kitchenware', false, 0, 'm01'),
