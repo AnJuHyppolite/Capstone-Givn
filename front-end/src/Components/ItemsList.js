@@ -22,9 +22,9 @@ const ItemsList = () => {
     { label: "Kitchenware 🥂", value: "Kitchenware" },
     { label: "Furniture 🛋", value: "Furniture" },
     { label: "Jewelry 💎", value: "Jewelry"},
-    { label: "Arts & Crafts 🎨", value: "Arts & Crafts" },
-    { label: "Sports & Outdoors 🚴‍♂️", value: "Sports & Outdoors" },
-    { label: "Beauty & Health 💄", value: "Beauty & Health" },
+    { label: "Arts & Crafts 🎨", value: "Arts and Crafts" },
+    { label: "Sports & Outdoors 🚴‍♂️", value: "Sports and Outdoors" },
+    { label: "Beauty & Health 💄", value: "Beauty and Health" },
     { label: "Other 🎆", value: "Other" }
   ];
 
@@ -75,7 +75,7 @@ const ItemsList = () => {
         labelledBy={"Select"}
       />
 
-      <p>Filter BY: </p>
+      <p>Filter By: </p>
       <select defaultValue="" onChange={handleFilter}>
         <option disabled></option>
         <option value={1}>Distance: nearest first</option>
