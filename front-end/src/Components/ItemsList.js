@@ -51,14 +51,6 @@ const ItemsList = () => {
     }))
   }, [selected, items]);
 
-  // const handleCategories = (e) => {
-  //   let target = e.target
-  //   let name = target.name
-  //   let value = Array.from(target.selectedOptions, option => option.value);
-  //   debugger
-  //   setCategories({ [name]: value })
-
-  // }
   const handleFilter = (e) => {
     const { value } = e.target;
     if (Number(value) === 1) { //filter by distance
