@@ -25,6 +25,7 @@ CREATE TABLE items (
     longitude DECIMAL NOT NULL,
     created_at TEXT NOT NULL,
     status TEXT NOT NULL,
+    category VARCHAR(30) NOT NULL,
     is_biodegradable BOOLEAN DEFAULT FALSE,
     expiration INT DEFAULT 0,
     giver_id VARCHAR(30) REFERENCES users (uid) ON DELETE CASCADE
@@ -38,16 +39,16 @@ CREATE TABLE transactions (
     item_id INT REFERENCES items (id)
 );
 
-CREATE TABLE categories (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(30) NOT NULL,
-    points INT NOT NULL
-);
-CREATE TABLE category_items (
-    id SERIAL PRIMARY KEY,
-    category_id INT REFERENCES categories (id),
-    item_id INT REFERENCES items (id)
-);
+-- CREATE TABLE categories (
+--     id SERIAL PRIMARY KEY,
+--     name VARCHAR(30) NOT NULL,
+--     points INT NOT NULL
+-- );
+-- CREATE TABLE category_items (
+--     id SERIAL PRIMARY KEY,
+--     category_id INT REFERENCES categories (id),
+--     item_id INT REFERENCES items (id)
+-- );
 
 CREATE TABLE photos (
     photo_url TEXT NOT NULL,

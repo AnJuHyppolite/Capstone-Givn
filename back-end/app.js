@@ -30,7 +30,7 @@ app.get('/s3url', async (req, res) => {
 //CONTROLLERS
 app.use('/users', usersController);
 app.use('/items', itemsController);
-app.use('/categories', categoriesController);
+// app.use('/categories', categoriesController);
 
 
 // EXPORT
