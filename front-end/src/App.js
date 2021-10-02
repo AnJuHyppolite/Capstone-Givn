@@ -3,7 +3,7 @@ import Home from "./Pages/Home";
 import Index from "./Pages/Index";
 import New from "./Pages/New";
 import Show from "./Pages/Show";
-import Edit from "./Pages/Edit";
+import EditForm from "./Pages/Edit";
 import NavBar from "./Components/NavBar";
 import UserProvider from "./Providers/UserProvider";
 import Profile from "./Pages/Profile";
@@ -49,7 +49,7 @@ function App() {
                 <Show />
               </Route>
               <Route exact path="/posts/:id/edit">
-                <Edit />
+                <EditForm />
               </Route>
               <Route path="*">
                 <FourOFour />
