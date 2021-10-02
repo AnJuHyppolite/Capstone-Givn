@@ -5,6 +5,7 @@ import { UserContext } from "../Providers/UserProvider";
 import { apiURL } from "../util/apiURL";
 import Map from "./Map";
 import "../Styles/NewForm.css"
+import randomImage, { randomImg } from "../Helpers/randomImage"
 
 const NewForm = () => {
   const { user } = useContext(UserContext);
@@ -60,7 +61,7 @@ const NewForm = () => {
     console.log(imageURL)
 
     //post photos to frontend
-    setImages([imageURL, ...images])
+    setImages([...images, imageURL])
 
   }
 
@@ -122,13 +123,13 @@ const NewForm = () => {
   };
 
   return (
-    <div>
-      <form className="newForm" onSubmit={handleSubmit}>
-        <label htmlFor="title">Post an item: </label>
+    <div className="side-by">
+      <form  onSubmit={handleSubmit}>
+        <label htmlFor="title">Title:</label>
         <input
           id="title"
           value={newItem.title}
-          placeholder="title of item"
+          placeholder="Title of item"
           type="text"
           onChange={handleChange}
           required
@@ -137,12 +138,12 @@ const NewForm = () => {
         <textarea
           id="description"
           value={newItem.description}
-          placeholder="description"
+          placeholder="Enter a description"
           type="text"
           onChange={handleChange}
           required
         />
-
+        <label htmlFor="category">Category:</label>
         <select id="category" onChange={handleChange} defaultValue="Select category" required>
           <option disabled>Select category</option>
           {categories.map(category => {
@@ -150,10 +151,6 @@ const NewForm = () => {
           })}
         </select>
 
-        <p>Enter location to pick up item:</p>
-        <Map updateLocation={updateLocation} />
-        <br />
-        <br></br>
         <label htmlFor="image">Select Images to upload:</label>
         <input
           id="image"
@@ -167,10 +164,11 @@ const NewForm = () => {
             <img className="prepost-image" src={image} key={index} alt="list"></img>
           ))}
         </div>
-        <br />
-        <br></br>
+        <label>Enter location to pick up item:</label>
+        <Map updateLocation={updateLocation} />
         <button className="submit-item-form" type="submit">Submit</button>
       </form>
+      <img src={randomImg} alt="beatiful-art" className="art-side"/>
     </div>
   );
 };
