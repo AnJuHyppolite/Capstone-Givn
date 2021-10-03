@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import ShareButton from "./ShareButton.js";
 import getElapsedPostedTime from "../Helpers/ElapsedTime.js";
 import relativeDistance from "../Helpers/relativeDistance.js";
+import { PositionOptions } from "mapbox-gl";
+import facts from '../Helpers/facts'
 
 const API = apiURL();
 
@@ -68,6 +70,9 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen}) => {
         <h2>{item.title}</h2>
         <img src={photos[0]?.photo_url} alt="imageItem" />
       </Link>
+      {facts.map((facts) => {
+        return <p>{facts.category === item.category ? <p>{facts.fact}</p> : null}</p>
+      })}
       <div className="btns">
         <button onClick={() => setModalIsOpen(true)}>
           {" "}
