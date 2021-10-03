@@ -54,6 +54,7 @@ const ItemDetails = () => {
     description,
     address,
     created_at,
+    status,
     is_biodegradable,
     expiration,
     giver_id,
@@ -89,7 +90,7 @@ const ItemDetails = () => {
           <p>{is_biodegradable ? <span>Yes</span> : <span>No</span>}</p>
           <h2>Expiration</h2>
           <p>{expiration}</p>
-          {user.uid === giver_id ? (<>
+          {user.uid === giver_id && status !== "inactive" ? (<>
             <Link to={`/posts/${item.id}/edit`}>
               <button className="editbtn">Edit</button>
             </Link>
