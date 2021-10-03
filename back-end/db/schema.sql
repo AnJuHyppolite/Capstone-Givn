@@ -58,6 +58,7 @@ CREATE TABLE photos (
 CREATE TABLE requests (
     id SERIAL PRIMARY KEY,
     status TEXT,
+    display_name VARCHAR(40),
     getter_id VARCHAR(30) REFERENCES users (uid),
     giver_id VARCHAR(30) REFERENCES users (uid),
     item_id INT REFERENCES items (id)

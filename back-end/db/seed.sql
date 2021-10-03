@@ -1,7 +1,7 @@
 \c givn_dev;
 
 INSERT INTO users(email, display_name, address, longitude, latitude, photo_url, uid) VALUES
-('firstuser@gmail.com', 'initial tester', 'Jamaica, New York City, New York 11435, United States',-73.7937,40.6935,'https://i.imgur.com/1ROVCKE.jpeg','m01'),
+('firstuser@gmail.com', 'firstInLine man', 'Jamaica, New York City, New York 11435, United States',-73.7937,40.6935,'https://i.imgur.com/1ROVCKE.jpeg','m01'),
 ('masterjeff@yahoo.com' , 'master Jeff', '31 Cooper Square, New York City, New York 10003, United States',-73.991005,40.728062,'https://i.imgur.com/8wztbO7.jpeg','m27'),
 ('heyyall@gmail.com', 'heeeeey', '53 Flushing Avenue, Queens, New York 11206, United States',-73.914239,40.714417,'https://i.imgur.com/F9Nf9Fx.jpeg','f23'),
 ('johndoe15@hotmail.com', 'johnnyboy','Flatlands 1st Street, Brooklyn, New York 11236, United States',-73.891212,40.6462201,'https://i.imgur.com/NHi6zdY.png','m62'),
@@ -109,5 +109,5 @@ INSERT INTO photos(photo_url, item_id) VALUES
 ('https://i.ebayimg.com/images/g/LBwAAOSwFx5g~ycA/s-l500.jpg',27),
 ('https://i.ebayimg.com/images/g/ipgAAOSw5ENgrwQ~/s-l500.jpg',28);
 
-INSERT INTO requests(status, getter_id, giver_id, item_id) VALUES
-('request','m01','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2',1); 
+INSERT INTO requests(status, display_name, getter_id, giver_id, item_id) VALUES
+('request','firstInLine man','m01','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2',1); 

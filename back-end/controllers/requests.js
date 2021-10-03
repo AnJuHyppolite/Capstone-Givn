@@ -12,7 +12,7 @@ requests.post('/', async (req, res) => {
     if (req.body) {
         res.json(await postRequest(req.body))
     } else {
-        res.status(422).json({ success: false, error: true, message: "email is required" })
+        res.status(422).json({ success: false, error: true, message: "request already made" })
     }
 
 })
