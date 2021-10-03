@@ -49,14 +49,14 @@ const AboutPage = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <i className="devicon-linkedin-plain"></i>
+              <i className="fab fa-linkedin"></i>
             </a>
             <a
               href="https://github.com/AnJuHyppolite"
               target="_blank"
               rel="noreferrer"
             >
-              <i className="devicon-github-original"></i>
+              <i className="fab fa-github"></i>
             </a>
           </div>
         </div>
@@ -81,10 +81,10 @@ const AboutPage = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <i className="devicon-linkedin-plain"></i>
+              <i className="fab fa-linkedin"></i>
             </a>
             <a href="https://github.com/JDJ97" target="_blank" rel="noreferrer">
-              <i className="devicon-github-original"></i>
+            <i className="fab fa-github"></i>
             </a>
           </div>
         </div>
@@ -113,14 +113,14 @@ const AboutPage = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <i className="devicon-linkedin-plain"></i>
+              <i className="fab fa-linkedin"></i>
             </a>
             <a
               href="https://github.com/JeffreySebastian-Pursuit"
               target="_blank"
               rel="noreferrer"
             >
-              <i className="devicon-github-original"></i>
+              <i className="fab fa-github"></i>
             </a>
           </div>
         </div>
@@ -143,14 +143,14 @@ const AboutPage = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <i className="devicon-linkedin-plain"></i>
+              <i className="fab fa-linkedin"></i>
             </a>
             <a
               href="https://github.com/jordanbobadilla"
               target="_blank"
               rel="noreferrer"
             >
-              <i className="devicon-github-original"></i>
+              <i className="fab fa-github"></i>
             </a>
           </div>
         </div>
@@ -179,14 +179,14 @@ const AboutPage = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <i className="devicon-linkedin-plain"></i>
+              <i className="fab fa-linkedin"></i>
             </a>
             <a
               href="https://github.com/SDAR30"
               target="_blank"
               rel="noreferrer"
             >
-              <i className="devicon-github-original"></i>
+              <i className="fab fa-github"></i>
             </a>
           </div>
         </div>

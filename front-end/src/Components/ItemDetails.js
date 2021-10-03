@@ -7,6 +7,7 @@ import SwiperCore, { Navigation, Pagination } from "swiper";
 import { UserContext } from "../Providers/UserProvider.js";
 import "../Styles/ItemDetails.css";
 import "swiper/swiper-bundle.css";
+import { capitalize } from "../Helpers/capitalizeName";
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -61,7 +62,7 @@ const ItemDetails = () => {
   } = item;
   return (
     <div>
-      <h1>{title}</h1>
+      <h1>{capitalize(title)}</h1>
       <div className="Show">
         <section>
           <Swiper

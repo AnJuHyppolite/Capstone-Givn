@@ -153,3 +153,25 @@
 .fa-twitter {
     color: #3DA9E0;
 }
+
+@media screen and (max-width: 710px) {
+    .Home {
+        flex-direction: column;
+    }
+
+    .Home .left-side {
+        width: 100%;
+        padding: 0;
+    }
+
+    .Home .left-side h1 {
+        text-align: center;
+    }
+
+    .Home .left-side h2 {
+        display: none;
+    }
+    .Home .left-side h3 {
+        display: none;
+    }
+}

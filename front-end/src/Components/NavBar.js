@@ -10,16 +10,21 @@ const NavBar = () => {
   const history = useHistory();
   const { user } = useContext(UserContext);
   const [open, setOpen] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
 
-  const handleSignOut = async() => {
+  const showMobileMenu = () => {
+    setMobileMenu((prevMenu) => !prevMenu);
+  };
+
+  const handleSignOut = async () => {
     await signOut();
-    // setOpen(false);
+    setOpen(false);
     history.push("/");
   };
 
   const handleDropdown = () => {
-    setOpen((prevOpen) => !prevOpen);
-  };
+    setOpen(prevOpen => !prevOpen)
+  }
 
   return (
     <header>
@@ -27,7 +32,6 @@ const NavBar = () => {
         <nav>
           <h1>
             <NavLink exact to="/">
-              Givn
               <img src={logo} alt="givn-logo" />
             </NavLink>
           </h1>
@@ -41,6 +45,10 @@ const NavBar = () => {
             <NavLink exact to={"/about"}>
               About
             </NavLink>
+            <i
+              className={mobileMenu ? "fas fa-times" : "fas fa-bars"}
+              onClick={showMobileMenu}
+            ></i>
           </div>
           <img
             src={user.photo_url}
@@ -61,12 +69,33 @@ const NavBar = () => {
               <button onClick={handleSignOut}>Sign Out</button>
             </li>
           </ul>
+          <ol
+            className={mobileMenu ? "menu show" : "menu"}
+            onClick={showMobileMenu}
+          >
+            <li>
+              <h1>
+                <NavLink exact to={"/posts"}>
+                  Get
+                </NavLink>
+              </h1>
+            </li>
+            <li>
+              <h1>
+                <NavLink to={"/posts/new"}>Give</NavLink>
+              </h1>
+            </li>
+            <li>
+              <h1>
+                <NavLink to={"/about"}>About</NavLink>
+              </h1>
+            </li>
+          </ol>
         </nav>
       ) : (
         <nav>
           <h1>
             <NavLink exact to="/">
-              Givn
               <img src={logo} alt="givn-logo" />
             </NavLink>
           </h1>
@@ -80,6 +109,10 @@ const NavBar = () => {
             <NavLink exact to={"/about"}>
               About
             </NavLink>
+            <i
+              className={mobileMenu ? "fas fa-times" : "fas fa-bars"}
+              onClick={showMobileMenu}
+            ></i>
           </div>
           <ul className={!open ? "dropdown" : null}>
             <li className="one">
@@ -95,6 +128,28 @@ const NavBar = () => {
           <button className="left-icon" onClick={handleDropdown}>
             <i className="fas fa-caret-down"></i>
           </button>
+          <ul
+            className={mobileMenu ? "menu show" : "menu"}
+            onClick={showMobileMenu}
+          >
+            <li>
+              <h1>
+                <NavLink exact to={"/posts"}>
+                  Get
+                </NavLink>
+              </h1>
+            </li>
+            <li>
+              <h1>
+                <NavLink to={"/posts/new"}>Give</NavLink>
+              </h1>
+            </li>
+            <li>
+              <h1>
+                <NavLink to={"/about"}>About</NavLink>
+              </h1>
+            </li>
+          </ul>
         </nav>
       )}
     </header>

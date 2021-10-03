@@ -5,13 +5,15 @@ import { useEffect, useState } from "react";
 import ShareButton from "./ShareButton.js";
 import getElapsedPostedTime from "../Helpers/ElapsedTime.js";
 import relativeDistance from "../Helpers/relativeDistance.js";
+import {strShortener}  from "../Helpers/truncate.js";
+import { capitalize } from "../Helpers/capitalizeName.js";
 
 const API = apiURL();
 
-const Item = ({ user, item, modalIsOpen, setModalIsOpen}) => {
+const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
   const [photos, setPhotos] = useState([]);
   const [itemUser, setItemUser] = useState({});
-  const [distance, setDistance] = useState(undefined)
+  const [distance, setDistance] = useState(undefined);
 
   useEffect(() => {
     const getPhotos = async () => {
@@ -30,9 +32,9 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen}) => {
       try {
         const res = await axios.get(`${API}/users/${item.giver_id}`);
         setItemUser(res.data);
-        if(user?.longitude !== 0){
-          setDistance(relativeDistance(user,res.data))
-        } 
+        if (user?.longitude !== 0) {
+          setDistance(relativeDistance(user, res.data));
+        }
       } catch (error) {
         console.log(error);
       }
@@ -45,27 +47,28 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen}) => {
       <div className="top">
         <div className="top-container">
           <Link to={`/profile/${item.giver_id}`}>
-
-          <img
-            src={
-              itemUser.photo_url
-                ? itemUser.photo_url
-                : "https://cdn2.iconfinder.com/data/icons/flat-design-icons-set-2/256/face_human_blank_user_avatar_mannequin_dummy-512.png"
-            }
-            alt="user-portrait"
-          />
+            <img
+              src={
+                itemUser.photo_url
+                  ? itemUser.photo_url
+                  : "https://cdn2.iconfinder.com/data/icons/flat-design-icons-set-2/256/face_human_blank_user_avatar_mannequin_dummy-512.png"
+              }
+              alt="user-portrait"
+            />
           </Link>
           <div>
-            <h3>{itemUser.display_name}</h3>
+            <h3>{capitalize(strShortener(itemUser?.display_name, 16))}</h3>
             <h5>
-              {getElapsedPostedTime(item.created_at)} <br/> 
-              {distance!==undefined ? distance + " miles away" : item.address.substring(0, item.address.length-21)}
+              {distance !== undefined
+                ? distance + " miles away"
+                : strShortener(item.address, 28)}
             </h5>
+            <h4>{getElapsedPostedTime(item.created_at)}</h4>
           </div>
         </div>
       </div>
       <Link to={`/posts/${item.id}`}>
-        <h2>{item.title}</h2>
+        <h2>{capitalize(strShortener(item?.title, 24))}</h2>
         <img src={photos[0]?.photo_url} alt="imageItem" />
       </Link>
       <div className="btns">
