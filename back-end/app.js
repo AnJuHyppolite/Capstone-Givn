@@ -3,7 +3,7 @@ const cors = require("cors");
 const express = require("express");
 const usersController = require('./controllers/users');
 const itemsController = require('./controllers/items');
-const categoriesController = require('./controllers/categories');
+// const categoriesController = require('./controllers/categories');
 const { generateUploadURL } = require('./s3.js');
 
 

@@ -108,3 +108,6 @@ INSERT INTO photos(photo_url, item_id) VALUES
 ('https://i.ebayimg.com/images/g/LLoAAOSwaItg~ybc/s-l500.jpg',27),
 ('https://i.ebayimg.com/images/g/LBwAAOSwFx5g~ycA/s-l500.jpg',27),
 ('https://i.ebayimg.com/images/g/ipgAAOSw5ENgrwQ~/s-l500.jpg',28);
+
+INSERT INTO requests(status, getter_id, giver_id, item_id) VALUES
+('request','m01','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2',1); 

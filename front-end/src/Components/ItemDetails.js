@@ -42,8 +42,18 @@ const ItemDetails = () => {
   const handleDelete = async () => {
     try {
       await axios.delete(`${API}/items/${id}`);
-      alert("Item successfully deleted")
+      alert("Requested")
       history.goBack();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const handleRequest = async()=>{
+    try {
+      //await axios.delete(`${API}/items/${id}`);
+      alert("Item successfully requested")
+      //history.goBack();
     } catch (error) {
       console.log(error);
     }
@@ -90,12 +100,12 @@ const ItemDetails = () => {
           <p>{is_biodegradable ? <span>Yes</span> : <span>No</span>}</p>
           <h2>Expiration</h2>
           <p>{expiration}</p>
-          {user.uid === giver_id && status !== "inactive" ? (<>
+          {user?.uid === giver_id && status !== "inactive" ? (<>
             <Link to={`/posts/${item.id}/edit`}>
               <button className="editbtn">Edit</button>
             </Link>
             <button className="delbtn" onClick={handleDelete}>Delete</button>
-          </>) : null}
+          </>) : <button className="reqbtn" onClick={handleRequest}>Request</button>}
         </section>
       </div>
     </div>
