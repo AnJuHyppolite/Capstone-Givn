@@ -7,6 +7,7 @@ import SwiperCore, { Navigation, Pagination } from "swiper";
 import { UserContext } from "../Providers/UserProvider.js";
 import "../Styles/ItemDetails.css";
 import "swiper/swiper-bundle.css";
+import facts from '../Helpers/facts'
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -80,6 +81,9 @@ const ItemDetails = () => {
           </Swiper>
         </section>
         <section className="right-info">
+        <h3>Educational Fact:</h3> {facts.map((facts) => {
+        return <p>{facts.category === item.category ? <p>{facts.fact}</p> : null}</p>
+      })}
           <h2>Description</h2>
           <p>{description}</p>
           <h2>Location</h2>

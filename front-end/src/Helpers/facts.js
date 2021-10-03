@@ -1,7 +1,7 @@
 const facts = [
   {
     category: "Electronics",
-    fact: "Recycling the waste from electronics saves space in the landfills and prevents the environmental pollution caused by the toxins.",
+    fact: "Recycling the waste from electronics saves space in the landfills and prevents environmental pollution caused by the toxins.",
     source:
       "https://www.techdump.org/3-amazing-benefits-electronics-recycling/#:~:text=Recycling%20the%20waste%20from%20electronics,landfills%20in%20the%20first%20place.&text=Goods%20made%20from%20recycled%20materials,pollution%2C%20and%20uses%20less%20energy.",
   },
@@ -30,7 +30,7 @@ const facts = [
   },
   {
     category: "Books",
-    fact: "Approximately 640,000 tons are discarded into the landfill.",
+    fact: "Approximately 640,000 tons of books are discarded into the landfill.",
     source: "https://www.nwf.org/~/media/PDFs/Eco-schools/McGraw%20Hill/12-4-12%20A%20Research%20Study%20on%20Textbook%20Recycling.ashx"
   },
   {

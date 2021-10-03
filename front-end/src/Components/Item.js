@@ -70,6 +70,7 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen}) => {
         <h2>{item.title}</h2>
         <img src={photos[0]?.photo_url} alt="imageItem" />
       </Link>
+      <h3>Educational Fact:</h3>
       {facts.map((facts) => {
         return <p>{facts.category === item.category ? <p>{facts.fact}</p> : null}</p>
       })}
