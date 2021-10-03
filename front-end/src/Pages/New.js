@@ -2,8 +2,8 @@ import NewForm from "../Components/NewForm";
 
 const New = () => {
   return (
-    <div>
-      <h1>New Page</h1>
+    <div className="New">
+      <h1>Give an Item</h1>
       <NewForm />
     </div>
   );

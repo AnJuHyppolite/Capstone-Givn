@@ -8,7 +8,7 @@ import relativeDistance from "../Helpers/relativeDistance.js";
 
 const API = apiURL();
 
-const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
+const Item = ({ user, item, modalIsOpen, setModalIsOpen}) => {
   const [photos, setPhotos] = useState([]);
   const [itemUser, setItemUser] = useState({});
   const [distance, setDistance] = useState(undefined)
@@ -41,9 +41,11 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
   }, [item.giver_id, user]);
 
   return (
-    <li>
+    <li className="index-item">
       <div className="top">
         <div className="top-container">
+          <Link to={`/profile/${item.giver_id}`}>
+
           <img
             src={
               itemUser.photo_url
@@ -52,6 +54,7 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
             }
             alt="user-portrait"
           />
+          </Link>
           <div>
             <h3>{itemUser.display_name}</h3>
             <h5>

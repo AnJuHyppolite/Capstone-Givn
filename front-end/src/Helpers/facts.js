@@ -31,8 +31,7 @@ const facts = [
   {
     category: "Books",
     fact: "Approximately 640,000 tons are discarded into the landfill.",
-    source:
-      "https://www.nwf.org/~/media/PDFs/Eco-schools/McGraw%20Hill/12-4-12%20A%20Research%20Study%20on%20Textbook%20Recycling.ashx",
+    source: "https://www.nwf.org/~/media/PDFs/Eco-schools/McGraw%20Hill/12-4-12%20A%20Research%20Study%20on%20Textbook%20Recycling.ashx"
   },
   {
     category: "Hardware",
@@ -45,8 +44,7 @@ const facts = [
   {
     category: "Furniture",
     fact: "According to the Environmental Protection Agency, the amount of furniture and furnishings taken to a landfill increases every year. Over 9.69 million tons goes to landfills.",
-    source:
-      "https://archive.curbed.com/2019/4/11/18303532/furniture-waste-green-standards-landfill-recycling",
+    source: "https://archive.curbed.com/2019/4/11/18303532/furniture-waste-green-standards-landfill-recycling"
   },
   {
     category: "Jewelry",
@@ -54,8 +52,7 @@ const facts = [
   },
   {
     category: "Arts and Crafts",
-    fact: "The environmental benefits of recycled art include, for example, its contribution to the use and extending the useful life of materials and, as a consequence, by reducing the amount of waste generated.",
-    source: "https://www.iberdrola.com/culture/recycled-art",
+    fact: "Recycling the waste from electronics saves space in the landfills and prevents the environmental pollution caused by the toxins.",
   },
   {
     category: "Sports and Outdoors",
@@ -69,7 +66,6 @@ const facts = [
   {
     category: "Other",
     fact: "Recycling and/or repurposing reduces the need for landfills.",
-    source: "",
   },
 ];
 

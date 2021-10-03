@@ -11,6 +11,14 @@
     flex-direction: row;  
 }
 
+.Show img {
+    height: auto;
+    width: 80%;
+    max-height: 600px;
+    object-fit: cover;
+
+}
+
 .swiper-container {
     position: sticky;
     width: 700px;
@@ -29,6 +37,24 @@
 
 .Show .right-info {
     margin-left: 2rem;
+}
+
+.Show  button{
+    background-color: #855A9F;
+    color: #fff;
+    padding: 0.75rem;
+    font-size: 18px;
+    margin: 2rem 0 0;
+    border: none;
+    border-radius: 8px;
+    font-family: Mulish;
+    cursor: pointer;
+    width: 8rem;
+}
+
+.Show .delbtn {
+    background-color: #9f5a5a;
+    margin-left: 10px;
 }
 
 .right-info h2 {
