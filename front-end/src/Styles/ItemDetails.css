@@ -52,6 +52,11 @@
     width: 8rem;
 }
 
+.Show .delbtn {
+    background-color: #9f5a5a;
+    margin-left: 10px;
+}
+
 .right-info h2 {
     color: #A18BB2;
     font-size: 16px;
