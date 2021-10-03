@@ -52,7 +52,7 @@ const ItemDetails = () => {
   const handleRequest = async()=>{
     try {
       //await axios.delete(`${API}/items/${id}`);
-      alert("Item successfully requested")
+      alert(item.title + " successfully requested")
       //history.goBack();
     } catch (error) {
       console.log(error);
