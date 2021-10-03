@@ -1,13 +1,19 @@
 const facts = [
+  // {
+  //   category: "Electronics",
+  //   fact: "Recycling the waste from electronics saves space in the landfills and prevents environmental pollution caused by the toxins.",
+  //   source:
+  //     "https://www.techdump.org/3-amazing-benefits-electronics-recycling/#:~:text=Recycling%20the%20waste%20from%20electronics,landfills%20in%20the%20first%20place.&text=Goods%20made%20from%20recycled%20materials,pollution%2C%20and%20uses%20less%20energy.",
+  // },
   {
     category: "Electronics",
-    fact: "Recycling the waste from electronics saves space in the landfills and prevents environmental pollution caused by the toxins.",
+    fact: "E-waste is hazardous material. Over time, electronics can leak toxic elements, like mercury and lead, which can be harmful to the environment and to humans. Donating your electronics for reuse or recycling them at safely managed sites helps control the hazards.",
     source:
-      "https://www.techdump.org/3-amazing-benefits-electronics-recycling/#:~:text=Recycling%20the%20waste%20from%20electronics,landfills%20in%20the%20first%20place.&text=Goods%20made%20from%20recycled%20materials,pollution%2C%20and%20uses%20less%20energy.",
+      "https://www.cbc.ca/news/science/what-happens-to-the-e-waste-you-drop-off-for-recycling-1.5101357",
   },
   {
     category: "Clothes",
-    fact: "Every pound of clothing contributes about 3-4 pounds of CO2 and other greenhouses gasses into the atmosphere.",
+    fact: "Every pound of clothing contributes about 3-4 pounds of CO2 and other greenhouse gasses into the atmosphere.",
     source:
       "https://greenschoolsnationalnetwork.org/how-does-recycling-your-clothes-and-shoes-help-protect-the-earth/",
   },
@@ -31,7 +37,8 @@ const facts = [
   {
     category: "Books",
     fact: "Approximately 640,000 tons of books are discarded into the landfill.",
-    source: "https://www.nwf.org/~/media/PDFs/Eco-schools/McGraw%20Hill/12-4-12%20A%20Research%20Study%20on%20Textbook%20Recycling.ashx"
+    source:
+      "https://www.nwf.org/~/media/PDFs/Eco-schools/McGraw%20Hill/12-4-12%20A%20Research%20Study%20on%20Textbook%20Recycling.ashx",
   },
   {
     category: "Hardware",
@@ -39,24 +46,31 @@ const facts = [
   },
   {
     category: "Kitchenware",
-    fact: "Recycling the waste from electronics saves space in the landfills and prevents the environmental pollution caused by the toxins.",
-  },
+    fact: "Pans and pots have a special coating which must be removed.",
+  source: "https://cookwarecrazy.com/post/how_to_throw_out_pots_and_pans_nyc"},
   {
     category: "Furniture",
     fact: "According to the Environmental Protection Agency, the amount of furniture and furnishings taken to a landfill increases every year. Over 9.69 million tons goes to landfills.",
-    source: "https://archive.curbed.com/2019/4/11/18303532/furniture-waste-green-standards-landfill-recycling"
+    source:
+      "https://archive.curbed.com/2019/4/11/18303532/furniture-waste-green-standards-landfill-recycling",
   },
   {
     category: "Jewelry",
-    fact: "Recycling the waste from electronics saves space in the landfills and prevents the environmental pollution caused by the toxins.",
+    fact: "Hazardous chemicals used in jewelry manufacturing pose a major environmental concern. These chemicals include cyanides, acids, solvents, compressed gases, investment dusts, polishing com pounds, and solders.",
+    source:
+      "https://dtsc.ca.gov/jewelry-manufacturing-pollution-prevention-recommendations-fact-sheet/",
   },
   {
     category: "Arts and Crafts",
-    fact: "Recycling the waste from electronics saves space in the landfills and prevents the environmental pollution caused by the toxins.",
+    fact: "Certain art supplies have been a source of peril for artists. Cadmium, arsenic, lead, polyester resin, fiberglass, formaldehyde, and large pieces of metal are among the toxic materials that can be found in art supplies that adversely affect the environment.",
+    source:
+      "https://news.artnet.com/art-world/7-deadly-art-materials-to-watch-out-for-1081526",
   },
   {
     category: "Sports and Outdoors",
-    fact: "Recycling the waste from electronics saves space in the landfills and prevents the environmental pollution caused by the toxins.",
+    fact: "Throwing away textiles, which can include sporting equipment, means those items will end up in the landfill. Since 2003, the percentage of textiles in landfills has increased 38 percent.",
+    source:
+      "https://www.wpr.org/expert-throwing-away-clothing-does-serious-damage-environment",
   },
   {
     category: "Beauty and Health",
@@ -70,4 +84,3 @@ const facts = [
 ];
 
 module.exports = facts;
-
