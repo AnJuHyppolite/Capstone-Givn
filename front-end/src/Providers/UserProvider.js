@@ -7,6 +7,7 @@ export const UserContext = createContext(null);
 export const useAuth = () => useContext(UserContext);
 const UserProvider = (props) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
   const API = apiURL();
 
   useEffect(() => {
@@ -29,7 +30,7 @@ const UserProvider = (props) => {
                   photo_url: photoURL ? photoURL : dummyPicture,
                   uid: user.uid,
                 };
-
+                console.log(newUser);
                 try {
                   console.log("CREATING NEW USER >>>> ");
                   let res = await axios.post(`${API}/users`, newUser);
@@ -84,12 +85,56 @@ const UserProvider = (props) => {
         }; //FETCH USER*******************
 
         await fetchUser(user);
+        let newUserData;
+        user.email
+          ? (newUserData = user.email)
+          : (newUserData = user.providerData[0].email);
+
+        let newUserUid;
+        user.uid
+          ? (newUserUid = user.uid)
+          : (newUserUid = user.providerData[0].uid);
+        axios
+          .get("https://api.chatengine.io/users/me", {
+            headers: {
+              "project-id": process.env.REACT_APP_CHAT_ENGINE_ID,
+              "user-name": newUserData,
+              "user-secret": newUserUid,
+            },
+          })
+          .then(() => {
+            console.log("user");
+            setLoading(false);
+          })
+          .catch(() => {
+            let formdata = new FormData();
+            formdata.append("email", newUserData);
+            formdata.append("username", newUserData);
+            formdata.append("secret", user.uid);
+            // debugger
+            console.log("register new user");
+
+            console.log(user);
+            console.log(user.providerData);
+            // console.log(user.providerData.map(data =>{
+            //   const {email} = data
+            //   return email.toString()
+            // }))
+            debugger;
+            axios
+              .post("https://api.chatengine.io/users/", formdata,{
+                headers: {
+                  "private-key": process.env.REACT_APP_CHAT_ENGINE_KEY,
+                },
+              })
+              .then(() => setLoading(false))
+              .catch((error) => console.log(error));
+          });
       } else {
         setUser(null);
       }
     });
   }, [API]);
-
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <main>{props.children}</main>
