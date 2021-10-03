@@ -1,10 +1,10 @@
 const facts = [
-  // {
-  //   category: "Electronics",
-  //   fact: "Recycling the waste from electronics saves space in the landfills and prevents environmental pollution caused by the toxins.",
-  //   source:
-  //     "https://www.techdump.org/3-amazing-benefits-electronics-recycling/#:~:text=Recycling%20the%20waste%20from%20electronics,landfills%20in%20the%20first%20place.&text=Goods%20made%20from%20recycled%20materials,pollution%2C%20and%20uses%20less%20energy.",
-  // },
+  {
+    category: "Electronics",
+    fact: "Recycling the waste from electronics saves space in the landfills and prevents environmental pollution caused by the toxins in the electronics.",
+    source:
+      "https://www.techdump.org/3-amazing-benefits-electronics-recycling/#:~:text=Recycling%20the%20waste%20from%20electronics,landfills%20in%20the%20first%20place.&text=Goods%20made%20from%20recycled%20materials,pollution%2C%20and%20uses%20less%20energy.",
+  },
   {
     category: "Electronics",
     fact: "E-waste is hazardous material. Over time, electronics can leak toxic elements, like mercury and lead, which can be harmful to the environment and to humans. Donating your electronics for reuse or recycling them at safely managed sites helps control the hazards.",
@@ -46,8 +46,19 @@ const facts = [
   },
   {
     category: "Kitchenware",
-    fact: "Pans and pots have a special coating which must be removed.",
-  source: "https://cookwarecrazy.com/post/how_to_throw_out_pots_and_pans_nyc"},
+    fact: "Most modern cookware items have a blend of plastic and metal, and special chemical coatings that can't be recycled and must be removed.",
+    source:
+      "https://www.marthastewart.com/1539762/how-to-recycle-old-pots-pans-cookware",
+    source2:
+      "https://cookwarecrazy.com/post/how_to_throw_out_pots_and_pans_nyc",
+  },
+  {
+    category: "Kitchenware",
+    fact: "Some cookware is made of ferrous metal. One ton of ferrous scrap metal is about 2500 pounds of virgin ore, 1400 pounds of coal, and 120 pounds of limestone.",
+    source:
+      "https://earth911.com/home-garden/how-to-recycle-your-old-cookware/",
+    source2: "https://www.fptscrap.com/ferrous-scrap-recycling-has-global-economic-and-environmental-effects/",
+  },
   {
     category: "Furniture",
     fact: "According to the Environmental Protection Agency, the amount of furniture and furnishings taken to a landfill increases every year. Over 9.69 million tons goes to landfills.",
