@@ -4,7 +4,7 @@ INSERT INTO users(email, display_name, address, longitude, latitude, photo_url, 
 ('firstuser@gmail.com', 'initial tester', 'Jamaica, New York City, New York 11435, United States',-73.7937,40.6935,'https://i.imgur.com/1ROVCKE.jpeg','m01'),
 ('masterjeff@yahoo.com' , 'master Jeff', '31 Cooper Square, New York City, New York 10003, United States',-73.991005,40.728062,'https://i.imgur.com/8wztbO7.jpeg','m27'),
 ('heyyall@gmail.com', 'heeeeey', '53 Flushing Avenue, Queens, New York 11206, United States',-73.914239,40.714417,'https://i.imgur.com/F9Nf9Fx.jpeg','f23'),
-('johndoe15@hotmail.com', 'johnnyboy','Flatlands 1st Street, Brooklyn, New York 11236, United States',-73.891212,40.6462201,'https://i.imgur.com/1Ls3uvI.jpeg','m62'),
+('johndoe15@hotmail.com', 'johnnyboy','Flatlands 1st Street, Brooklyn, New York 11236, United States',-73.891212,40.6462201,'https://i.imgur.com/NHi6zdY.png','m62'),
 ('ShoaibDar@pursuit.org','Shoaib','110-14 64th Avenue, Queens, New York 11374, United States',-73.845264,40.734233,'https://i.imgur.com/wI7ivU7.png','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2'),
 ('kkoreancafe@yahoo.com', 'liz the artist','1661 Watson Avenue, The Bronx, New York 10472, United States',-73.871752, 40.827299,'https://i.imgur.com/R5NiUHw.jpeg','f33'),
 ('oldguy@gmail.com','almost-homeless man', '42 Springhouse Road, Woodcliff Lake, New Jersey 07677, United States',-74.073238,41.017045,'https://i.imgur.com/LbDUJDk.jpeg','m67'),
@@ -17,7 +17,9 @@ INSERT INTO users(email, display_name, address, longitude, latitude, photo_url, 
 ('lilo_stithes@gmail.com','GUN-der','237 West 135th Street, New York City, New York 10030, United States',-73.945507,40.816307,'https://i.imgur.com/BJXBris.jpeg','m19'),
 ('voile44@gmail.com','Voile','86-14 Elmhurst Avenue, Queens, New York 11373, United States',-73.878786,40.74402,'https://i.imgur.com/Iar09zy.png','f17'),
 ('sparten440@gmail.com','Fada-o-four','2155 West 6th Street, Brooklyn, New York 11223, United States',-73.97724,40.595091,'https://i.imgur.com/rpLiwQv.jpeg','m09'),
-('elissille@gmail.com','Elissaaa', '112-37 208th Street, Queens, New York 11429, United States',-73.747405,40.703411,'https://i.imgur.com/3fpV2YK.jpeg','f20');
+('elissille@gmail.com','Elissaaa', '112-37 208th Street, Queens, New York 11429, United States',-73.747405,40.703411,'https://i.imgur.com/3fpV2YK.jpeg','f20'),
+('kingcheckme@gmail.com','Sam the King','62-61 60th Street, Queens, New York 11378, United States',-73.905826,40.714874,'https://i.imgur.com/3PYnCaL.png','m40'),
+('earphnj@hotmail.com','Ahri Leblanc','2265 Gerritsen Avenue, Brooklyn, New York 11229, United States',-73.933468,40.60068,'https://i.imgur.com/mZlAxgF.png','f38');
 
 INSERT INTO items(title, description, address, longitude, latitude, created_at, status, category, is_biodegradable, expiration, giver_id) VALUES 
 ('wine rack', '6-bottle holder', 'City Place Grill, 10223 Horace Harding Expy, New York City, New York 11368, United States', -73.855659, 40.737068, '9/27/2021 11:30', 'active','Kitchenware', false, 0, 'm01'),
@@ -37,11 +39,24 @@ INSERT INTO items(title, description, address, longitude, latitude, created_at, 
 ('Reusable Face Masks','Unisex Washable and Reusable Soft Cloth Face Mask','86-14 Elmhurst Avenue, Queens, New York 11373, United States',-73.878786,40.74402, '7/25/2021 11:11','active','Beauty and Health',false,0,'f17'),
 ('Swimming Pool Set','Bestway Fast Set 8ft x 26 in Swimming Pool Set. Works just fine and is great for the family','112-37 208th Street, Queens, New York 11429, United States',-73.747405,40.703411, '9/19/2021','active','Sports and Outdoors',false,0,'f20'),
 ('Rain Hooded Coat Jacket','PENDLETON Dark Navy Blue Rain Hooded Coat Jacket Plaid Lining Women''s sz Medium','11 Frost Street, Brooklyn, New York 11211, United States',-73.951662,40.717429,'10/01/2021 3:55','active','Clothes',false,0,'f15'),
-('Osterizer Blend-N-Cycle','Vtg Working Osterizer Blend-N-Cycle 10 Speed Oster Blender White 668-02P 668','31 Cooper Square, New York City, New York 10003, United States',-73.991005,40.728062,'9/30/2021 1:10','active','Kitchenware',false,0,'m27');
+('Osterizer Blend-N-Cycle','Vtg Working Osterizer Blend-N-Cycle 10 Speed Oster Blender White 668-02P 668','31 Cooper Square, New York City, New York 10003, United States',-73.991005,40.728062,'9/30/2021 1:10','active','Kitchenware',false,0,'m27'),
+('Women’s Navy Rain Boots','Women’s Navy and Brown Leather Sperry Duck Boots-Size 7','2265 Gerritsen Avenue, Brooklyn, New York 11229, United States',-73.933468,40.60068,'9/23/2021 12:01','active','Shoes',false,0,'f38'),
+('Infant Formula with Iron','Similac Total Comfort Infant Formula with Iron, Powder, 12 oz. This was incorrectly delievered to me.','Flatlands 1st Street, Brooklyn, New York 11236, United States',-73.891212,40.6462201,'7/1/21 5:00','inactive','Food',true,90,'m62'),
+('Kids Folding Lawn Chair','1 Vintage Kids Aluminum Folding Lawn Chair Woven Webbed Lawn Patio','2155 West 6th Street, Brooklyn, New York 11223, United States',-73.97724,40.595091,'9/13/2021 12:20','active','Sports and Outdoors',false,0,'m09'),
+('Branch Cutter tool','Large Garden Pals Tree Branch Cutter Sheer Trimmer','237 West 135th Street, New York City, New York 10030, United States',-73.945507,40.816307,'8/22/2021 11:00','active','Hardware',false,0,'m19'),
+('Animals see ''N and say','Too noisy for me. Mattel See And Say The Farmer Says 2003, still works!','2155 West 6th Street, Brooklyn, New York 11223, United States',-73.97724,40.595091,'7/3/2021 11:00','inactive','Toys',false,0,'m09'),
+('Disney Jr Coloring Book','Disney Jr Coloring Book 288 Coloring Activity Pages with Bonus Ornament New Kids','2155 West 6th Street, Brooklyn, New York 11223, United States',-73.97724,40.595091,'8/23/2021 1:00','active','Arts and Crafts',false,0,'m09'),
+('Floor Foosball Table','DESKTOP FOOSBALL TABLE Wood Mini Soccer Game foozball Games man cave decor','62-61 60th Street, Queens, New York 11378, United States',-73.905826,40.714874,'9/24/2021 10:00','active','Toys',false,0,'m40'),
+('Eggs Penz Dispenser','SIX EASTER BUNNY CHICKS EGG EGGS TOY PEZ DISPENSER!!','11 Frost Street, Brooklyn, New York 11211, United States',-73.951662,40.717429,'9/3/2021 11:00','active','Other',false,0,'f15'),
+('Zoobooks Kids Magazines','Zoobooks Lot Of 12 Vintage Wildlife Education Home School Teacher Material, good condition','2265 Gerritsen Avenue, Brooklyn, New York 11229, United States',-73.933468,40.60068,'9/14/2021 12:00','active','Books',false,0,'f38'),
+('Ceramic Flower Pot','Plaid & Flower Design Ceramic Plant / Flower Pot - EUC & Charming!','2155 West 6th Street, Brooklyn, New York 11223, United States',-73.97724,40.595091,'8/8/2021 8:00','inactive','Other',false,0,'m09');
 
 INSERT INTO transactions(time, getter_id, giver_id, item_id) VALUES 
 ('7/21/2021 7:10', 'm67','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2',5),
-('7/14/2021 3:10', 'm42','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2',6);
+('7/14/2021 3:10', 'm42','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2',6),
+('7/28/2021 4:33','m09','m62',20),
+('9/3/2021 8:00','f17','m09',23),
+('9/9/2021 9:00','f33','m09',28);
 
 INSERT INTO photos(photo_url, item_id) VALUES 
 ('https://m.media-amazon.com/images/I/81qT6I2UYzL._AC_SX679_.jpg', 1),
@@ -77,4 +92,19 @@ INSERT INTO photos(photo_url, item_id) VALUES
 ('https://i.ebayimg.com/images/g/ybsAAOSwCuNhVO4y/s-l500.jpg',17),
 ('https://i.ebayimg.com/images/g/AowAAOSwjBVhK7Fk/s-l500.jpg',18),
 ('https://i.ebayimg.com/images/g/2i4AAOSwrnVhK7GJ/s-l500.jpg',18),
-('https://i.ebayimg.com/images/g/LOEAAOSwjFdhK7Fe/s-l500.jpg',18);
+('https://i.ebayimg.com/images/g/LOEAAOSwjFdhK7Fe/s-l500.jpg',18),
+('https://i.ebayimg.com/images/g/ldQAAOSwpb9hVLKe/s-l500.jpg',19),
+('https://i.ebayimg.com/images/g/Up0AAOSwUs5hVLKi/s-l500.jpg',19),
+('https://i.ebayimg.com/images/g/sa8AAOSwDd1hVn7q/s-l500.jpg',20),
+('https://i.ebayimg.com/images/g/VjoAAOSwW61hNQNN/s-l500.jpg',21),
+('https://i.ebayimg.com/images/g/16IAAOSwOlZhNQNc/s-l500.jpg',21),
+('https://i.ebayimg.com/images/g/P9sAAOSwg4lhEqig/s-l500.jpg',22),
+('https://i.ebayimg.com/images/g/5FgAAOSwa~hhS1Mz/s-l500.jpg',23),
+('https://i.ebayimg.com/images/g/9p4AAOSw8n9hUIoY/s-l500.jpg',24),
+('https://i.ebayimg.com/images/g/fgYAAOSwvkVhUIoc/s-l500.jpg',24),
+('https://i.ebayimg.com/images/g/GuUAAOSwSQ1gGI~w/s-l500.jpg',25),
+('https://i.ebayimg.com/images/g/CDEAAOSwO9VgGI-F/s-l500.jpg',25),
+('https://i.ebayimg.com/images/g/vQoAAOSwyhlhUPi3/s-l500.jpg',26),
+('https://i.ebayimg.com/images/g/LLoAAOSwaItg~ybc/s-l500.jpg',27),
+('https://i.ebayimg.com/images/g/LBwAAOSwFx5g~ycA/s-l500.jpg',27),
+('https://i.ebayimg.com/images/g/ipgAAOSw5ENgrwQ~/s-l500.jpg',28);
