@@ -61,7 +61,7 @@
   border-radius: 1rem;
   box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);
   width: 100%;
-  height: 482px;
+  height: 700px;
   min-width: 310px;
 }
 
@@ -137,6 +137,25 @@
 }
 
 .Index h6 i {
+  color: #5a8154;
+}
+
+.Index .facts {
+  color: #1a0e3e;
+  font-size: 16px;
+}
+
+.Index .facts i {
+  color: #5a8154;
+  padding-left: 1rem ;
+}
+
+.Index .index-item p {
+  text-align: justify;
+  padding: 0 1rem;
+  height: 140px;
+  font-size: 20px;
+  font-style: italic;
   color: #5a8154;
 }
 

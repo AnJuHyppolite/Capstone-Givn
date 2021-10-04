@@ -5,8 +5,9 @@ import { useEffect, useState } from "react";
 import ShareButton from "./ShareButton.js";
 import getElapsedPostedTime from "../Helpers/ElapsedTime.js";
 import relativeDistance from "../Helpers/relativeDistance.js";
-import {strShortener}  from "../Helpers/truncate.js";
+import { strShortener } from "../Helpers/truncate.js";
 import { capitalize } from "../Helpers/capitalizeName.js";
+import facts from "../Helpers/facts";
 
 const API = apiURL();
 
@@ -71,6 +72,14 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
         <h2>{capitalize(strShortener(item?.title, 24))}</h2>
         <img src={photos[0]?.photo_url} alt="imageItem" />
       </Link>
+      <h3 className="facts">
+        <i class="fas fa-leaf"></i> Educational Fact:
+      </h3>
+      <p>
+        {facts.map((fact) => {
+          return fact.category === item.category ? `"${strShortener(fact.fact, 175)}"` : null;
+        })}
+      </p>
       <div className="btns">
         <button onClick={() => setModalIsOpen(true)}>
           {" "}
