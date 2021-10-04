@@ -1,5 +1,5 @@
 const users = require('express').Router();
-const { getUser, getAllUsers, createUser, deleteUser, updateUser } = require('../queries/users')
+const { getUser, getAllUsers, createUser, deleteUser, updateUser, updateUserScore } = require('../queries/users')
 const itemsForUserController = require('./itemsForUser')
 const transactionsController = require('./transactions')
 
@@ -38,6 +38,15 @@ users.put('/:id', async (req, res)=>{
     console.log(user)
     const editedUser = await updateUser(id, user);
     editedUser ? res.json(editedUser) : res.status(422).json({success: false, error: true, message: "invalid id"})
+})
+
+users.put('/:id/score', async (req, res)=>{ 
+    console.log("INSIDE userScore controller>> ")
+    const {id} = req.params;
+    const { score } = req.body;
+    const editedUser = await updateUserScore(id, score);
+    editedUser ? res.json(editedUser) : res.status(422).json({success: false, error: true, message: "invalid id"})
+
 })
 
 module.exports = users;

@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import ShareButton from "./ShareButton.js";
 import getElapsedPostedTime from "../Helpers/ElapsedTime.js";
 import relativeDistance from "../Helpers/relativeDistance.js";
-import { PositionOptions } from "mapbox-gl";
+import { strShortener } from "../Helpers/truncate.js";
+import { capitalize } from "../Helpers/capitalizeName.js";
 import facts from "../Helpers/facts";
 
 const API = apiURL();
@@ -57,26 +58,28 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
             />
           </Link>
           <div>
-            <h3>{itemUser.display_name}</h3>
+            <h3>{capitalize(strShortener(itemUser?.display_name, 16))}</h3>
             <h5>
-              {getElapsedPostedTime(item.created_at)} <br />
               {distance !== undefined
                 ? distance + " miles away"
-                : item.address.substring(0, item.address.length - 21)}
+                : strShortener(item.address, 28)}
             </h5>
+            <h4>{getElapsedPostedTime(item.created_at)}</h4>
           </div>
         </div>
       </div>
       <Link to={`/posts/${item.id}`}>
-        <h2>{item.title}</h2>
+        <h2>{capitalize(strShortener(item?.title, 24))}</h2>
         <img src={photos[0]?.photo_url} alt="imageItem" />
       </Link>
-      <h3>Educational Fact:</h3>
-      {facts.map((facts) => {
-        return (
-          <p>{facts.category === item.category ? <p>{facts.fact}</p> : null}</p>
-        );
-      })}
+      <h3 className="facts">
+        <i class="fas fa-leaf"></i> Educational Fact:
+      </h3>
+      <p>
+        {facts.map((fact) => {
+          return fact.category === item.category ? `"${strShortener(fact.fact, 175)}"` : null;
+        })}
+      </p>
       <div className="btns">
         <button onClick={() => setModalIsOpen(true)}>
           {" "}

@@ -1,6 +1,6 @@
-const capitalize = (name) => {
+export const capitalize = (name) => {
     return name
-      .split(" ")
+      ?.split(" ")
       .map((str) =>
         str.length <= 2
           ? str
@@ -9,4 +9,4 @@ const capitalize = (name) => {
       .join(" ");
   };
 
-  export default capitalize
+ 

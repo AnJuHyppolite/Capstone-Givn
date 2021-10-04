@@ -3,9 +3,9 @@ const cors = require("cors");
 const express = require("express");
 const usersController = require('./controllers/users');
 const itemsController = require('./controllers/items');
-const categoriesController = require('./controllers/categories');
+const requestsController =require('./controllers/requests')
+// const categoriesController = require('./controllers/categories');
 const { generateUploadURL } = require('./s3.js');
-
 
 // CONFIGURATION
 const app = express();
@@ -30,8 +30,7 @@ app.get('/s3url', async (req, res) => {
 //CONTROLLERS
 app.use('/users', usersController);
 app.use('/items', itemsController);
-// app.use('/categories', categoriesController);
-
+app.use('/requests',requestsController);
 
 // EXPORT
 module.exports = app;
