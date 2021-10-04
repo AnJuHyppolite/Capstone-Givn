@@ -7,13 +7,36 @@ import getElapsedPostedTime from "../Helpers/ElapsedTime.js";
 import relativeDistance from "../Helpers/relativeDistance.js";
 import { PositionOptions } from "mapbox-gl";
 import facts from "../Helpers/facts";
-
 const API = apiURL();
+
+// const randomFactNumber = Math.floor(Math.random() * facts?.facts?.length);
+
+// console.log("RANDOM FACT NUMBER: ", randomFactNumber);
+// console.log("Facts:", facts);
+// console.log(randomFact);
+// console.log(
+//   "RANDOM FACT OBJECT:",
+//   randomFact.category,
+//   randomFact.fact,
+//   randomFact.source
+// );
 
 const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
   const [photos, setPhotos] = useState([]);
   const [itemUser, setItemUser] = useState({});
   const [distance, setDistance] = useState(undefined);
+
+  const itemCategory = facts.filter((obj) => {
+    console.log("OBJECT:", obj)
+    if(obj.category === item.category) {
+      return obj
+    }
+  });
+
+  const randomFact = Math.floor(Math.random() * itemCategory?.facts?.length);
+  console.log("RANDOM FACT: ", randomFact)
+  console.log("ITEM.CATEGORY: ", item.category)
+  console.log("ITEM CATEGORY: ", itemCategory)
 
   useEffect(() => {
     const getPhotos = async () => {
@@ -72,11 +95,22 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
         <img src={photos[0]?.photo_url} alt="imageItem" />
       </Link>
       <h3>Educational Fact:</h3>
-      {facts.map((facts) => {
+      {/* {facts.map((facts) => {
         return (
           <p>{facts.category === item.category ? <p>{facts.fact}</p> : null}</p>
         );
-      })}
+      })} */}
+      {/* {facts.map((fact) => {
+        return (
+          <p>
+            {fact.category === item.category ? (
+              <p>{fact.facts[randomFactNumber]}</p>
+            ) : null}
+          </p>
+        );
+      })} */}
+      <p>{randomFact}</p>
+
       <div className="btns">
         <button onClick={() => setModalIsOpen(true)}>
           {" "}
