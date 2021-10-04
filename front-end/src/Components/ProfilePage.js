@@ -1,6 +1,7 @@
 import { apiURL } from "../util/apiURL";
 import { useContext, useState, useEffect } from "react";
-import { useHistory } from "react-router";
+import {useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { UserContext } from "../Providers/UserProvider";
 import ProfileItem from "./ProfileItem";
@@ -10,6 +11,10 @@ const ProfilePage = () => {
   const history = useHistory();
   const [activeItems, setActiveItems] = useState([]);
   const [inactiveItems, setInactiveItems] = useState([]);
+  const [getterRequests, setGetterRequests] = useState([]);
+  const [getterPending, setGetterPending] = useState([])
+  const [giverRequests, setGiverRequests] = useState([]);
+  const [giverPending, setGiverPending] = useState([]);
 
   const { user } = useContext(UserContext);
 
@@ -23,15 +28,25 @@ const ProfilePage = () => {
         console.log(error);
       }
     };
+    const getRequests = async ()=>{
+      let res = await axios.get(`${API}/requests/${user?.uid}`);
+      debugger
+      setGetterRequests(res.data.filter((request) => request.getter_id === user?.uid && request.status === "request"));
+      setGetterPending(res.data.filter((request) => request.getter_id === user?.uid && request.status === "pending"));
+      setGiverRequests(res.data.filter((request) => request.giver_id === user?.uid && request.status === "request"));
+      setGiverPending(res.data.filter((request) => request.giver_id === user?.uid && request.status === "pending"));
+      debugger
+    }
     getItems();
+    getRequests();
   }, [API, user?.uid]);
 
   return (
     <div>
       {!user ? (
         <div>NOT LOGGED IN</div>
-        ) : (
-          <div>
+      ) : (
+        <div>
           <section>
             <img
               src={
@@ -74,6 +89,15 @@ const ProfilePage = () => {
           )}
         </div>
       </div>
+
+      <ul className="requests-list">
+        <p>Notifications</p>
+          {getterRequests?.length ? getterRequests.map(r=><Link to={`/posts/${r.item_id}`}><li>You made a request for item: {r.title}</li></Link>) : null}
+          {getterPending?.length ? getterPending.map(r=><Link to={`/posts/${r.item_id}`}><li>Owner of {r.title} wants you to pick up item</li></Link>) : null}
+          {giverRequests?.length ? giverRequests.map(r=><Link to={`/posts/${r.item_id}`}><li>{r.display_name} made a request for your item: {r.title}</li></Link>) : null}
+          {giverPending?.length ? giverPending.map(r=><Link to={`/posts/${r.item_id}`}><li>{r.display_name} is on his way to pick up your item: {r.title}</li></Link>) : null}
+
+      </ul>
     </div>
   );
 };

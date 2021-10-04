@@ -35,8 +35,8 @@ const ItemsList = () => {
     const fetchAllItems = async () => {
       try {
         let res = await axios.get(`${API}/items`);
-        setItems(res.data);
-        setFilteredItems(res.data);
+        setItems(res.data.filter(item=>item.status !== "inactive"));
+        setFilteredItems(res.data.filter(item=>item.status !== "inactive"));
       } catch (error) {
         console.log(error);
       }

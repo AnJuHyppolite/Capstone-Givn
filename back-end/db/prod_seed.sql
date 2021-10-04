@@ -1,6 +1,6 @@
 
 INSERT INTO users(email, display_name, address, longitude, latitude, photo_url, uid) VALUES
-('firstuser@gmail.com', 'initial tester', 'Jamaica, New York City, New York 11435, United States',-73.7937,40.6935,'https://i.imgur.com/1ROVCKE.jpeg','m01'),
+('firstuser@gmail.com', 'firstInLine man', 'Jamaica, New York City, New York 11435, United States',-73.7937,40.6935,'https://i.imgur.com/1ROVCKE.jpeg','m01'),
 ('masterjeff@yahoo.com' , 'master Jeff', '31 Cooper Square, New York City, New York 10003, United States',-73.991005,40.728062,'https://i.imgur.com/8wztbO7.jpeg','m27'),
 ('heyyall@gmail.com', 'heeeeey', '53 Flushing Avenue, Queens, New York 11206, United States',-73.914239,40.714417,'https://i.imgur.com/F9Nf9Fx.jpeg','f23'),
 ('johndoe15@hotmail.com', 'johnnyboy','Flatlands 1st Street, Brooklyn, New York 11236, United States',-73.891212,40.6462201,'https://i.imgur.com/NHi6zdY.png','m62'),
@@ -50,12 +50,12 @@ INSERT INTO items(title, description, address, longitude, latitude, created_at, 
 ('Zoobooks Kids Magazines','Zoobooks Lot Of 12 Vintage Wildlife Education Home School Teacher Material, good condition','2265 Gerritsen Avenue, Brooklyn, New York 11229, United States',-73.933468,40.60068,'9/14/2021 12:00','active','Books',false,0,'f38'),
 ('Ceramic Flower Pot','Plaid & Flower Design Ceramic Plant / Flower Pot - EUC & Charming!','2155 West 6th Street, Brooklyn, New York 11223, United States',-73.97724,40.595091,'8/8/2021 8:00','inactive','Other',false,0,'m09');
 
-INSERT INTO transactions(time, getter_id, giver_id, item_id) VALUES 
-('7/21/2021 7:10', 'm67','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2',5),
-('7/14/2021 3:10', 'm42','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2',6),
-('7/28/2021 4:33','m09','m62',20),
-('9/3/2021 8:00','f17','m09',23),
-('9/9/2021 9:00','f33','m09',28);
+INSERT INTO transactions(time, points, getter_id, giver_id, item_id) VALUES 
+('7/21/2021 7:10', 60, 'm67','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2',5),
+('7/14/2021 3:10', 70, 'm42','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2',6),
+('7/28/2021 4:33',50, 'm09','m62',20),
+('9/3/2021 8:00',80, 'f17','m09',23),
+('9/9/2021 9:00',90, 'f33','m09',28);
 
 INSERT INTO photos(photo_url, item_id) VALUES 
 ('https://m.media-amazon.com/images/I/81qT6I2UYzL._AC_SX679_.jpg', 1),
@@ -107,3 +107,6 @@ INSERT INTO photos(photo_url, item_id) VALUES
 ('https://i.ebayimg.com/images/g/LLoAAOSwaItg~ybc/s-l500.jpg',27),
 ('https://i.ebayimg.com/images/g/LBwAAOSwFx5g~ycA/s-l500.jpg',27),
 ('https://i.ebayimg.com/images/g/ipgAAOSw5ENgrwQ~/s-l500.jpg',28);
+
+INSERT INTO requests(status, display_name, title, getter_id, giver_id, item_id) VALUES
+('request','Shoaib - First!','wine rack','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2','m01',1); 
