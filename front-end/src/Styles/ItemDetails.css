@@ -62,6 +62,10 @@
     margin-left: 10px;
 }
 
+.reqbtn:hover {
+    opacity: 0.9;
+}
+
 .Show .ofrbtn {
     background-color: #be7f4b;
     margin-left: 10px;

@@ -15,6 +15,7 @@ const postRequest = async (newRequest) => {
 
 const updateRequest = async (newRequest, id) => {
     const { status } = newRequest
+    console.log("INSIDER Request controller > updateRequest: ")
     return await db.oneOrNone('UPDATE requests SET status = $1  WHERE id = $2 RETURNING *',
         [status, id]);
 }

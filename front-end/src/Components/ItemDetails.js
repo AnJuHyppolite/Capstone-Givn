@@ -22,7 +22,11 @@ const ItemDetails = () => {
   const { user } = useContext(UserContext);
   const [requestID, setRequestID] = useState()
 
-  useEffect(async () => {
+  useEffect(() => {
+    fetchInformation()
+  }, []);
+
+  const fetchInformation = async()=>{
     const fetchPhoto = async () => {
       try {
         let res = await axios.get(`${API}/items/${id}/photos`);
@@ -44,7 +48,7 @@ const ItemDetails = () => {
     const fetchRequests = async (thisItem) => {
       console.log("INSIDE fetch requests " + thisItem.giver_id)
       debugger
-      if (user?.uid === thisItem.giver_id && thisItem.status !== "inactive") { //IF GIVER
+      if (user?.uid === thisItem.giver_id && thisItem.status !== "inactive") { //If GIVER is on this page
         try {
           let res = await axios.get(`${API}/items/${id}/requests`);
           setRequests(res.data)
@@ -53,7 +57,7 @@ const ItemDetails = () => {
           debugger
           console.log(error);
         }
-      } else if (user?.uid) { //IF GETTER
+      } else if (user?.uid) { //IF GETTER is on this page
         try {
           let res = await axios.get(`${API}/items/${id}/requests`);
           debugger
@@ -72,7 +76,7 @@ const ItemDetails = () => {
     fetchPhoto();
     let thisItem = await fetchItem();
     fetchRequests(thisItem)
-  }, [API, id]);
+  }
 
   const handleDelete = async () => {
     try {
@@ -108,8 +112,8 @@ const ItemDetails = () => {
     setRequestID(e.target.value)
   }
 
-  const updateItemToPending = async () => {
-    const updatedItem = { ...item, status: "pending" }
+  const updateItemStatus = async (newStatus) => {
+    const updatedItem = { ...item, status: newStatus }
     try {
       await axios.put(`${API}/users/${user.uid}/items/${id}`, updatedItem);
     } catch (error) {
@@ -117,8 +121,32 @@ const ItemDetails = () => {
     }
   }
 
+  const recordTransaction = async (pointsForItem) => {
+    const currentdate = new Date();
+    const transactionTime = (currentdate.getMonth() + 1) + "/" + currentdate.getDate() + "/" + currentdate.getFullYear() + " "
+      + currentdate.getHours() + ":" + currentdate.getMinutes()
+    const newTransaction = { time: transactionTime, points: pointsForItem, getter_id: user.uid, giver_id: item.giver_id, item_id: id }
+    debugger
+    try {
+      await axios.post(`${API}/users/${item.giver_id}/transactions`, newTransaction);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const recordPoints = async (points) => {
+    try {
+     await axios.put(`${API}/users/${item.giver_id}/score`, {score: points});
+     alert("Transaction recorded!")
+      history.goBack();
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    debugger
     try {
       await axios.put(`${API}/items/${id}/requests/${requestID}`, { status: "pending" });
       alert("User will be notified of your offer")
@@ -126,11 +154,14 @@ const ItemDetails = () => {
     } catch (error) {
       console.log(error);
     }
-    updateItemToPending();
+    updateItemStatus("pending");
   }
 
   const handleTransaction = (e) => {
-
+    updateItemStatus("inactive");
+    let pointsForItem = 50;
+    recordTransaction(pointsForItem)
+    recordPoints(pointsForItem);
   }
 
   const {
@@ -173,7 +204,7 @@ const ItemDetails = () => {
           <h2>Is Biodegradable</h2>
           <p>{is_biodegradable ? <span>Yes</span> : <span>No</span>}</p>
           {expiration ? <><h2>Expiration</h2>
-          <p>{"expires in " + expiration + " days"}</p></> : null }
+            <p>{"expires in " + expiration + " days"}</p></> : null}
           {user?.uid === giver_id && status === "active" ?
             (showForm === 0 ?
               <div>
@@ -186,10 +217,10 @@ const ItemDetails = () => {
               </div>
               : (showForm === 1 ? <form onSubmit={handleSubmit}>
                 Accept request from :
-                <select onChange={handleSelect}>
-                  <option>dfsdf</option>
-                  {requests.map(r => {
-                    return <option key={r.display_name} value={r.id}>{r.display_name}</option>
+                <select onChange={handleSelect} defaultValue="" required>
+                  <option disabled></option>
+                  {requests.map((r,i) => {
+                    return <option key={i} value={r.id}>{r.display_name}</option>
                   })}
 
                 </select>

@@ -34,6 +34,7 @@ CREATE TABLE items (
 CREATE TABLE transactions (
     id SERIAL PRIMARY KEY,
     time TEXT NOT NULL,
+    points INT DEFAULT 50,
     getter_id VARCHAR(30) REFERENCES users (uid),
     giver_id VARCHAR(30) REFERENCES users (uid),
     item_id INT REFERENCES items (id)

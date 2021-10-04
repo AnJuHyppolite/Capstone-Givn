@@ -14,7 +14,6 @@ requests.post('/', async (req, res) => {
     } else {
         res.status(422).json({ success: false, error: true, message: "request already made" })
     }
-
 })
 
 requests.put('/:id', async (req, res) => {

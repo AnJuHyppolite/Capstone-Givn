@@ -51,12 +51,12 @@ INSERT INTO items(title, description, address, longitude, latitude, created_at, 
 ('Zoobooks Kids Magazines','Zoobooks Lot Of 12 Vintage Wildlife Education Home School Teacher Material, good condition','2265 Gerritsen Avenue, Brooklyn, New York 11229, United States',-73.933468,40.60068,'9/14/2021 12:00','active','Books',false,0,'f38'),
 ('Ceramic Flower Pot','Plaid & Flower Design Ceramic Plant / Flower Pot - EUC & Charming!','2155 West 6th Street, Brooklyn, New York 11223, United States',-73.97724,40.595091,'8/8/2021 8:00','inactive','Other',false,0,'m09');
 
-INSERT INTO transactions(time, getter_id, giver_id, item_id) VALUES 
-('7/21/2021 7:10', 'm67','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2',5),
-('7/14/2021 3:10', 'm42','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2',6),
-('7/28/2021 4:33','m09','m62',20),
-('9/3/2021 8:00','f17','m09',23),
-('9/9/2021 9:00','f33','m09',28);
+INSERT INTO transactions(time, points, getter_id, giver_id, item_id) VALUES 
+('7/21/2021 7:10', 60, 'm67','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2',5),
+('7/14/2021 3:10', 70, 'm42','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2',6),
+('7/28/2021 4:33',50, 'm09','m62',20),
+('9/3/2021 8:00',80, 'f17','m09',23),
+('9/9/2021 9:00',90, 'f33','m09',28);
 
 INSERT INTO photos(photo_url, item_id) VALUES 
 ('https://m.media-amazon.com/images/I/81qT6I2UYzL._AC_SX679_.jpg', 1),
