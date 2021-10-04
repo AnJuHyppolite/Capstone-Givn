@@ -109,5 +109,5 @@ INSERT INTO photos(photo_url, item_id) VALUES
 ('https://i.ebayimg.com/images/g/LBwAAOSwFx5g~ycA/s-l500.jpg',27),
 ('https://i.ebayimg.com/images/g/ipgAAOSw5ENgrwQ~/s-l500.jpg',28);
 
-INSERT INTO requests(status, display_name, getter_id, giver_id, item_id) VALUES
-('request','firstInLine man','m01','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2',1); 
+INSERT INTO requests(status, display_name, title, getter_id, giver_id, item_id) VALUES
+('request','Shoaib - First!','wine rack','CVAp4aL1tLTTo7wB8Tn6BMfpI2X2','m01',1); 

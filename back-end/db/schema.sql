@@ -59,8 +59,9 @@ CREATE TABLE photos (
 CREATE TABLE requests (
     id SERIAL PRIMARY KEY,
     status TEXT,
-    display_name VARCHAR(40),
+    display_name VARCHAR(40) NOT NULL,
+    title VARCHAR(50) NOT NULL,
     getter_id VARCHAR(30) REFERENCES users (uid),
     giver_id VARCHAR(30) REFERENCES users (uid),
-    item_id INT REFERENCES items (id)
+    item_id INT REFERENCES items (id) ON DELETE CASCADE
 )
