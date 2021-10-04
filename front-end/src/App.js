@@ -12,6 +12,7 @@ import FourOFour from "./Pages/FourOFour";
 import AboutPage from "./Pages/AboutPage";
 import EditProfile from "./Components/EditProfile";
 import UserProfile from "./Components/UserProfile";
+import Login from "./Pages/Login";
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
                 <Home />
               </Route>
               <Route exact path="/login">
-                <Home />
+                <Login/>
               </Route>
               <Route exact path="/signup">
                 <SignUp />
