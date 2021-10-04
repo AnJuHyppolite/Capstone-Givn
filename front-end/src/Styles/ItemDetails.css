@@ -53,9 +53,30 @@
 }
 
 .Show .delbtn {
-    background-color: #9f5a5a;
+    background-color: #da6161;
     margin-left: 10px;
 }
+
+.Show .reqbtn {
+    background-color: #4b9972;
+    margin-left: 10px;
+}
+
+.reqbtn:hover {
+    opacity: 0.9;
+}
+
+.Show .ofrbtn {
+    background-color: #be7f4b;
+    margin-left: 10px;
+}
+
+.Show .recbtn {
+    background-color: #a79d46;
+    margin-left: 10px;
+}
+
+
 
 .right-info h2 {
     color: #A18BB2;

@@ -16,10 +16,15 @@ const createUser = async (user) => {
 
 const deleteUser = async (id) => await db.oneOrNone('DELETE FROM users WHERE id=$1 RETURNING *', id)
 
+const updateUserScore = async(uid, score) =>{
+    return db.oneOrNone("UPDATE users SET score = score + $1 where uid = $2 RETURNING *",
+    [score, uid]);
+}
+
 const updateUser = async (uid, user) => {
     const { display_name, email, address, longitude, latitude, photo_url } = user;
     return db.oneOrNone("UPDATE users SET display_name = $1, email = $2, address = $3, longitude = $4, latitude = $5, photo_url = $6 where uid = $7 RETURNING *",
         [display_name, email, address, longitude, latitude, photo_url, uid]);
 }
 
-module.exports = { getUser, getAllUsers, createUser, deleteUser, updateUser };
+module.exports = { getUser, getAllUsers, createUser, deleteUser, updateUser, updateUserScore };
