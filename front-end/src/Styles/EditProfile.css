@@ -6,6 +6,11 @@
         cursor: pointer;
 }
 
+.editProfile .editprofile-image img {
+        height: 300px;
+        width: 300px;
+}
+
 .editProfile h1 {
         text-align: center;
         padding-top: 20px;
