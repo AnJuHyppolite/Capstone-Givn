@@ -74,7 +74,7 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
           {" "}
           <i className="fas fa-heart"></i>
         </button>
-        <Link to='/chats'> 
+        <Link to={`/chats/${item.giver_id}`}> 
         <button>
           {" "}
           <i className="fas fa-comment-alt"></i>

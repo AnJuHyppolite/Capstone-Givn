@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { ChatEngine, getOrCreateChat } from "react-chat-engine";
 import "../Styles/Chats.css";
 
@@ -8,7 +8,6 @@ import { useAuth } from "../Providers/UserProvider";
 const Chats = () => {
   const { user } = useAuth();
   console.log(user);
-  // const [loading, setLoading] = useState(true);
 
   const [username, setUsername] = useState("");
 
@@ -19,40 +18,6 @@ const Chats = () => {
       () => setUsername("")
     );
   }
-  // useEffect(() => {
-  //   if (!user) {
-  //     history.push("/");
-  //     return;
-  //   }
-  //   axios
-  //     .get("https://api.chatengine.io/users/me", {
-  //       headers: {
-  //         "project-id": process.env.REACT_APP_CHAT_ENGINE_ID,
-  //         "user-name": user.email,
-  //         "user-secret": user.uid,
-  //       },
-  //     })
-  //     .then(() => {
-  //       setLoading(false);
-  //     })
-  //     .catch(() => {
-  //       let formdata = new FormData();
-  //       formdata.append("email", user.email);
-  //       formdata.append("username", user.email);
-  //       formdata.append("secret", user.uid);
-
-  //       axios
-  //         .post("https://api.chatengine.io/users/", formdata, {
-  //           headers: {
-  //             "private-key": process.env.REACT_APP_CHAT_ENGINE_KEY,
-  //           },
-  //         })
-  //         .then(() => setLoading(false))
-  //         .catch((error) => console.log(error));
-  //     });
-  // }, [user, history]);
-
-  // if (!user || loading) return "Loading ...";
   let newUserData;
   user.email
     ? (newUserData = user.email)
