@@ -1,7 +1,7 @@
 const requests = require('express').Router({
     mergeParams: true
 });
-const { getAllRequests, postRequest, updateRequest } = require('../queries/requests')
+const { getAllRequests, postRequest, updateRequest } = require('../queries/itemRequests')
 
 requests.get('/', async (req, res) => {
     console.log("INSIDE requests controller ")
