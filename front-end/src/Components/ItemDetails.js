@@ -48,29 +48,25 @@ const ItemDetails = () => {
     };
 
     const fetchRequests = async (thisItem) => {
-      console.log("INSIDE fetch requests " + thisItem.giver_id)
-      debugger
+      
       if (user?.uid === thisItem.giver_id && thisItem.status !== "inactive") { //If GIVER is on this page
         try {
           let res = await axios.get(`${API}/items/${id}/requests`);
           setRequests(res.data)
-          debugger
         } catch (error) {
-          debugger
           console.log(error);
         }
       } else if (user?.uid) { //IF GETTER is on this page
         try {
           let res = await axios.get(`${API}/items/${id}/requests`);
-          debugger
+          
           res.data.forEach(r => {
             if (r.getter_id === user.uid) {
               setGetterRequest(r.status)
-              debugger
             }
           })
         } catch (error) {
-          debugger
+          
           console.log(error);
         }
       }
@@ -100,7 +96,8 @@ const ItemDetails = () => {
       history.push('/')
       return;
     }
-    const request = { status: "request", display_name: user.display_name, getter_id: user.uid, giver_id: item.giver_id, item_id: item.id }
+    debugger
+    const request = { status: "request", display_name: user.display_name, title: item.title, getter_id: user.uid, giver_id: item.giver_id, item_id: item.id }
     try {
       await axios.post(`${API}/items/${id}/requests`, request);
       debugger
@@ -116,8 +113,11 @@ const ItemDetails = () => {
 
   const updateItemStatus = async (newStatus) => {
     const updatedItem = { ...item, status: newStatus }
+    debugger
     try {
       await axios.put(`${API}/users/${user.uid}/items/${id}`, updatedItem);
+      debugger
+      return true;
     } catch (error) {
       console.log(error)
     }
@@ -140,7 +140,7 @@ const ItemDetails = () => {
     try {
      await axios.put(`${API}/users/${item.giver_id}/score`, {score: points});
      alert("Transaction recorded!")
-      history.goBack();
+    history.goBack();
     } catch (error) {
       console.log(error)
     }
@@ -159,11 +159,21 @@ const ItemDetails = () => {
     updateItemStatus("pending");
   }
 
-  const handleTransaction = (e) => {
-    updateItemStatus("inactive");
+  const closeRequestStatus = async () => {
+    debugger
+    try {
+      await axios.put(`${API}/items/${id}/requests/${id}/close`, {status: "inactive"});
+      debugger
+      return true;
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const handleTransaction = async (e) => {
     let pointsForItem = 50;
-    recordTransaction(pointsForItem)
-    recordPoints(pointsForItem);
+    recordTransaction(pointsForItem, await closeRequestStatus())
+    recordPoints(pointsForItem, await updateItemStatus("inactive"));
   }
 
   const {

@@ -21,9 +21,9 @@ const updateRequest = async (newRequest, id) => {
 }
 
 const closeRequests = async (id) => {
-    console.log("INSIDER CloseRequest: ")
-    return await db.oneOrNone('UPDATE requests SET status = "inactive" WHERE id = $1 RETURNING *', id);
+    console.log("INSIDE CloseRequest quries: ")
+    return await db.any('UPDATE requests SET status = $1 WHERE item_id = $2 RETURNING *', ['inactive',id]);
 
 }
 
-module.exports = { getAllRequests, postRequest, updateRequest }
+module.exports = { getAllRequests, postRequest, updateRequest, closeRequests }

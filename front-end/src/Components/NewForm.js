@@ -131,6 +131,7 @@ const NewForm = () => {
           value={newItem.title}
           placeholder="Title of item"
           type="text"
+          maxLength="50"
           onChange={handleChange}
           required
         />
