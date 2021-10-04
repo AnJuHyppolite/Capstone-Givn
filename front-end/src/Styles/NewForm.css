@@ -93,3 +93,13 @@
     font-family: Mulish;
     cursor: pointer;
 }
+
+@media screen and (max-width: 1050px) {
+  .New form {
+    width: 100%;
+  }
+  
+  .New .art-side {
+    display: none;
+  }
+}

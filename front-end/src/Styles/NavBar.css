@@ -1,111 +1,172 @@
 nav {
-    height: 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #855A9F;
-    padding: 0 2rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100; 
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #855a9f;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 
 nav a {
-    text-decoration: none;
-    color: #fff;
-    padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
 }
 
 nav img {
-    max-width: 50px;
+  max-width: 50px;
 }
 
 nav .active {
-    background-color: rgba(225, 225, 225, 0.2);
-    border-radius: 8px;
-    padding: 0.5rem 1rem;
+  background-color: rgba(225, 225, 225, 0.2);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
 }
 
 nav div {
-    width: 18rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 18px;
-    font-weight: 400;
+  width: 18rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+nav div h1 {
+    display: block;
+}
+
+nav div i {
+  color: #fff;
+  font-size: 24px;
+  opacity: 0;
+  cursor: pointer;
 }
 
 nav .left-icon {
-    font-family: Mulish;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-size: 26px;
-    background-color: #EAE6F6;
-    color: #1A0E3E;
-    font-weight: 700;
-    border-radius: 50%;
+  font-family: Mulish;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
+  background-color: #eae6f6;
+  color: #1a0e3e;
+  font-weight: 700;
+  border-radius: 50%;
 }
 
-nav .profile{
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    border: 3px solid #EAE6F6;
-    cursor: pointer;
+nav .profile {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border: 3px solid #eae6f6;
+  cursor: pointer;
 }
 
 nav ul {
-    position: absolute;
-    top: 48px;
-    right: 40px;
-    background-color: #fff;
-    padding: 1rem 3rem 1rem 1.5rem;
-    list-style: none;
-    border-radius: 8px;
-    font-size: 20px;    
-    box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);
-}
-
-li {
-    width: 100%;
+  position: absolute;
+  top: 48px;
+  right: 40px;
+  background-color: #fff;
+  padding: 1rem 3rem 1rem 1.5rem;
+  list-style: none;
+  border-radius: 8px;
+  font-size: 20px;
+  box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);
 }
 
 nav ul .one {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
-nav ul a, i {
-    text-align: right;
-    color: #1A0E3E;
+nav ul a,
+i {
+  text-align: right;
+  color: #1a0e3e;
 }
 
 nav ul li:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .dropdown {
-    display: none;
+  display: none;
 }
 
-nav #user-menu{
-    background-color: #855A9F;
+nav #user-menu {
+  background-color: #855a9f;
 }
 
 #user-menu a {
-    color: #fff;
+  color: #fff;
 }
 
 #user-menu button {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 20px;
-    text-align: right;
-    margin-left: 0.5rem;
-    font-family: Mulish;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  text-align: right;
+  margin-left: 0.5rem;
+  font-family: Mulish;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background-color: #855a9f;
+  padding-top: 2rem;
+  padding-left: 0;
+  top: 42px;
+  left: -120%;
+  transition: 850ms;
+  font-weight: 400;
+  z-index: 90;
+}
+
+.menu.show {
+  left: 0;
+  transition: 450ms;
+}
+
+.menu li {
+  margin-bottom: 40px;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 660px) {
+  nav div a {
+    display: none;
+  }
+
+  nav div i {
+    display: block;
+    opacity: 1;
+    margin-left: 115px;
+
+  }
+
+  .cart-icon h4 {
+    right: 55px;
+  }
+
+  .menu {
+    display: flex;
+  }
 }
