@@ -24,10 +24,10 @@ const AboutPage = () => {
         <div className="developer">
           <img
             src="https://media-exp1.licdn.com/dms/image/C5603AQFMAP-Uz_wt-g/profile-displayphoto-shrink_800_800/0/1631551061188?e=1637798400&v=beta&t=V4LUi0N3byTEMU-GDxNkx0fUpitw1xvv1JL8hX5D2OY"
-            alt="Anju Hyppolite"
+            alt="AnJu Hyppolite"
           />
           <h3>AnJu Hyppolite </h3>
-          <h5>Project Master/Project Manager</h5>
+          <h5>Scrum Master/Project Manager</h5>
           <p>
             I am a software engineer and teaching artist who uses theater arts,
             poetry, and playwriting to design curricula and facilitate workshops
