@@ -17,7 +17,6 @@ itemsForUser.get('/:id', async (req, res) => {
 itemsForUser.post('/', async (req, res) => {
     if (req.body.title && req.body.description && req.body.address && req.body.status) {
         let postedItem = await createItem(req.params.user_id, req.body)
-        console.log(postedItem)
         res.json(postedItem)
     }
     else {
