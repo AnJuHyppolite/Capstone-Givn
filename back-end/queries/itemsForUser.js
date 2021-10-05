@@ -5,9 +5,6 @@ const getAllItems = async (user_id) => await db.any('SELECT * FROM items WHERE g
 const getItem = async (id) => await db.oneOrNone('SELECT * FROM items WHERE id=$1', id);
 
 const createItem = async (user_id, item) => {
-    console.log("IN ITEMSforUSERS QUERIES: ")
-    console.log(typeof user_id)
-    console.log(item)
     let { title, description, address, longitude, latitude, created_at, status, category, is_biodegradable, expiration } = item;
     if(!category) category = 'Other';
     return await db.oneOrNone('INSERT INTO items(title, description, address, longitude, latitude, created_at, status, category, is_biodegradable, expiration, giver_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *',

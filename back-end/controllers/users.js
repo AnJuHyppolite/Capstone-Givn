@@ -18,7 +18,6 @@ users.get('/:id', async (req, res) =>{
 })
 
 users.post('/', async(req,res)=> {
-    console.log(req.body)
     req.body.uid ? res.json(await createUser(req.body)) : res.status(422).json({success: false, error: true, message: "email is required"})
 })
 
@@ -34,14 +33,11 @@ users.delete('/:id', async (req, res) => {
 users.put('/:id', async (req, res)=>{
     const {id} = req.params;
     const user = req.body;
-    console.log("INSIDE USERS controller")
-    console.log(user)
     const editedUser = await updateUser(id, user);
     editedUser ? res.json(editedUser) : res.status(422).json({success: false, error: true, message: "invalid id"})
 })
 
 users.put('/:id/score', async (req, res)=>{ 
-    console.log("INSIDE userScore controller>> ")
     const {id} = req.params;
     const { score } = req.body;
     const editedUser = await updateUserScore(id, score);
