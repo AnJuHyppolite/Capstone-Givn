@@ -67,7 +67,6 @@ const ItemDetails = () => {
             }
           })
         } catch (error) {
-          
           console.log(error);
         }
       }
@@ -97,11 +96,9 @@ const ItemDetails = () => {
       history.push('/')
       return;
     }
-    debugger
     const request = { status: "request", display_name: user.display_name, title: item.title, getter_id: user.uid, giver_id: item.giver_id, item_id: item.id }
     try {
       await axios.post(`${API}/items/${id}/requests`, request);
-      debugger
       alert(item.title + " successfully requested")
     } catch (error) {
       console.log(error);
@@ -114,10 +111,8 @@ const ItemDetails = () => {
 
   const updateItemStatus = async (newStatus) => {
     const updatedItem = { ...item, status: newStatus }
-    debugger
     try {
       await axios.put(`${API}/users/${user.uid}/items/${id}`, updatedItem);
-      debugger
       return true;
     } catch (error) {
       console.log(error)
@@ -129,7 +124,6 @@ const ItemDetails = () => {
     const transactionTime = (currentdate.getMonth() + 1) + "/" + currentdate.getDate() + "/" + currentdate.getFullYear() + " "
       + currentdate.getHours() + ":" + currentdate.getMinutes()
     const newTransaction = { time: transactionTime, points: pointsForItem, getter_id: user.uid, giver_id: item.giver_id, item_id: id }
-    debugger
     try {
       await axios.post(`${API}/users/${item.giver_id}/transactions`, newTransaction);
     } catch (error) {
@@ -149,7 +143,6 @@ const ItemDetails = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    debugger
     try {
       await axios.put(`${API}/items/${id}/requests/${requestID}`, { status: "pending" });
       alert("User will be notified of your offer")
@@ -170,10 +163,8 @@ const ItemDetails = () => {
   }
 
   const closeRequestStatus = async () => {
-    debugger
     try {
       await axios.put(`${API}/items/${id}/requests/${id}/close`, {status: "inactive"});
-      debugger
       return true;
     } catch (error) {
       console.log(error)

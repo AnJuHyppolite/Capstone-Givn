@@ -30,12 +30,10 @@ const ProfilePage = () => {
     };
     const getRequests = async ()=>{
       let res = await axios.get(`${API}/requests/${user?.uid}`);
-      debugger
       setGetterRequests(res.data.filter((request) => request.getter_id === user?.uid && request.status === "request"));
       setGetterPending(res.data.filter((request) => request.getter_id === user?.uid && request.status === "pending"));
       setGiverRequests(res.data.filter((request) => request.giver_id === user?.uid && request.status === "request"));
       setGiverPending(res.data.filter((request) => request.giver_id === user?.uid && request.status === "pending"));
-      debugger
     }
     getItems();
     getRequests();
@@ -61,7 +59,7 @@ const ProfilePage = () => {
             <hr />
             <div>
               <h3>
-                {user.address} | Score: {user.score}
+                {user.address} <br/> Score: {user.score}
               </h3>
             </div>
             <button onClick={() => history.push("/profile/edit")}>
