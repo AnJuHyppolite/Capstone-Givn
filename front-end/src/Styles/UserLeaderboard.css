@@ -8,10 +8,9 @@
   border: 2px solid transparent;
   width: 550px;
   background-color: #855a9f;
-  margin-top: 20px;
+  margin-top: 10px;
   height: 15px;
   border-radius: 10px;
-  opacity: 0.5;
   font-family: Mulish;
 }
 .leaderboard:hover {
@@ -46,6 +45,21 @@
   border-radius: 50%;
   float: left;
   margin-top: -20px;
+}
+
+.timer-section{
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.clock{
+  margin: -20px;
+  font-size: 70px;
 }
 
 @media screen and (max-width: 280px) {
