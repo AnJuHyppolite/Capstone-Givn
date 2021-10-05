@@ -43,8 +43,6 @@ const EditProfile = () => {
 
     async function getURL() {
         const { data } = await axios.get(`${API}/s3url`)
-        console.log("inside getURL function")
-        console.log(data)
         return data.url;
       }
 
@@ -64,15 +62,11 @@ const EditProfile = () => {
     
         })
         const imageURL = url.split('?')[0]
-    
-        //post photos to frontend
         SetUpdatedUser({...updatedUser, photo_url: imageURL})
-    
       }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("IN SUBMIT: ")
         if (!user) {
             alert("You must log in first")
             history.push("/")

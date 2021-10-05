@@ -4,12 +4,10 @@ const transactions = require('express').Router({
 const { getAllTransactions, postTransaction} = require('../queries/transactions')
 
 transactions.get('/', async (req, res) => {
-    console.log(req.params)
    return res.json(await getAllTransactions(req.params.user_id))
 })
 
 transactions.post('/', async (req, res) => {
-    console.log("INSIDE TRANSACTIONS CONTROLLER>>> ")
     if (req.body) {
         res.json(await postTransaction(req.body))
     } else {

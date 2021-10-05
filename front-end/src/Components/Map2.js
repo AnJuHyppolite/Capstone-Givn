@@ -30,7 +30,6 @@ const Map2 = props => {
       props.updateLocation({address: result.result.place_name, lng: Number(result.result.geometry.coordinates[0]), lat: Number(result.result.geometry.coordinates[1])})
     })
     map.addControl(geocoder);
-    //geocoder.addTo('#geocoder-container')
 
     // Add navigation control (the +/- zoom buttons)
     map.addControl(new mapboxgl.NavigationControl(), 'top-right');

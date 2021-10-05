@@ -30,17 +30,26 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
   }, [item.id]);
 
   useEffect(() => {
-    const getUserForItem = async () => {
+    const getDistanceforItem = async()=>{
       try {
-        const res = await axios.get(`${API}/users/${item.giver_id}`);
-        setItemUser(res.data);
+        const res = await axios.get(`${API}/items/${item.id}`);
         if (user?.longitude !== 0) {
           setDistance(relativeDistance(user, res.data));
         }
       } catch (error) {
         console.log(error);
       }
+    }
+
+    const getUserForItem = async () => {
+      try {
+        const res = await axios.get(`${API}/users/${item.giver_id}`);
+        setItemUser(res.data);
+      } catch (error) {
+        console.log(error);
+      }
     };
+    getDistanceforItem();
     getUserForItem();
   }, [item.giver_id, user]);
 
