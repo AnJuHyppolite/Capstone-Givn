@@ -77,7 +77,9 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
       </h3>
       <p>
         {facts.map((fact) => {
-          return fact.category === item.category ? `"${strShortener(fact.fact, 175)}"` : null;
+          return fact.category === item.category
+            ? `"${strShortener(fact.fact, 175)}"`
+            : null;
         })}
       </p>
       <div className="btns">
@@ -89,10 +91,12 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
           {" "}
           <i className="fas fa-heart"></i>
         </button>
-        <button>
-          {" "}
-          <i className="fas fa-comment-alt"></i>
-        </button>
+        <Link to="/chat">
+          <button>
+            {" "}
+            <i className="fas fa-comment-alt"></i>
+          </button>
+        </Link>
       </div>
       <ShareButton
         modalIsOpen={modalIsOpen}
