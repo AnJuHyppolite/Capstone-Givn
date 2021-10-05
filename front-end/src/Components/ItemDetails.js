@@ -8,6 +8,7 @@ import { UserContext } from "../Providers/UserProvider.js";
 import "../Styles/ItemDetails.css";
 import "swiper/swiper-bundle.css";
 import { capitalize } from "../Helpers/capitalizeName";
+import { calculateScore } from "../Helpers/calculateScore";
 import facts from '../Helpers/facts'
 
 SwiperCore.use([Navigation, Pagination]);
@@ -159,6 +160,15 @@ const ItemDetails = () => {
     updateItemStatus("pending");
   }
 
+  const countRequests = async () => {
+    try {
+      let res = await axios.get(`${API}/items/${id}/requests`);
+      return res.data.length;
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const closeRequestStatus = async () => {
     debugger
     try {
@@ -171,7 +181,7 @@ const ItemDetails = () => {
   }
 
   const handleTransaction = async (e) => {
-    let pointsForItem = 50;
+    let pointsForItem = calculateScore(item.category, await countRequests())
     recordTransaction(pointsForItem, await closeRequestStatus())
     recordPoints(pointsForItem, await updateItemStatus("inactive"));
   }
