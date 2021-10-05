@@ -40,8 +40,12 @@ const facts = [
   },
   {
     category: "Kitchenware",
-    fact: "Pans and pots have a special coating which must be removed.",
-  source: "https://cookwarecrazy.com/post/how_to_throw_out_pots_and_pans_nyc"},
+    fact: "Kitchenware is made of various materials. Some are made of plastic or metals that are toxic to the environment.",
+    source:
+      "https://earth911.com/home-garden/how-to-recycle-your-old-cookware/",
+    source2:
+      "https://www.fptscrap.com/ferrous-scrap-recycling-has-global-economic-and-environmental-effects/",
+  },
   {
     category: "Furniture",
     fact: "According to the Environmental Protection Agency, the amount of furniture and furnishings taken to a landfill increases every year. Over 9.69 million tons goes to landfills.",
