@@ -13,6 +13,7 @@ import AboutPage from "./Pages/AboutPage";
 import EditProfile from "./Components/EditProfile";
 import UserProfile from "./Components/UserProfile";
 import Login from "./Pages/Login";
+import Chat from "./Components/Chat";
 
 
 function App() {
@@ -43,6 +44,9 @@ function App() {
               </Route>
               <Route exact path="/about">
                 <AboutPage />
+              </Route>
+              <Route exact path="/chat">
+                <Chat />
               </Route>
               <Route exact path="/posts/new">
                 <New />
