@@ -39,11 +39,14 @@ const NavBar = () => {
             <NavLink exact to="/posts/new">
               Give
             </NavLink>
+            <NavLink exact to={`/chat`}>
+              Chat
+            </NavLink>
+            <NavLink exact to={"/leaderboard"}>
+              Leaderboard
+            </NavLink>
             <NavLink exact to={"/about"}>
               About
-            </NavLink>
-            <NavLink exact to={`/chat`}>
-             Chat
             </NavLink>
           </div>
           <img

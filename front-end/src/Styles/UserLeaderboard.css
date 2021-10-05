@@ -1,0 +1,46 @@
+.container {
+display: flex;
+flex-direction: column;
+align-items: center;
+  
+}
+.leaderboard {
+  padding: 40px;
+  border: 2px solid transparent;
+  width: 550px;
+  background-color: white;
+  margin-top: 20px;
+  height: 15px;
+  border-radius: 10px;
+  opacity: .6;
+}
+.leaderboard:hover{
+    opacity: 1;
+}
+.leaderboard p{
+    text-align: right;
+    margin-top: -52px;
+    font-size: 25px;
+}
+.title{
+    text-align: center;
+    padding-top: 30px;
+    color: rgb(182, 141, 187);
+}
+.leaderboard h1 {
+  color: rgb(182, 141, 187);
+  font-size: 25px;
+  text-align: center;
+  margin-top: -5px;
+}
+.leaderboard a {
+  color: rgb(182, 141, 187);
+  text-decoration: none;
+}
+.leaderboard img {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  float: left;
+  margin-top: -20px;
+}
