@@ -15,6 +15,7 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
   const [photos, setPhotos] = useState([]);
   const [itemUser, setItemUser] = useState({});
   const [distance, setDistance] = useState(undefined);
+  const [randomfact, setRandomFact] = useState("");
 
   useEffect(() => {
     const getPhotos = async () => {
@@ -42,6 +43,19 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
     };
     getUserForItem();
   }, [item.giver_id, user]);
+
+  useEffect(() => {
+    const filteredFacts = facts.filter((factObj) => {
+      if(factObj.category === item.category) {
+        console.log(factObj)
+        console.log(factObj.facts)
+        return factObj.facts
+      }
+    });
+    console.log(filteredFacts)
+    const randomNumber = Math.floor(Math.random() * filteredFacts[0].facts.length)
+    setRandomFact(filteredFacts[0].facts[randomNumber])
+  }, []);
 
   return (
     <li className="index-item">
@@ -76,11 +90,12 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
         <i class="fas fa-leaf"></i> Educational Fact:
       </h3>
       <p>
-        {facts.map((fact) => {
+      {`"${strShortener(randomfact, 175)}"`}
+        {/* {facts.map((fact) => {
           return fact.category === item.category
             ? `"${strShortener(fact.fact, 175)}"`
             : null;
-        })}
+        })} */}
       </p>
       <div className="btns">
         <button onClick={() => setModalIsOpen(true)}>
