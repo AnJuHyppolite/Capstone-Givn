@@ -14,7 +14,7 @@ const NavBar = () => {
   const handleSignOut = async () => {
     await signOut();
     // setOpen(false);
-    console.log('HISTORYYYYYYY')
+    console.log("HISTORYYYYYYY");
     history.push("/");
   };
 
@@ -42,11 +42,8 @@ const NavBar = () => {
             <NavLink exact to={"/about"}>
               About
             </NavLink>
-            <NavLink to={`/chats`}>
-              <button>
-                {" "}
-                <i className="fas fa-comment-alt"></i>
-              </button>
+            <NavLink exact to={`/chat`}>
+             Chat
             </NavLink>
           </div>
           <img

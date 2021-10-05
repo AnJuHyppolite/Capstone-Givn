@@ -91,12 +91,6 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
           {" "}
           <i className="fas fa-heart"></i>
         </button>
-        <Link to="/chat">
-          <button>
-            {" "}
-            <i className="fas fa-comment-alt"></i>
-          </button>
-        </Link>
       </div>
       <ShareButton
         modalIsOpen={modalIsOpen}
