@@ -115,7 +115,6 @@ const NavBar = () => {
         <nav>
           <h1>
             <NavLink exact to="/">
-              Givn
               <img src={logo} alt="givn-logo" />
             </NavLink>
           </h1>
