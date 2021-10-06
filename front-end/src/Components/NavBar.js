@@ -30,7 +30,7 @@ const NavBar = () => {
     <header>
       {user ? (
         <nav>
-          <h1>
+          <h1 className="logo">
             <NavLink exact to="/">
               Givn
               <img src={logo} alt="givn-logo" />
@@ -58,8 +58,8 @@ const NavBar = () => {
             onClick={handleDropdown}
           />
           <ul className={!open ? "dropdown" : null} id="user-menu">
-            <li className="one">
-              <i className="fas fa-user-circle"></i>
+            <li className="one" onClick={() => setOpen(false)}>
+              <i className="fas fa-user-circle" ></i>
               <NavLink exact to="/profile">
                 Profile
               </NavLink>
@@ -111,17 +111,18 @@ const NavBar = () => {
               About
             </NavLink>
             <i
+            id="no-user-menu"
               className={mobileMenu ? "fas fa-times" : "fas fa-bars"}
               onClick={showMobileMenu}
             ></i>
           </div>
           <ul className={!open ? "dropdown" : null}>
-            <li className="one">
+            <li className="one" onClick={() => setOpen(false)}>
               <i className="fas fa-sign-in-alt"></i>
               <NavLink to={"/login"}>Log In</NavLink>
             </li>
 
-            <li>
+            <li onClick={() => setOpen(false)}>
               <i className="fas fa-user-plus"></i>
               <NavLink to={"/signup"}>Sign Up</NavLink>
             </li>

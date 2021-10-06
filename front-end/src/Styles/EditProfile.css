@@ -1,54 +1,82 @@
-.editProfile .editprofile-image input:hover{
-    
-        padding: 8px 15px;
-        visibility: visible;
-        opacity: 0.7; 
-        cursor: pointer;
+.editProfile {
+  margin: 6rem 2rem 2rem;
 }
 
-.editProfile .editprofile-image img {
-        height: 300px;
-        width: 300px;
+.editProfile img {
+  height: auto;
+  width: 100%;
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border-radius: 50%;
 }
 
 .editProfile h1 {
-        text-align: center;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        color: #1A0E3E;
+  text-align: center;
+  font-size: 24px;
+  color: #1a0e3e;
 }
 
 .editProfile form {
-        display: block;
-        text-align: center;
-        background-color: #fff;
-        border-radius: 1rem;
-        box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
-        margin-left: 400px;
-        margin-right: 400px;
-        padding-top: 20px;
-        padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);
+  margin: 0 20%;
+  padding: 2rem 4rem;
 }
 
-.editProfile .geocoder {
-        display: flex;
-        justify-content: center;
+.editProfile label {
+  color: #a18bb2;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 20px;
 }
 
-.editProfile input {
-        height: 30px;
-        padding: 0.5fr;
+.editProfile #display_name,
+#email,
+#image {
+  padding: 1rem 0.5rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  color: #1a0e3e;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+#image {
+        margin: auto;
+}
+#display {
+  margin-top: 2rem;
+}
+
+.address {
+  padding: 0;
+  background-color: #1a0e3e;
 }
 
 .editProfile button {
-        background-color: #855A9F;
-        color: #fff;
-        padding: 0.75rem;
-        font-size: 18px;
-        margin: 1rem 0 ;
-        border: none;
-        border-radius: 8px;
-        font-family: Mulish;
-        cursor: pointer;
+  background-color: #855a9f;
+  color: #fff;
+  padding: 0.75rem;
+  font-size: 18px;
+  margin: 1rem 0;
+  border: none;
+  border-radius: 8px;
+  font-family: Mulish;
+  cursor: pointer;
+  width: 100%;
+}
+
+@media screen and (max-width: 710px) {
+  .editProfile form {
+    margin: 0 1rem;
+    padding: 2rem;
+  }
 }

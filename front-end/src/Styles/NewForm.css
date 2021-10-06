@@ -103,3 +103,14 @@
     display: none;
   }
 }
+
+@media screen and (max-width: 510px) {
+  .New {
+    margin: 6rem 1rem 2rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 1rem 1rem;
+    box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);
+  }
+}
+
