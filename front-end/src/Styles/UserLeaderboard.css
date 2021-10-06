@@ -1,4 +1,4 @@
-.container {
+.card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,26 +48,33 @@
   margin-top: -20px;
 }
 
-.timer-section{
+.timer-section {
+  color: #13031f;
   margin: auto;
-  width: 50%;
-  border: 3px solid green;
-  padding: 10px;
+  width: 40%;
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 10px;
 }
 
-.clock{
-  margin: -20px;
-  font-size: 70px;
+.timer-section h1{
+    margin-top: 20px;
+}
+.timer-section p{
+    margin-top: -10px;
+}
+h1.clock{
+  font-size: 50px;
+  margin-top: -10px;
 }
 
 @media screen and (max-width: 280px) {
-  .leaderboard {
+  .card {
     padding: 40px;
     border: 2px solid transparent;
-    width: 100px;
+    width: 50px;
     margin-top: 20px;
   }
   .leaderboard p {
@@ -92,10 +99,34 @@
     margin-top: -10px;
     margin-left: -30px;
   }
+  .timer-section {
+    color: #13031f;
+    margin: auto;
+    width: 90%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+  }
+  
+  .timer-section h1{
+      margin-top: 20px;
+      font-size: 14px;
+  }
+  .timer-section p{
+      margin-top: -10px;
+      font-size: 10px;
+      padding: 10px;
+  }
+  h1.clock{
+    font-size: 20px;
+    margin-top: -10px;
+  }
 }
 
 @media screen and (max-width: 320px) and (min-width: 281px) {
-  .leaderboard {
+  .card {
     padding: 40px;
     border: 2px solid transparent;
     width: 150px;
@@ -126,7 +157,7 @@
 }
 
 @media screen and (max-width: 360px) and (min-width: 321px) {
-  .leaderboard {
+  .card {
     padding: 40px;
     border: 2px solid transparent;
     width: 160px;
@@ -157,7 +188,7 @@
 }
 
 @media screen and (max-width: 375px) and (min-width: 361px) {
-  .leaderboard {
+  .card {
     padding: 40px;
     border: 2px solid transparent;
     width: 190px;
@@ -189,7 +220,7 @@
 }
 
 @media screen and (max-width: 411px) and (min-width: 376px) {
-  .leaderboard {
+  .card {
     padding: 40px;
     border: 2px solid transparent;
     width: 210px;
@@ -219,7 +250,7 @@
 }
 
 @media screen and (max-width: 414px) and (min-width: 412px) {
-  .leaderboard {
+  .card {
     padding: 40px;
     border: 2px solid transparent;
     width: 210px;
@@ -249,7 +280,7 @@
 }
 
 @media screen and (max-width: 540px) and (min-width: 415px) {
-  .leaderboard {
+  .card {
     padding: 40px;
     border: 2px solid transparent;
     width: 320px;
@@ -279,7 +310,7 @@
 }
 
 @media screen and (max-width: 768px) and (min-width: 541px) {
-  .leaderboard {
+  .card {
     padding: 40px;
     border: 2px solid transparent;
     width: 400px;
@@ -309,7 +340,7 @@
 }
 
 @media screen and (max-width: 1024px) and (min-width: 769px) {
-  .leaderboard {
+  .card {
     padding: 40px;
     border: 2px solid transparent;
     width: 500px;

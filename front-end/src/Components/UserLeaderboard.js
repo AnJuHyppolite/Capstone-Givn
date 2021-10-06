@@ -71,6 +71,7 @@ const UserLeaderboard = () => {
   }, [API]);
   return (
     <div className="parent">
+      <br/>
       <section className="timer-section">
         <h1>Countdown to End of Month</h1>
         <p>Top 3 leaders by the end of the month will be eligible for prizes</p>
@@ -79,7 +80,7 @@ const UserLeaderboard = () => {
          : <span>Time's up!</span>}
       </section>
       <h1 className='title'>Top Givers</h1>
-      <div className='container'>
+      <div className='card'>
         {users.map((user) => {
           const { score, display_name, photo_url, uid } = user;
           return (
