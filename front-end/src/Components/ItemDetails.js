@@ -9,7 +9,7 @@ import "../Styles/ItemDetails.css";
 import "swiper/swiper-bundle.css";
 import { capitalize } from "../Helpers/capitalizeName";
 import { calculateScore } from "../Helpers/calculateScore";
-import facts from '../Helpers/facts'
+import facts from "../Helpers/facts";
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -24,6 +24,7 @@ const ItemDetails = () => {
   const [showForm, setShowForm] = useState(0);
   const { user } = useContext(UserContext);
   const [requestID, setRequestID] = useState();
+  const [randomfact, setRandomFact] = useState("");
 
   useEffect(() => {
     fetchInformation();
@@ -46,6 +47,18 @@ const ItemDetails = () => {
       } catch (error) {
         console.log(error);
       }
+    };
+
+    const getRandomFact = (item) => {
+      const filteredFacts = facts.filter((factObj) => {
+        if (factObj.category === item.category) {
+          return factObj.facts;
+        }
+      });
+      const randomNumber = Math.floor(
+        Math.random() * filteredFacts[0]?.facts?.length
+      );
+      setRandomFact(filteredFacts[0].facts[randomNumber]);
     };
 
     const fetchRequests = async (thisItem) => {
@@ -74,6 +87,7 @@ const ItemDetails = () => {
     };
     fetchPhoto();
     let thisItem = await fetchItem();
+    getRandomFact(thisItem);
     fetchRequests(thisItem);
   };
 
@@ -97,10 +111,17 @@ const ItemDetails = () => {
       history.push("/");
       return;
     }
-    const request = { status: "request", display_name: user.display_name, title: item.title, getter_id: user.uid, giver_id: item.giver_id, item_id: item.id }
+    const request = {
+      status: "request",
+      display_name: user.display_name,
+      title: item.title,
+      getter_id: user.uid,
+      giver_id: item.giver_id,
+      item_id: item.id,
+    };
     try {
       await axios.post(`${API}/items/${id}/requests`, request);
-      alert(item.title + " successfully requested")
+      alert(item.title + " successfully requested");
     } catch (error) {
       console.log(error);
     }
@@ -111,7 +132,7 @@ const ItemDetails = () => {
   };
 
   const updateItemStatus = async (newStatus) => {
-    const updatedItem = { ...item, status: newStatus }
+    const updatedItem = { ...item, status: newStatus };
     try {
       await axios.put(`${API}/users/${user.uid}/items/${id}`, updatedItem);
       return true;
@@ -122,9 +143,24 @@ const ItemDetails = () => {
 
   const recordTransaction = async (pointsForItem) => {
     const currentdate = new Date();
-    const transactionTime = (currentdate.getMonth() + 1) + "/" + currentdate.getDate() + "/" + currentdate.getFullYear() + " "
-      + currentdate.getHours() + ":" + currentdate.getMinutes()
-    const newTransaction = { time: transactionTime, points: pointsForItem, getter_id: user.uid, giver_id: item.giver_id, item_id: id }
+    const transactionTime =
+      currentdate.getMonth() +
+      1 +
+      "/" +
+      currentdate.getDate() +
+      "/" +
+      currentdate.getFullYear() +
+      " " +
+      currentdate.getHours() +
+      ":" +
+      currentdate.getMinutes();
+    const newTransaction = {
+      time: transactionTime,
+      points: pointsForItem,
+      getter_id: user.uid,
+      giver_id: item.giver_id,
+      item_id: id,
+    };
     try {
       await axios.post(
         `${API}/users/${item.giver_id}/transactions`,
@@ -164,13 +200,15 @@ const ItemDetails = () => {
       let res = await axios.get(`${API}/items/${id}/requests`);
       return res.data.length;
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   const closeRequestStatus = async () => {
     try {
-      await axios.put(`${API}/items/${id}/requests/${id}/close`, {status: "inactive"});
+      await axios.put(`${API}/items/${id}/requests/${id}/close`, {
+        status: "inactive",
+      });
       return true;
     } catch (error) {
       console.log(error);
@@ -178,8 +216,8 @@ const ItemDetails = () => {
   };
 
   const handleTransaction = async (e) => {
-    let pointsForItem = calculateScore(item.category, await countRequests())
-    recordTransaction(pointsForItem, await closeRequestStatus())
+    let pointsForItem = calculateScore(item.category, await countRequests());
+    recordTransaction(pointsForItem, await closeRequestStatus());
     recordPoints(pointsForItem, await updateItemStatus("inactive"));
   };
 
@@ -200,7 +238,7 @@ const ItemDetails = () => {
         <section>
           <Swiper
             slidesPerView={1}
-            spaceBetween={10}
+            spaceBetween={20}
             navigation
             pagination={{ clickable: true }}
           >
@@ -217,11 +255,7 @@ const ItemDetails = () => {
           <h2>
             <i className="fas fa-leaf"></i> Educational Fact:
           </h2>
-          <p className="edu-fact">
-            {facts.map((fact) => {
-              return fact.category === item.category ? `"${fact.fact}"` : null;
-            })}
-          </p>
+          <p className="edu-fact">{`"${randomfact}"`}</p>
           <h2>Description</h2>
           <p>{description}</p>
           <h2>Location</h2>
