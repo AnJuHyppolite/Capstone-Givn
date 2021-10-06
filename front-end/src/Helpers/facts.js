@@ -84,7 +84,13 @@ const facts = [
   {
     category: "Hardware",
     facts: [
-      "Recycling the waste from electronics saves space in the landfills and prevents the environmental pollution caused by the toxins.",
+      "Construction waste causes significant damage, since it accounts for about one-third of all refuse nationwide. Recycling construction materials can significantly reduce the environmental impact of the industry.",
+      "Construction and demolition waste has been disposed of in landfills. However, this has a negative environmental impact, contaminating underground water and surrounding habitats.",
+      "Recycling construction materials has two main environmental benefits: 1. It saves energy, which decreases the consumption of natural resources to produce new materials; and 2. It reduces landfill waste, which decreases processing hazardous waste properly minimizes toxic build-up in the environment.",
+    ],
+    sources: [
+      "https://www.ny-engineers.com/blog/recycling-construction-materials",
+      "https://naparecycling.com/guide/tools/",
     ],
   },
   {
@@ -146,19 +152,27 @@ const facts = [
     facts: [
       "Throwing away textiles, which can include sporting equipment, means those items will end up in the landfill. Since 2003, the percentage of textiles in landfills has increased 38 percent.",
       "Many equipment bags are made from Polyvinyl Chloride (PVC). Not only does the manufacturing process create air and water pollution, but PVC is difficult to recycle.",
-      "Gloves or mitts made from vinyl or Polyvinyl Chloride (PVC) plastic have adverse environmental effects. PVC is energy-intensive to recycle and highly toxic when burned.",
+      "Sporting goods made from vinyl or Polyvinyl Chloride (PVC) plastic have adverse environmental effects. PVC is energy-intensive to recycle and highly toxic when burned.",
+      "Outdoor gear not made of single, non-composite materials, are not easily recyclable and contribute to adversely affecting the environment.",
     ],
     sources: [
       "https://www.wpr.org/expert-throwing-away-clothing-does-serious-damage-environment",
       "https://www.thriftyfun.com/Environmental-Impact-of-Your-Sporting-Equipment.html",
+      "https://outdoorsmagic.com/article/kit-care-guide/",
     ],
   },
   {
     category: "Beauty and Health",
     facts: [
       "In the U.S. alone, over 7.9 billion units of rigid plastic is created for beauty and personal care products.",
+      "Zero Waste Week, an annual awareness campaign for reducing landfill, reports that more than 120 billion units of packaging are produced every year by the global cosmetics industry. The cardboard that envelops perfumes, serums, and moisturizers contributes to the loss of 18 million acres of forest each year.",
+      "According to Zero Waste Week, if the current level of beauty product consumption continues, by 2050 there will be 12 billion tons of plastic in landfills, the equivalent to 35,000 Empire State Buildings.",
+      "The UN has declared our current situation a ‘planetary crisis’ and no industry is exempt from scrutiny, including beauty.",
     ],
-    sources: "https://www.allure.com/story/beauty-industry-packaging-waste",
+    sources: [
+      "https://www.allure.com/story/beauty-industry-packaging-waste",
+      "https://www.stylist.co.uk/beauty/beauty-products-eco-conscious-packaging/183786",
+    ],
   },
   {
     category: "Other",
@@ -166,10 +180,12 @@ const facts = [
       "Recycling and/or repurposing reduces the need for landfills.",
       "Goods made from recycled or repurposed materials use less water, create less pollution, and use less energy.",
       "Recycling reduces energy usage, the consumption of fresh raw materials, and air and water pollution (from landfilling) by reducing the need for “conventional” waste disposal and also reduces greenhouse gas emissions.",
+      "Recycling and repurposing prevent pollution by reducing the need to collect new raw materials.",
     ],
     sources: [
       "https://www.ewaste1.com/how-does-recycling-electronics-help-the-environment/",
       "https://www.conserve-energy-future.com/advantages-and-disadvantages-of-recycling.php",
+      "https://www.epa.gov/recycle/recycling-basics",
     ],
   },
 ];
