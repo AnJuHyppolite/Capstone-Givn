@@ -56,8 +56,6 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
   useEffect(() => {
     const filteredFacts = facts.filter((factObj) => {
       if(factObj.category === item.category) {
-        console.log(factObj)
-        console.log(factObj.facts)
         return factObj.facts
       }
     });
