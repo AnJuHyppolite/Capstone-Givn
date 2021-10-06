@@ -95,7 +95,7 @@ const ItemsList = () => {
         <div>
           <p>Filter By: </p>
           <select defaultValue="" onChange={handleFilter} className="filter" >
-            <option disabled></option>
+            <option disabled>Select a filter</option>
             <option value={1}>Distance: nearest first</option>
             <option value={2}>Time: newly listed</option>
           </select>
