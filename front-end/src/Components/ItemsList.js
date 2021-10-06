@@ -49,23 +49,21 @@ const ItemsList = () => {
   useEffect(() => {
     let selectedCategories = selected.map((e) => e.value);
     let filteredCategories = items.filter((item) => selectedCategories.includes(item.category))
-    console.log("INSIDE USEEFFECT")
     if (filterNumber === 1) sortByDistance(filteredCategories)
     if (filterNumber === 2) sortByTime(filteredCategories)
   }, [selected, items]);
 
   const sortByDistance = (arr=filteredItems) => {
-    if (!user?.address) {
+ 
+    if (!user?.address || !user?.longitude) {
+      setFilteredItems([...arr])
       return;
     }
-    //filter by distance
-    if (user?.longitude !== 0) {
       arr.sort(
         (itemA, itemB) =>
           relativeDistance(user, itemA) - relativeDistance(user, itemB)
       );
       setFilteredItems([...arr]);
-    }
   }
 
   const sortByTime = (arr=filteredItems) => {
@@ -103,8 +101,7 @@ const ItemsList = () => {
         </div>
         <div>
           <p>Filter By: </p>
-          <select defaultValue="" onChange={handleFilter} className="filter" >
-            <option disabled>Select a filter</option>
+          <select onChange={handleFilter} className="filter" >
             <option value={1}>Distance: nearest first</option>
             <option value={2}>Time: newly listed</option>
           </select>

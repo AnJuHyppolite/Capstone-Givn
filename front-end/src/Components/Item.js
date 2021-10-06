@@ -59,7 +59,6 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
         return factObj.facts
       }
     });
-    console.log(filteredFacts)
     const randomNumber = Math.floor(Math.random() * filteredFacts[0].facts.length)
     setRandomFact(filteredFacts[0].facts[randomNumber])
   }, []);
