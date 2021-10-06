@@ -324,7 +324,7 @@ const ItemDetails = () => {
         </section>
       </div>
       <div>
-        {user?.latitude ? <Directions start={[user.longitude, user.latitude]} end={[Number(item.longitude),Number(item.latitude)]}/> : null}
+        {user?.latitude && item.latitude && getterRequest && getterRequest!=="request" ? <Directions start={[user.longitude, user.latitude]} end={[Number(item.longitude),Number(item.latitude)]}/> : null}
       </div>
     </div>
   );

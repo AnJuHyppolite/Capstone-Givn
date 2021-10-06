@@ -12,25 +12,10 @@ const Directions = ({start, end}) => {
             container: mapContainerRef.current,
             style: 'mapbox://styles/mapbox/streets-v11',
             center: [start[0],start[1]],
-            zoom: 6
+            zoom: 10
         });
-        // set the bounds of the map
-        // const bounds = [
-        //     [-74.3, 40.58],
-        //     [-73.59, 40.8]
-        // ];
-        const bounds = [[Math.min(start[0],end[0])-.3,Math.min(start[1],end[1])-.3],[Math.max(start[0],end[0])+.3,Math.max(start[1],end[1])+.3]]
-        map.setMaxBounds(bounds);
 
-        // an arbitrary start will always be the same
-        // only the end or destination will change
-        //const start = [-73.878786,40.74402];
-
-        // create a function to make a directions request
         async function getRoute(end) {/////getROUTE*************
-            // make a directions request using cycling profile
-            // an arbitrary start will always be the same
-            // only the end or destination will change
             const query = await fetch(
                 `https://api.mapbox.com/directions/v5/mapbox/driving/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
                 { method: 'GET' }
@@ -64,10 +49,8 @@ const Directions = ({start, end}) => {
                     }
                 });
             }
-            console.log(data)
-            // add turn instructions here at the end
 
-            const instructions = document.getElementById('instructions');
+            const instructions = document.getElementById('map-instructions');
             const steps = data.legs[0].steps;
             
             let tripInstructions = '';
@@ -76,16 +59,15 @@ const Directions = ({start, end}) => {
             }
             instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
               data.duration / 60
-            )} min 🚴 </strong></p><ol>${tripInstructions}</ol>`;
+            )} min 🚗 </strong></p><ol>${tripInstructions}</ol>`;
 
 
         }////////*********** getROUTE*********/
 
-        map.on('load', () => {
-            // make an initial directions request that
-            // starts and ends at the same location
-            getRoute(start);
+        map.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
+        map.on('load', () => {
+            getRoute(start);
             // Add starting point to the map
             map.addLayer({
                 id: 'point',
@@ -129,66 +111,14 @@ const Directions = ({start, end}) => {
             });
             
         });
-        // let directions = new MapboxDirections({
-        // //    accessToken: mapboxgl.accessToken
-        // });
-
-        // map.addControl(directions, 'top-left');
-
-        // map.on('load', function () {
-        //     // directions.setOrigin([12, 23]); // can be address in form setOrigin("12, Elm Street, NY")
-        //     // directions.setDestinaion([11, 22]); // can be address
-        // })
-
-        // map.on('click', ({ lngLat }) => {
-        //     const coords = Object.keys(lngLat).map((key) => lngLat[key]);
-        //     const end = {
-        //         type: 'FeatureCollection',
-        //         features: [
-        //             {
-        //                 type: 'Feature',
-        //                 properties: {},
-        //                 geometry: {
-        //                     type: 'Point',
-        //                     coordinates: coords
-        //                 }
-        //             }
-        //         ]
-        //     };
-        //     if (map.getLayer('end')) {
-        //         map.getSource('end').setData(end);
-        //     } else {
-        //         map.addLayer({id: 'end',  type: 'circle', 
-        //         source: {type: 'geojson',
-        //                 data: {type: 'FeatureCollection',
-        //                     features: [
-        //                         {type: 'Feature',properties: {},
-        //                             geometry: {type: 'Point',   coordinates: coords    }
-        //                         }
-        //                     ]
-        //                 }
-        //             },
-        //             paint: {
-        //                 'circle-radius': 5,
-        //                 'circle-color': '#f30'
-        //             }
-        //         });
-        //     }
-        //     console.log(coords)
-        //     debugger
-        //     getRoute(coords);
-        // });
-
-        
 
         return () => { map.remove(); }
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    }, []); 
 
     return (
         <div>
-            <h2>MAP</h2>
-            <div className='map-container' ref={mapContainerRef} />
-            <div id="instructions">INSTRUCTIONS</div>
+            <div className='directions-map map-container' ref={mapContainerRef} />
+            <div id="map-instructions">INSTRUCTIONS</div>
         </div>
     );
 };
