@@ -1,102 +1,192 @@
 .Item-details {
-    padding: 2rem;
-    background-color: #fff;
-    margin: 6rem 2rem 2rem;
-    border-radius: 2rem;
-    box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  background-color: #fff;
+  margin: 6rem 2rem 2rem;
+  border-radius: 2rem;
+  box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);
 }
 
 .Show {
-    display: flex;
-    flex-direction: row;  
+  display: flex;
 }
 
 .Show img {
-    height: auto;
-    width: 80%;
-    max-height: 600px;
-    object-fit: cover;
-
+  height: auto;
+  width: 80%;
+  max-height: 600px;
+  object-fit: cover;
 }
 
 .swiper-container {
-    position: sticky;
-    width: 700px;
-    margin: 0 2rem;
+  position: sticky;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 2rem;
 }
 
-.swiper-slide{
-    display: flex;
-    justify-content: center;
+.swiper-slide {
+  display: flex;
+  justify-content: center;
 }
 
 .Item-details h1 {
-    color: #1A0E3E;
-    margin-bottom: 4rem;
+  color: #1a0e3e;
+  margin-bottom: 4rem;
 }
 
 .Show .right-info {
-    margin-left: 2rem;
+  margin-left: 2rem;
 }
 
-.Show  button{
-    background-color: #855A9F;
-    color: #fff;
-    padding: 0.75rem;
-    font-size: 18px;
-    margin: 2rem 0 0;
-    border: none;
-    border-radius: 8px;
-    font-family: Mulish;
-    cursor: pointer;
-    width: 8rem;
+.Show button {
+  background-color: #855a9f;
+  color: #fff;
+  padding: 0.75rem;
+  font-size: 18px;
+  margin: 2rem 0 0;
+  border: none;
+  border-radius: 8px;
+  font-family: Mulish;
+  cursor: pointer;
+  width: 8rem;
 }
 
 .Show .delbtn {
-    background-color: #da6161;
-    margin-left: 10px;
+  background-color: #da6161;
+  margin-left: 16px;
 }
 
 .Show .reqbtn {
-    background-color: #4b9972;
-    margin-left: 10px;
+  background-color: #4b9972;
 }
 
 .reqbtn:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 
 .Show .ofrbtn {
-    background-color: #be7f4b;
-    margin-left: 10px;
+  background-color: #be7f4b;
+  margin-left: 16px;
 }
 
 .Show .recbtn {
-    background-color: #a79d46;
-    margin-left: 10px;
+  background-color: #a79d46;
 }
 
-
-
 .right-info h2 {
-    color: #A18BB2;
-    font-size: 16px;
+  color: #a18bb2;
+  font-size: 16px;
+}
+
+.right-info h2 i {
+  color: #5a8154;
 }
 
 .right-info p {
-    color: #1A0E3E;
-    font-size: 22px;
-    margin: 0.25rem 0 1rem;
+  color: #1a0e3e;
+  font-size: 22px;
+  margin: 0.25rem 0 1rem;
+}
+
+.right-info .edu-fact {
+  font-size: 20px;
+  font-style: italic;
+  color: #5a8154;
+}
+
+.right-info form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.right-info form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.right-info label {
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+  color: #a18bb2;
+  font-weight: 700;
+}
+
+.right-info #offer {
+  margin-bottom: 0;
+  width: 16rem;
+  color: #1a0e3e;
+}
+
+.right-info .conbtn {
+  margin-top: 0;
+  align-self: flex-end;
 }
 
 .swiper-button-prev,
 .swiper-button-next {
-    color: #A18BB2;
+  color: #a18bb2;
 }
 
 .swiper-pagination-bullet-active {
-    background-color: #A18BB2;
+  background-color: #a18bb2;
 }
- 
 
-    
+@media screen and (max-width: 1260px) {
+  .Show {
+    flex-direction: column;
+  }
+
+  .swiper-container {
+    margin: 2rem 0;
+  }
+
+  .user-btns {
+    display: flex;
+    justify-content: center;
+  }
+
+  .Show .right-info {
+    margin: 0 2rem;
+  }
+
+  .right-info p {
+    text-align: justify;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .Item-details {
+    padding: 1rem;
+    margin: 6rem 1rem 2rem;
+  }
+  .user-btns {
+    flex-direction: column;
+  }
+
+  .Show button {
+    width: 100%;
+  }
+
+  .Show .delbtn {
+    margin-left: 0;
+  }
+
+  .Show .ofrbtn {
+    margin-left: 0;
+  }
+
+  .Show .right-info {
+    margin: 0 1rem;
+  }
+
+  .right-info form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .right-info #offer {
+    margin-bottom: 2rem;
+  }
+}

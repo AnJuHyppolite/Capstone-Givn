@@ -64,3 +64,18 @@
   font-size: 18px;
   margin-top: 0.5rem;
 }
+
+@media screen and (max-width: 510px) {
+  .About {
+    padding: 1rem;
+    color: #1a0e3e;
+  }
+
+  .About .aboutInfo {
+    padding: 2rem 1rem;
+  } 
+
+  .developer {
+    padding: 1rem;
+  }
+}

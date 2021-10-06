@@ -19,7 +19,7 @@ const ShareModal = () => {
 
   return (
     <div className="share-modal-container">
-      <p>Share this link via</p>
+      <h1>Share this link via</h1>
       <ul className="icons">
         <a
           href={facebookURL}
@@ -38,11 +38,11 @@ const ShareModal = () => {
           <i className="fab fa-twitter-square"></i>
         </a>
       </ul>
-      <p>Or copy link</p>
+      <h2>Or copy link</h2>
       <div className="input">
-        <Icon icon="uil:link-add" />
+        <Icon icon="uil:link-add" className="copy-icon"/>
         <textarea ref={textAreaRef} value={url} readOnly/>
-        <button onClick={handleCopy}>Copy</button>
+        <button onClick={handleCopy} className="copy-btn">Copy</button>
         {copy}
       </div>
     </div>

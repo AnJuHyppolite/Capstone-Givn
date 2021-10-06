@@ -96,7 +96,7 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
         <img src={photos[0]?.photo_url} alt="imageItem" />
       </Link>
       <h3 className="facts">
-        <i class="fas fa-leaf"></i> Educational Fact:
+        <i className="fas fa-leaf"></i> Educational Fact:
       </h3>
       <p>
       {`"${strShortener(randomfact, 175)}"`}

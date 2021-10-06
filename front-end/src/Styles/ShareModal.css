@@ -1,5 +1,68 @@
+.close-btn {
+  background-color: #855a9f;
+  color: #fff;
+  font-size: 18px;
+  margin: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-family: Mulish;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+.close-btn i {
+    color: #fff;
+    font-size: 28px;
+}
+
+.ReactModal__Content--after-open {
+    margin: 4rem 2rem 2rem;
+    border-radius: 8px;
+}
+
 .share-modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #855a9f;
+  font-family: Mulish;
+  height: 300px;
+  margin-top: 2rem;
+}
+
+.share-modal-container ul a{
+    text-decoration: none;
+    font-size: 62px;
+    margin: 0 2rem;
+}
+
+.share-modal-container .input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 450px;
+    margin: auto;
+}
+
+.input textarea {
+    width: 280px;
+    color: #1a0e3e;
+    padding: 0.5rem;
     text-align: center;
-    color: #855A9F;
-    font-family: Mulish;
+}
+
+.input button {
+    background-color: #855a9f;
+  color: #fff;
+  font-size: 18px;
+  margin: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-family: Mulish;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+.share-modal-container .copy-icon {
+    font-size: 28px;
 }
