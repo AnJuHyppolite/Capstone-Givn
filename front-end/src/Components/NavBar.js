@@ -10,10 +10,15 @@ const NavBar = () => {
   const history = useHistory();
   const { user } = useContext(UserContext);
   const [open, setOpen] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
+
+  const showMobileMenu = () => {
+    setMobileMenu((prevMenu) => !prevMenu);
+  };
 
   const handleSignOut = async () => {
     await signOut();
-    // setOpen(false);
+    setOpen(false);
     console.log("HISTORYYYYYYY");
     history.push("/");
   };
@@ -26,7 +31,7 @@ const NavBar = () => {
     <header>
       {user ? (
         <nav>
-          <h1>
+          <h1 className="logo">
             <NavLink exact to="/">
               Givn
               <img src={logo} alt="givn-logo" />
@@ -39,12 +44,20 @@ const NavBar = () => {
             <NavLink exact to="/posts/new">
               Give
             </NavLink>
+            <NavLink exact to={`/chat`}>
+              Chat
+            </NavLink>
+            <NavLink exact to={"/leaderboard"}>
+              Leaderboard
+            </NavLink>
             <NavLink exact to={"/about"}>
               About
             </NavLink>
-            <NavLink exact to={`/chat`}>
-             Chat
-            </NavLink>
+            <i
+            id="no-user-menu"
+              className={mobileMenu ? "fas fa-times" : "fas fa-bars"}
+              onClick={showMobileMenu}
+            ></i>
           </div>
           <img
             src={user.photo_url}
@@ -53,8 +66,8 @@ const NavBar = () => {
             onClick={handleDropdown}
           />
           <ul className={!open ? "dropdown" : null} id="user-menu">
-            <li className="one">
-              <i className="fas fa-user-circle"></i>
+            <li className="one" onClick={() => setOpen(false)}>
+              <i className="fas fa-user-circle" ></i>
               <NavLink exact to="/profile">
                 Profile
               </NavLink>
@@ -65,6 +78,38 @@ const NavBar = () => {
               <button onClick={handleSignOut}>Sign Out</button>
             </li>
           </ul>
+          <ol
+            className={mobileMenu ? "menu show" : "menu"}
+            onClick={showMobileMenu}
+          >
+            <li>
+              <h1>
+                <NavLink exact to={"/posts"}>
+                  Get
+                </NavLink>
+              </h1>
+            </li>
+            <li>
+              <h1>
+                <NavLink to={"/posts/new"}>Give</NavLink>
+              </h1>
+            </li>
+            <li>
+              <h1>
+                <NavLink to={"/chat"}>Chat</NavLink>
+              </h1>
+            </li>
+            <li>
+              <h1>
+                <NavLink to={"/leaderboard"}>Leaderboard</NavLink>
+              </h1>
+            </li>
+            <li>
+              <h1>
+                <NavLink to={"/about"}>About</NavLink>
+              </h1>
+            </li>
+          </ol>
         </nav>
       ) : (
         <nav>
@@ -84,14 +129,19 @@ const NavBar = () => {
             <NavLink exact to={"/about"}>
               About
             </NavLink>
+            <i
+            id="no-user-menu"
+              className={mobileMenu ? "fas fa-times" : "fas fa-bars"}
+              onClick={showMobileMenu}
+            ></i>
           </div>
           <ul className={!open ? "dropdown" : null}>
-            <li className="one">
+            <li className="one" onClick={() => setOpen(false)}>
               <i className="fas fa-sign-in-alt"></i>
               <NavLink to={"/login"}>Log In</NavLink>
             </li>
 
-            <li>
+            <li onClick={() => setOpen(false)}>
               <i className="fas fa-user-plus"></i>
               <NavLink to={"/signup"}>Sign Up</NavLink>
             </li>
@@ -99,6 +149,28 @@ const NavBar = () => {
           <button className="left-icon" onClick={handleDropdown}>
             <i className="fas fa-caret-down"></i>
           </button>
+          <ol
+            className={mobileMenu ? "menu show" : "menu"}
+            onClick={showMobileMenu}
+          >
+            <li>
+              <h1>
+                <NavLink exact to={"/posts"}>
+                  Get
+                </NavLink>
+              </h1>
+            </li>
+            <li>
+              <h1>
+                <NavLink to={"/posts/new"}>Give</NavLink>
+              </h1>
+            </li>
+            <li>
+              <h1>
+                <NavLink to={"/about"}>About</NavLink>
+              </h1>
+            </li>
+          </ol>
         </nav>
       )}
     </header>

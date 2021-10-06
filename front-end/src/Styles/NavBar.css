@@ -29,7 +29,7 @@ nav .active {
 }
 
 nav div {
-  width: 18rem;
+  width: 600px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -65,7 +65,7 @@ nav .profile {
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  object-fit: contain;
+  object-fit: cover;
   border: 3px solid #eae6f6;
   cursor: pointer;
 }
@@ -90,10 +90,6 @@ nav ul a,
 i {
   text-align: right;
   color: #1a0e3e;
-}
-
-nav ul li:hover {
-  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .dropdown {
@@ -150,7 +146,15 @@ nav #user-menu {
   text-decoration: none;
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 960px) {
+  nav {
+    padding: 0 1rem;
+  }
+
+  nav div {
+    width: 4rem;  
+    justify-content: center;
+  }
   nav div a {
     display: none;
   }
@@ -158,8 +162,11 @@ nav #user-menu {
   nav div i {
     display: block;
     opacity: 1;
-    margin-left: 115px;
+    margin-right: 120px;
+  }
 
+  #no-user-menu {
+    margin-right: 80px;
   }
 
   .cart-icon h4 {

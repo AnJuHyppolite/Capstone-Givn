@@ -187,7 +187,8 @@
 
 .dropdown-container {
   background-color: yellow;
-  width: 25%;
+  width: 100%;
+  max-width: 256px;
 }
 
 @media screen and (max-width: 1345px) {
@@ -205,6 +206,9 @@
 }
 
 @media screen and (max-width: 710px) {
+  .Index section {
+    margin: 0 ;
+  }
     .Index section .index-items {
         grid-template-areas: "one";
         grid-template-columns: 1fr ;
@@ -219,6 +223,10 @@
         width: 100%;
       }
       .filter {
-          width: 100%;
+          width: 320px;
+      }
+
+      .dropdown-container {
+        max-width: 320px;
       }
 }
