@@ -10,6 +10,7 @@ import "swiper/swiper-bundle.css";
 import { capitalize } from "../Helpers/capitalizeName";
 import { calculateScore } from "../Helpers/calculateScore";
 import facts from "../Helpers/facts";
+import Directions from "./Directions";
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -321,6 +322,9 @@ const ItemDetails = () => {
             )
           ) : null}
         </section>
+      </div>
+      <div>
+        {user?.latitude ? <Directions start={[user.longitude, user.latitude]} end={[Number(item.longitude),Number(item.latitude)]}/> : null}
       </div>
     </div>
   );
