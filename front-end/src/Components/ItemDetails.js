@@ -262,7 +262,7 @@ const ItemDetails = () => {
                     required
                     id="offer"
                   >
-                    <option disabled>Select a user</option>
+                    <option disabled></option>
                     {requests.map((r, i) => {
                       return (
                         <option key={i} value={r.id}>

@@ -55,7 +55,7 @@ const ProfilePage = () => {
           <h2>{user?.display_name}</h2>
           <h3>{user?.email}</h3>
           <h4>{user?.address}</h4>
-          <h5>Score: {user?.score} points adquired</h5>
+          <h5>Score: {user?.score} points acquired</h5>
           <button onClick={() => history.push("/profile/edit")}>
             EDIT INFORMATION
           </button>
