@@ -19,12 +19,13 @@ const NavBar = () => {
   const handleSignOut = async () => {
     await signOut();
     setOpen(false);
+    console.log("HISTORYYYYYYY");
     history.push("/");
   };
 
   const handleDropdown = () => {
-    setOpen(prevOpen => !prevOpen)
-  }
+    setOpen((prevOpen) => !prevOpen);
+  };
 
   return (
     <header>
@@ -43,10 +44,17 @@ const NavBar = () => {
             <NavLink exact to="/posts/new">
               Give
             </NavLink>
+            <NavLink exact to={`/chat`}>
+              Chat
+            </NavLink>
+            <NavLink exact to={"/leaderboard"}>
+              Leaderboard
+            </NavLink>
             <NavLink exact to={"/about"}>
               About
             </NavLink>
             <i
+            id="no-user-menu"
               className={mobileMenu ? "fas fa-times" : "fas fa-bars"}
               onClick={showMobileMenu}
             ></i>
@@ -88,6 +96,16 @@ const NavBar = () => {
             </li>
             <li>
               <h1>
+                <NavLink to={"/chat"}>Chat</NavLink>
+              </h1>
+            </li>
+            <li>
+              <h1>
+                <NavLink to={"/leaderboard"}>Leaderboard</NavLink>
+              </h1>
+            </li>
+            <li>
+              <h1>
                 <NavLink to={"/about"}>About</NavLink>
               </h1>
             </li>
@@ -97,6 +115,7 @@ const NavBar = () => {
         <nav>
           <h1>
             <NavLink exact to="/">
+              Givn
               <img src={logo} alt="givn-logo" />
             </NavLink>
           </h1>
@@ -130,7 +149,7 @@ const NavBar = () => {
           <button className="left-icon" onClick={handleDropdown}>
             <i className="fas fa-caret-down"></i>
           </button>
-          <ul
+          <ol
             className={mobileMenu ? "menu show" : "menu"}
             onClick={showMobileMenu}
           >
@@ -151,7 +170,7 @@ const NavBar = () => {
                 <NavLink to={"/about"}>About</NavLink>
               </h1>
             </li>
-          </ul>
+          </ol>
         </nav>
       )}
     </header>

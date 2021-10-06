@@ -18,7 +18,6 @@ const Geocoder = props => {
         });
 
         geocoder.on('clear', () => {
-            //props.updateLocation({ address: '', lng: 0, lat: 0 })
         });
 
     }, [])

@@ -56,13 +56,16 @@ const ItemsList = () => {
   const handleFilter = (e) => {
     const { value } = e.target;
     if (Number(value) === 1) {
+
+      if(!user?.address){
+        return;
+      }
       //filter by distance
       if (user?.longitude !== 0) {
         filteredItems.sort(
           (itemA, itemB) =>
             relativeDistance(user, itemA) - relativeDistance(user, itemB)
         );
-        console.log(filteredItems);
         setFilteredItems([...filteredItems]);
       }
     }

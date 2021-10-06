@@ -29,7 +29,7 @@ nav .active {
 }
 
 nav div {
-  width: 18rem;
+  width: 600px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -146,13 +146,13 @@ nav #user-menu {
   text-decoration: none;
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 960px) {
   nav {
     padding: 0 1rem;
   }
 
   nav div {
-    width: 1rem;  
+    width: 4rem;  
     justify-content: center;
   }
   nav div a {
@@ -162,11 +162,11 @@ nav #user-menu {
   nav div i {
     display: block;
     opacity: 1;
-    margin-right: 80px;
+    margin-right: 120px;
   }
 
   #no-user-menu {
-    margin-right: 24px;
+    margin-right: 80px;
   }
 
   .cart-icon h4 {

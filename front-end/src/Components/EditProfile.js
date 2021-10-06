@@ -133,6 +133,7 @@ const EditProfile = () => {
           pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}$"
           onChange={handleChange}
           required
+          className="email-change"
         />
         <button type="submit">SUBMIT</button>
       </form>

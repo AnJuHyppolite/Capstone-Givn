@@ -30,33 +30,11 @@ const ProfilePage = () => {
     };
     const getRequests = async () => {
       let res = await axios.get(`${API}/requests/${user?.uid}`);
-      debugger;
-      setGetterRequests(
-        res.data.filter(
-          (request) =>
-            request.getter_id === user?.uid && request.status === "request"
-        )
-      );
-      setGetterPending(
-        res.data.filter(
-          (request) =>
-            request.getter_id === user?.uid && request.status === "pending"
-        )
-      );
-      setGiverRequests(
-        res.data.filter(
-          (request) =>
-            request.giver_id === user?.uid && request.status === "request"
-        )
-      );
-      setGiverPending(
-        res.data.filter(
-          (request) =>
-            request.giver_id === user?.uid && request.status === "pending"
-        )
-      );
-      debugger;
-    };
+      setGetterRequests(res.data.filter((request) => request.getter_id === user?.uid && request.status === "request"));
+      setGetterPending(res.data.filter((request) => request.getter_id === user?.uid && request.status === "pending"));
+      setGiverRequests(res.data.filter((request) => request.giver_id === user?.uid && request.status === "request"));
+      setGiverPending(res.data.filter((request) => request.giver_id === user?.uid && request.status === "pending"));
+    }
     getItems();
     getRequests();
   }, [API, user?.uid]);
@@ -93,7 +71,7 @@ const ProfilePage = () => {
                     <li>You made a request for item: {r.title}</li>
                   </Link>
                 ))
-              : null}
+              : <h1 className="notification">No notifications yet</h1>}
             {getterPending?.length
               ? getterPending.map((r) => (
                   <Link to={`/posts/${r.item_id}`}>

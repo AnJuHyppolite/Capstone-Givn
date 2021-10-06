@@ -13,7 +13,8 @@ import AboutPage from "./Pages/AboutPage";
 import EditProfile from "./Components/EditProfile";
 import UserProfile from "./Components/UserProfile";
 import Login from "./Pages/Login";
-
+import Chat from "./Components/Chat";
+import UserLeaderboard from "./Components/UserLeaderboard";
 
 function App() {
   return (
@@ -27,13 +28,16 @@ function App() {
                 <Home />
               </Route>
               <Route exact path="/login">
-                <Login/>
+                <Login />
               </Route>
               <Route exact path="/signup">
                 <SignUp />
               </Route>
               <Route exact path="/posts">
                 <Index />
+              </Route>
+              <Route exact path="/leaderboard">
+                <UserLeaderboard />
               </Route>
               <Route exact path="/profile">
                 <Profile />
@@ -44,11 +48,14 @@ function App() {
               <Route exact path="/about">
                 <AboutPage />
               </Route>
+              <Route exact path="/chat">
+                <Chat />
+              </Route>
               <Route exact path="/posts/new">
                 <New />
               </Route>
               <Route exact path="/profile/:id">
-                <UserProfile/>
+                <UserProfile />
               </Route>
               <Route exact path="/posts/:id">
                 <Show />

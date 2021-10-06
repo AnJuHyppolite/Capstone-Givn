@@ -8,7 +8,8 @@ import { UserContext } from "../Providers/UserProvider.js";
 import "../Styles/ItemDetails.css";
 import "swiper/swiper-bundle.css";
 import { capitalize } from "../Helpers/capitalizeName";
-import facts from "../Helpers/facts";
+import { calculateScore } from "../Helpers/calculateScore";
+import facts from '../Helpers/facts'
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -96,19 +97,10 @@ const ItemDetails = () => {
       history.push("/");
       return;
     }
-    debugger;
-    const request = {
-      status: "request",
-      display_name: user.display_name,
-      title: item.title,
-      getter_id: user.uid,
-      giver_id: item.giver_id,
-      item_id: item.id,
-    };
+    const request = { status: "request", display_name: user.display_name, title: item.title, getter_id: user.uid, giver_id: item.giver_id, item_id: item.id }
     try {
       await axios.post(`${API}/items/${id}/requests`, request);
-      debugger;
-      alert(item.title + " successfully requested");
+      alert(item.title + " successfully requested")
     } catch (error) {
       console.log(error);
     }
@@ -119,11 +111,9 @@ const ItemDetails = () => {
   };
 
   const updateItemStatus = async (newStatus) => {
-    const updatedItem = { ...item, status: newStatus };
-    debugger;
+    const updatedItem = { ...item, status: newStatus }
     try {
       await axios.put(`${API}/users/${user.uid}/items/${id}`, updatedItem);
-      debugger;
       return true;
     } catch (error) {
       console.log(error);
@@ -132,25 +122,9 @@ const ItemDetails = () => {
 
   const recordTransaction = async (pointsForItem) => {
     const currentdate = new Date();
-    const transactionTime =
-      currentdate.getMonth() +
-      1 +
-      "/" +
-      currentdate.getDate() +
-      "/" +
-      currentdate.getFullYear() +
-      " " +
-      currentdate.getHours() +
-      ":" +
-      currentdate.getMinutes();
-    const newTransaction = {
-      time: transactionTime,
-      points: pointsForItem,
-      getter_id: user.uid,
-      giver_id: item.giver_id,
-      item_id: id,
-    };
-    debugger;
+    const transactionTime = (currentdate.getMonth() + 1) + "/" + currentdate.getDate() + "/" + currentdate.getFullYear() + " "
+      + currentdate.getHours() + ":" + currentdate.getMinutes()
+    const newTransaction = { time: transactionTime, points: pointsForItem, getter_id: user.uid, giver_id: item.giver_id, item_id: id }
     try {
       await axios.post(
         `${API}/users/${item.giver_id}/transactions`,
@@ -173,7 +147,6 @@ const ItemDetails = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    debugger;
     try {
       await axios.put(`${API}/items/${id}/requests/${requestID}`, {
         status: "pending",
@@ -186,13 +159,18 @@ const ItemDetails = () => {
     updateItemStatus("pending");
   };
 
-  const closeRequestStatus = async () => {
-    debugger;
+  const countRequests = async () => {
     try {
-      await axios.put(`${API}/items/${id}/requests/${id}/close`, {
-        status: "inactive",
-      });
-      debugger;
+      let res = await axios.get(`${API}/items/${id}/requests`);
+      return res.data.length;
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const closeRequestStatus = async () => {
+    try {
+      await axios.put(`${API}/items/${id}/requests/${id}/close`, {status: "inactive"});
       return true;
     } catch (error) {
       console.log(error);
@@ -200,8 +178,8 @@ const ItemDetails = () => {
   };
 
   const handleTransaction = async (e) => {
-    let pointsForItem = 50;
-    recordTransaction(pointsForItem, await closeRequestStatus());
+    let pointsForItem = calculateScore(item.category, await countRequests())
+    recordTransaction(pointsForItem, await closeRequestStatus())
     recordPoints(pointsForItem, await updateItemStatus("inactive"));
   };
 

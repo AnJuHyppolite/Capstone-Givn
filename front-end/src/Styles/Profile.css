@@ -165,6 +165,12 @@
   font-style: italic;
 }
 
+.requests-list .notification {
+  padding-top: 0;
+  margin: auto;
+  text-align: center;
+}
+
 .Profile h1 {
   padding-top: 2rem;
 }

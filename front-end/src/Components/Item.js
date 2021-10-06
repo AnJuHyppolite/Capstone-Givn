@@ -29,17 +29,26 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
   }, [item.id]);
 
   useEffect(() => {
-    const getUserForItem = async () => {
+    const getDistanceforItem = async()=>{
       try {
-        const res = await axios.get(`${API}/users/${item.giver_id}`);
-        setItemUser(res.data);
+        const res = await axios.get(`${API}/items/${item.id}`);
         if (user?.longitude !== 0) {
           setDistance(relativeDistance(user, res.data));
         }
       } catch (error) {
         console.log(error);
       }
+    }
+
+    const getUserForItem = async () => {
+      try {
+        const res = await axios.get(`${API}/users/${item.giver_id}`);
+        setItemUser(res.data);
+      } catch (error) {
+        console.log(error);
+      }
     };
+    getDistanceforItem();
     getUserForItem();
   }, [item.giver_id, user]);
 
@@ -77,7 +86,9 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
       </h3>
       <p>
         {facts.map((fact) => {
-          return fact.category === item.category ? `"${strShortener(fact.fact, 175)}"` : null;
+          return fact.category === item.category
+            ? `"${strShortener(fact.fact, 175)}"`
+            : null;
         })}
       </p>
       <div className="btns">
@@ -88,10 +99,6 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
         <button>
           {" "}
           <i className="fas fa-heart"></i>
-        </button>
-        <button>
-          {" "}
-          <i className="fas fa-comment-alt"></i>
         </button>
       </div>
       <ShareButton
