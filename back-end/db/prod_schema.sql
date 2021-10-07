@@ -1,17 +1,3 @@
--- \c production_database_name;
-
--- DROP TABLE IF EXISTS test;
-
--- CREATE TABLE test (
---     id SERIAL PRIMARY KEY, 
---     name TEXT
--- );
-
--- DROP DATABASE IF EXISTS givn_dev;
-
--- CREATE DATABASE givn_dev;
-
--- \c givn_dev;
 
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS items CASCADE;
