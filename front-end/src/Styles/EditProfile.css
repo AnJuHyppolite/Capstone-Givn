@@ -39,7 +39,7 @@
 
 .editProfile #display_name,
 .email-change,
-#image {
+.edit-profile-image {
   padding: 1rem 0.5rem;
   width: 100%;
   margin-bottom: 2rem;
@@ -49,7 +49,7 @@
   box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
-#image {
+.edit-profile-image {
         margin: auto;
 }
 #display {

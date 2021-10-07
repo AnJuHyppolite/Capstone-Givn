@@ -110,6 +110,7 @@ const EditProfile = () => {
           type="file"
           accept="image/*"
           onChange={getS3url}
+          className="edit-profile-image"
         />
         <label>Address:</label>
         <Geocoder updateLocation={updateLocation} className="address"/>

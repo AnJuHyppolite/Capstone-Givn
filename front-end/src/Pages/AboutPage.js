@@ -6,18 +6,18 @@ const AboutPage = () => {
       <h1 class="aboutUs">About Us</h1>
       <p class="aboutInfo">
         Givn is an educational app that encourages and incentivizes users to
-        give away their unwanted goods instead of throwing them away. This
-        simple app will allow anyone to easily post their unwanted goods and
-        allow others to find and receive those goods. Users will receive points
-        for each item they give away and will be presented with educational
-        facts about the benefits of recycling each item. Top givers will be
-        eligible for prizes.
+        give away their unwanted goods instead of throwing them away. Anyone 
+        can easily post their unwanted goods in seconds and allow others nearby 
+        to find and receive those goods. Users will receive points for each item 
+        they give away and will be presented with educational facts about the 
+        benefits of recycling each item. Top givers will be eligible for prizes.
         <br />
         <br />
-        What sets Givn App apart from competitors like trash nothing!,
-        Craigslist, Listia, and Facebook Marketplace, is that while our app
-        helps users get rid of their stuff and aid in preserving the planet, it
-        also provides education about the benefits of waste minimization.
+        What sets Givn apart from popular platforms like Craigslist and 
+        Facebook Marketplace is that our app is distinctly focused on giving away
+        stuff for free that would otherwise go to waste. Our app 
+        helps users get rid of their stuff and promotes the preservation of our 
+        planet with educational facts about the benefits of waste minimization.
       </p>
       <h1>Team Givn</h1>
       <div className="container">

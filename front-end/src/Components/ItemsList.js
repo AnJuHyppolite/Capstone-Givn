@@ -10,6 +10,7 @@ const API = apiURL();
 const ItemsList = () => {
   const [items, setItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
+  const [filterNumber, setFilterNumber] = useState(1)
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const { user } = useContext(UserContext);
   const options = [
@@ -35,8 +36,9 @@ const ItemsList = () => {
     const fetchAllItems = async () => {
       try {
         let res = await axios.get(`${API}/items`);
-        setItems(res.data.filter(item=>item.status !== "inactive"));
-        setFilteredItems(res.data.filter(item=>item.status !== "inactive"));
+        setItems(res.data.filter(item => item.status !== "inactive"));
+        setFilteredItems(res.data.filter(item => item.status !== "inactive"));
+
       } catch (error) {
         console.log(error);
       }
@@ -46,36 +48,41 @@ const ItemsList = () => {
 
   useEffect(() => {
     let selectedCategories = selected.map((e) => e.value);
-    setFilteredItems(
-      items.filter((item) => {
-        return selectedCategories.includes(item.category);
-      })
-    );
+    let filteredCategories = items.filter((item) => selectedCategories.includes(item.category))
+    if (filterNumber === 1) sortByDistance(filteredCategories)
+    if (filterNumber === 2) sortByTime(filteredCategories)
   }, [selected, items]);
+
+  const sortByDistance = (arr=filteredItems) => {
+ 
+    if (!user?.address || !user?.longitude) {
+      setFilteredItems([...arr])
+      return;
+    }
+      arr.sort(
+        (itemA, itemB) =>
+          relativeDistance(user, itemA) - relativeDistance(user, itemB)
+      );
+      setFilteredItems([...arr]);
+  }
+
+  const sortByTime = (arr=filteredItems) => {
+    let newArr = arr.sort(
+      (a, b) =>
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    );
+    setFilteredItems([...newArr]);
+  }
 
   const handleFilter = (e) => {
     const { value } = e.target;
     if (Number(value) === 1) {
-
-      if(!user?.address){
-        return;
-      }
-      //filter by distance
-      if (user?.longitude !== 0) {
-        filteredItems.sort(
-          (itemA, itemB) =>
-            relativeDistance(user, itemA) - relativeDistance(user, itemB)
-        );
-        setFilteredItems([...filteredItems]);
-      }
+      setFilterNumber(1)
+      sortByDistance()
     }
     if (Number(value) === 2) {
-      //filter by posted time
-      let newArr = filteredItems.sort(
-        (a, b) =>
-          new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-      );
-      setFilteredItems([...newArr]);
+      setFilterNumber(2)
+      sortByTime()
     }
   };
 
@@ -89,13 +96,12 @@ const ItemsList = () => {
             value={selected}
             disableSearch={true}
             shouldToggleOnHover={false}
-            onChange={setSelected}
+            onChange={e => { setSelected(e); sortByDistance() }}
           />
         </div>
         <div>
           <p>Filter By: </p>
-          <select defaultValue="" onChange={handleFilter} className="filter" >
-            <option disabled>Select a filter</option>
+          <select onChange={handleFilter} className="filter" >
             <option value={1}>Distance: nearest first</option>
             <option value={2}>Time: newly listed</option>
           </select>
