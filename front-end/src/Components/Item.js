@@ -56,12 +56,9 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
   useEffect(() => {
     const filteredFacts = facts.filter((factObj) => {
       if(factObj.category === item.category) {
-        console.log(factObj)
-        console.log(factObj.facts)
         return factObj.facts
       }
     });
-    console.log(filteredFacts)
     const randomNumber = Math.floor(Math.random() * filteredFacts[0].facts.length)
     setRandomFact(filteredFacts[0].facts[randomNumber])
   }, []);
