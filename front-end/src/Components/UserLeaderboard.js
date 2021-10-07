@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/UserLeaderboard.css";
+import {strShortener } from "../Helpers/truncate"
 
 const UserLeaderboard = () => {
   const API = apiURL();
@@ -71,7 +72,6 @@ const UserLeaderboard = () => {
   }, [API]);
   return (
     <div className="parent">
-      <br/>
       <section className="timer-section">
         <h1>Countdown to End of Month</h1>
         <p>Top 3 leaders by the end of the month will be eligible for prizes</p>
@@ -88,7 +88,7 @@ const UserLeaderboard = () => {
               <div className="leaderboard-container">
                 <Link to={`/profile/${uid}`}>
                   <img src={photo_url} alt={display_name} />
-                  <h1>{display_name}</h1>
+                  <h1>{strShortener( display_name,14)}</h1>
                   <p>{score}</p>
                 </Link>
               </div>
