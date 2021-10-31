@@ -1,6 +1,6 @@
 import { UserContext } from "../Providers/UserProvider";
 import { useContext, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import {
   signInWithGoogle,
   signInWithFacebook,

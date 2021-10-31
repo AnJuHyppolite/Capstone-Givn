@@ -28,69 +28,70 @@ const ItemDetails = () => {
   const [randomfact, setRandomFact] = useState("");
 
   useEffect(() => {
+    const fetchInformation = async () => {
+      const fetchPhoto = async () => {
+        try {
+          let res = await axios.get(`${API}/items/${id}/photos`);
+          setPhotos(res.data);
+        } catch (error) {
+          return error;
+        }
+      };
+  
+      const fetchItem = async () => {
+        try {
+          let res = await axios.get(`${API}/items/${id}`);
+          setItem(res.data);
+          return res.data;
+        } catch (error) {
+          return error;
+        }
+      };
+  
+      const getRandomFact = (item) => {
+        const filteredFacts = facts.filter((factObj) => {
+          if (factObj.category === item.category) {
+            return factObj.facts;
+          }
+          return factObj
+        });
+        const randomNumber = Math.floor(
+          Math.random() * filteredFacts[0]?.facts?.length
+        );
+        setRandomFact(filteredFacts[0].facts[randomNumber]);
+      };
+  
+      const fetchRequests = async (thisItem) => {
+        if (user?.uid === thisItem.giver_id && thisItem.status !== "inactive") {
+          //If GIVER is on this page
+          try {
+            let res = await axios.get(`${API}/items/${id}/requests`);
+            setRequests(res.data);
+          } catch (error) {
+            return error;
+          }
+        } else if (user?.uid) {
+          //IF GETTER is on this page
+          try {
+            let res = await axios.get(`${API}/items/${id}/requests`);
+  
+            res.data.forEach((r) => {
+              if (r.getter_id === user.uid) {
+                setGetterRequest(r.status);
+              }
+            });
+          } catch (error) {
+            return error;
+          }
+        }
+      };
+      fetchPhoto();
+      let thisItem = await fetchItem();
+      getRandomFact(thisItem);
+      fetchRequests(thisItem);
+    };
     fetchInformation();
-  }, []);
-
-  const fetchInformation = async () => {
-    const fetchPhoto = async () => {
-      try {
-        let res = await axios.get(`${API}/items/${id}/photos`);
-        setPhotos(res.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    const fetchItem = async () => {
-      try {
-        let res = await axios.get(`${API}/items/${id}`);
-        setItem(res.data);
-        return res.data;
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    const getRandomFact = (item) => {
-      const filteredFacts = facts.filter((factObj) => {
-        if (factObj.category === item.category) {
-          return factObj.facts;
-        }
-      });
-      const randomNumber = Math.floor(
-        Math.random() * filteredFacts[0]?.facts?.length
-      );
-      setRandomFact(filteredFacts[0].facts[randomNumber]);
-    };
-
-    const fetchRequests = async (thisItem) => {
-      if (user?.uid === thisItem.giver_id && thisItem.status !== "inactive") {
-        //If GIVER is on this page
-        try {
-          let res = await axios.get(`${API}/items/${id}/requests`);
-          setRequests(res.data);
-        } catch (error) {
-          console.log(error);
-        }
-      } else if (user?.uid) {
-        //IF GETTER is on this page
-        try {
-          let res = await axios.get(`${API}/items/${id}/requests`);
-
-          res.data.forEach((r) => {
-            if (r.getter_id === user.uid) {
-              setGetterRequest(r.status);
-            }
-          });
-        } catch (error) {
-          console.log(error);
-        }
-      }
-    };
-    fetchPhoto();
-    let thisItem = await fetchItem();
-    getRandomFact(thisItem);
-    fetchRequests(thisItem);
-  };
+  }, [API, id, user?.uid]);
 
   const handleDelete = async () => {
     try {
@@ -98,7 +99,7 @@ const ItemDetails = () => {
       alert("Item deleted");
       history.goBack();
     } catch (error) {
-      console.log(error);
+      return error;
     }
   };
 
@@ -124,7 +125,7 @@ const ItemDetails = () => {
       await axios.post(`${API}/items/${id}/requests`, request);
       alert(item.title + " successfully requested");
     } catch (error) {
-      console.log(error);
+      return error;
     }
   };
 
@@ -138,7 +139,7 @@ const ItemDetails = () => {
       await axios.put(`${API}/users/${user.uid}/items/${id}`, updatedItem);
       return true;
     } catch (error) {
-      console.log(error);
+      return error;
     }
   };
 
@@ -239,7 +240,7 @@ const ItemDetails = () => {
         <section>
           <Swiper
             slidesPerView={1}
-            spaceBetween={20}
+            spaceBetween={50}
             navigation
             pagination={{ clickable: true }}
           >

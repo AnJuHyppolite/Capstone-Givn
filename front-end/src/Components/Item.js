@@ -23,11 +23,11 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
         let res = await axios.get(`${API}/items/${item.id}/photos`);
         setPhotos(res.data);
       } catch (error) {
-        console.log(error);
+        return error;
       }
     };
     getPhotos();
-  }, [item.id]);
+  }, [item?.id]);
 
   useEffect(() => {
     const getDistanceforItem = async()=>{
@@ -37,7 +37,7 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
           setDistance(relativeDistance(user, res.data));
         }
       } catch (error) {
-        console.log(error);
+        return error;
       }
     }
 
@@ -46,22 +46,23 @@ const Item = ({ user, item, modalIsOpen, setModalIsOpen }) => {
         const res = await axios.get(`${API}/users/${item.giver_id}`);
         setItemUser(res.data);
       } catch (error) {
-        console.log(error);
+        return error;
       }
     };
     getDistanceforItem();
     getUserForItem();
-  }, [item.giver_id, user]);
+  }, [item?.giver_id, user, item?.id]);
 
   useEffect(() => {
     const filteredFacts = facts.filter((factObj) => {
       if(factObj.category === item.category) {
         return factObj.facts
       }
+      return factObj
     });
     const randomNumber = Math.floor(Math.random() * filteredFacts[0].facts.length)
     setRandomFact(filteredFacts[0].facts[randomNumber])
-  }, []);
+  }, [item?.category]);
 
   return (
     <li className="index-item">

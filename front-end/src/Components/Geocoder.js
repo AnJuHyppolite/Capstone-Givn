@@ -6,11 +6,11 @@ import '../Styles/Geocoder.css';
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
 const Geocoder = props => {
-    const geocoder = new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken
-    });
-
+    
     useEffect(() => {
+        const geocoder = new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken
+        });
         geocoder.addTo('#geocoder');
 
         geocoder.on('result', (result) => {
@@ -20,7 +20,7 @@ const Geocoder = props => {
         geocoder.on('clear', () => {
         });
 
-    }, [])
+    }, [props])
 
     return (
         <div>
