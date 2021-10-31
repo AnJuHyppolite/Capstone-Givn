@@ -1,0 +1,33 @@
+.chat-page{
+    margin: 4rem 0 2rem
+}
+
+.chat-page input {
+    padding: 0.5rem;
+    margin: 1rem 0rem 1rem 1rem;
+    font-family: Mulish;
+    font-size: 14px;
+    color: #1a0e3e;
+    width: 70%;
+    border-radius: 8px;
+    border: 1px solid #1a0e3e;
+    outline: none;
+}
+
+.chat-page .search-btn {
+  background-color: #855a9f;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  font-family: Mulish;
+  cursor: pointer;
+  padding: 6px 12px;
+  margin: 0 1rem 2rem;
+  margin-left: 0.5rem;
+}
+
+.search-btn i {
+    color: #fff;
+    font-size: 16px;
+}

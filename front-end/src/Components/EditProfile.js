@@ -27,7 +27,7 @@ const EditProfile = () => {
     try {
       await axios.put(`${API}/users/${user.uid}`, updatedUser);
     } catch (error) {
-      console.log(error);
+      return error;
     }
   };
 
@@ -48,8 +48,6 @@ const EditProfile = () => {
 
   async function getURL() {
     const { data } = await axios.get(`${API}/s3url`);
-    console.log("inside getURL function");
-    console.log(data);
     return data.url;
   }
 
@@ -75,7 +73,6 @@ const EditProfile = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("IN SUBMIT: ");
     if (!user) {
       alert("You must log in first");
       history.push("/");

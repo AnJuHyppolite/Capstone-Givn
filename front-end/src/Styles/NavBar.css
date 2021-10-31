@@ -37,6 +37,10 @@ nav div {
   font-weight: 400;
 }
 
+nav .no-user-menu{
+  width: 400px;
+}
+
 nav div h1 {
     display: block;
 }
