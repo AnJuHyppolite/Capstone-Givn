@@ -1,10 +1,12 @@
 import React, { useRef, useContext, useEffect, useState } from 'react';
-// eslint-disable-next-line import/no-webpack-loader-syntax
-import mapboxgl from '!mapbox-gl'
+import mapboxgl from 'mapbox-gl'
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 import { UserContext } from "../Providers/UserProvider";
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker'; 
 import '../Styles/Map.css'
 // mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
+mapboxgl.workerClass = MapboxWorker; 
 mapboxgl.accessToken =
   process.env.REACT_APP_MAPBOX_TOKEN;
 
