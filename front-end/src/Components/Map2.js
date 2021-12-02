@@ -1,8 +1,11 @@
 import React, { useRef, useEffect} from 'react';
-import mapboxgl from 'mapbox-gl'
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import mapboxgl from '!mapbox-gl'
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+// eslint-disable-next-line import/no-webpack-loader-syntax
+// import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker'; 
 import '../Styles/Map.css'
-
+// mapboxgl.workerClass = MapboxWorker; 
 mapboxgl.accessToken =
   process.env.REACT_APP_MAPBOX_TOKEN;
 

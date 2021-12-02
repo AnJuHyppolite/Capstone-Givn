@@ -5,7 +5,7 @@ import { UserContext } from "../Providers/UserProvider";
 import { apiURL } from "../util/apiURL";
 import Map from "./Map";
 import "../Styles/NewForm.css"
-import randomImage, { randomImg } from "../Helpers/randomImage"
+import { randomImg } from "../Helpers/randomImage"
 
 const NewForm = () => {
   const { user } = useContext(UserContext);

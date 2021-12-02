@@ -77,7 +77,7 @@ const UserLeaderboard = () => {
         <p>Top 3 leaders by the end of the month will be eligible for prizes</p>
         {timerComponents.length ? 
         <h1 className="clock">{timeLeft.days}:{timeLeft.hours}:{timeLeft.minutes}:{timeLeft.seconds}:{timeLeft.milliseconds}</h1>
-         : <span>Time's up!</span>}
+         : <h1 className="clock">Time's up!</h1>}
       </section>
       <h1 className='title'>Top Givers</h1>
       <div className='card'>

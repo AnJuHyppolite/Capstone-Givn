@@ -51,10 +51,10 @@ const ItemsList = () => {
     let filteredCategories = items.filter((item) => selectedCategories.includes(item.category))
     if (filterNumber === 1) sortByDistance(filteredCategories)
     if (filterNumber === 2) sortByTime(filteredCategories)
-  }, [selected, items]);
+    // eslint-disable-next-line 
+  }, [selected, items, filterNumber]); 
 
-  const sortByDistance = (arr=filteredItems) => {
- 
+  const sortByDistance = (arr = filteredItems) => {
     if (!user?.address || !user?.longitude) {
       setFilteredItems([...arr])
       return;
@@ -85,6 +85,7 @@ const ItemsList = () => {
       sortByTime()
     }
   };
+
 
   return (
     <>

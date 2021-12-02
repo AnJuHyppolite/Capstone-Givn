@@ -12,7 +12,7 @@
 
 .Show img {
   height: auto;
-  width: 80%;
+  width: 500px;
   max-height: 600px;
   object-fit: cover;
 }

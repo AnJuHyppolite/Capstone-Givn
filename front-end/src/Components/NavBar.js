@@ -19,7 +19,6 @@ const NavBar = () => {
   const handleSignOut = async () => {
     await signOut();
     setOpen(false);
-    console.log("HISTORYYYYYYY");
     history.push("/");
   };
 
@@ -118,7 +117,7 @@ const NavBar = () => {
               <img src={logo} alt="givn-logo" />
             </NavLink>
           </h1>
-          <div>
+          <div className="no-user-menu">
             <NavLink exact to="/posts">
               Get
             </NavLink>
