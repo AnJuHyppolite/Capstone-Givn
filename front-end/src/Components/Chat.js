@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChatEngine, getOrCreateChat } from "react-chat-engine";
 import { useAuth } from "../Providers/UserProvider";
-import "../Styles/Chat.css"
+import "../Styles/Chat.css";
 
 const Chat = () => {
   const { user } = useAuth();
@@ -13,7 +13,7 @@ const Chat = () => {
       { is_direct_chat: true, usernames: [username] },
       () => setUsername("")
     );
-  }
+  };
 
   if (!user) return <h1>Loading...</h1>;
 
@@ -29,10 +29,12 @@ const Chat = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <button className="search-btn"onClick={() => createDirectChat(creds)}><i class="fas fa-search"></i></button>
+        <button className="search-btn" onClick={() => createDirectChat(creds)}>
+          <i class="fas fa-search"></i>
+        </button>
       </div>
     );
-  }
+  };
   return (
     <div>
       <div className="chat-page">
