@@ -33,7 +33,7 @@ const AboutPage = () => {
             poetry, and playwriting to design curricula and facilitate workshops
             through inquiry-based, healing-centered social equity pedagogy for
             New York City youth and adults. My interests lie at the intersection
-            of the arts, technology, and social equity. I am passionate about
+            of the arts, tech, and social equity. I am passionate about
             designing products that help communities thrive, especially during
             times of need.
             <br />

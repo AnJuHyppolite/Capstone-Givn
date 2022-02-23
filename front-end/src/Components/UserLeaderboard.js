@@ -84,7 +84,7 @@ const UserLeaderboard = () => {
         {users.map((user) => {
           const { score, display_name, photo_url, uid } = user;
           return (
-            <section className="leaderboard">
+            <section className="leaderboard" key={uid}>
               <div className="leaderboard-container">
                 <Link to={`/profile/${uid}`}>
                   <img src={photo_url} alt={display_name} />
