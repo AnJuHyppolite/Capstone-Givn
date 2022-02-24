@@ -236,6 +236,7 @@ const ItemDetails = () => {
   return (
     <div>
       <h1>{capitalize(title)}</h1>
+      {/* <p>{description}</p> */}
       <div className="Show">
         <section>
           <Swiper

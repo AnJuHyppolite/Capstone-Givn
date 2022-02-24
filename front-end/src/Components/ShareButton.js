@@ -16,7 +16,7 @@ const ShareButton = ({ modalIsOpen, setModalIsOpen }) => {
           },
         }}
       >
-        <button onClick={() => setModalIsOpen(false)} className="close-btn"><i class="fas fa-times"></i></button>
+        <button onClick={() => setModalIsOpen(false)} className="close-btn"><i className="fas fa-times"></i></button>
         <ShareModal />
       </Modal>
     </div>
