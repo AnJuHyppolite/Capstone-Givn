@@ -3,8 +3,8 @@ import "../Styles/AboutPage.css";
 const AboutPage = () => {
   return (
     <div className="About">
-      <h1 className="aboutUs">About Us</h1>
-      <p className="aboutInfo">
+      <h1 className="AboutUs">About Us</h1>
+      <p className="AboutInfo">
         Givn is an educational app that encourages and incentivizes users to
         give away their unwanted goods instead of throwing them away. Anyone 
         can easily post their unwanted goods in seconds and allow others nearby 
