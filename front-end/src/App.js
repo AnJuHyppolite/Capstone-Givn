@@ -49,7 +49,7 @@ function App() {
               <Route exact path="/about">
                 <AboutPage />
               </Route>
-              <Route exact path="/chat">
+              <Route exact path="/users">
                 <Chat />
               </Route>
               <Route exact path="/posts/new">

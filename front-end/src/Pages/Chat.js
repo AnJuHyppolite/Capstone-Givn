@@ -20,35 +20,41 @@ import Message from "../Components/Message";
 import { UserContext } from "../Providers/UserProvider";
 
 const Chat = () => {
+  const {user} = useContext(UserContext)
   const [users, setUsers] = useState([]);
   const [chat, setChat] = useState("");
   const [text, setText] = useState("");
   const [img, setImg] = useState("");
   const [msgs, setMsgs] = useState([]);
-//   const {user} = UserContext(useContext)
+//   const [user1, setUser1] = useState(user?.uid)
 
-//   console.log(user)
-  const user1 = auth.currentUser?.uid;
+//   console.log(user1)
+const userPic = user?.photo_url;
+const user1 = user?.uid
 
-  useEffect(() => {
-    const usersRef = collection(db, "users");
-    // create query object
-    const q = query(usersRef, where("uid", "not-in", [user1]));
-    // execute query
-    const unsub = onSnapshot(q, (querySnapshot) => {
-      let users = [];
-      querySnapshot.forEach((doc) => {
-        users.push(doc.data());
-      });
-      setUsers(users);
-    });
-    return () => unsub();
-  }, [user1]);
+useEffect(()=>{
+    if(user1){
+        const usersRef = collection(db, "users");
+        console.log(user, user1)
+                const q = query(usersRef, where("uid", "not-in", [user1]));
+
+        const unsub = onSnapshot(q, (querySnapshot) => {
+          let users = [];
+          querySnapshot.forEach((doc) => {
+            users.push(doc.data());
+          });
+          setUsers(users);
+        });
+        return () => unsub();
+    }
+
+},[user])
+
 
   const selectUser = async (user) => {
     setChat(user);
 
-    const user2 = user?.uid;
+    const user2 = user.uid;
     const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
 
     const msgsRef = collection(db, "messages", id, "chat");
@@ -116,6 +122,7 @@ const Chat = () => {
           <User
             key={user.uid}
             user={user}
+            userPic={userPic}
             selectUser={selectUser}
             user1={user1}
             chat={chat}

@@ -1,7 +1,7 @@
 
-* {
+.home_container  {
     box-sizing: border-box;
-  }
+  } 
   
   :root {
     --color-1: #242526;
@@ -172,9 +172,10 @@
     margin-left: 30px;
   }
   .selected_user {
-    background: blueviolet;
+    margin-top: 20px;
+    background: #855A9F;
     color: white;
-    /* border-radius: 30px; */
+    border-radius: 30px;
   }
   .truncate {
     font-size: 14px;

@@ -3,7 +3,8 @@ import Img from "../Images/image1.jpg";
 import { onSnapshot, doc } from "firebase/firestore";
 import { db } from "../Services/Firebase";
 
-const Users = ({ user1, user, selectUser, chat }) => {
+
+const Users = ({ user1, user, selectUser, chat, userPic }) => {
   const user2 = user?.uid;
   const [data, setData] = useState("");
 
@@ -23,7 +24,7 @@ const Users = ({ user1, user, selectUser, chat }) => {
       >
         <div className="user_info">
           <div className="user_detail">
-            <img src={user.avatar || Img} alt="avatar" className="avatar" />
+            <img src={userPic || Img} alt="avatar" className="avatar" />
             <h4>{user.name}</h4>
             {data?.from !== user1 && data?.unread && (
               <small className="unread">New</small>
