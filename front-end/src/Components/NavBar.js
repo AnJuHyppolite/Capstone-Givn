@@ -43,8 +43,8 @@ const NavBar = () => {
             <NavLink exact to="/posts/new">
               Give
             </NavLink>
-            <NavLink exact to={`/chat`}>
-              Chat
+            <NavLink exact to={`/users`}>
+              Users
             </NavLink>
             <NavLink exact to={"/leaderboard"}>
               Leaderboard
