@@ -1,4 +1,9 @@
 import "../Styles/AboutPage.css";
+import Anju from '../Images/AnJuHyppolite.jpeg'
+import Jailene from '../Images/JaileneJones.jpeg'
+import Jeffrey from '../Images/JeffreySebastian.jpeg'
+import Jordan from '../Images/JordanBobadilla.jpeg'
+import Shoaib from '../Images/ShoaibDar.jpeg'
 
 const AboutPage = () => {
   return (
@@ -23,7 +28,7 @@ const AboutPage = () => {
       <div className="container">
         <div className="developer">
           <img
-            src="https://media-exp1.licdn.com/dms/image/C5603AQFMAP-Uz_wt-g/profile-displayphoto-shrink_800_800/0/1631551061188?e=1637798400&v=beta&t=V4LUi0N3byTEMU-GDxNkx0fUpitw1xvv1JL8hX5D2OY"
+            src={Anju}
             alt="AnJu Hyppolite"
           />
           <h3>AnJu Hyppolite </h3>
@@ -63,7 +68,7 @@ const AboutPage = () => {
 
         <div className="developer">
           <img
-            src="https://media-exp1.licdn.com/dms/image/C5603AQGAyYapE4Ongw/profile-displayphoto-shrink_800_800/0/1608595575131?e=1637798400&v=beta&t=n9rhmm6gPUNHoADR6_r6MB3ce-KYmd63VX6Hy6NgnQI"
+            src={Jailene}
             alt="Jailene Devine-Jones"
           />
           <h3>Jailene Devine-Jones</h3>
@@ -90,7 +95,7 @@ const AboutPage = () => {
         </div>
         <div className="developer">
           <img
-            src="https://media-exp1.licdn.com/dms/image/C4D03AQHmjj1I9EaR7Q/profile-displayphoto-shrink_800_800/0/1603469546218?e=1637798400&v=beta&t=W51GHg-F6zdHLy_YhjvHfpm7n5WYreA1OV7ofOeMhKc"
+            src={Jeffrey}
             alt="Jeffrey Sebastian"
           />
           <h3>Jeffrey Sebastian</h3>
@@ -126,7 +131,7 @@ const AboutPage = () => {
         </div>
         <div className="developer">
           <img
-            src="https://media-exp1.licdn.com/dms/image/C4D03AQGHrHnaYg8tWA/profile-displayphoto-shrink_400_400/0/1610333357392?e=1638403200&v=beta&t=dJoO6x5dgs2wvD9tWI_l-pk8Y3f029RpWyRslvRUqiE"
+            src={Jordan}
             alt="Jordan Bobadilla-Rosario"
           />
           <h3>Jordan Bobadilla-Rosario</h3>
@@ -159,7 +164,7 @@ const AboutPage = () => {
         </div> */}
         <div className="developer">
           <img
-            src="https://media-exp1.licdn.com/dms/image/C4E03AQEs1mpVIgFwBw/profile-displayphoto-shrink_800_800/0/1606586088168?e=1637798400&v=beta&t=oHz2JMS-b51clTm58FV553dbBFgWYmrJ2qOkJ6Egrss"
+            src={Shoaib}
             alt="Shoaib Dar"
           />
           <h3>Shoaib Dar</h3>
