@@ -14,10 +14,11 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
-import User from "../Components/Users";
+import Users from "../Components/Users";
 import MessageForm from "../Components/MessageForm";
 import Message from "../Components/Message";
 import { UserContext } from "../Providers/UserProvider";
+import User from "../Components/svg/User";
 
 const Chat = () => {
   const {user} = useContext(UserContext)
@@ -26,9 +27,7 @@ const Chat = () => {
   const [text, setText] = useState("");
   const [img, setImg] = useState("");
   const [msgs, setMsgs] = useState([]);
-//   const [user1, setUser1] = useState(user?.uid)
 
-//   console.log(user1)
 const userPic = user?.photo_url;
 const user1 = user?.uid
 
@@ -119,7 +118,7 @@ useEffect(()=>{
     <div className="home_container">
       <div className="users_container">
         {users.map((user) => (
-          <User
+          <Users
             key={user.uid}
             user={user}
             userPic={userPic}
@@ -128,6 +127,7 @@ useEffect(()=>{
             chat={chat}
           />
         ))}
+        {/* <User /> */}
       </div>
       <div className="messages_container">
         {chat ? (

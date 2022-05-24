@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Img from "../Images/image1.jpg";
 import { onSnapshot, doc } from "firebase/firestore";
 import { db } from "../Services/Firebase";
+import User from "./svg/User";
 
 
 const Users = ({ user1, user, selectUser, chat, userPic }) => {
@@ -24,11 +25,12 @@ const Users = ({ user1, user, selectUser, chat, userPic }) => {
       >
         <div className="user_info">
           <div className="user_detail">
-            <img src={userPic || Img} alt="avatar" className="avatar" />
-            <h4>{user.name}</h4>
             {data?.from !== user1 && data?.unread && (
               <small className="unread">New</small>
-            )}
+              )}
+              <img src={user.avatar || Img} alt="avatar" className="avatar" />
+                  <h4>{user.name}</h4>
+              {/* <User /> */}
           </div>
           <div
             className={`user_status ${user.isOnline ? "online" : "offline"}`}
