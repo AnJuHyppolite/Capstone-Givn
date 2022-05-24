@@ -1,6 +1,6 @@
 import { UserContext } from "../Providers/UserProvider";
 import { useContext, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   signInWithGoogle,
   signInWithFacebook,
@@ -39,9 +39,9 @@ const Login = () => {
       }
     }, [user, history]);
   
-    const handleSignIn = () => {
-      signInWithGoogle();
-    };
+    // const handleSignIn = () => {
+    //   signInWithGoogle();
+    // };
     const handleSubmit = async (e) => {
       e.preventDefault();
       setData({ ...data, error: null, loading: true });
@@ -60,7 +60,7 @@ const Login = () => {
         error: null,
         loading: false,
       });
-        history.push("/");
+        history.push("/posts");
       } catch (error) {
         setData({ ...data, error: error.message, loading: false });
       }
@@ -86,6 +86,7 @@ const Login = () => {
               type="email"
               value={email}
               onChange={handleChange}
+              required
             />
             <label htmlFor="password">Password</label>
             <input
@@ -93,13 +94,19 @@ const Login = () => {
               type="password"
               value={password}
               onChange={handleChange}
+              required
             />
             <h5>Don't forget your password</h5>
             <hr />
             <button className="first-btn" type="submit"  disabled={loading}>
             {loading ? "Logging in ..." : "Login"}
             </button>
-            <p>Or</p>
+            <button className="first-btn" type="submit" >
+            <Link to='signup'>
+              SignUp
+            </Link>
+            </button>
+            {/* <p>Or</p>
             <div>
               <button onClick={() => signInWithFacebook()}>
                 <i className="fab fa-facebook-f"></i>
@@ -110,7 +117,7 @@ const Login = () => {
               <button onClick={() => signInWithTwitter()}>
                 <i className="fab fa-twitter"></i>
               </button>
-            </div>
+            </div> */}
           </form>
         </section>
       </div>

@@ -1,6 +1,6 @@
 import { signUp } from "../Services/Firebase";
 import {  useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   signInWithGoogle,
   signInWithFacebook,
@@ -66,10 +66,10 @@ export default function SignUp() {
       }
     };
 
-    const handleSignIn = () => {
-      signInWithGoogle();
-      history.push("/posts")
-    };
+    // const handleSignIn = () => {
+    //   signInWithGoogle();
+    //   history.push("/posts")
+    // };
   
     return (
       <div className="Home">
@@ -84,7 +84,7 @@ export default function SignUp() {
       <section className="right-side">
         <img src={randomImg} alt="bg-login-form" />
         <form onSubmit={handleSubmit} className="login">
-          <h1>Enter your account</h1>
+          <h1>Create your Givn Account</h1>
           <label htmlFor="name">Name</label>
           <input
             id="name"
@@ -121,7 +121,12 @@ export default function SignUp() {
           <button className="first-btn" disabled={loading}>
           {loading ? "Creating ..." : "Sign Up"}
           </button>
-          <p>Or</p>
+          <button className="first-btn">
+          <Link to='/login'>
+         Login
+          </Link>
+          </button>
+          {/* <p>Or</p>
           <div>
             <button onClick={() => signInWithFacebook()}>
               <i className="fab fa-facebook-f"></i>
@@ -132,7 +137,7 @@ export default function SignUp() {
             <button onClick={() => signInWithTwitter()}>
               <i className="fab fa-twitter"></i>
             </button>
-          </div>
+          </div> */}
         </form>
       </section>
     </div>

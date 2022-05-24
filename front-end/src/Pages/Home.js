@@ -27,9 +27,9 @@ const Home = () => {
     }
   }, [user, history]);
 
-  const handleSignIn = () => {
-    signInWithGoogle();
-  };
+  // const handleSignIn = () => {
+  //   signInWithGoogle();
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
     //sign in with firebase and then change route
@@ -61,6 +61,7 @@ const Home = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
           <label htmlFor="password">Password</label>
           <input
@@ -68,6 +69,7 @@ const Home = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
           <h5>Don't forget your password</h5>
           <hr />
@@ -79,7 +81,7 @@ const Home = () => {
               Sign Up
             </button>
           </Link>
-          <p>Or</p>
+          {/* <p>Or</p>
           <div>
             <button onClick={() => signInWithFacebook()}>
               <i className="fab fa-facebook-f"></i>
@@ -90,7 +92,7 @@ const Home = () => {
             <button onClick={() => signInWithTwitter()}>
               <i className="fab fa-twitter"></i>
             </button>
-          </div>
+          </div> */}
         </form>
       </section>
     </div>

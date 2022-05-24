@@ -12,6 +12,12 @@
     --color-6: #333;
   }
 
+  /* link */
+
+  a{
+    color: white;
+    text-decoration: none;
+  }
 /* Profile */
 .profile_container {
     display: flex;
