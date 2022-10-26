@@ -9,7 +9,6 @@ import {
 
 } from "../Services/Firebase";
 import { useState } from "react";
-// import { login } from "../util/firebaseFuntion";
 import { randomImg } from "../Helpers/randomImage";
 import google from "../Assets/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png";
 import "../Styles/Home.css";
@@ -27,9 +26,9 @@ const Home = () => {
     }
   }, [user, history]);
 
-  // const handleSignIn = () => {
-  //   signInWithGoogle();
-  // };
+  const handleSignIn = () => {
+    signInWithGoogle();
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     //sign in with firebase and then change route
@@ -81,7 +80,7 @@ const Home = () => {
               Sign Up
             </button>
           </Link>
-          {/* <p>Or</p>
+          <p>Or</p>
           <div>
             <button onClick={() => signInWithFacebook()}>
               <i className="fab fa-facebook-f"></i>
@@ -92,7 +91,7 @@ const Home = () => {
             <button onClick={() => signInWithTwitter()}>
               <i className="fab fa-twitter"></i>
             </button>
-          </div> */}
+          </div>
         </form>
       </section>
     </div>

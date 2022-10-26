@@ -5,8 +5,7 @@ import {
   signInWithGoogle,
   signInWithFacebook,
   signInWithTwitter,
-  db,
-  auth
+  db
 
 } from "../Services/Firebase";
 import { setDoc, doc, Timestamp } from "firebase/firestore";
@@ -15,8 +14,6 @@ import google from "../Assets/google-logo-png-webinar-optimizing-for-success-goo
 import "../Styles/Home.css";
 
 export default function SignUp() {
-    // const [email, setEmail] = useState("");
-    // const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("")
     const history = useHistory();
     
@@ -28,7 +25,7 @@ export default function SignUp() {
       error: null,
       loading: false,
     });
-    const { name, email, password, error, loading } = data;
+    const { name, email, password, loading } = data;
 
 
     const handleChange = (e) => {

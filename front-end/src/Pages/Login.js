@@ -22,7 +22,7 @@ const Login = () => {
       error: null,
       loading: false,
     });
-    const { email, password, error, loading } = data;
+    const { email, password, loading } = data;
     const history = useHistory();
     const { user } = useContext(UserContext);
   
