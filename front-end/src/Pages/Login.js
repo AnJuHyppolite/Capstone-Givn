@@ -16,8 +16,6 @@ import "../Styles/Home.css";
 import { updateDoc, doc } from "firebase/firestore";
 
 const Login = () => {
-    // const [email, setEmail] = useState("");
-    // const [password, setPassword] = useState("");
     const [data, setData] = useState({
       email: "",
       password: "",

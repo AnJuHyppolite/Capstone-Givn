@@ -8,7 +8,7 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.4",
-    "firebase": "^9.0.2",
+    "firebase": "^9.12.1",
     "latest-version": "^6.0.0",
     "mapbox": "^1.0.0-beta10",
     "mapbox-gl": "1.13.0",
