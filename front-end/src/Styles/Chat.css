@@ -1,6 +1,13 @@
 .chat-page{
     margin: 4rem 0 2rem
 }
+p{
+    color: black;
+}
+
+.ce-chat-title-text{
+    color: black;
+}
 
 .chat-page input {
     padding: 0.5rem;
@@ -16,7 +23,7 @@
 
 .chat-page .search-btn {
   background-color: #855a9f;
-  color: #fff;
+  color: black;
   font-size: 18px;
   border: none;
   border-radius: 8px;
@@ -28,6 +35,6 @@
 }
 
 .search-btn i {
-    color: #fff;
+    color: black;
     font-size: 16px;
 }

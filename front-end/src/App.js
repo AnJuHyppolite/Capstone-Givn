@@ -13,7 +13,8 @@ import AboutPage from "./Pages/AboutPage";
 import EditProfile from "./Components/EditProfile";
 import UserProfile from "./Components/UserProfile";
 import Login from "./Pages/Login";
-import Chat from "./Pages/Chat";
+import Chat from "./Components/Chat";
+// import Chat from "./Pages/Chat";
 import UserLeaderboard from "./Components/UserLeaderboard";
 import './App.css'
 
@@ -49,7 +50,7 @@ function App() {
               <Route exact path="/about">
                 <AboutPage />
               </Route>
-              <Route exact path="/users">
+              <Route exact path="/chat">
                 <Chat />
               </Route>
               <Route exact path="/posts/new">

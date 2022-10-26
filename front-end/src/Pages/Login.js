@@ -39,9 +39,9 @@ const Login = () => {
       }
     }, [user, history]);
   
-    // const handleSignIn = () => {
-    //   signInWithGoogle();
-    // };
+    const handleSignIn = () => {
+      signInWithGoogle();
+    };
     const handleSubmit = async (e) => {
       e.preventDefault();
       setData({ ...data, error: null, loading: true });
@@ -106,7 +106,7 @@ const Login = () => {
               SignUp
             </Link>
             </button>
-            {/* <p>Or</p>
+            <p>Or</p>
             <div>
               <button onClick={() => signInWithFacebook()}>
                 <i className="fab fa-facebook-f"></i>
@@ -117,7 +117,7 @@ const Login = () => {
               <button onClick={() => signInWithTwitter()}>
                 <i className="fab fa-twitter"></i>
               </button>
-            </div> */}
+            </div>
           </form>
         </section>
       </div>

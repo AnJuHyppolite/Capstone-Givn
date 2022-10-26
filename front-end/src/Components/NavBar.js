@@ -43,8 +43,8 @@ const NavBar = () => {
             <NavLink exact to="/posts/new">
               Give
             </NavLink>
-            <NavLink exact to={`/users`}>
-              Users
+            <NavLink exact to={`/chat`}>
+              Chat
             </NavLink>
             <NavLink exact to={"/leaderboard"}>
               Leaderboard
@@ -93,11 +93,11 @@ const NavBar = () => {
                 <NavLink to={"/posts/new"}>Give</NavLink>
               </h1>
             </li>
-            <li>
+            {/* <li>
               <h1>
                 <NavLink to={"/chat"}>Chat</NavLink>
               </h1>
-            </li>
+            </li> */}
             <li>
               <h1>
                 <NavLink to={"/leaderboard"}>Leaderboard</NavLink>

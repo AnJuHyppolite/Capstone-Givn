@@ -5,7 +5,10 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Mulish", sans-serif;
-  background-color: #EAE6F6;
+  /* background-color: #EAE6F6;
+   */
+   background-color: black;
+   color: white;
 }
 
 .App{

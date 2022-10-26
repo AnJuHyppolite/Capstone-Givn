@@ -17,7 +17,7 @@ import "../Styles/Home.css";
 export default function SignUp() {
     // const [email, setEmail] = useState("");
     // const [password, setPassword] = useState("");
-    // const [confirmPassword, setConfirmPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
     const history = useHistory();
     
   
@@ -66,10 +66,10 @@ export default function SignUp() {
       }
     };
 
-    // const handleSignIn = () => {
-    //   signInWithGoogle();
-    //   history.push("/posts")
-    // };
+    const handleSignIn = () => {
+      signInWithGoogle();
+      history.push("/posts")
+    };
   
     return (
       <div className="Home">
@@ -109,14 +109,14 @@ export default function SignUp() {
             onChange={handleChange}
             required
           />
-          {/* <label htmlFor="confirm-password">Confirm Password</label>
+          <label htmlFor="confirm-password">Confirm Password</label>
           <input
             id="confirm-password"
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
-          /> */}
+          />
           <hr />
           <button className="first-btn" disabled={loading}>
           {loading ? "Creating ..." : "Sign Up"}
@@ -126,7 +126,7 @@ export default function SignUp() {
          Login
           </Link>
           </button>
-          {/* <p>Or</p>
+          <p>Or</p>
           <div>
             <button onClick={() => signInWithFacebook()}>
               <i className="fab fa-facebook-f"></i>
@@ -137,7 +137,7 @@ export default function SignUp() {
             <button onClick={() => signInWithTwitter()}>
               <i className="fab fa-twitter"></i>
             </button>
-          </div> */}
+          </div>
         </form>
       </section>
     </div>

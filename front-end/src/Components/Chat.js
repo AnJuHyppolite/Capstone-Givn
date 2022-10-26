@@ -39,8 +39,8 @@ const Chat = () => {
     <div>
       <div className="chat-page">
         <ChatEngine
-          height="calc(1000vh-100px)"
-          projectID={process.env.REACT_APP_CHAT_ENGINE_ID}
+         height='90vh'
+          projectID='09e44eed-b926-4ab7-8d6c-26abe921dfba'
           userName={newUserData}
           userSecret={newUserUid}
           renderNewChatForm={(creds) => renderChatForm(creds)}
