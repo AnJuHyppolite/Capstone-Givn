@@ -1,13 +1,13 @@
 .New {
   margin: 6rem 2rem 2rem;
-  background-color: #fff;
+  background-color: #333;
   border-radius: 1rem;
   padding: 1rem 2rem;
   box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);
 }
 
 .New h1 {
-  color: #1a0e3e;
+  color: white;
   font-size: 24px;
   margin-bottom: 2rem;
 }
@@ -28,12 +28,13 @@
   max-width: 520px;
   object-fit: cover;
   margin-left: 2rem;
+  border-radius: 30px;
 }
 
 .New label {
   margin-bottom: 0.5rem;
   font-size: 16px;
-  color: #A18BB2;
+  color: white;
   font-family: Mulish;
   font-weight: 700;
 }
@@ -43,7 +44,7 @@
     margin-bottom: 1rem;
     font-family: Mulish;
     font-size: 14px;
-    color: #1a0e3e;
+    color: black;
 }
 
 .New textarea {
@@ -52,7 +53,7 @@
     margin-bottom: 1rem;
     font-family: Mulish;
     font-size: 14px;
-    color: #1a0e3e;
+    color: black;
 }
 
 .New #image {
@@ -60,7 +61,7 @@
     margin-bottom: 1rem;
     font-family: Mulish;
     font-size: 14px;
-    color: #1a0e3e;
+    color: white;
 }
 
 .New .upload-button {
@@ -80,10 +81,11 @@
   object-fit: cover;
   margin-bottom: 1rem;
   margin-right: 1rem;
+  border-radius: 30px;
 }
 
 .submit-item-form {
-    background-color: #855A9F;
+    background-color: black;
     color: #fff;
     padding: 0.75rem;
     font-size: 18px;

@@ -14,7 +14,9 @@ import EditProfile from "./Components/EditProfile";
 import UserProfile from "./Components/UserProfile";
 import Login from "./Pages/Login";
 import Chat from "./Components/Chat";
+// import Chat from "./Pages/Chat";
 import UserLeaderboard from "./Components/UserLeaderboard";
+import './App.css'
 
 function App() {
   return (

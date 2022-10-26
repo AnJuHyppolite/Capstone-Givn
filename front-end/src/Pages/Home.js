@@ -9,7 +9,6 @@ import {
 
 } from "../Services/Firebase";
 import { useState } from "react";
-// import { login } from "../util/firebaseFuntion";
 import { randomImg } from "../Helpers/randomImage";
 import google from "../Assets/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png";
 import "../Styles/Home.css";
@@ -61,6 +60,7 @@ const Home = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
           <label htmlFor="password">Password</label>
           <input
@@ -68,6 +68,7 @@ const Home = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
           <h5>Don't forget your password</h5>
           <hr />

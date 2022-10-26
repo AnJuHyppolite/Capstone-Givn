@@ -93,11 +93,11 @@ const NavBar = () => {
                 <NavLink to={"/posts/new"}>Give</NavLink>
               </h1>
             </li>
-            <li>
+            {/* <li>
               <h1>
                 <NavLink to={"/chat"}>Chat</NavLink>
               </h1>
-            </li>
+            </li> */}
             <li>
               <h1>
                 <NavLink to={"/leaderboard"}>Leaderboard</NavLink>

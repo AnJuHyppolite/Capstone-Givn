@@ -1,24 +1,35 @@
 import { UserContext } from "../Providers/UserProvider";
 import { useContext, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   signInWithGoogle,
   signInWithFacebook,
   signInWithTwitter,
-  login
+  login,
+  db
 
 } from "../Services/Firebase";
 import { useState } from "react";
 import { randomImg } from "../Helpers/randomImage";
 import google from "../Assets/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png";
 import "../Styles/Home.css";
+import { updateDoc, doc } from "firebase/firestore";
 
 const Login = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-  
+    const [data, setData] = useState({
+      email: "",
+      password: "",
+      error: null,
+      loading: false,
+    });
+    const { email, password, loading } = data;
     const history = useHistory();
     const { user } = useContext(UserContext);
+  
+
+    const handleChange = (e) => {
+      setData({ ...data, [e.target.id]: e.target.value });
+    };
   
     useEffect(() => {
       if (user) {
@@ -31,12 +42,25 @@ const Login = () => {
     };
     const handleSubmit = async (e) => {
       e.preventDefault();
+      setData({ ...data, error: null, loading: true });
+      if (!email || !password) {
+        setData({ ...data, error: "All fields are required" });
+      }
       //sign in with firebase and then change route
       try {
-        await login(email, password);
-        history.push("/");
+       const result =  await login(email, password);
+       await updateDoc(doc(db, "users", result.user.uid), {
+        isOnline: true,
+      });
+      setData({
+        email: "",
+        password: "",
+        error: null,
+        loading: false,
+      });
+        history.push("/posts");
       } catch (error) {
-        console.log(error);
+        setData({ ...data, error: error.message, loading: false });
       }
     };
   
@@ -59,19 +83,26 @@ const Login = () => {
               id="email"
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleChange}
+              required
             />
             <label htmlFor="password">Password</label>
             <input
               id="password"
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handleChange}
+              required
             />
             <h5>Don't forget your password</h5>
             <hr />
-            <button className="first-btn" type="submit">
-              Log In
+            <button className="first-btn" type="submit"  disabled={loading}>
+            {loading ? "Logging in ..." : "Login"}
+            </button>
+            <button className="first-btn" type="submit" >
+            <Link to='signup'>
+              SignUp
+            </Link>
             </button>
             <p>Or</p>
             <div>

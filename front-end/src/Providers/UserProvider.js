@@ -2,9 +2,11 @@ import { createContext, useState, useEffect, useContext } from "react";
 import { auth } from "../Services/Firebase";
 import { apiURL } from "../util/apiURL";
 import axios from "axios";
+import Loading from "../Components/Loading";
 
 export const UserContext = createContext(null);
 export const useAuth = () => useContext(UserContext);
+
 const UserProvider = (props) => {
   const [loading, setLoading] = useState(false);
   const [componentMounted , setComponentMounted] = useState(false)
@@ -125,12 +127,13 @@ const UserProvider = (props) => {
               .then(() => setLoading(false))
               .catch((error) => console.log(error));
           });
+        setLoading(false)
       } else {
         setUser(null);
       }
     });
   }, [API]);
-  if (!componentMounted || loading) return <h1>Loading...</h1>;
+  if (!componentMounted || loading) return <Loading />; ;
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
